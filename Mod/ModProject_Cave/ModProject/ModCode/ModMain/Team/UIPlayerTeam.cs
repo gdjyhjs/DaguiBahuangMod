@@ -13,10 +13,34 @@ namespace Cave.Team
         static GameObject unitItemPrefab;
         public UIPlayerTeam(Transform parent, Vector2 pos)
         {
-            if (DataTeam.teamUnits.Count < 1)
+
+            var list = DataTeam.teamUnits;
+            List<WorldUnitBase> units = new List<WorldUnitBase>(list.Count);
+            foreach (var item in list)
+            {
+                WorldUnitBase unit = g.world.unit.GetUnit(item);
+                if (unit != null)
+                {
+                    units.Add(unit);
+                }
+            }
+
+            int unitCount = units.Count;
+            Cave.Log(DataTeam.teamUnits.Count+"/"+unitCount);
+            if (unitCount < 1)
             {
                 return;
             }
+
+            units.Sort((a, b) =>
+            {
+                int aa = a.data.dynUnitData.GetGrade();
+                int bb = b.data.dynUnitData.GetGrade();
+                if (aa == bb)
+                    return 0;
+                return aa < bb ? 1 : -1;
+            });
+
             GameObject bg = null;
             try
             {
@@ -33,26 +57,6 @@ namespace Cave.Team
                 tmpGo.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
                 tmpGo.name = "scr_createBuilds";
                 var tmpScroll = tmpGo.GetComponent<ScrollRect>();
-
-                var list = DataTeam.teamUnits;
-                List<WorldUnitBase> units = new List<WorldUnitBase>(list.Count);
-                foreach (var item in list)
-                {
-                    WorldUnitBase unit = g.world.unit.GetUnit(item);
-                    if (unit != null)
-                    {
-                        units.Add(unit);
-                    }
-                }
-
-                units.Sort((a, b) =>
-                {
-                    int aa = a.data.dynUnitData.GetGrade();
-                    int bb = b.data.dynUnitData.GetGrade();
-                    if (aa == bb)
-                        return 0;
-                    return aa < bb ? 1 : -1;
-                });
 
                 Action<GuiBaseUI.ItemCell, int> itemAction = (cellItem, i) =>
                 {

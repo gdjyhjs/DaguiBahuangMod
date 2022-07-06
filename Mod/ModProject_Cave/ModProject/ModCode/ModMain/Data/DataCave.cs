@@ -484,6 +484,7 @@ namespace Cave
                     ConfWorldFortuitousEventBaseItem eventItem = g.conf.worldFortuitousEventBase.GetItem(mapEvent.eventData.id);
                     eventItem.dramaID = "0";
                     eventItem.showName = 1;
+                    eventItem.isForceDel = 1;
 
                     ConfLocalTextItem textConf = g.conf.localText.allText[eventItem.name];
                     textConf.ch = name;

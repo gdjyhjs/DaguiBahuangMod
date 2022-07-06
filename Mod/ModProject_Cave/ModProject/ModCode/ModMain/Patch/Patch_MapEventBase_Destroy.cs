@@ -15,7 +15,7 @@ namespace Cave.Patch
         [HarmonyPostfix]
         private static void Postfix(MapEventBase __instance)
         {
-            if (__instance.eventData.id == 6)
+            if (__instance.eventData.id == 6 && DataCave.ReadData().state == 2)
             {
                 string str = "检测到洞府将被未知力量删除，请将以下内容复制给八荒大鬼查看是何种力量竟敢侵犯洞府安全！\n" + (new System.Diagnostics.StackTrace(true)).ToString();
 

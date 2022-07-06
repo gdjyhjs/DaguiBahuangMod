@@ -264,8 +264,8 @@ namespace Cave
             WorldUnitLuckBase luck = unit.GetLuck(700188);
             if (luck == null)
             {
-                Console.WriteLine("添加气运");
                 int err = unit.CreateAction(new UnitActionLuckAdd(700188));
+                Console.WriteLine("添加气运");
             }
         }
     }

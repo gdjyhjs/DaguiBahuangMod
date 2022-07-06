@@ -279,10 +279,10 @@ namespace Cave
         public void MoveCave()
         {
             DataCave data = DataCave.ReadData();
-            MapEventBase mapEvent = g.world.mapEvent.GetGridEvent(new UnityEngine.Vector2Int(data.x, data.y));
-            g.world.mapEvent.DelGridEvent(mapEvent);
             data.state = 1;
             DataCave.SaveData(data);
+            MapEventBase mapEvent = g.world.mapEvent.GetGridEvent(new UnityEngine.Vector2Int(data.x, data.y));
+            g.world.mapEvent.DelGridEvent(mapEvent, true);
 
             DramaFunction.UpdateMapAllUI();
 

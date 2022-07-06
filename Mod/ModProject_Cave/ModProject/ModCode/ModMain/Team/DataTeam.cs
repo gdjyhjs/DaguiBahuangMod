@@ -24,6 +24,7 @@ namespace Cave.Team
                 string data = g.data.obj.GetString("www.yellowshange.com", "CaveTeamPlayerData2");
                 battleUnits = JsonConvert.DeserializeObject<List<string>>(data);
             }
+            Cave.Log("初始化洞府随行人员 " + battleUnits.Count + "/" + teamUnits.Count);
         }
 
         public static void SaveData()
