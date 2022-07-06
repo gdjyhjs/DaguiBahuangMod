@@ -1,0 +1,273 @@
+[
+  {
+    "id": 100, //牌匾
+    "condition": "0",//点击建筑判断的条件A
+    "function": "class_Cave_Cave.BuildFunction.BuildName",//打开洞府改名界面
+    "failfuntion": "",//点击建筑执行的功能（需要条件A不成立
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveTips100", //鼠标指向提示文本
+    "exitfuntion": "closeUI_SkyTip",//自动关闭文本提示的UI
+    "createfuntion": "",//创建建筑时的功能
+    "type": 3,//建筑类型
+    "price": 1000,//购买建筑的价格（灵石）
+    "name": "caveName100",//建筑名字（需要连接到Patch中的LocalText.json文件）
+    "hideName": true,//是否隐藏建筑名称（填 true 或 false ）
+    "atlas": "NPCInfoCommon",//建筑默认显示的图片所在图集名称
+    "image": "daoxinmingzikuang",//建筑默认显示的图片名称
+    "effect": [],//特效，是一个string数组
+    "maxLevel": 0,//建筑最大等级（只有不可重复购买的建筑可用，否则填1）
+    "maxCount": 2,//该建筑可购买的最大数量（只有不可升级的建筑可用，否则填1）
+    "upgradeMoney": [],//升级费用，是一个int数组
+    "des": "caveDes100"//建筑描述（需要连接到Patch中的LocalText.json文件）
+  },
+  {
+    "id": 2008,
+    "condition": "0",
+    "function": "",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes2008", //工坊
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 1,
+    "price": 200000,
+    "name": "caveName2008",
+    "hideName": false,
+    "atlas": "",
+    "image": "",
+    "effect": [],
+    "maxLevel": 4,
+    "maxCount": 1,
+    "upgradeMoney": [200000, 300000, 500000, 800000],
+    "des": "caveDes2008"
+  },
+  {
+    "id": 2009,
+    "condition": "0",
+    "function": "",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes2009", //i酒馆
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 1,
+    "price": 200000,
+    "name": "caveName2009",
+    "hideName": false,
+    "atlas": "",
+    "image": "",
+    "effect": [],
+    "maxLevel": 4,
+    "maxCount": 1,
+    "upgradeMoney": [200000, 300000, 500000, 800000],
+    "des": "caveDes2009"
+  },
+  {
+    "id": 2011,
+    "condition": "0",
+    "function": "",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes2011", //建木
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 1,
+    "price": 200000,
+    "name": "caveName2011",
+    "hideName": false,
+    "atlas": "",
+    "image": "",
+    "effect": [],
+    "maxLevel": 1,
+    "maxCount": 1,
+    "upgradeMoney": [200000],
+    "des": "caveDes2011"
+  },
+  {
+    "id": 1007,
+    "condition": "0",
+    "function": "",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes1007", //传送阵
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 2,
+    "price": 80000,
+    "name": "caveName1007",
+    "hideName": false,
+    "atlas": "",
+    "image": "",
+    "effect": [],
+    "maxLevel": 1,
+    "maxCount": 1,
+    "upgradeMoney": [80000],
+    "des": "caveDes1007"
+  },
+  {
+    "id": 1006,
+    "condition": "0",
+    "function": "",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes1006", //灵阁
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 2,
+    "price": 50000,
+    "name": "caveName1006",
+    "hideName": false,
+    "atlas": "",
+    "image": "",
+    "effect": [],
+    "maxLevel": 4,
+    "maxCount": 1,
+    "upgradeMoney": [200000, 300000, 500000, 800000],
+    "des": "caveDes1006"
+  },
+  {
+    "id": 1005,
+    "condition": "0",
+    "function": "",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes1005", //醉仙楼
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 2,
+    "price": 150000,
+    "name": "caveName1005",
+    "hideName": false,
+    "atlas": "",
+    "image": "",
+    "effect": [],
+    "maxLevel": 1,
+    "maxCount": 1,
+    "upgradeMoney": [150000],
+    "des": "caveDes1005"
+  },
+  {
+    "id": 3002,
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.BuildBuildFazhen",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3002", //阵法
+    "exitfuntion": "closeUI_SkyTip",
+    "createfuntion": "class_Cave_Cave.BuildFunction.CreateBuildFazhen",
+    "type": 3,
+    "price": 100000,
+    "name": "caveName3002",
+    "hideName": false,
+    "atlas": "CommonTaoistHeartIcom",
+    "image": "wuming_3",
+    "effect": [],
+    "maxLevel": 0,
+    "maxCount": 1,
+    "upgradeMoney": [200000, 300000, 500000, 800000],
+    "des": "caveDes3002"
+  },
+  {
+    "id": 3003,
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.BuildBedroom",//打开闲楼界面
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3003", //正房
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 3,
+    "price": 100000,
+    "name": "caveName3003",
+    "hideName": false,
+    "atlas": "SchoolCommon",
+    "image": "BuildUp1001_4",
+    "effect": [],
+    "maxLevel": 0,
+    "maxCount": 1,
+    "upgradeMoney": [100000],
+    "des": "caveDes3003"
+  },
+  {
+    "id": 4004,
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.BuildGuest",//打开厢房界面
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes4004", //客房
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 3,
+    "price": 10000,
+    "name": "caveName4004",
+    "hideName": false,
+    "atlas": "SchoolCommon",
+    "image": "BuildUp1006_2",
+    "effect": [],
+    "maxLevel": 100,
+    "maxCount": 1,
+    "upgradeMoney": [
+      10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000
+    ],
+    "des": "caveDes4004"
+  },
+  {
+    "id": 101,
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.BuildName",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes101", 
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 3,
+    "price": 2000,
+    "name": "caveName101",
+    "hideName": true,
+    "atlas": "TownCommon",
+    "image": "biaotidi",
+    "effect": [],
+    "maxLevel": 0,
+    "maxCount": 2,
+    "upgradeMoney": [],
+    "des": "caveDes101"
+  },
+  {
+    "id": 104,
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.BuildName",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes104", 
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 3,
+    "price": 20000,
+    "name": "caveName104",
+    "hideName": true,
+    "atlas": "SchoolCommon",
+    "image": "cengshu",
+    "effect": [],
+    "maxLevel": 0,
+    "maxCount": 12,
+    "upgradeMoney": [],
+    "des": "caveDes104"
+  },
+  {
+    "id": 105,
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.BuildName",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes105", 
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 3,
+    "price": 200000,
+    "name": "caveName105",
+    "hideName": true,
+    "atlas": "Common",
+    "image": "daohaodi_1",
+    "effect": ["Effect/UI/daohao_texiano"],
+    "maxLevel": 0,
+    "maxCount": 2,
+    "upgradeMoney": [],
+    "des": "caveDes105"
+  },
+  {
+    "id": 1112, //日月泉
+    "condition": "featureNot_0_42685182", //点击建筑判断的条件A
+    "function": "callDrama_42685182_42685187", //点击建筑执行的功能（需要条件A成立
+    "failfuntion": "callDrama_42685185_42685190", //点击建筑执行的功能（需要条件A不成立
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveTips42685182", //鼠标指向提示文本
+    "exitfuntion": "closeUI_SkyTip", //自动关闭文本提示的UI
+    "createfuntion": "", //创建建筑时的功能
+    "type": 2, //建筑类型
+    "price": 1000, //购买建筑的价格（灵石）
+    "name": "caveName42685182", //建筑名字（需要连接到Patch中的LocalText.json文件）
+    "hideName": false, //是否隐藏建筑名称（填 true 或 false ）
+    "atlas": "",
+    "image": "",
+    "effect": [], //特效，是一个string数组
+    "maxLevel": 1, //建筑最大等级（只有不可重复购买的建筑可用，否则填1）
+    "maxCount": 1, //该建筑可购买的最大数量（只有不可升级的建筑可用，否则填1）
+    "upgradeMoney": [], //升级费用，是一个int数组
+    "des": "caveDes42685182" //建筑描述（需要连接到Patch中的LocalText.json文件）
+  }
+]

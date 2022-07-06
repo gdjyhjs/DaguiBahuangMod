@@ -1,0 +1,8 @@
+F:\ModList\test1\SchoolAdmin\bin\Debug\SchoolAdmin.dll
+F:\ModList\test1\SchoolAdmin\bin\Debug\SchoolAdmin.pdb
+F:\ModList\test1\SchoolAdmin\obj\Debug\SchoolAdmin.csproj.CoreCompileInputs.cache
+F:\ModList\test1\SchoolAdmin\obj\Debug\SchoolAdmin.dll
+F:\ModList\test1\SchoolAdmin\obj\Debug\SchoolAdmin.pdb
+F:\ModList\test1\SchoolAdmin\bin\Debug\Newtonsoft.Json.dll
+F:\ModList\test1\SchoolAdmin\obj\Debug\SchoolAdmin.csproj.AssemblyReference.cache
+F:\ModList\test1\SchoolAdmin\obj\Debug\SchoolAdmin.csproj.CopyComplete

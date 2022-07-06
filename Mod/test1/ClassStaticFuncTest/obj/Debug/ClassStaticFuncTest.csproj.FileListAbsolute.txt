@@ -1,0 +1,6 @@
+F:\ModList\test1\ClassStaticFuncTest\bin\Debug\ClassStaticFuncTest.dll
+F:\ModList\test1\ClassStaticFuncTest\bin\Debug\ClassStaticFuncTest.pdb
+F:\ModList\test1\ClassStaticFuncTest\obj\Debug\ClassStaticFuncTest.csproj.AssemblyReference.cache
+F:\ModList\test1\ClassStaticFuncTest\obj\Debug\ClassStaticFuncTest.csproj.CoreCompileInputs.cache
+F:\ModList\test1\ClassStaticFuncTest\obj\Debug\ClassStaticFuncTest.dll
+F:\ModList\test1\ClassStaticFuncTest\obj\Debug\ClassStaticFuncTest.pdb

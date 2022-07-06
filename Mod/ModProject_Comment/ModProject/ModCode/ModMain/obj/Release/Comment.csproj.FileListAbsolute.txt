@@ -1,0 +1,6 @@
+G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\bin\Release\Comment.dll
+G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\bin\Release\Comment.pdb
+G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.csproj.AssemblyReference.cache
+G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.csproj.CoreCompileInputs.cache
+G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.dll
+G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.pdb

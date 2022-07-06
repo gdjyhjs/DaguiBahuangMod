@@ -1,0 +1,5 @@
+F:\ModList\test1\test1\bin\Debug\test1.dll
+F:\ModList\test1\test1\bin\Debug\test1.pdb
+F:\ModList\test1\test1\obj\Debug\test1.csproj.CoreCompileInputs.cache
+F:\ModList\test1\test1\obj\Debug\test1.dll
+F:\ModList\test1\test1\obj\Debug\test1.pdb

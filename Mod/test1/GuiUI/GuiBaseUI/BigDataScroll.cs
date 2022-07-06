@@ -1,0 +1,318 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System;
+
+namespace GuiBaseUI
+{
+
+    public class BigDataScroll
+    {
+
+        enum InsertPos
+        {
+            top,
+            btm,
+        }
+
+        public float cellHeight { get; set; }
+        private Action<GameObject, int> m_funcSetData;
+        public Action<GameObject, int> funcSetData { get { return m_funcSetData; } }
+        private int m_cellCount;
+
+        /// <summary>
+        /// Item总数量
+        /// </summary>
+        public int cellCount
+        {
+            set
+            {
+                m_cellCount = value;
+                InitData();
+            }
+            get
+            {
+                return m_cellCount;
+            }
+        }
+        /// <summary>
+        /// 滚动组件
+        /// </summary>
+        public ScrollRect scrollRect;
+        /// <summary>
+        /// 滚动对象
+        /// </summary>
+        public GameObject go;
+        /// <summary>
+        /// 滚动变换
+        /// </summary>
+        public RectTransform retTransform;
+        /// <summary>
+        /// 内容显示区
+        /// </summary>
+        public RectTransform content;
+        /// <summary>
+        /// 视窗显示区
+        /// </summary>
+        public RectTransform view;
+        /// <summary>
+        /// 顶部对象
+        /// </summary>
+        public RectTransform top;
+        /// <summary>
+        /// 底部对象
+        /// </summary>
+        public RectTransform btn;
+        /// <summary>
+        /// 自动大小组件
+        /// </summary>
+        public ContentSizeFitter contentSizeFitter;
+        /// <summary>
+        /// 自动排列组件
+        /// </summary>
+        public VerticalLayoutGroup verticalLayoutGroup;
+
+        /// <summary>
+        /// 初始化滚动 先Init 再设置cellCount 就行了
+        /// </summary>
+        /// <param name="_scrollRect">ScrollRect组件</param>
+        /// <param name="item">格子预制件</param>
+        /// <param name="_handleSetData">委托回调方法 设置格子数据</param>
+        public void Init(ScrollRect _scrollRect, GameObject item, Action<GameObject, int> _handleSetData, float wHeight = 0)
+        {
+            cellHeight = wHeight;
+            scrollRect = _scrollRect;
+            m_funcSetData = _handleSetData;
+            contentSizeFitter = scrollRect.content.GetComponent<ContentSizeFitter>();
+            verticalLayoutGroup = scrollRect.content.GetComponent<VerticalLayoutGroup>();
+            ItemPool.instance.SetItem(funcSetData, item);
+            go = scrollRect.gameObject;
+            retTransform = scrollRect.GetComponent<RectTransform>();
+            content = scrollRect.content;
+            view = scrollRect.viewport;
+            Action<Vector2> onValueChanged = OnValueChanged;
+            scrollRect.onValueChanged.AddListener(onValueChanged);
+            var goTop = new GameObject("top");
+            var gobtn = new GameObject("button");
+            top = goTop.AddComponent<RectTransform>();
+            btn = gobtn.AddComponent<RectTransform>();
+            top.SetParent(content, false);
+            btn.SetParent(content, false);
+            top.sizeDelta = default(Vector2);
+            btn.sizeDelta = default(Vector2);
+        }
+
+        Dictionary<int, GameObject> showItem = new Dictionary<int, GameObject>();
+        public void OnValueChanged(Vector2 pos)
+        {
+            new Log("滚动位置" + pos.x + "," + pos.y);
+            maxHeight = cellHeight * m_cellCount; // 计算总高度
+            new Log("总高度" + maxHeight.ToString());
+
+            if (contentSizeFitter == null || !contentSizeFitter.enabled)
+            {
+                new Log("手动设置高度" + maxHeight.ToString());
+                content.sizeDelta = new Vector2(content.sizeDelta.x, maxHeight);
+            }
+            else
+            {
+                new Log("自动设置高度" + content.sizeDelta.y);
+            }
+
+            windowsHeight = retTransform.sizeDelta.y;
+            new Log("窗口高度" + windowsHeight.ToString() + " 格子高度" + cellHeight.ToString());
+            showCount = Mathf.CeilToInt(windowsHeight / cellHeight);
+            new Log("显示数量" + showCount.ToString());
+
+
+            new Log("Star对象池数量" + ItemPool.instance.pool[funcSetData].Count.ToString() + " 使用的数量" + (content.childCount - 2).ToString());
+            float value = 1 - pos.y;
+            new Log("value " + value.ToString());
+            int _startIndex = Mathf.Max(0, Mathf.FloorToInt(value * (cellCount - showCount)) - 1);
+            int _endIndex = Mathf.Min(cellCount - 1, _startIndex + showCount + 3);
+            new Log("新的index" + _startIndex.ToString() + " -- " + _endIndex.ToString());
+            new Log("旧的index" + startIndex.ToString() + " -- " + endIndex.ToString());
+
+            List<int> oldItems = new List<int>(showItem.Keys);
+            foreach (var key in oldItems)
+            {
+                if (key < _startIndex || key > _endIndex)
+                {
+                    new Log("delete" + key);
+                    ItemPool.instance.PutItem(funcSetData, showItem[key]);
+                    showItem.Remove(key);
+                }
+            }
+
+            for (int i = _startIndex; i <= _endIndex; i++)// add
+            {
+                if (!showItem.ContainsKey(i))
+                {
+                    new Log("add " + i.ToString());
+                    GameObject item = ItemPool.instance.GetItem(funcSetData, content);
+                    item.transform.SetSiblingIndex((i - _startIndex + 1));
+                    Flush(item, i);
+                    showItem.Add(i, item);
+                }
+            }
+
+            startIndex = _startIndex;
+            endIndex = _endIndex;
+
+            if (verticalLayoutGroup == null || !verticalLayoutGroup.enabled)
+            {
+                Vector2 star = new Vector2(0, (startIndex - 1) * cellHeight + cellHeight / 2);
+                for (int i = 1; i < content.childCount - 1; i++)
+                {
+                    RectTransform rtf = (RectTransform)content.GetChild(i);
+                    Vector2 p = (star + new Vector2(0, (i - 1) * cellHeight - maxHeight / 2)) * -1;
+                    rtf.anchoredPosition = p;
+                }
+                new Log("手动设置 top btn");
+            }
+            else
+            {
+                top.sizeDelta = new Vector2(content.sizeDelta.x, (startIndex) * cellHeight);
+                btn.sizeDelta = new Vector2(content.sizeDelta.x, (cellCount - endIndex) * cellHeight);
+                new Log("自动设置 top btn "+ top.sizeDelta.y+" - "+ btn.sizeDelta.y);
+            }
+
+            new Log("end对象池数量" + ItemPool.instance.pool[funcSetData].Count.ToString() + " 使用的数量" + (content.childCount - 2).ToString());
+        }
+
+        /// <summary>
+        /// 最大高度
+        /// </summary>
+        float maxHeight;
+        /// <summary>
+        /// 显示窗口高度
+        /// </summary>
+        float windowsHeight;
+        /// <summary>
+        /// 显示对象数量
+        /// </summary>
+        int showCount;
+        /// <summary>
+        /// 开始索引
+        /// </summary>
+        int startIndex = -1;
+        /// <summary>
+        /// 结束索引
+        /// </summary>
+        int endIndex = -1;
+        /// <summary>
+        /// 是否初始化
+        /// </summary>
+        bool isInit = false;
+        private void InitData()
+        {
+            isInit = false;
+            foreach (var item in showItem)
+            {
+                ItemPool.instance.PutItem(funcSetData, item.Value);
+            }
+            showItem.Clear();
+            new Log("init value "+ scrollRect.verticalNormalizedPosition);
+            OnValueChanged(new Vector2(0, scrollRect.verticalNormalizedPosition));
+            isInit = true;
+        }
+
+        private void Flush(GameObject go, int index)
+        {
+            funcSetData(go, (int)index);
+        }
+
+        class ItemPool
+        {
+            static ItemPool itemPool;
+            static public ItemPool instance
+            {
+                get
+                {
+                    if (itemPool == null)
+                    {
+                        itemPool = new ItemPool();
+                    }
+                    return itemPool;
+                }
+            }
+            private ItemPool()
+            {
+                GameObject go = new GameObject("ItemPool");
+                GameObject.DontDestroyOnLoad(go);
+                poolRoot = go.transform;
+            }
+
+            Transform poolRoot;
+            public Dictionary<Action<GameObject, int>, List<GameObject>> pool = new Dictionary<Action<GameObject, int>, List<GameObject>>();
+
+            public GameObject GetItem(Action<GameObject, int> func, Transform parent)
+            {
+                if (pool.ContainsKey(func))
+                {
+                    var v = pool[func];
+                    if (v != null && v.Count > 0)
+                    {
+                        GameObject go = null;
+                        if (v.Count > 1)
+                        {
+                            go = v[1];
+                            v.RemoveAt(1);
+                        }
+                        else
+                        {
+                            go = GameObject.Instantiate<GameObject>(v[0]);
+                        }
+                        go.SetActive(true);
+                        Transform tf = go.transform;
+                        tf.SetParent(parent, false);
+                        return go;
+                    }
+                }
+                new Log("not set item");
+                return null;
+            }
+            public void PutItem(Action<GameObject, int> func, GameObject item)
+            {
+                if (pool.ContainsKey(func))
+                {
+                    var v = pool[func];
+                    if (v != null && v.Count > 0)
+                    {
+                        item.transform.SetParent(poolRoot, false);
+                        item.SetActive(false);
+                        v.Add(item);
+                        return;
+                    }
+                }
+                GameObject.Destroy(item);
+            }
+            public void SetItem(Action<GameObject, int> func, GameObject prefab)
+            {
+                if (prefab == null)
+                {
+                    new Log(prefab.ToString() + " don't find ItemCell");
+                    return;
+                }
+                prefab.SetActive(false);
+                if (!pool.ContainsKey(func))
+                {
+                    var v = new List<GameObject>();
+                    v.Add(prefab);
+                    pool.Add(func, v);
+                }
+                else
+                {
+                    var v = pool[func];
+                    for (int i = 1; i < v.Count; i++)
+                    {
+                        GameObject.Destroy(v[(int)i]);
+                    }
+                    v.Clear();
+                    v.Add(prefab);
+                }
+            }
+        }
+    }
+}

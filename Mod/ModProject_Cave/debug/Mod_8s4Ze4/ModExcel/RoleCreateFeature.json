@@ -1,0 +1,18 @@
+[
+  {
+    "id": "42685182",
+    "type": "2",
+    "group": "0",
+    "level": "2",
+    "duration": "6",
+    "refreshType": "0",
+    "conceal": "0",
+    "name": "role_feature_postnatal_name42685182",
+    "effect": "91111|91392|91521",
+    "tips": "role_feature_postnatal_tips42685182",
+    "iconAndDesc": "0",
+    "lockLuck": "0",
+    "introduceText": "0",
+    "weight": "0"
+  }
+]

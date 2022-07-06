@@ -1,0 +1,16 @@
+G:\steamMod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.csproj.AssemblyReference.cache
+G:\steamMod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.csproj.CoreCompileInputs.cache
+G:\steamMod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.dll
+G:\steamMod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.pdb
+F:\steam\steamapps\common\鬼谷八荒 Playtest\ModExportData\Mod_8s4Ze4\ModCode\dll\Cave.dll
+F:\steam\steamapps\common\鬼谷八荒 Playtest\ModExportData\Mod_8s4Ze4\ModCode\dll\Cave.pdb
+G:\steamMod\ModProject_Cave\ModProject\ModCode\ModMain\bin\Release\Cave.dll
+G:\steamMod\ModProject_Cave\ModProject\ModCode\ModMain\bin\Release\Cave.pdb
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\bin\Release\Cave.dll
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\bin\Release\Cave.pdb
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.csproj.AssemblyReference.cache
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.csproj.CoreCompileInputs.cache
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.dll
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.pdb
+C:\yellow\soft\steam\steamapps\workshop\content\1468810\2814717778\ModCode\dll\Cave.dll
+C:\yellow\soft\steam\steamapps\workshop\content\1468810\2814717778\ModCode\dll\Cave.pdb

@@ -1,0 +1,12 @@
+G:\steamMod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\bin\Release\SchoolAdmin.dll
+G:\steamMod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\bin\Release\SchoolAdmin.pdb
+G:\steamMod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.csproj.AssemblyReference.cache
+G:\steamMod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.csproj.CoreCompileInputs.cache
+G:\steamMod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.dll
+G:\steamMod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.pdb
+E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\bin\Release\SchoolAdmin.dll
+E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\bin\Release\SchoolAdmin.pdb
+E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.csproj.AssemblyReference.cache
+E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.csproj.CoreCompileInputs.cache
+E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.dll
+E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.pdb

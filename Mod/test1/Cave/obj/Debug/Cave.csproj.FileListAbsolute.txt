@@ -1,0 +1,13 @@
+G:\guigubahuang\Cave\obj\Debug\Cave.csproj.CoreCompileInputs.cache
+G:\guigubahuang\Cave\obj\Debug\Cave.dll
+G:\guigubahuang\Cave\obj\Debug\Cave.pdb
+G:\guigubahuang\Cave\bin\Debug\Cave.dll
+G:\guigubahuang\Cave\bin\Debug\Cave.pdb
+F:\ModList\test1\Cave\bin\Debug\Cave.dll
+F:\ModList\test1\Cave\bin\Debug\Cave.pdb
+F:\ModList\test1\Cave\obj\Debug\Cave.csproj.CoreCompileInputs.cache
+F:\ModList\test1\Cave\obj\Debug\Cave.dll
+F:\ModList\test1\Cave\obj\Debug\Cave.pdb
+F:\steam\steamapps\common\鬼谷八荒\Mods\Cave.dll
+F:\steam\steamapps\common\鬼谷八荒\Mods\Cave.pdb
+F:\ModList\test1\Cave\obj\Debug\Cave.csproj.AssemblyReference.cache

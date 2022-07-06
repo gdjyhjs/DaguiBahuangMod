@@ -1,0 +1,6 @@
+F:\ModList\test1\OpenHeart\bin\Debug\OpenHeart.dll
+F:\ModList\test1\OpenHeart\bin\Debug\OpenHeart.pdb
+F:\ModList\test1\OpenHeart\obj\Debug\OpenHeart.csproj.CoreCompileInputs.cache
+F:\ModList\test1\OpenHeart\obj\Debug\OpenHeart.dll
+F:\ModList\test1\OpenHeart\obj\Debug\OpenHeart.pdb
+F:\ModList\test1\OpenHeart\obj\Debug\OpenHeart.csproj.AssemblyReference.cache

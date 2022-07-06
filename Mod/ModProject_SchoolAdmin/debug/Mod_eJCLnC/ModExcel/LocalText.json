@@ -1,0 +1,352 @@
+[
+  {
+    "id": "474859805",
+    "key": "schoolAdmin_modName",
+    "ch": "宗门管家",
+    "tc": "宗門管家",
+    "en": "SectAdmin"
+  },
+  {
+    "id": "474859806",
+    "key": "schoolAdmin_needModName",
+    "ch": "UI框架",
+    "tc": "UI框架",
+    "en": "UIFramework"
+  },
+  {
+    "id": "474859807",
+    "key": "schoolAdmin_needModTips",
+    "ch": "{0}模组需要安装{1}模组才能使用，检测到您尚未正确安装{0}，可能会影响模组功能的使用。您可以到模组商店搜索<b>大鬼</b>订阅{1}，订阅后需要到本地模组将{1}移至{0}模组上方。",
+    "tc": "{0}模組需要安裝{1}模組才能使用，檢測到您尚未正確安裝{0}，可能會影響模組功能的使用。 您可以到模組商店搜索<b>大鬼</b>訂閱{1}，訂閱后需要到本地模組將{1}移至{0}模組上方。",
+    "en": "{0} module requires {1} module to be installed before it can be used. It is detected that you have not installed {0} correctly, which may affect the use of module functions. You can search for <r>UIFramework</r> subscription {1} in the module store. After subscription, you need to go to the local module and move {1} above the {0} module."
+  },
+  {
+    "id": "474859808",
+    "key": "schoolAdmin_zhaohuanguanjia",
+    "ch": "召唤管家",
+    "tc": "召喚管家",
+    "en": "Admin"
+  },
+  {
+    "id": "474859809",
+    "key": "schoolAdmin_showNpcNoDemand",
+    "ch": "显示无需求的NPC",
+    "tc": "顯示無需求的NPC",
+    "en": "Show NPC in no demand"
+  },
+  {
+    "id": "474859810",
+    "key": "schoolAdmin_showAllNpc",
+    "ch": "显示不合符入宗条件的NPC",
+    "tc": "顯示不合符入宗條件的NPC",
+    "en": "Show NPCs that do not meet the criteria."
+  },
+  {
+    "id": "474859811",
+    "key": "schoolAdmin_defaultSort",
+    "ch": "默认排序",
+    "tc": "默認排序",
+    "en": "defaultSort"
+  },
+  {
+    "id": "474859812",
+    "key": "schoolAdmin_nameSort",
+    "ch": "名字排序",
+    "tc": "名字排序",
+    "en": "nameSort"
+  },
+  {
+    "id": "474859813",
+    "key": "schoolAdmin_genderSort",
+    "ch": "性别排序",
+    "tc": "性別排序",
+    "en": "genderSort"
+  },
+  {
+    "id": "474859814",
+    "key": "schoolAdmin_levelSort",
+    "ch": "境界排序",
+    "tc": "境界排序",
+    "en": "realmSort"
+  },
+  {
+    "id": "474859815",
+    "key": "schoolAdmin_giveDramaConnect",
+    "ch": "我正需要此物，您送的太及时了，今后我就是{0}的人了，还请宗主大人多多关照！",
+    "tc": "我正需要此物，您送的太及時了，今後我就是{0}的人了，還請宗主大人多多關照！",
+    "en": "I just need this thing. You delivered it in time. I will be {0} from now on. Please ask the Sect Leader to take care of me!"
+  },
+  {
+    "id": "474859816",
+    "key": "schoolAdmin_dontNeed",
+    "ch": "我现在不需要{0}。",
+    "tc": "我現在不需要{0}。",
+    "en": "I don't need {0} now."
+  },
+  {
+    "id": "474859817",
+    "key": "schoolAdmin_npcFound",
+    "ch": "打听到{0}当前所在位置{1}。",
+    "tc": "打聽到{0}當前所在位置{1}。",
+    "en": "Found the current location of {0} {1}."
+  },
+  {
+    "id": "474859818",
+    "key": "schoolAdmin_found",
+    "ch": "追踪",
+    "tc": "追蹤",
+    "en": "Found"
+  },
+  {
+    "id": "474859819",
+    "key": "schoolAdmin_noDemand",
+    "ch": "无需求",
+    "tc": "無需求",
+    "en": "no demand"
+  },
+  {
+    "id": "474859820",
+    "key": "schoolAdmin_needBadly",
+    "ch": "急需：",
+    "tc": "急需：",
+    "en": "need badly:"
+  },
+  {
+    "id": "474859821",
+    "key": "schoolAdmin_condition",
+    "ch": "条件",
+    "tc": "條件",
+    "en": "condition"
+  },
+  {
+    "id": "474859822",
+    "key": "schoolAdmin_marriage",
+    "ch": "情感",
+    "tc": "情感",
+    "en": "marriage"
+  },
+  {
+    "id": "474859823",
+    "key": "schoolAdmin_surname",
+    "ch": "姓氏",
+    "tc": "姓氏",
+    "en": "surname"
+  },
+  {
+    "id": "474859824",
+    "key": "schoolAdmin_tips1",
+    "ch": "勾选表示允许该性别的NPC加入宗门。",
+    "tc": "勾選表示允許該性別的NPC加入宗門。",
+    "en": "Check to allow NPC of this gender to join the clan gate."
+  },
+  {
+    "id": "474859825",
+    "key": "schoolAdmin_tips2",
+    "ch": "勾选处于该魅力的NPC均可加入宗门。",
+    "tc": "勾選處於該魅力的NPC均可加入宗門。",
+    "en": "If you check this charm, NPC can join Zongmen."
+  },
+  {
+    "id": "474859826",
+    "key": "schoolAdmin_tips3",
+    "ch": "勾选表示需要拥有该兴趣的NPC才可加入宗门(满足任意一条即可)。",
+    "tc": "勾選表示需要擁有該興趣的NPC才可加入宗門（滿足任意一條即可）。",
+    "en": "Check the NPC that needs this interest to join the Clan Gate (just meet any one)."
+  },
+  {
+    "id": "474859827",
+    "key": "schoolAdmin_tips4",
+    "ch": "勾选表示该声望等级的NPC均可加入宗门。",
+    "tc": "勾選表示該聲望等級的NPC均可加入宗門。",
+    "en": "All NPCs with this prestige level checked can join the Clan Gate."
+  },
+  {
+    "id": "474859828",
+    "key": "schoolAdmin_tips5",
+    "ch": "勾选表示需要拥有该性格的NPC才可加入宗门(满足任意一条即可)。",
+    "tc": "勾選表示需要擁有該性格的NPC才可加入宗門（滿足任意一條即可）。",
+    "en": "Check that NPC with this character is required to join the Clan Gate (any one can be satisfied)."
+  },
+  {
+    "id": "474859829",
+    "key": "schoolAdmin_tips6",
+    "ch": "勾选表示处于该境界的NPC均可加入宗门。",
+    "tc": "勾選表示處於該境界的NPC均可加入宗門。",
+    "en": "If checked, NPC in this realm can join the Clan Gate."
+  },
+  {
+    "id": "474859830",
+    "key": "schoolAdmin_tips7",
+    "ch": "勾选表示处于该状态的NPC才可加入宗门。",
+    "tc": "勾選表示處於該狀態的NPC才可加入宗門。",
+    "en": "Check the NPC in this state to join the Clan Gate."
+  },
+  {
+    "id": "474859831",
+    "key": "schoolAdmin_tips8",
+    "ch": "勾选表示NPC姓氏需要与输入值匹配才可加入宗门",
+    "tc": "勾選表示NPC姓氏需要與輸入值匹配才可加入宗門",
+    "en": "Check the box to indicate that NPC's surname must match the input value before joining the clan gate."
+  },
+  {
+    "id": "474859832",
+    "key": "schoolAdmin_tips9",
+    "ch": "勾选表示允许加入宗门",
+    "tc": "勾選表示允許加入宗門",
+    "en": "Check to allow you to join the Clan Gate."
+  },
+  {
+    "id": "474859833",
+    "key": "schoolAdmin_zhaonatiaojian",
+    "ch": "是否保存设置？",
+    "tc": "是否保存設置？",
+    "en": "Save settings?"
+  },
+  {
+    "id": "474859834",
+    "key": "schoolAdmin_tirentishi",
+    "ch": "此举将踢出{0}位宗门成员！关系重大，请慎重抉择！是否继续踢出？\"",
+    "tc": "此舉將踢出{0}位宗門成員！ 關係重大，請慎重抉擇！ 是否繼續踢出？",
+    "en": "This will kick out {0} clan members! It's important, please choose carefully! Continue to kick out?"
+  },
+  {
+    "id": "474859835",
+    "key": "schoolAdmin_tirentishi2",
+    "ch": "宗门所有成员都符合条件！",
+    "tc": "宗門所有成員都符合條件！",
+    "en": "All members of the sect are eligible!"
+  },
+  {
+    "id": "474859836",
+    "key": "schoolAdmin_tirentishi3",
+    "ch": "确认踢出所有不符合入门条件的弟子吗？（包括所有分舵）",
+    "tc": "確認踢出所有不符合入門條件的弟子嗎？ （包括所有分舵）",
+    "en": "Are you sure to kick out all the disciples who don't meet the entry requirements? (including all Branch)"
+  },
+  {
+    "id": "474859837",
+    "key": "schoolAdmin_UnlimitedMarriage",
+    "ch": "不限婚姻",
+    "tc": "不限婚姻",
+    "en": "AllMarr"
+  },
+  {
+    "id": "474859838",
+    "key": "schoolAdmin_Unmarried",
+    "ch": "未婚",
+    "tc": "未婚",
+    "en": "Unmarr"
+  },
+  {
+    "id": "474859839",
+    "key": "schoolAdmin_IsMarried",
+    "ch": "已婚",
+    "tc": "已婚",
+    "en": "IsMarr"
+  },
+  {
+    "id": "474859840",
+    "key": "schoolAdmin_Unlimitedchildren",
+    "ch": "不限子女",
+    "tc": "不限子女",
+    "en": "AllOkChild"
+  },
+  {
+    "id": "474859841",
+    "key": "schoolAdmin_NoChildren",
+    "ch": "无子女",
+    "tc": "無子女",
+    "en": "NoChild"
+  },
+  {
+    "id": "474859842",
+    "key": "schoolAdmin_HaveChildren",
+    "ch": "有子女",
+    "tc": "有子女",
+    "en": "HasChild"
+  },
+  {
+    "id": "474859843",
+    "key": "schoolAdmin_UnlimitedPartner",
+    "ch": "不限道侣",
+    "tc": "不限道侶",
+    "en": "AllOkPartner"
+  },
+  {
+    "id": "474859844",
+    "key": "schoolAdmin_Unpartner",
+    "ch": "无道侣",
+    "tc": "無道侶",
+    "en": "NoPartner"
+  },
+  {
+    "id": "474859845",
+    "key": "schoolAdmin_HavePartner",
+    "ch": "有道侣",
+    "tc": "有道侶",
+    "en": "HasPartner"
+  },
+  {
+    "id": "474859846",
+    "key": "schoolAdmin_inputsurname",
+    "ch": "输入姓氏",
+    "tc": "輸入姓氏",
+    "en": "InputSurname"
+  },
+  {
+    "id": "474859847",
+    "key": "schoolAdmin_heaven_chosen",
+    "ch": "天骄（有道心）",
+    "tc": "天驕（有道心）",
+    "en": "heaven-chosen"
+  },
+  {
+    "id": "474859848",
+    "key": "schoolAdmin_paragon",
+    "ch": "人豪（有道种）",
+    "tc": "人豪（有道種）",
+    "en": "paragon"
+  },
+  {
+    "id": "474859849",
+    "key": "schoolAdmin_ordinary",
+    "ch": "咸鱼（无道心）",
+    "tc": "鹹魚（無道心）",
+    "en": "ordinary"
+  },
+  {
+    "id": "474859850",
+    "key": "schoolAdmin_zhaonatiaojianshezhi",
+    "ch": "入门条件设置",
+    "tc": "招納條件設置",
+    "en": "  ConditionSetting"
+  },
+  {
+    "id": "474859851",
+    "key": "schoolAdmin_tips10",
+    "ch": "下列选项，需要勾选才有效，不勾选表示不需要判定这一个条件。",
+    "tc": "下列選項，需要勾選才有效，不勾選表示不需要判定這一個條件。",
+    "en": "The following options are valid only if they are checked. Unchecked means there is no need to determine this condition."
+  },
+  {
+    "id": "474859852",
+    "key": "schoolAdmin_tips11",
+    "ch": "多个条件可应用于同一个同门，若做此操作，则表示需要符合所有条件的NPC才可加入宗门。",
+    "tc": "多個條件可應用於同一個同門，若做此操作，則表示需要符合所有條件的NPC才可加入宗門。",
+    "en": "Multiple conditions can be applied to the same gate. If you do this, it means that NPC who meets all the conditions can join the clan gate."
+  },
+  {
+    "id": "474859853",
+    "key": "schoolAdmin_AppliedToSectting",
+    "ch": "应用宗门",
+    "tc": "應用宗門",
+    "en": "  AppliedSectting"
+  },
+  {
+    "id": "474859854",
+    "key": "schoolAdmin_tips12",
+    "ch": "勾选宗门表示该条件对宗门生效，若多个条件都勾选了同一宗门，则加入该宗门的NPC需要符合所有条件才可加入宗门。",
+    "tc": "勾選宗門表示該條件對宗門生效，若多個條件都勾選了同一宗門，則加入該宗門的NPC需要符合所有條件才可加入宗門。",
+    "en": "Checking secting means that this condition is effective for secting. If the same secting is checked for multiple conditions, NPC joining the secting must meet all conditions before joining the secting."
+  }
+]

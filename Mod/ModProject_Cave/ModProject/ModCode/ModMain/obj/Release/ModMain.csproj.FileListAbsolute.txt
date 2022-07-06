@@ -1,0 +1,21 @@
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\编写代码教程\ModMain\bin\Release\ModMain.dll
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\编写代码教程\ModMain\bin\Release\ModMain.pdb
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\编写代码教程\ModMain\obj\Release\ModMain.csproj.AssemblyReference.cache
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\编写代码教程\ModMain\obj\Release\ModMain.csproj.CoreCompileInputs.cache
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\编写代码教程\ModMain\obj\Release\ModMain.dll
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\编写代码教程\ModMain\obj\Release\ModMain.pdb
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\代码编写教程\ModMain\obj\Release\ModMain.csproj.AssemblyReference.cache
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\代码编写教程\ModMain\obj\Release\ModMain.csproj.CoreCompileInputs.cache
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\代码编写教程\ModMain\obj\Release\ModMain.dll
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\代码编写教程\ModMain\obj\Release\ModMain.pdb
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\代码编写教程\ModMain\bin\Release\ModMain.dll
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\代码编写教程\ModMain\bin\Release\ModMain.pdb
+D:\guigubahuang\guigubahuang\kaifaban\immortal_code\GameClient\Mod\modFQA\代码编写教程\ModMain\bin\Release\ModMain.xml
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\ModMain.csproj.AssemblyReference.cache
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\ModMain.csproj.CoreCompileInputs.cache
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\bin\Release\Cave.dll
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\bin\Release\Cave.pdb
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.dll
+E:\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.pdb
+C:\yellow\soft\steam\steamapps\common\鬼谷八荒 Playtest\ModExportData\Mod_8s4Ze4\ModCode\dll\Cave.dll
+C:\yellow\soft\steam\steamapps\common\鬼谷八荒 Playtest\ModExportData\Mod_8s4Ze4\ModCode\dll\Cave.pdb

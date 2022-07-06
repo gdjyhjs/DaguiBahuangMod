@@ -1,0 +1,14 @@
+E:\Mod\ModProject_GuiUI\ModProject\ModCode\ModMain\bin\Release\GuiUI.dll
+E:\Mod\ModProject_GuiUI\ModProject\ModCode\ModMain\bin\Release\GuiUI.pdb
+E:\Mod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.csproj.AssemblyReference.cache
+E:\Mod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.csproj.CoreCompileInputs.cache
+E:\Mod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.dll
+E:\Mod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.pdb
+G:\steamMod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.csproj.AssemblyReference.cache
+G:\steamMod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.csproj.CoreCompileInputs.cache
+G:\steamMod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.dll
+G:\steamMod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.pdb
+G:\steamMod\ModProject_GuiUI\ModProject\ModCode\ModMain\bin\Release\GuiUI.dll
+G:\steamMod\ModProject_GuiUI\ModProject\ModCode\ModMain\bin\Release\GuiUI.pdb
+C:\yellow\soft\steam\steamapps\workshop\content\1468810\2814686803\ModCode\dll\GuiUI.dll
+C:\yellow\soft\steam\steamapps\workshop\content\1468810\2814686803\ModCode\dll\GuiUI.pdb
