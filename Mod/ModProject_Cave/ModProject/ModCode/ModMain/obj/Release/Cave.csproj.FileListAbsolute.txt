@@ -22,3 +22,9 @@ E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\M
 E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.pdb
 F:\steam\steamapps\workshop\content\1468810\2814717778\ModCode\dll\Cave.dll
 F:\steam\steamapps\workshop\content\1468810\2814717778\ModCode\dll\Cave.pdb
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.csproj.AssemblyReference.cache
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.csproj.CoreCompileInputs.cache
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.dll
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.pdb
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\ModCode\ModMain\bin\Release\Cave.dll
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\ModCode\ModMain\bin\Release\Cave.pdb

@@ -24,6 +24,7 @@ namespace Cave
         public List<DecorateData> decorateList = new List<DecorateData>();
         public Dictionary<int, GameObject> decorates = new Dictionary<int, GameObject>();
         public Dictionary<GameObject, DecorateData> decorateRecord = new Dictionary<GameObject, DecorateData>();
+        public List<Action> operateRecord = new List<Action>();
 
         public void Init(string decorate)
         {
@@ -35,7 +36,6 @@ namespace Cave
             {
                 decorateList = new List<DecorateData>();
             }
-            Cave.Log("装饰数量-" + decorateList.Count);
             foreach (var item in decorateList)
             {
                 CreateDecorate(item);
@@ -44,7 +44,6 @@ namespace Cave
 
         public string GetData()
         {
-            Cave.Log("装饰数量-" + decorateList.Count);
             return JsonConvert.SerializeObject(decorateList);
         }
 

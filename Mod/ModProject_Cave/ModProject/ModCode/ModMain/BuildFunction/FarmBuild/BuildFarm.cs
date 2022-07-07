@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace Cave.BuildFunction
 {
-    // 灵田
+    // 灵田 
     public class BuildFarm : ClassBase
     {
         public const int prisonerLuckId = 123010217; // 囚犯气运ID
@@ -39,6 +39,7 @@ namespace Cave.BuildFunction
         int barrierCreateID;
         GameObject clickDestroyBarrierb;
         GameObject destroyBarrierb;
+        bool isEnterPanel;
 
         // 初始化灵田    
         public override void Init(string param)
@@ -141,7 +142,7 @@ namespace Cave.BuildFunction
             if (op != operate)
             {
                 operate = op;
-                CreateOperateUI();
+                CreateOperateUI(0);
             }
             if (listObj != null)
             {
@@ -163,7 +164,7 @@ namespace Cave.BuildFunction
             {
                 Vector3 pos = SceneType.battle.camera.ScreenToWorldPoint(Input.mousePosition);
                 barrierPrefab.transform.position = pos;
-                if (Input.GetMouseButtonDown(0))
+                if (!isEnterPanel && Input.GetMouseButtonDown(0))
                 {
                     var data = new DecorateMgr.DecorateData(barrierCreateID, pos.x, pos.y);
                     decorateMgr.decorateList.Add(data);
@@ -176,7 +177,7 @@ namespace Cave.BuildFunction
             }
             if (op == 2)
             {
-                if (clickDestroyBarrierb != null)
+                if (clickDestroyBarrierb == null)
                 {
                     Vector3 pos = SceneType.battle.camera.ScreenToWorldPoint(Input.mousePosition);
                     GameObject barrierb = null;
@@ -184,7 +185,7 @@ namespace Cave.BuildFunction
                     foreach (var item in decorateMgr.decorates.Values)
                     {
                         var d = Vector2.Distance(pos, item.transform.position);
-                        if (d < dis && d < 5)
+                        if (d < dis && d < 1)
                         {
                             dis = d;
                             barrierb = item;
@@ -207,22 +208,31 @@ namespace Cave.BuildFunction
                         destroyBarrierb = barrierb;
                     }
                 }
+
                 // 销毁模式
                 if (destroyBarrierb != null)
                 {
-                    var value = Time.time - ((int)Time.time);
+                    float value = Time.time - ((int)Time.time);
                     if ((int)Time.time % 2 == 1)
                     {
-                        value = -value;
+                        value = 1-value;
                     }
                     SetBarrierbColor(destroyBarrierb, Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0, 0, 1), value));
+                    //SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, value));
                 }
-                if (Input.GetMouseButtonDown(0))
+
+                if (!isEnterPanel && Input.GetMouseButtonDown(0))
                 {
                     if (destroyBarrierb != null)
                     {
                         decorateMgr.DestroyDecorate(destroyBarrierb);
                         destroyBarrierb = null;
+                        clickDestroyBarrierb = null;
+                        if(listObj == null)
+                            CreateOperateUI(0);
+                        else
+                            CreateOperateUI(listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition);
+
                     }
                 }
                 if (Input.GetMouseButtonDown(1))
@@ -235,7 +245,7 @@ namespace Cave.BuildFunction
             }
         }
 
-        private void CreateOperateUI()
+        private void CreateOperateUI(float value)
         {
             if (listObj != null)
             {
@@ -266,6 +276,7 @@ namespace Cave.BuildFunction
                         {
                             var panel = new UIBarrierDestroy(ui.transform, new Vector2(-580, 0), decorateMgr.decorateList);
                             listObj = panel.bg.GetComponent<RectTransform>();
+                            listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = value;
                             panel.clickCall = (go, data) =>
                             {
                                 if (destroyBarrierb != null)
@@ -286,11 +297,34 @@ namespace Cave.BuildFunction
                     }
                     break;
             }
+            isEnterPanel = false;
+            if (listObj != null)
+            {
+                // 监听鼠标滑入
+                var cg = listObj.gameObject.AddComponent<CanvasGroup>();
+                cg.alpha = 1;
+                var ui_event = listObj.gameObject.AddComponent<UIEventListener>();
+                Action onEnter = () =>
+                {
+                    DG.Tweening.ShortcutExtensions.DOKill(cg);
+                    var tween = DG.Tweening.ShortcutExtensions46.DOFade(cg, 1, 0.1f);
+                    isEnterPanel = true;
+                };
+                Action onExit = () =>
+                {
+                    DG.Tweening.ShortcutExtensions.DOKill(cg);
+                    var tween = DG.Tweening.ShortcutExtensions46.DOFade(cg, 0.5f, 0.1f);
+                    isEnterPanel = false;
+                };
+                ui_event.onMouseEnter.AddListener(onEnter);
+                ui_event.onMouseExit.AddListener(onExit);
+            }
         }
 
         private void SetBarrierbColor(GameObject barrierb, Color color)
         {
-            var sprites = barrierb.GetComponents<SpriteRenderer>();
+            //Cave.Log(color.r + "," + color.g + "." + color.b + "," + color.a);
+            var sprites = barrierb.GetComponentsInChildren<SpriteRenderer>();
             foreach (var item in sprites)
             {
                 item.color = color;

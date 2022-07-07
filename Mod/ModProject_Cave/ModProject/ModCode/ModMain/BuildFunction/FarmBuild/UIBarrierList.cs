@@ -126,10 +126,9 @@ namespace Cave
                         img.rectTransform.sizeDelta = new Vector2(img.rectTransform.sizeDelta.x / scale, img.rectTransform.sizeDelta.y / scale);
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     img.sprite = SpriteTool.GetSprite("Common", "lvsetiao");
-                    Cave.LogWarning(id + " loadError");
                 }
                 var btn = UnityAPIEx.GetComponentOrAdd<Button>(img.gameObject);
 
