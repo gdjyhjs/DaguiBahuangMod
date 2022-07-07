@@ -217,6 +217,21 @@ namespace Cave.BuildFunction
                     }
                     SetBarrierbColor(destroyBarrierb, Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0, 0, 1), value));
                 }
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (destroyBarrierb != null)
+                    {
+                        decorateMgr.DestroyDecorate(destroyBarrierb);
+                        destroyBarrierb = null;
+                    }
+                }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if (clickDestroyBarrierb != null)
+                    {
+                        clickDestroyBarrierb = null;
+                    }
+                }
             }
         }
 

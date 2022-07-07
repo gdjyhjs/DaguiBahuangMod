@@ -23,6 +23,7 @@ namespace Cave
         public static string barrierPath = "Battle/ScenesUnit/Barrier/";
         public List<DecorateData> decorateList = new List<DecorateData>();
         public Dictionary<int, GameObject> decorates = new Dictionary<int, GameObject>();
+        public Dictionary<GameObject, DecorateData> decorateRecord = new Dictionary<GameObject, DecorateData>();
 
         public void Init(string decorate)
         {
@@ -72,6 +73,7 @@ namespace Cave
             barrier.InitData(data.id, barrierConf);
 
             decorates.Add(data.GetHashCode(), obj);
+            decorateRecord.Add(obj, data);
         }
 
 
@@ -94,7 +96,13 @@ namespace Cave
             return obj;
         }
 
-
+        public void DestroyDecorate(GameObject obj)
+        {
+            var data = decorateRecord[obj];
+            decorates.Remove(data.GetHashCode());
+            decorateList.Remove(data);
+            GameObject.Destroy(obj);
+        }
 
 
     }
