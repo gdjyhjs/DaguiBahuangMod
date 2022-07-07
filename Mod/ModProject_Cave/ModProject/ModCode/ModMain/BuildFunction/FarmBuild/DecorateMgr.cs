@@ -22,7 +22,7 @@ namespace Cave
         }
         public static string barrierPath = "Battle/ScenesUnit/Barrier/";
         public List<DecorateData> decorateList = new List<DecorateData>();
-        Dictionary<GameObject, int> decorates = new Dictionary<GameObject, int>();
+        public Dictionary<int, GameObject> decorates = new Dictionary<int, GameObject>();
 
         public void Init(string decorate)
         {
@@ -71,7 +71,7 @@ namespace Cave
             ConfBattleBarrierItem barrierConf = g.conf.battleBarrier.GetItem(data.id);
             barrier.InitData(data.id, barrierConf);
 
-            decorates.Add(obj, data.GetHashCode());
+            decorates.Add(data.GetHashCode(), obj);
         }
 
 

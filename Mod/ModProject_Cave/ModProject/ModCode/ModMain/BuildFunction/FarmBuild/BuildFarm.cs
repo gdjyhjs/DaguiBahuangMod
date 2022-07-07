@@ -37,6 +37,8 @@ namespace Cave.BuildFunction
         };
         GameObject barrierPrefab;
         int barrierCreateID;
+        GameObject clickDestroyBarrierb;
+        GameObject destroyBarrierb;
 
         // 初始化灵田    
         public override void Init(string param)
@@ -139,34 +141,7 @@ namespace Cave.BuildFunction
             if (op != operate)
             {
                 operate = op;
-                if (listObj != null)
-                {
-                    GameObject.Destroy(listObj.gameObject);
-                    listObj = null;
-                }
-                switch (op)
-                {
-                    case 1:
-                        {
-                            var ui = g.ui.GetUI<UIBattleInfo>(UIType.BattleInfo);
-                            if (ui != null)
-                            {
-                                var panel = new UIBarrierList(ui.transform, new Vector2(-580, 0), allBarrierID);
-                                listObj = panel.bg.GetComponent<RectTransform>();
-                                panel.clickCall = (go, id) =>
-                                {
-                                    barrierPrefab = decorateMgr.CreateDecorate(go, id);
-                                    barrierCreateID = id;
-                                };
-                            }
-                        }
-                        break;
-                    case 2:
-                        {
-
-                        }
-                        break;
-                }
+                CreateOperateUI();
             }
             if (listObj != null)
             {
@@ -198,6 +173,112 @@ namespace Cave.BuildFunction
                 {
                     GameObject.Destroy(barrierPrefab);
                 }
+            }
+            if (op == 2)
+            {
+                if (clickDestroyBarrierb != null)
+                {
+                    Vector3 pos = SceneType.battle.camera.ScreenToWorldPoint(Input.mousePosition);
+                    GameObject barrierb = null;
+                    float dis = 100;
+                    foreach (var item in decorateMgr.decorates.Values)
+                    {
+                        var d = Vector2.Distance(pos, item.transform.position);
+                        if (d < dis && d < 5)
+                        {
+                            dis = d;
+                            barrierb = item;
+                        }
+                    }
+                    if (barrierb == null)
+                    {
+                        if (destroyBarrierb != null)
+                        {
+                            SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
+                            destroyBarrierb = null;
+                        }
+                    }
+                    else if (barrierb != destroyBarrierb)
+                    {
+                        if (destroyBarrierb != null)
+                        {
+                            SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
+                        }
+                        destroyBarrierb = barrierb;
+                    }
+                }
+                // 销毁模式
+                if (destroyBarrierb != null)
+                {
+                    var value = Time.time - ((int)Time.time);
+                    if ((int)Time.time % 2 == 1)
+                    {
+                        value = -value;
+                    }
+                    SetBarrierbColor(destroyBarrierb, Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0, 0, 1), value));
+                }
+            }
+        }
+
+        private void CreateOperateUI()
+        {
+            if (listObj != null)
+            {
+                GameObject.Destroy(listObj.gameObject);
+                listObj = null;
+            }
+            switch (operate)
+            {
+                case 1:
+                    {
+                        var ui = g.ui.GetUI<UIBattleInfo>(UIType.BattleInfo);
+                        if (ui != null)
+                        {
+                            var panel = new UIBarrierList(ui.transform, new Vector2(-580, 0), allBarrierID);
+                            listObj = panel.bg.GetComponent<RectTransform>();
+                            panel.clickCall = (go, id) =>
+                            {
+                                barrierPrefab = decorateMgr.CreateDecorate(go, id);
+                                barrierCreateID = id;
+                            };
+                        }
+                    }
+                    break;
+                case 2:
+                    {
+                        var ui = g.ui.GetUI<UIBattleInfo>(UIType.BattleInfo);
+                        if (ui != null)
+                        {
+                            var panel = new UIBarrierDestroy(ui.transform, new Vector2(-580, 0), decorateMgr.decorateList);
+                            listObj = panel.bg.GetComponent<RectTransform>();
+                            panel.clickCall = (go, data) =>
+                            {
+                                if (destroyBarrierb != null)
+                                {
+                                    SetBarrierbColor(destroyBarrierb, new Color(1,1,1,1));
+                                }
+                                if (decorateMgr.decorates.TryGetValue(data.GetHashCode(), out destroyBarrierb))
+                                {
+                                    clickDestroyBarrierb = destroyBarrierb;
+                                }
+                                else
+                                {
+                                    destroyBarrierb = null;
+                                    clickDestroyBarrierb = null;
+                                }
+                            };
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void SetBarrierbColor(GameObject barrierb, Color color)
+        {
+            var sprites = barrierb.GetComponents<SpriteRenderer>();
+            foreach (var item in sprites)
+            {
+                item.color = color;
             }
         }
 
