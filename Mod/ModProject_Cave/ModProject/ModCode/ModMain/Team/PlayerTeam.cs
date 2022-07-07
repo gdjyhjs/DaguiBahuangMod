@@ -10,7 +10,6 @@ namespace Cave.Team
     public class PlayerTeam
     {
         private Il2CppSystem.Action<ETypeData> onBattleStart;
-        private Il2CppSystem.Action<ETypeData> onBattleExit;
         private Il2CppSystem.Action<ETypeData> onCreateActionBack;
         private Il2CppSystem.Action<ETypeData> onSaveData;
         private Il2CppSystem.Action<ETypeData> onIntoWorld;
@@ -26,10 +25,6 @@ namespace Cave.Team
             // 战斗开始
             onBattleStart = (Il2CppSystem.Action<ETypeData>)OnBattleStart;
             g.events.On(EBattleType.BattleStart, onBattleStart);
-
-            // 战斗结束
-            onBattleExit = (Il2CppSystem.Action<ETypeData>)OnBattleExit;
-            g.events.On(EBattleType.BattleExit, onBattleExit);
 
             //保存游戏时
             onSaveData = (Il2CppSystem.Action<ETypeData>)OnSaveData;
@@ -78,7 +73,7 @@ namespace Cave.Team
         /// </summary>
         private void OnUpdate()
         {
-            if(SceneType.map != null && SceneType.map.world != null && updatePoint != null)
+            if (SceneType.map != null && SceneType.map.world != null && updatePoint != null)
             {
                 foreach (var point in updatePoint)
                 {
@@ -167,39 +162,30 @@ namespace Cave.Team
         // 战斗开始
         private void OnBattleStart(ETypeData eData)
         {
-            Action onIntoRoomEnd = () => OnIntoRoomEnd();
-            SceneType.battle.battleMap.onIntoRoomEnd += onIntoRoomEnd;
             Action onBattleStart = () => OnBattleStart();
             SceneType.battle.battleMap.onBattleStartCall += onBattleStart;
-            SceneType.battle.battleMap.onIntoRoomStart += new Action(()=>
-            {
-                Cave.Log("进入房间开始 清楚单位" + battleUnits.Count);
-                ClearBattleUnits();
-            });
         }
 
-        // 进入房间结束
-        private void OnIntoRoomEnd()
-        {
-            Cave.Log("进入房间结束");
-            InitRoomBattleUnits();
-        }
-        // 进入房间结束
+        // 战斗开始
         private void OnBattleStart()
         {
             Cave.Log("战斗开始");
             InitRoomBattleUnits();
-        }
-        private void OnBattleExit(ETypeData eData)
-        {
-            battleUnits.Clear();
         }
 
         private void InitRoomBattleUnits()
         {
             if (!SceneType.battle.battleMap.isStartBattle)
                 return;
-            ClearBattleUnits();
+
+            foreach (var unit in battleUnits)
+            {
+                if (unit != null && !unit.isDie && !unit.isDestroy && unit.gameObject != null)
+                {
+                    unit.Die(false);
+                }
+            }
+            battleUnits.Clear();
 
             List<string> units = DataTeam.battleUnits;
             foreach (var unitId in units)
@@ -254,7 +240,6 @@ namespace Cave.Team
             g.events.Off(EGameType.CreateActionBack(true), onCreateActionBack);
             g.events.Off(EGameType.CreateActionBack(false), onCreateActionBack);
             g.events.Off(EBattleType.BattleStart, onBattleStart);
-            g.events.Off(EBattleType.BattleExit, onBattleExit);
             g.events.Off(EGameType.SaveData, onSaveData);
             g.events.Off(EGameType.IntoWorld, onIntoWorld);
             g.timer.Stop(corOnUpdate);

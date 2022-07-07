@@ -99,6 +99,12 @@ namespace Cave
                     g.data.obj.SetString("DramaFunctionTool_SetWorldData", "www.yellowshange.com.caveDragonSex", 2);
                 }
             }
+
+            int value = g.data.obj.GetInt("DramaFunctionTool_SetWorldData", "www.yellowshange.com.caveDragonSex");
+            if (value != 1 || value != 0)
+            {
+                g.data.obj.SetString("DramaFunctionTool_SetWorldData", "www.yellowshange.com.caveDragonSex", 2);
+            }
         }
 
         public static void UpdateTips()
