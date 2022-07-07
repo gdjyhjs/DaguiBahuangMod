@@ -214,7 +214,7 @@ namespace FixData
                 foreach (var v in g.data.map.allGridMonst)
                 {
                     var data = v;
-                    if (v.value.id != 0 && g.conf.worldFortuitousEventBase.GetItem(v.value.id) == null)
+                    if (v.value.id != 0 && g.conf.dungeonBase.GetItem(v.value.id) == null)
                     {
                         cq5.Add(new Action(() =>
                         {

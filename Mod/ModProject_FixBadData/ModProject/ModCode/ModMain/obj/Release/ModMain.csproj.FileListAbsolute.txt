@@ -21,3 +21,9 @@ C:\yellow\soft\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_M60S96\FixD
 C:\yellow\soft\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_M60S96\FixData.pdb
 C:\yellow\soft\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_M60S96\ModCode\dll\FixData.dll
 C:\yellow\soft\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_M60S96\ModCode\dll\FixData.pdb
+F:\steam\steamapps\workshop\content\1468810\2831402551\ModCode\dll\FixData.dll
+F:\steam\steamapps\workshop\content\1468810\2831402551\ModCode\dll\FixData.pdb
+E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_FixBadData\ModProject\ModCode\ModMain\obj\Release\ModMain.csproj.AssemblyReference.cache
+E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_FixBadData\ModProject\ModCode\ModMain\obj\Release\ModMain.csproj.CoreCompileInputs.cache
+E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_FixBadData\ModProject\ModCode\ModMain\obj\Release\FixData.dll
+E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_FixBadData\ModProject\ModCode\ModMain\obj\Release\FixData.pdb
