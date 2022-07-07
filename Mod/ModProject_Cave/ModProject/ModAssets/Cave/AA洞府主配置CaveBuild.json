@@ -1,23 +1,23 @@
 [
   {
     "id": 100, //牌匾
-    "condition": "0",//点击建筑判断的条件A
-    "function": "class_Cave_Cave.BuildFunction.BuildName",//打开洞府改名界面
-    "failfuntion": "",//点击建筑执行的功能（需要条件A不成立
+    "condition": "0", //点击建筑判断的条件A
+    "function": "class_Cave_Cave.BuildFunction.BuildName", //打开洞府改名界面
+    "failfuntion": "", //点击建筑执行的功能（需要条件A不成立
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveTips100", //鼠标指向提示文本
-    "exitfuntion": "closeUI_SkyTip",//自动关闭文本提示的UI
-    "createfuntion": "",//创建建筑时的功能
-    "type": 3,//建筑类型
-    "price": 1000,//购买建筑的价格（灵石）
-    "name": "caveName100",//建筑名字（需要连接到Patch中的LocalText.json文件）
-    "hideName": true,//是否隐藏建筑名称（填 true 或 false ）
-    "atlas": "NPCInfoCommon",//建筑默认显示的图片所在图集名称
-    "image": "daoxinmingzikuang",//建筑默认显示的图片名称
-    "effect": [],//特效，是一个string数组
-    "maxLevel": 0,//建筑最大等级（只有不可重复购买的建筑可用，否则填1）
-    "maxCount": 2,//该建筑可购买的最大数量（只有不可升级的建筑可用，否则填1）
-    "upgradeMoney": [],//升级费用，是一个int数组
-    "des": "caveDes100"//建筑描述（需要连接到Patch中的LocalText.json文件）
+    "exitfuntion": "closeUI_SkyTip", //自动关闭文本提示的UI
+    "createfuntion": "", //创建建筑时的功能
+    "type": 3, //建筑类型
+    "price": 1000, //购买建筑的价格（灵石）
+    "name": "caveName100", //建筑名字（需要连接到Patch中的LocalText.json文件）
+    "hideName": true, //是否隐藏建筑名称（填 true 或 false ）
+    "atlas": "NPCInfoCommon", //建筑默认显示的图片所在图集名称
+    "image": "daoxinmingzikuang", //建筑默认显示的图片名称
+    "effect": [], //特效，是一个string数组
+    "maxLevel": 0, //建筑最大等级（只有不可重复购买的建筑可用，否则填1）
+    "maxCount": 2, //该建筑可购买的最大数量（只有不可升级的建筑可用，否则填1）
+    "upgradeMoney": [], //升级费用，是一个int数组
+    "des": "caveDes100" //建筑描述（需要连接到Patch中的LocalText.json文件）
   },
   {
     "id": 2008,
@@ -35,7 +35,7 @@
     "effect": [],
     "maxLevel": 4,
     "maxCount": 1,
-    "upgradeMoney": [200000, 300000, 500000, 800000],
+    "upgradeMoney": [ 200000, 300000, 500000, 800000 ],
     "des": "caveDes2008"
   },
   {
@@ -54,7 +54,7 @@
     "effect": [],
     "maxLevel": 4,
     "maxCount": 1,
-    "upgradeMoney": [200000, 300000, 500000, 800000],
+    "upgradeMoney": [ 200000, 300000, 500000, 800000 ],
     "des": "caveDes2009"
   },
   {
@@ -73,7 +73,7 @@
     "effect": [],
     "maxLevel": 1,
     "maxCount": 1,
-    "upgradeMoney": [200000],
+    "upgradeMoney": [ 200000 ],
     "des": "caveDes2011"
   },
   {
@@ -92,7 +92,7 @@
     "effect": [],
     "maxLevel": 1,
     "maxCount": 1,
-    "upgradeMoney": [80000],
+    "upgradeMoney": [ 80000 ],
     "des": "caveDes1007"
   },
   {
@@ -111,7 +111,7 @@
     "effect": [],
     "maxLevel": 4,
     "maxCount": 1,
-    "upgradeMoney": [200000, 300000, 500000, 800000],
+    "upgradeMoney": [ 200000, 300000, 500000, 800000 ],
     "des": "caveDes1006"
   },
   {
@@ -130,7 +130,7 @@
     "effect": [],
     "maxLevel": 1,
     "maxCount": 1,
-    "upgradeMoney": [150000],
+    "upgradeMoney": [ 150000 ],
     "des": "caveDes1005"
   },
   {
@@ -150,13 +150,13 @@
     "effect": [],
     "maxLevel": 0,
     "maxCount": 1,
-    "upgradeMoney": [200000, 300000, 500000, 800000],
+    "upgradeMoney": [ 200000, 300000, 500000, 800000 ],
     "des": "caveDes3002"
   },
   {
     "id": 3003,
     "condition": "0",
-    "function": "class_Cave_Cave.BuildFunction.BuildBedroom",//打开闲楼界面
+    "function": "class_Cave_Cave.BuildFunction.BuildBedroom", //打开闲楼界面
     "failfuntion": "",
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3003", //正房
     "exitfuntion": "closeUI_SkyTip",
@@ -169,13 +169,13 @@
     "effect": [],
     "maxLevel": 0,
     "maxCount": 1,
-    "upgradeMoney": [100000],
+    "upgradeMoney": [ 100000 ],
     "des": "caveDes3003"
   },
   {
     "id": 4004,
     "condition": "0",
-    "function": "class_Cave_Cave.BuildFunction.BuildGuest",//打开厢房界面
+    "function": "class_Cave_Cave.BuildFunction.BuildGuest", //打开厢房界面
     "failfuntion": "",
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes4004", //客房
     "exitfuntion": "closeUI_SkyTip",
@@ -189,7 +189,16 @@
     "maxLevel": 100,
     "maxCount": 1,
     "upgradeMoney": [
-      10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000
+      10000,
+      20000,
+      30000,
+      40000,
+      50000,
+      60000,
+      70000,
+      80000,
+      90000,
+      100000
     ],
     "des": "caveDes4004"
   },
@@ -198,7 +207,7 @@
     "condition": "0",
     "function": "class_Cave_Cave.BuildFunction.BuildName",
     "failfuntion": "",
-    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes101", 
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes101",
     "exitfuntion": "closeUI_SkyTip",
     "type": 3,
     "price": 2000,
@@ -217,7 +226,7 @@
     "condition": "0",
     "function": "class_Cave_Cave.BuildFunction.BuildName",
     "failfuntion": "",
-    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes104", 
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes104",
     "exitfuntion": "closeUI_SkyTip",
     "type": 3,
     "price": 20000,
@@ -236,7 +245,7 @@
     "condition": "0",
     "function": "class_Cave_Cave.BuildFunction.BuildName",
     "failfuntion": "",
-    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes105", 
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes105",
     "exitfuntion": "closeUI_SkyTip",
     "type": 3,
     "price": 200000,
@@ -244,7 +253,7 @@
     "hideName": true,
     "atlas": "Common",
     "image": "daohaodi_1",
-    "effect": ["Effect/UI/daohao_texiano"],
+    "effect": [ "Effect/UI/daohao_texiano" ],
     "maxLevel": 0,
     "maxCount": 2,
     "upgradeMoney": [],
@@ -269,5 +278,29 @@
     "maxCount": 1, //该建筑可购买的最大数量（只有不可升级的建筑可用，否则填1）
     "upgradeMoney": [], //升级费用，是一个int数组
     "des": "caveDes42685182" //建筑描述（需要连接到Patch中的LocalText.json文件）
+  },
+  {
+    "id": 3001,
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.BuildFarm",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes105",
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 3,
+    "price": 100000,
+    "name": "caveName3001",
+    "hideName": false,
+    "atlas": "CommonTaoistHeartIcom",
+    "image": "wanxiang_3",
+    "effect": [],
+    "maxLevel": 20,
+    "maxCount": 1,
+    "upgradeMoney": [
+      200000,
+      300000,
+      500000,
+      800000
+    ],
+    "des": "caveDes105"
   }
 ]

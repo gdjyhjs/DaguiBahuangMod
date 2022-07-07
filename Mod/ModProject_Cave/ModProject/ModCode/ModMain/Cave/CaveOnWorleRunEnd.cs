@@ -22,7 +22,7 @@ namespace Cave
             }
 
             var point = data.GetPoint();
-            int idx = 0;
+            //int idx = 0;
 
             Dictionary<string, CaveNpcData> npcDatas = new Dictionary<string, CaveNpcData>(data.npcDatas);
             foreach (KeyValuePair<string, CaveNpcData> item in npcDatas)

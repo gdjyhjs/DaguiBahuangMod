@@ -177,9 +177,6 @@ namespace Cave.Team
                 }
 
 
-
-
-
                 Action updateText = () =>
                 {
                     string stateStr = DataTeam.battleUnits.Contains(unit.data.unitData.unitID) ? "<color=red>出战中</color>" : "备战中";

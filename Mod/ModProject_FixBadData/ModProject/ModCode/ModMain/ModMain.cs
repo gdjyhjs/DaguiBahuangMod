@@ -47,7 +47,8 @@ namespace FixData
             try
             {
                 List<string> message = new List<string>();
-                int fixID = 0, schoolCount = 0, propCount = 0, eventCount = 0, monstCount = 0, taskCount = 0, luckCount = 0, logCount = 0;
+                int fixID = 0, schoolCount = 0, propCount = 0, eventCount = 0, monstCount = 0, taskCount = 0, luckCount = 0, logCount = 0
+                    , gradeCount = 0, heartCountCount = 0;
                 {
                     Console.WriteLine("// 修补错误的宗门数据");
                     for (int x = 0; x < g.data.grid.mapWidth; x++)
@@ -98,6 +99,20 @@ namespace FixData
                         DataUnit.UnitInfoData unitData = item.Value;
                         bool isPlayer = g.data.world.playerUnitID == unitData.unitID;
                         string unitName = unitData.propertyData.GetName();
+                        // 境界
+                        if (g.conf.roleGrade.GetItem(unitData.propertyData.gradeID) == null)
+                        {
+                            message.Add((++fixID) + unitName + " 修复境界错误 " + unitData.propertyData.gradeID);
+                            gradeCount++;
+                            unitData.propertyData.gradeID = 1;
+                        }
+                        // 天骄
+                        if (unitData.heart.state == DataUnit.TaoistHeart.HeartState.Complete && g.conf.npcHeroesBas.GetItem(unitData.heart.heroesSkillGroupID) == null)
+                        {
+                            message.Add((++fixID) + unitName + " 修复天骄错误 " + unitData.heart.heroesSkillGroupID);
+                            heartCountCount++;
+                            unitData.heart.heroesSkillGroupID = g.conf.npcHeroesBas.allConfBase[CommonTool.Random(0, g.conf.npcHeroesBas.allConfBase.Count)].id;
+                        }
                         // 删除背包不存在的道具
                         CallQueue cq1 = new CallQueue();
                         foreach (var v in unitData.propData.allProps)
@@ -286,7 +301,11 @@ namespace FixData
 
                 if (message.Count > 0)
                 {
-                    message.Insert(0, $"检测到存档已损坏，自动修补了{fixID}条数据：\n修复{schoolCount}条宗门数据\n清除{propCount}个道具\n清除{luckCount}条气运\n清除{taskCount}个任务\n清除{eventCount}个事件\n修复详情如下：");
+                    string str = $"检测到存档已损坏，自动修补了{fixID}条数据："
+                        + $"\n修复{gradeCount}条境界错误\n修复{heartCountCount}天骄错误"
+                        + $"\n修复{schoolCount}条宗门数据\n清除{propCount}个道具\n清除{luckCount}条气运\n清除{taskCount}个任务\n清除{eventCount}个事件\n清除{monstCount}个副本\n清除{logCount}条错误生平记事\n修复详情如下：";
+                    Console.WriteLine(str);
+                    message.Insert(0, str);
                     g.events.On(EGameType.OneOpenUIEnd(UIType.MapMain), new Action(() =>
                     {
                         g.ui.OpenUI<UITextInfoLong>(UIType.TextInfoLong).InitData("修补存档", string.Join("\n", message));
