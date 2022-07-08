@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using Cave.Patch;
 using Cave;
 using Newtonsoft.Json;
+using UnityEngine.EventSystems;
 
 namespace Cave.BuildFunction
 {
@@ -35,11 +36,11 @@ namespace Cave.BuildFunction
             301101,301201,310101,310201,310301,310401,310501,310601,360101,360201,360301,360302,360401,360402,360403,360404,360405,232501,232401,240101,240201,240301,
             240401,200001,110101,120101,80401,17701,140501,140601,140701,190201,182101,211601,211602,212001,212002,510019,160101
         };
-        GameObject barrierPrefab;
-        int barrierCreateID;
-        GameObject clickDestroyBarrierb;
-        GameObject destroyBarrierb;
-        bool isEnterPanel;
+        GameObject barrierPrefab; // 要创建的障碍物预制件
+        int barrierCreateID; // 要创建的障碍物ID
+        GameObject clickDestroyBarrierb; // 点击将删除的障碍物
+        GameObject destroyBarrierb; // 正准备删除的障碍物
+        bool isEnterPanel; // 鼠标是否划入面板
 
         // 初始化灵田    
         public override void Init(string param)
@@ -131,11 +132,11 @@ namespace Cave.BuildFunction
         private void OnUpdate()
         {
             int op = operate;
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyUp(KeyCode.F))
             {
                 op = op == 1 ? 0 : 1;
             }
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyUp(KeyCode.G))
             {
                 op = op == 2 ? 0 : 2;
             }
@@ -164,13 +165,20 @@ namespace Cave.BuildFunction
             {
                 Vector3 pos = SceneType.battle.camera.ScreenToWorldPoint(Input.mousePosition);
                 barrierPrefab.transform.position = pos;
-                if (!isEnterPanel && Input.GetMouseButtonDown(0))
+                if (!isEnterPanel && Input.GetMouseButtonUp(0))
                 {
-                    var data = new DecorateMgr.DecorateData(barrierCreateID, pos.x, pos.y);
-                    decorateMgr.decorateList.Add(data);
-                    decorateMgr.CreateDecorate(data);
+                    int id = barrierCreateID;
+                    SceneType.battle.timer.Frame(new Action(() =>
+                    {
+                        if (id == barrierCreateID)
+                        {
+                            var data = new DecorateMgr.DecorateData(barrierCreateID, pos.x, pos.y);
+                            decorateMgr.decorateList.Add(data);
+                            decorateMgr.CreateDecorate(data);
+                        }
+                    }), 2);
                 }
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonUp(1))
                 {
                     GameObject.Destroy(barrierPrefab);
                 }
@@ -221,7 +229,7 @@ namespace Cave.BuildFunction
                     //SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, value));
                 }
 
-                if (!isEnterPanel && Input.GetMouseButtonDown(0))
+                if (!isEnterPanel && Input.GetMouseButtonUp(0))
                 {
                     if (destroyBarrierb != null)
                     {
@@ -235,7 +243,7 @@ namespace Cave.BuildFunction
 
                     }
                 }
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonUp(1))
                 {
                     if (clickDestroyBarrierb != null)
                     {
@@ -243,6 +251,24 @@ namespace Cave.BuildFunction
                     }
                 }
             }
+        }
+
+        private bool IsMouseOverUIWithIgnores()
+        {
+            PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+            pointerEventData.position = Input.mousePosition;
+
+          Il2CppSystem.Collections.Generic.  List<RaycastResult> raycastResultList = new Il2CppSystem.Collections.Generic.List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerEventData, raycastResultList);
+            for (int i = 0; i < raycastResultList.Count; i++)
+            {
+                if (raycastResultList[i].gameObject != null)
+                {
+                    raycastResultList.RemoveAt(i);
+                    i--;
+                }
+            }
+            return raycastResultList.Count > 0;
         }
 
         private void CreateOperateUI(float value)
@@ -271,29 +297,29 @@ namespace Cave.BuildFunction
                     break;
                 case 2:
                     {
-                        var ui = g.ui.GetUI<UIBattleInfo>(UIType.BattleInfo);
-                        if (ui != null)
-                        {
-                            var panel = new UIBarrierDestroy(ui.transform, new Vector2(-580, 0), decorateMgr.decorateList);
-                            listObj = panel.bg.GetComponent<RectTransform>();
-                            listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = value;
-                            panel.clickCall = (go, data) =>
-                            {
-                                if (destroyBarrierb != null)
-                                {
-                                    SetBarrierbColor(destroyBarrierb, new Color(1,1,1,1));
-                                }
-                                if (decorateMgr.decorates.TryGetValue(data.GetHashCode(), out destroyBarrierb))
-                                {
-                                    clickDestroyBarrierb = destroyBarrierb;
-                                }
-                                else
-                                {
-                                    destroyBarrierb = null;
-                                    clickDestroyBarrierb = null;
-                                }
-                            };
-                        }
+                        //var ui = g.ui.GetUI<UIBattleInfo>(UIType.BattleInfo);
+                        //if (ui != null)
+                        //{
+                        //    var panel = new UIBarrierDestroy(ui.transform, new Vector2(-580, 0), decorateMgr.decorateList);
+                        //    listObj = panel.bg.GetComponent<RectTransform>();
+                        //    listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = value;
+                        //    panel.clickCall = (go, data) =>
+                        //    {
+                        //        if (destroyBarrierb != null)
+                        //        {
+                        //            SetBarrierbColor(destroyBarrierb, new Color(1,1,1,1));
+                        //        }
+                        //        if (decorateMgr.decorates.TryGetValue(data.GetHashCode(), out destroyBarrierb))
+                        //        {
+                        //            clickDestroyBarrierb = destroyBarrierb;
+                        //        }
+                        //        else
+                        //        {
+                        //            destroyBarrierb = null;
+                        //            clickDestroyBarrierb = null;
+                        //        }
+                        //    };
+                        //}
                     }
                     break;
             }
