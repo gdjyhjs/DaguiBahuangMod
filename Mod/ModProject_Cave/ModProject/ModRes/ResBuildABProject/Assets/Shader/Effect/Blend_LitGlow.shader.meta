@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 68f568f887edc9d449e3a18dafbe5027
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: assets/shader/effect/blend_litglow.shader.ab
+  assetBundleVariant: 

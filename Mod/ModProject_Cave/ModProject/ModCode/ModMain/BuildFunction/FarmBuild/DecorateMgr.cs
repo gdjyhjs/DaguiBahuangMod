@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace Cave
@@ -20,11 +21,15 @@ namespace Cave
                 this.y = y;
             }
         }
+
         public static string barrierPath = "Battle/ScenesUnit/Barrier/";
+        public static Dictionary<int, int> decoratePrice = new Dictionary<int, int>();
+
         public List<DecorateData> decorateList = new List<DecorateData>();
         public Dictionary<int, GameObject> decorates = new Dictionary<int, GameObject>();
         public Dictionary<GameObject, DecorateData> decorateRecord = new Dictionary<GameObject, DecorateData>();
         public List<Action> operateRecord = new List<Action>();
+
 
         public void Init(string decorate)
         {
@@ -98,6 +103,34 @@ namespace Cave
         public void DestroyDecorate(GameObject obj)
         {
             var data = decorateRecord[obj];
+            int price = 1000;
+            if (decoratePrice.ContainsKey(data.id))
+            {
+                price = decoratePrice[data.id];
+            }
+            else
+            {
+                try
+                {
+                    Image img = obj.transform.Find("img").GetComponent<Image>();
+                    try
+                    {
+                        price = Mathf.CeilToInt(img.sprite.texture.width * img.sprite.texture.width * 0.1f);
+                        decoratePrice.Add(data.id, price);
+                    }
+                    catch (Exception)
+                    {
+                        price = 1000;
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+            int value = Mathf.FloorToInt(price * 0.8f);
+            g.world.playerUnit.data.CostPropItem(PropsIDType.Money, -value);
+            SceneType.battle.battleMap.playerUnitCtrl.AddUnitTextTip("灵石 +"+ value);
+
             decorates.Remove(data.GetHashCode());
             decorateList.Remove(data);
             GameObject.Destroy(obj);

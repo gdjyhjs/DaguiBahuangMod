@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 5e1b561ee80cda847877ac01aff4ff95
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: assets/shader/advanceshader/xft_displacement_screen.shader.ab
+  assetBundleVariant: 

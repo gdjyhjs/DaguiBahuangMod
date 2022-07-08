@@ -17,15 +17,17 @@ namespace Cave.BuildFunction
     public class BuildFarm : ClassBase
     {
         public const int prisonerLuckId = 123010217; // 囚犯气运ID
+        List<WorldUnitBase> units = new List<WorldUnitBase>(); // 被关押的单位
         UIBattleInfo uiBase;
         DataFram data;
-        List<WorldUnitBase> units = new List<WorldUnitBase>(); // 被关押的单位
+
         private Vector2 playerBronPoint = new Vector2(2.6f, 9.2f); // 玩家出生点
         private Vector2 tranPoint = new Vector2(1.0f, 9.2f); // 传送阵点
         private DecorateMgr decorateMgr = new DecorateMgr();
 
         int operate = 0; // 1:布置摆件 2:移除摆件
         RectTransform listObj;
+        float defVerticalNormalizedPosition = 0;
         List<int> allBarrierID;
         List<int> ignoreBarrierID = new List<int>()
         {
@@ -36,11 +38,19 @@ namespace Cave.BuildFunction
             301101,301201,310101,310201,310301,310401,310501,310601,360101,360201,360301,360302,360401,360402,360403,360404,360405,232501,232401,240101,240201,240301,
             240401,200001,110101,120101,80401,17701,140501,140601,140701,190201,182101,211601,211602,212001,212002,510019,160101
         };
+        private Vector2[] farmPoints = new Vector2[] // 所有灵田坑位的位置
+        {
+            new Vector2(7,1.8f),new Vector2(17,1.8f),new Vector2(27,1.8f),new Vector2(37,1.8f),
+            new Vector2(11.8f,5),new Vector2(21.8f,5),new Vector2(31.8f,5),new Vector2(41.8f,5),
+            new Vector2(7,13.4f),new Vector2(17,13.4f),new Vector2(27,13.4f),new Vector2(37,13.4f),
+            new Vector2(11.8f,16.4f),new Vector2(21.8f,16.4f),new Vector2(31.8f,16.4f),new Vector2(41.8f,16.4f),
+        };
         GameObject barrierPrefab; // 要创建的障碍物预制件
         int barrierCreateID; // 要创建的障碍物ID
         GameObject clickDestroyBarrierb; // 点击将删除的障碍物
         GameObject destroyBarrierb; // 正准备删除的障碍物
         bool isEnterPanel; // 鼠标是否划入面板
+        float createNextTime = 0; // 下一个装饰可创建时间
 
         // 初始化灵田    
         public override void Init(string param)
@@ -78,7 +88,7 @@ namespace Cave.BuildFunction
             g.world.battle.IntoBattle(new DataMap.MonstData() { id = 42685182, level = 1 });
         }
 
-        List<UnitCtrlBase> allFram = new List<UnitCtrlBase>(); // 所以的灵田单位
+        List<GameObject> allFram = new List<GameObject>(); // 所以的灵田单位
         List<UnitCtrlBase> allUnits = new List<UnitCtrlBase>(); // 所以的关押单位
         private void OnBattleStart(ETypeData e)
         {
@@ -115,6 +125,25 @@ namespace Cave.BuildFunction
             InitFarm();
             Cave.Log("初始化灵田B");
         }
+
+        private void InitFarmUI()
+        {
+            if (data.open == 0)
+            {
+                Cave.OpenDrama("第一次来灵田吧！我来给你简单介绍一下灵田的使用方法。", new Action(() =>
+                {
+                    Cave.OpenDrama("在灵田中种下灵果之后可成长为灵树，灵树没过一段时间可结出灵果，灵气越高需要的成熟结果时间越短。", new Action(() =>
+                    {
+                        Cave.OpenDrama("按F键可以打开装饰列表，选择装饰后可以点击装饰到合适的位置。按G键可进入回收模式，点击装饰可拆除回收。", new Action(() =>
+                        {
+                            Cave.OpenDrama("当然所有装饰都是要收费的，拆除时按照80%价格回收。");
+                        }));
+                    }));
+                }));
+            }
+            data.open++;
+        }
+
         // 清空玩家效果 
         private void ClearPlayerEffects()
         {
@@ -131,6 +160,12 @@ namespace Cave.BuildFunction
 
         private void OnUpdate()
         {
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                Patch_PointResourcesMgr_OnSchoolAction.Grow(data);
+                UpdateAllCrop();
+            }
+
             int op = operate;
             if (Input.GetKeyUp(KeyCode.F))
             {
@@ -140,47 +175,55 @@ namespace Cave.BuildFunction
             {
                 op = op == 2 ? 0 : 2;
             }
+            if (op == 2 && Input.GetMouseButtonDown(1))
+            {
+                op = 0;
+            }
             if (op != operate)
             {
                 operate = op;
                 CreateOperateUI(0);
             }
-            if (listObj != null)
-            {
-                var x = SceneType.battle.battleMap.playerUnitCtrl.move.lastPosi.x;
-                if (x < 10 && listObj.anchoredPosition.x < 0)
-                {
-                    listObj.anchoredPosition = new Vector2(580, 0);
-                }
-                if (x > 40 && listObj.anchoredPosition.x > 0)
-                {
-                    listObj.anchoredPosition = new Vector2(-580, 0);
-                }
-            }
             if (op != 1 && barrierPrefab != null)
             {
                 GameObject.Destroy(barrierPrefab);
+                GameTool.SetCursor(g.data.globle.gameSetting.cursorMap, g.data.globle.gameSetting.cursorMapLed);
             }
             if (barrierPrefab != null)
             {
                 Vector3 pos = SceneType.battle.camera.ScreenToWorldPoint(Input.mousePosition);
                 barrierPrefab.transform.position = pos;
-                if (!isEnterPanel && Input.GetMouseButtonUp(0))
+                if (!isEnterPanel && Input.GetMouseButton(0) && Time.time > createNextTime)
                 {
-                    int id = barrierCreateID;
-                    SceneType.battle.timer.Frame(new Action(() =>
+                    // 判断价格 装饰物
+                    int price = 1000;
+                    if (DecorateMgr.decoratePrice.ContainsKey(barrierCreateID))
                     {
-                        if (id == barrierCreateID)
-                        {
-                            var data = new DecorateMgr.DecorateData(barrierCreateID, pos.x, pos.y);
-                            decorateMgr.decorateList.Add(data);
-                            decorateMgr.CreateDecorate(data);
-                        }
-                    }), 2);
+                        price = DecorateMgr.decoratePrice[barrierCreateID];
+                    }
+                    int money = g.world.playerUnit.data.unitData.propData.GetPropsNum((int)PropsIDType.Money);
+                    if (money < price)
+                    {
+                        UITipItem.AddTip("灵石不足！");
+                    }
+                    else
+                    {
+                        g.world.playerUnit.data.CostPropItem(PropsIDType.Money, price);
+                        SceneType.battle.battleMap.playerUnitCtrl.AddUnitTextTip("灵石 -" + price);
+                        createNextTime = Time.time + 0.1f;
+                        var data = new DecorateMgr.DecorateData(barrierCreateID, pos.x, pos.y);
+                        decorateMgr.decorateList.Add(data);
+                        decorateMgr.CreateDecorate(data);
+                    }
+                }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    createNextTime = 0;
                 }
                 if (Input.GetMouseButtonUp(1))
                 {
                     GameObject.Destroy(barrierPrefab);
+                    GameTool.SetCursor(g.data.globle.gameSetting.cursorMap, g.data.globle.gameSetting.cursorMapLed);
                 }
             }
             if (op == 2)
@@ -237,7 +280,7 @@ namespace Cave.BuildFunction
                         destroyBarrierb = null;
                         clickDestroyBarrierb = null;
                         if(listObj == null)
-                            CreateOperateUI(0);
+                            CreateOperateUI(defVerticalNormalizedPosition);
                         else
                             CreateOperateUI(listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition);
 
@@ -253,31 +296,20 @@ namespace Cave.BuildFunction
             }
         }
 
-        private bool IsMouseOverUIWithIgnores()
-        {
-            PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-            pointerEventData.position = Input.mousePosition;
-
-          Il2CppSystem.Collections.Generic.  List<RaycastResult> raycastResultList = new Il2CppSystem.Collections.Generic.List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerEventData, raycastResultList);
-            for (int i = 0; i < raycastResultList.Count; i++)
-            {
-                if (raycastResultList[i].gameObject != null)
-                {
-                    raycastResultList.RemoveAt(i);
-                    i--;
-                }
-            }
-            return raycastResultList.Count > 0;
-        }
-
         private void CreateOperateUI(float value)
         {
+            if (destroyBarrierb != null)
+            {
+                SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
+                destroyBarrierb = null;
+            }
             if (listObj != null)
             {
+                defVerticalNormalizedPosition = listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition;
                 GameObject.Destroy(listObj.gameObject);
                 listObj = null;
             }
+            GameTool.SetCursor(g.data.globle.gameSetting.cursorMap, g.data.globle.gameSetting.cursorMapLed);
             switch (operate)
             {
                 case 1:
@@ -285,41 +317,24 @@ namespace Cave.BuildFunction
                         var ui = g.ui.GetUI<UIBattleInfo>(UIType.BattleInfo);
                         if (ui != null)
                         {
-                            var panel = new UIBarrierList(ui.transform, new Vector2(-580, 0), allBarrierID);
+                            var panel = new UIBarrierList(ui.transform, allBarrierID);
                             listObj = panel.bg.GetComponent<RectTransform>();
                             panel.clickCall = (go, id) =>
                             {
+                                if (barrierPrefab != null) {
+                                    GameObject.Destroy(barrierPrefab);
+                                }
+
                                 barrierPrefab = decorateMgr.CreateDecorate(go, id);
                                 barrierCreateID = id;
+                                GameTool.SetCursor("touqieshubiao", "touqieshubiao");
                             };
                         }
                     }
                     break;
                 case 2:
                     {
-                        //var ui = g.ui.GetUI<UIBattleInfo>(UIType.BattleInfo);
-                        //if (ui != null)
-                        //{
-                        //    var panel = new UIBarrierDestroy(ui.transform, new Vector2(-580, 0), decorateMgr.decorateList);
-                        //    listObj = panel.bg.GetComponent<RectTransform>();
-                        //    listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = value;
-                        //    panel.clickCall = (go, data) =>
-                        //    {
-                        //        if (destroyBarrierb != null)
-                        //        {
-                        //            SetBarrierbColor(destroyBarrierb, new Color(1,1,1,1));
-                        //        }
-                        //        if (decorateMgr.decorates.TryGetValue(data.GetHashCode(), out destroyBarrierb))
-                        //        {
-                        //            clickDestroyBarrierb = destroyBarrierb;
-                        //        }
-                        //        else
-                        //        {
-                        //            destroyBarrierb = null;
-                        //            clickDestroyBarrierb = null;
-                        //        }
-                        //    };
-                        //}
+                        GameTool.SetCursor("chaichuzhuangshi1", "chaichuzhuangshi");
                     }
                     break;
             }
@@ -332,15 +347,17 @@ namespace Cave.BuildFunction
                 var ui_event = listObj.gameObject.AddComponent<UIEventListener>();
                 Action onEnter = () =>
                 {
-                    DG.Tweening.ShortcutExtensions.DOKill(cg);
-                    var tween = DG.Tweening.ShortcutExtensions46.DOFade(cg, 1, 0.1f);
-                    isEnterPanel = true;
+                    if (createNextTime == 0)
+                    {
+                        isEnterPanel = true;
+                    }
                 };
                 Action onExit = () =>
                 {
-                    DG.Tweening.ShortcutExtensions.DOKill(cg);
-                    var tween = DG.Tweening.ShortcutExtensions46.DOFade(cg, 0.5f, 0.1f);
-                    isEnterPanel = false;
+                    if (createNextTime == 0)
+                    {
+                        isEnterPanel = false;
+                    }
                 };
                 ui_event.onMouseEnter.AddListener(onEnter);
                 ui_event.onMouseExit.AddListener(onExit);
@@ -349,7 +366,6 @@ namespace Cave.BuildFunction
 
         private void SetBarrierbColor(GameObject barrierb, Color color)
         {
-            //Cave.Log(color.r + "," + color.g + "." + color.b + "," + color.a);
             var sprites = barrierb.GetComponentsInChildren<SpriteRenderer>();
             foreach (var item in sprites)
             {
@@ -366,7 +382,6 @@ namespace Cave.BuildFunction
                 Cave.Log("初始化灵田");
                 g.ui.GetUI<UIBattleInfo>(UIType.BattleInfo).startBattle.btnStart.onClick.Invoke();
 
-                allFram.Clear();
                 allUnits.Clear();
 
                 // 玩家位置
@@ -416,49 +431,128 @@ namespace Cave.BuildFunction
                 }
 
                 // 药田位置
-                //int line = 4;
-                int low = 5;
                 startPoint = SceneType.battle.battleMap.roomCenterPosi + new Vector2(-20, -6);
 
-                Cave.Log("灵田数量：" + data.data.Count);
-                for (int i = 0; i < data.data.Count; i++)
-                {
-                    DataFramItem framData = data.data[i];
-                    int idx = i;
-                    Action onCollect = () =>
-                    {
-                        //Cave.Log(idx + " 互动3");
-                    };
-
-                    int monstId = 8027;
-                    Vector2 resPoint = startPoint + new Vector2(i / low * 8, i % low * 4);
-                    UnitCtrlBase fram = SceneType.battle.unit.CreateNPC(
-                     resPoint,
-                        monstId, onCollect, UnitType.NPC, true);
-
-                    BattleDialogueCtrl dialogueCtrl = fram.gameObject.GetComponent<BattleDialogueCtrl>();
-                    dialogueCtrl.isHideDownKeyEffect = true;
-                    dialogueCtrl.downKeyDuration = 1;
-
-                    Action onDownContinueKeyCall = () =>
-                    {
-                        //Cave.Log(idx + " 互动1");
-                        OperateFram(framData, fram);
-                    };
-                    dialogueCtrl.onDownContinueKeyCall = onDownContinueKeyCall;
-
-                    //Action onEndContinueKeyCall = () =>
-                    //{
-                    //    Cave.Log(idx + " 互动2");
-                    //};
-                    //dialogueCtrl.onEndContinueKeyCall = onEndContinueKeyCall;
-
-                    allFram.Add(fram);
-                    //fram.transform.Find("Root/Body").localScale = new Vector3(GetHeight(framData), GetHeight(framData), GetHeight(framData));
-                }
+                UpdateAllCrop();
                 uiBase.info.goGroupRoot.SetActive(false);
+                InitFarmUI();
             };
             uiBase.AddCor(SceneType.battle.timer.Frame(battleFrame, 2));
+        }
+
+        private void UpdateAllCrop()
+        {
+            Cave.Log("灵田数量：" + data.data.Count);
+            for (int i = 0; i < farmPoints.Length; i++)
+            {
+                if (i >= data.data.Count)
+                {
+                    data.data.Add(new DataFramItem());
+                }
+                if (i >= allFram.Count)
+                {
+                    allFram.Add(CreateOneCrop(i, farmPoints[i]));
+                }
+                else
+                {
+                    GameObject.Destroy(allFram[i]);
+                    allFram[i] = CreateOneCrop(i, farmPoints[i]);
+                }
+            }
+        }
+
+
+        private GameObject CreateOneCrop(int idx, Vector2 point)
+        {
+            DataFramItem framData = data.data[idx];
+            string resPath;
+            string topTips;
+            Action<GameObject> growFruit = null;
+
+
+            string key = g.conf.gameKeyCode.GetKey(g.data.globle.key.battleDialogue);
+            topTips = "按" + key + "键进行操作";
+            ConfItemPropsItem item = g.conf.itemProps.GetItem(framData.itemID);
+            // 未播种 显示土坑
+            if (framData.itemID == 0 || item == null)
+            {
+                // 未播种 显示土坑
+                resPath = "ModPrefab/tukeng";
+            }
+            else
+            {
+                if (framData.progress >= 1)
+                {
+                    // 已成熟 收获农作物
+                    System.Random rand = new System.Random(framData.seed);
+                    resPath = "ModPrefab/shu" + rand.Next(1, 5);
+                    growFruit = (t) => GrowFruit(t, framData.itemID, framData.count, framData.seed);
+                }
+                else
+                {
+                    if (framData.progress == 0)
+                    {
+                        // 刚种下种子，填平土坑 
+                        resPath = "ModPrefab/tianping";
+                    }
+                    else
+                    {
+                        // 未成熟 小树苗
+                        resPath = "ModPrefab/shumiao";
+                    }
+                }
+            }
+            GameObject prefab = g.res.Load<GameObject>(resPath);
+            GameObject tree = GameObject.Instantiate(prefab);
+            tree.AddComponent<EffectAutoSortOrderCtrl>();
+            tree.transform.position = point;
+
+            // 添加交互脚本
+            BattleDialogueCtrl dialogueCtrl = tree.gameObject.AddComponent<BattleDialogueCtrl>();
+            Action onCall = () =>
+            {
+                OperateFram(framData);
+            };
+            dialogueCtrl.InitData(point, onCall, topTips, true, false);
+            dialogueCtrl.dialogueDis = 3f;
+            dialogueCtrl.goTip.transform.GetComponent<EffectLockScaleCtrl>().enabled = false; // 因为要修改文本大小，所以停用锁定大小的脚本
+            dialogueCtrl.goTip.transform.Find("baoxiangbg").localScale = new Vector3(1.5f, 1, 1); // 修改交互文本背景图大小
+            dialogueCtrl.goTip.transform.Find("baoxiangbg").localPosition = new Vector3(0.4f, 0, 1); // 修改交互文本背景图位置
+            growFruit?.Invoke(tree);
+            return tree;
+        }
+        // 让树上结出果实
+        private void GrowFruit(GameObject tree, int propID, int maxCount, int seed)
+        {
+            System.Random rand = new System.Random(seed);
+            int treeSortingOrder = tree.transform.Find("Body").GetComponent<SpriteRenderer>().sortingOrder;
+            List<SpriteRenderer> childs = new List<SpriteRenderer>(tree.transform.Find("Body/bone_1").GetComponentsInChildren<SpriteRenderer>());
+
+            int fruitCount = 0;
+            var propItem = g.conf.itemProps.GetItem(propID);
+            if (propItem == null)
+            {
+                Console.WriteLine("道具id不存在 = " + propItem);
+                return;
+            }
+            string iconName = propItem.icon;
+            Sprite sprite = SpriteTool.GetSprite("CommonPropIcon", iconName);
+            while (childs.Count > 0)
+            {
+                var child = childs[rand.Next(0, childs.Count)];
+                childs.Remove(child);
+                if (fruitCount < maxCount)
+                {
+                    child.gameObject.SetActive(true);
+                    child.sprite = sprite;
+                    fruitCount++;
+                    child.sortingOrder = treeSortingOrder + fruitCount;
+                }
+                else
+                {
+                    child.gameObject.SetActive(false);
+                }
+            }
         }
 
         // 进入房间结束
@@ -491,17 +585,16 @@ namespace Cave.BuildFunction
             // 设置离开传送法阵的位置
             SceneType.battle.battleMap.CreatePassLevelEffect(tranPoint, exitAction, null).isRepet = true;
             UIMask.GradientEffectToWhite();
-            Cave.Log("初始化装饰-" + data.decorate);
             decorateMgr.Init(data.decorate);
         }
 
         private void OnBattleEnd(ETypeData e)
         {
             data.decorate = decorateMgr.GetData();
-            Cave.Log("保存装饰-"+ data.decorate);
             DataFram.SaveData(data);
             g.events.On(EBattleType.BattleExit, new Action(()=>
             {
+                GameTool.SetCursor(g.data.globle.gameSetting.cursorMap, g.data.globle.gameSetting.cursorMapLed);
                 new MainCave();
             }), 1, true);
         }
@@ -518,13 +611,12 @@ namespace Cave.BuildFunction
 
         bool openFram = false;
         // 操作农田
-        private void OperateFram(DataFramItem framData, UnitCtrlBase fram)
+        private void OperateFram(DataFramItem framData)
         {
             if (openFram)
                 return;
             GameObject goInfo = CreateUI.NewImage();
 
-            Cave.Log("操作农田");
             openFram = true;
             GameObject go = CreateUI.NewImage();
             go.GetComponent<RectTransform>().sizeDelta = new Vector2(9999, 9999);
@@ -532,13 +624,11 @@ namespace Cave.BuildFunction
             go.GetComponent<Image>().color = new Color(0, 0, 0, 0.5f);
             go.name = "OperateFram";
 
-
             GameObject bg = CreateUI.NewImage(SpriteTool.GetSpriteBigTex("BG/huodebg")); // 背景图
             bg.GetComponent<Image>().type = Image.Type.Tiled;
             bg.transform.SetParent(go.transform, false);
             bg.GetComponent<RectTransform>().sizeDelta = new Vector2(350, 550);
             bg.GetComponent<RectTransform>().anchoredPosition = new Vector2(30, -60);
-
 
             GameObject tmpBtn = CreateUI.NewImage(SpriteTool.GetSprite("Common", "youxishezhi_1")); // 关闭按钮底图
             tmpBtn.transform.SetParent(go.transform, false);
@@ -559,7 +649,6 @@ namespace Cave.BuildFunction
 
             Action closeAction = () =>
             {
-                Cave.Log("关闭操作农田");
                 GameObject.Destroy(go);
                 openFram = false;
             };
@@ -578,7 +667,6 @@ namespace Cave.BuildFunction
 
                 Action upAction = () =>
                 {
-                    Cave.Log("升级操作农田");
                     int needMoney = 10000 * Mathf.CeilToInt(Mathf.Pow(framData.level, 2));
                     Action upLevelAction = () =>
                     {
@@ -591,28 +679,22 @@ namespace Cave.BuildFunction
                         g.world.playerUnit.data.CostPropItem(PropsIDType.Money, needMoney);
                         framData.level++;
                         closeAction();
-                        OperateFram(framData, fram);
-                        //fram.transform.Find("Root/Body").localScale = new Vector3(GetHeight(framData), GetHeight(framData), GetHeight(framData));
+                        OperateFram(framData);
                     };
                     g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData("升级提示", "确定花费" + needMoney + "灵石升级灵田？", 2, upLevelAction);
                 };
                 tmpBtn.AddComponent<Button>().onClick.AddListener(upAction);
             }
-            else
-
-                Cave.Log("当前道具：" + framData.itemID + "  种植进度：" + framData.progress);
 
             string str;
             ConfItemPropsItem item = g.conf.itemProps.GetItem(framData.itemID);
             if (item == null || framData.itemID == 0)
             {
-                Cave.Log("未种植灵种");
                 Action tmpAction = () =>
                 {
                     closeAction();
                     OperateCultivate(framData);
                 };
-
 
                 tmpBtn = CreateUI.NewImage(SpriteTool.GetSprite("Common", "daojukukuang_1"));
                 tmpBtn.transform.SetParent(go.transform, false);
@@ -623,99 +705,62 @@ namespace Cave.BuildFunction
                 tmpText.transform.SetParent(tmpBtn.transform, false);
                 tmpText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
                 tmpText.GetComponent<Text>().color = Color.black;
-
             }
             else
             {
-                str = GameTool.LS(item.name);
-                Cave.Log(((int)(framData.progress * 100)) + "成长中 " + GameTool.LS(item.name));
-                int aa = (int)(framData.progress * 100);
-                int bb = (int)(framData.progress * 1000) - aa * 10;
-                str = GameTool.LS(item.name) + " " + aa + "." + bb + "%";
-
+                str = GameTool.LS(item.name)+"树";
                 tmpText = CreateUI.NewText(str, new Vector2(250, 30));
                 tmpText.transform.SetParent(go.transform, false);
                 tmpText.GetComponent<RectTransform>().anchoredPosition = new Vector2(5, 5);
                 tmpText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
                 tmpText.GetComponent<Text>().color = Color.black;
 
-                tmpText = CreateUI.NewText("约" + Mathf.CeilToInt((1 - framData.progress) / (1f / BuildFarm.GetNeedTime(framData.level, item.level))) + "个月后结果", new Vector2(250, 30));
+                string str2;
+                if (framData.progress < 1)
+                {
+                    float need = item.worth * 10 - framData.lingqi;
+                    int month = Mathf.CeilToInt(need / DataFram.framLevelLingqi[framData.level]);
+                    str2 = "约" + month + "个月后成熟";
+                }
+                else
+                {
+                    float need = item.worth * 2;
+                    int month = Mathf.CeilToInt(need / DataFram.framLevelLingqi[framData.level]);
+                    str2 = "结果周期约" + month + "个月";
+                }
+
+                tmpText = CreateUI.NewText(str2, new Vector2(250, 30));
                 tmpText.transform.SetParent(go.transform, false);
                 tmpText.GetComponent<RectTransform>().anchoredPosition = new Vector2(5, -30);
                 tmpText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
                 tmpText.GetComponent<Text>().color = Color.black;
 
-                Action tmpAction = () => // 收获函数
+                if (framData.count > 0)
                 {
-                    closeAction();
-                    GainItem(framData);
-                };
+                    Action tmpAction = () => // 收获函数
+                    {
+                        closeAction();
+                        GainItem(framData);
+                    };
 
-                Action tmoAction2 = () =>
-                {
-                    g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData("提示", "是否立即收割" + framData.count + "颗" + GameTool.LS(item.name) + "？", 2, tmpAction);
-                };
+                    Action tmoAction2 = () =>
+                    {
+                        g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData("提示", "是否立即收割" + framData.count + "颗" + GameTool.LS(item.name) + "？", 2, tmpAction);
+                    };
 
+                    tmpBtn = CreateUI.NewImage(SpriteTool.GetSprite("Common", "daojukukuang_1"));
+                    tmpBtn.transform.SetParent(go.transform, false);
+                    tmpBtn.GetComponent<RectTransform>().anchoredPosition = new Vector2(5, 67);
 
-                tmpBtn = CreateUI.NewImage(SpriteTool.GetSprite("Common", "daojukukuang_1"));
-                tmpBtn.transform.SetParent(go.transform, false);
-                tmpBtn.GetComponent<RectTransform>().anchoredPosition = new Vector2(5, 67);
-
-
-                DataProps.PropsData propsData = DataProps.PropsData.NewProps(framData.itemID, framData.count);
-                propsData.propsCount = framData.count;
-                UIIconItemBase propItem = UIIconTool.CreatePropsIcon(g.world.playerUnit, propsData, tmpBtn.transform, 1f);
-                propItem.btnRootIcon.gameObject.SetActive(true);
-                propItem.btnRootIcon.onClick.RemoveAllListeners();
-                propItem.btnRootIcon.onClick.AddListener(tmoAction2);
+                    DataProps.PropsData propsData = DataProps.PropsData.NewProps(framData.itemID, framData.count);
+                    propsData.propsCount = framData.count;
+                    UIIconItemBase propItem = UIIconTool.CreatePropsIcon(g.world.playerUnit, propsData, tmpBtn.transform, 1f);
+                    propItem.btnRootIcon.gameObject.SetActive(true);
+                    propItem.btnRootIcon.onClick.RemoveAllListeners();
+                    propItem.btnRootIcon.onClick.AddListener(tmoAction2);
+                }
             }
         }
-        /*
-        同等级每年产出1-2颗
-        每个月增加的进度有20%随机偏移
-        */
-
-        public static int GetNeedTime(int framLevel, int itemLevel)
-        {
-            if (framLevel == itemLevel)
-            {
-                return 12;
-            }
-            if (framLevel == itemLevel + 1)
-            {
-                return 6;
-            }
-            if (framLevel == itemLevel + 2)
-            {
-                return 3;
-            }
-            if (framLevel == itemLevel + 3)
-            {
-                return 2;
-            }
-            if (framLevel > itemLevel + 3)
-            {
-                return 1;
-            }
-            if (framLevel + 1 == itemLevel)
-            {
-                return 24;
-            }
-            if (framLevel + 2 == itemLevel)
-            {
-                return 48;
-            }
-            if (framLevel + 3 == itemLevel)
-            {
-                return 96;
-            }
-            if (framLevel + 3 < itemLevel)
-            {
-                return 128;
-            }
-            return 12;
-        }
-
 
         // 选择种植
         private void OperateCultivate(DataFramItem framData)
@@ -739,10 +784,12 @@ namespace Cave.BuildFunction
                 Il2CppSystem.Collections.Generic.List<DataProps.PropsData> select = UIPropSelect.allSlectItems;
                 for (int i = 0; i < select.Count; i++)
                 {
-                    Cave.Log("选择道具：" + select[i].propsID);
                     framData.itemID = select[i].propsID;
                     framData.progress = 0;
-                    framData.count = 1;
+                    framData.count = 0;
+                    framData.lingqi = 0;
+                    framData.seed = CommonTool.Random(int.MinValue, int.MaxValue);
+                    UpdateAllCrop();
                 }
             };
 
@@ -757,10 +804,8 @@ namespace Cave.BuildFunction
             Il2CppSystem.Collections.Generic.List<GameItemRewardData> rewards = new Il2CppSystem.Collections.Generic.List<GameItemRewardData>();
             rewards.Add(rewardData);
             g.world.playerUnit.data.RewardItem(rewards);
-
-            framData.itemID = 0;
-            framData.progress = 0;
             framData.count = 0;
+            UpdateAllCrop();
         }
     }
 }

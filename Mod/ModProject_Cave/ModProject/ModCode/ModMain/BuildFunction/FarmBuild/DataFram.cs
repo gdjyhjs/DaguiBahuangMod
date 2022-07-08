@@ -12,13 +12,20 @@ namespace Cave
         public int level = 1; // 等级
         public int itemID; // 物品ID
         public float progress; // 成长进度
-        public int count = 1; // 结果数量
+        public int count = 0; // 结果数量
+        public int seed = 1; // 随机种子
+        public int lingqi = 0; // 灵气
     }
-
+    /// 获取成熟需要的时间
+    /// 根据灵田的等级每个月可以产生灵气 【240|1000|3600|11000|30000|50000|60000|70000|80000|90000|100000】
+    /// 树成熟需要等同于道具价值10倍的灵气
+    /// 成熟后每二倍的灵气可随机获得1-3个灵果
     public class DataFram
     {
+        public static int[] framLevelLingqi = new int[] { 1, 240, 1000, 3600, 11000, 30000, 50000, 60000, 70000, 80000, 90000, 100000 };
         public List<DataFramItem> data;
         public string decorate;
+        public int open;
 
         public static string key = "DataFram1";
         public DataFram()

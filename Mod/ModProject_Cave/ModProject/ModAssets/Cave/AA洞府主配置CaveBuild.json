@@ -284,23 +284,18 @@
     "condition": "0",
     "function": "class_Cave_Cave.BuildFunction.BuildFarm",
     "failfuntion": "",
-    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes105",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3001",
     "exitfuntion": "closeUI_SkyTip",
     "type": 3,
     "price": 100000,
     "name": "caveName3001",
     "hideName": false,
-    "atlas": "CommonTaoistHeartIcom",
-    "image": "wanxiang_3",
+    "atlas": "",
+    "image": "CaveFarm",
     "effect": [],
-    "maxLevel": 20,
+    "maxLevel": 1,
     "maxCount": 1,
-    "upgradeMoney": [
-      200000,
-      300000,
-      500000,
-      800000
-    ],
-    "des": "caveDes105"
+    "upgradeMoney": [],
+    "des": "caveDes3001"
   }
 ]
