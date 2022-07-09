@@ -8,6 +8,7 @@ using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
 
+// 处理关押战败敌人
 namespace Cave
 {
     [HarmonyPatch(typeof(UICustomDramaBattleNPCFailed2), "Init")]
@@ -19,7 +20,7 @@ namespace Cave
             AddButton(__instance, __instance.onEndCall);
         }
 
-        static string btnText = "我要将你关押";
+        static string btnText = "关押此人";
         public static void AddButton(UICustomDramaBase self, Il2CppSystem.Action onEndCall)
         {
             // 处理NPC战败 对话增加关押按钮

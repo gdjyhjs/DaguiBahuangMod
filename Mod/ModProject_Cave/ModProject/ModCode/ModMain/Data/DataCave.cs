@@ -86,6 +86,7 @@ namespace Cave
             else if (!string.IsNullOrWhiteSpace(item.image))
             {
                 var sprite = SpriteTool.GetSpriteBigTex(item.image);
+                Cave.Log(item.id + " 获取大图 " + item.image + " [" + sprite + "]");
                 if (sprite != null)
                 {
                     return sprite;

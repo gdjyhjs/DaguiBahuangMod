@@ -29,9 +29,7 @@ namespace Cave
                 }
                 else
                 {
-                    Cave.Log("进度 " + framData.progress);
                     framData.lingqi += DataFram.framLevelLingqi[framData.level];
-                    Cave.Log($"当前灵气 {framData.lingqi} = + {DataFram.framLevelLingqi[framData.level]}");
                     if (framData.progress < 1)
                     {
                         var need = item.worth * 10;
@@ -45,13 +43,19 @@ namespace Cave
                     if (framData.progress >= 1)
                     {
                         int need = Math.Max(1, item.worth * 2);
-                        Cave.Log($"灵气 {need}/{framData.lingqi}");
                         while (framData.lingqi >= need)
                         {
+                            if (framData.count == 0)
+                            {
+                                framData.seed = CommonTool.Random(int.MinValue, int.MaxValue);
+                            }
                             framData.lingqi -= need;
                             int addCount = CommonTool.Random(1, 3);
                             framData.count += addCount;
-                            Cave.Log($"需要灵气 {need}/{framData.lingqi}  增加{addCount}  总数{framData.count}");
+                        }
+                        if (framData.count > 9999)
+                        {
+                            framData.count = 9999;
                         }
                     }
                 }
