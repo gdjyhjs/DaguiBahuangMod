@@ -73,35 +73,22 @@ namespace GuiBaseUI
 
         public static string GetHttp(string url)
         {
-
             try
             {
                 //创建Get请求
-
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-
                 request.Method = "GET";
-
                 request.ContentType = "text/html;charset=UTF-8";
-
+                request.Timeout = 10000;
                 //接受返回来的数据
-
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
                 Stream stream = response.GetResponseStream();
-
                 StreamReader streamReader = new StreamReader(stream, Encoding.GetEncoding("utf-8"));
-
                 string retString = streamReader.ReadToEnd();
-
                 streamReader.Close();
-
                 stream.Close();
-
                 response.Close();
-
                 return (retString);
-
             }
 
             catch (Exception e)

@@ -178,5 +178,41 @@
     "function": "0",
     "options": "42685184",
     "nextDialogue": "0"
+  },
+  {
+    "id": "42685192",
+    "uiType": "1",
+    "condition": "0",
+    "weight": "1",
+    "npcLeft": "1",
+    "npcRight": "42685192",
+    "speaker": "2",
+    "backgroud": "0",
+    "soundsBg": "0",
+    "soundsEffect": "0",
+    "title": "0",
+    "dialogue": "0",
+    "openFunction": "0",
+    "function": "0",
+    "options": "0",
+    "nextDialogue": "0"
+  },
+  {
+    "id": "42685193",
+    "uiType": "1",
+    "condition": "0",
+    "weight": "1",
+    "npcLeft": "1",
+    "npcRight": "0",
+    "speaker": "2",
+    "backgroud": "0",
+    "soundsBg": "0",
+    "soundsEffect": "0",
+    "title": "0",
+    "dialogue": "drama_dialogue42685193",
+    "openFunction": "0",
+    "function": "0",
+    "options": "42685185|42685186",
+    "nextDialogue": "0"
   }
 ]

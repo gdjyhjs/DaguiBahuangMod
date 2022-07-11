@@ -24,6 +24,23 @@ namespace Cave.Team
                 string data = g.data.obj.GetString("www.yellowshange.com", "CaveTeamPlayerData2");
                 battleUnits = JsonConvert.DeserializeObject<List<string>>(data);
             }
+
+
+            List<string> delUnits = new List<string>();
+            foreach (var unitId in teamUnits)
+            {
+                if (g.world.unit.GetUnit(unitId, true) == null)
+                {
+                    delUnits.Add(unitId);
+                }
+            }
+            // 删除不存在的NPC
+            foreach (var unitId in delUnits)
+            {
+                teamUnits.Remove(unitId);
+                battleUnits.Remove(unitId);
+            }
+
             Cave.Log("初始化洞府随行人员 " + battleUnits.Count + "/" + teamUnits.Count);
         }
 

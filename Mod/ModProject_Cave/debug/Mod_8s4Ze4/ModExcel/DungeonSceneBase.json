@@ -1,0 +1,30 @@
+[
+  {
+    "id": "42685182",
+    "type": "1",
+    "name": "dungeon_typeDesc6",
+    "bgColor": "698A8A",
+    "floor": "401_402_403",
+    "floorWidth": "0",
+    "decoration": "0",
+    "edgeDecoration": "0",
+    "bg": "miwuzhulinbg",
+    "sounds": "fuben/zhulin",
+    "soundEffect": "huanjing/zhulin_huanjing",
+    "weight": "10000"
+  },
+  {
+    "id": "42685183",
+    "type": "1",
+    "name": "dungenonSceneName42685183",
+    "bgColor": "3A2C20",
+    "floor": "801_802_803",
+    "floorWidth": "0",
+    "decoration": "0",
+    "edgeDecoration": "0",
+    "bg": "miwuzhulinbg",
+    "sounds": "fuben/zhulin",
+    "soundEffect": "huanjing/wafenhuanjing",
+    "weight": "10000"
+  }
+]

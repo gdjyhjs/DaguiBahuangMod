@@ -93,5 +93,24 @@
     "ch": "龙儿刚刚用灵泉泡的茶，主人请慢用！⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄",
     "tc": "龍兒剛剛用靈泉泡的茶，主人請慢用！ ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄",
     "en": "Dragon's tea is made from the spring, please enjoy it! ⁄(⁄⁄-⁄ω⁄-⁄⁄)⁄"
+  },
+  {
+    "id": "42685187",
+    "keyID": "drama_dialogue42685193",
+    "part": "0",
+    "goal": "0",
+    "active": "0",
+    "characterGroup": "0",
+    "relation": "0",
+    "condition": "0",
+    "weight": "1",
+    "group": "0",
+    "icon": "0",
+    "pointColor": "1",
+    "vocal": "0",
+    "emotionID": "1",
+    "ch": "我愿意做你的道侣，主人收了我吧。",
+    "tc": "我愿意做你的道侣，主人收了我吧。",
+    "en": "我愿意做你的道侣，主人收了我吧。"
   }
 ]

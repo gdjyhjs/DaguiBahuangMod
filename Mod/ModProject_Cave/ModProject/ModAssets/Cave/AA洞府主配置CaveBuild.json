@@ -299,22 +299,22 @@
     "des": "caveDes3001"
   },
   {
-    "id": 3002, // 地牢
+    "id": 3004, // 地牢
     "condition": "0",
-    "function": "class_Cave_Cave.BuildFunction.BuildFarm",
+    "function": "class_Cave_Cave.BuildFunction.DungeonBuild",
     "failfuntion": "",
-    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3001",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3004",
     "exitfuntion": "closeUI_SkyTip",
     "type": 3,
-    "price": 100000,
-    "name": "caveName3001",
+    "price": 750000,
+    "name": "caveName3004",
     "hideName": false,
-    "atlas": "",
-    "image": "Bg/CaveFarm",
+    "atlas": "CommonMapGrid",
+    "image": "cunzhuangmaowu1",
     "effect": [],
     "maxLevel": 1,
     "maxCount": 1,
     "upgradeMoney": [],
-    "des": "caveDes3001"
+    "des": "caveDes3004"
   }
 ]

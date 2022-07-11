@@ -20,7 +20,7 @@ namespace Cave
             AddButton(__instance, __instance.onEndCall);
         }
 
-        static string btnText = "关押此人";
+        static string btnText = "押入地牢";
         public static void AddButton(UICustomDramaBase self, Il2CppSystem.Action onEndCall)
         {
             // 处理NPC战败 对话增加关押按钮
@@ -30,11 +30,29 @@ namespace Cave
                 WorldUnitBase unit = self.dramaData.unitRight;
                 if (unit != null)
                 {
+                    var data = DataDungeon.ReadData();
                     DataCave dataCave = DataCave.ReadData();
+                    int err3 = data.units.Count < 100 ? 0 : 1, err1 = 1, err2 = 1;
                     Vector2Int point = dataCave.GetPoint();
-                    unit.CreateAction(new UnitActionSetPoint(point));
-                    UnitActionLuckAdd luckAdd = new UnitActionLuckAdd(BuildFunction.BuildFarm.prisonerLuckId);
-                    unit.CreateAction(luckAdd);
+                    if (err3 == 0)
+                    {
+                        err1 = unit.CreateAction(new UnitActionSetPoint(point));
+                        if (err1 == 0)
+                        {
+                            UnitActionLuckAdd luckAdd = new UnitActionLuckAdd(BuildFunction.DungeonBuild.prisonerLuckId);
+                            err2 = unit.CreateAction(luckAdd);
+                        }
+                    }
+                    if (err2 == 0)
+                    {
+                        Cave.Log("关押成功");
+                        data.units.Add(unit.data.unitData.unitID);
+                        DataDungeon.SaveData(data);
+                    }
+                    else
+                    {
+                        Cave.Log("关押失败");
+                    }
                 }
                 onEndCall?.Invoke();
             };

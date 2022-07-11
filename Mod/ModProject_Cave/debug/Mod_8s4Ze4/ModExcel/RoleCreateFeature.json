@@ -14,5 +14,21 @@
     "lockLuck": "0",
     "introduceText": "0",
     "weight": "0"
+  },
+  {
+    "id": "123010217",
+    "type": "2",
+    "group": "0",
+    "level": "2",
+    "duration": "6",
+    "refreshType": "0",
+    "conceal": "0",
+    "name": "role_feature_postnatal_name123010217",
+    "effect": "1012|1013",
+    "tips": "role_feature_postnatal_tips123010217",
+    "iconAndDesc": "0",
+    "lockLuck": "0",
+    "introduceText": "0",
+    "weight": "0"
   }
 ]

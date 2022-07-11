@@ -317,9 +317,10 @@ namespace Cave
             new string[]{"<size=22>【2.3" + GameTool.LS("Cave_HelpText14") + "】</size>"+string.Format(GameTool.LS("Cave_HelpText15"),2022,1,16,13), GameTool.LS("Cave_HelpGengxin6")},
             new string[]{ "<size=22>【2.4" + GameTool.LS("Cave_HelpText14") + "】</size>"+string.Format(GameTool.LS("Cave_HelpText15"),2022,5,30,16), GameTool.LS("Cave_HelpGengxin7")},
             new string[]{ "<size=22>【2.5" + GameTool.LS("Cave_HelpText14") + "】</size>"+string.Format(GameTool.LS("Cave_HelpText15"),2022,6,4,2), GameTool.LS("Cave_HelpGengxin8")},
-            new string[]{ "<color=red>" + "<size=22>【2.6" + GameTool.LS("Cave_HelpText14") + "】</size>"+string.Format(GameTool.LS("Cave_HelpText15"),2022,7,6,1) + "</Color>", "<color=red>1、修复了洞府的一些BUG。\n2、优化了日月泉功能，增加可切换性别，点击词条名字可更换词条。\n3、修复了龙人没有跟随进入战斗的问题。\n4、优化了同道功能，同道不再一同进入战斗，可在战斗准备界面自行选择是否出战。\n修复和伙伴一起进入残破锁灵阵/封魔阵无效的问题</Color>"},
+            new string[]{ "<size=22>【2.6" + GameTool.LS("Cave_HelpText14") + "】</size>"+string.Format(GameTool.LS("Cave_HelpText15"),2022,7,6,1), "1、修复了洞府的一些BUG。\n2、优化了日月泉功能，增加可切换性别，点击词条名字可更换词条。\n3、修复了龙人没有跟随进入战斗的问题。\n4、优化了同道功能，同道不再一同进入战斗，可在战斗准备界面自行选择是否出战。\n修复和伙伴一起进入残破锁灵阵/封魔阵无效的问题"},
+            new string[]{ "<color=red>" + "<size=22>【3.0" + GameTool.LS("Cave_HelpText14") + "】</size>"+string.Format(GameTool.LS("Cave_HelpText15"),2022,7,11,2) + "</Color>", "<color=red>更新3.0版本，洞府建筑新增灵田和地牢。灵田可种植各种灵果和药材，地牢可以关押击败的敌人，并且可在地牢中对其进行操作。\n增加装修功能，灵田和地牢均可进行自由装修。</Color>"},
         };
-        int maxversion = 16;
+        int maxversion = 17;
 
 
 

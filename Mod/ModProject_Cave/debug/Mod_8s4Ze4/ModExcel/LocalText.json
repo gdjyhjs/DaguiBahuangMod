@@ -190,1023 +190,1202 @@
   },
   {
     "id": "-375930770",
+    "key": "caveName3001",
+    "ch": "灵田",
+    "tc": "灵田",
+    "en": "灵田"
+  },
+  {
+    "id": "-375930769",
+    "key": "caveDes3001",
+    "ch": "一个充满灵气的空间，可种植灵植。",
+    "tc": "一个充满灵气的空间，可种植灵植。",
+    "en": "一个充满灵气的空间，可种植灵植。"
+  },
+  {
+    "id": "-375930768",
+    "key": "caveName3004",
+    "ch": "地牢",
+    "tc": "地牢",
+    "en": "地牢"
+  },
+  {
+    "id": "-375930767",
+    "key": "caveDes3004",
+    "ch": "一个阴森的地下牢房。",
+    "tc": "一个阴森的地下牢房。",
+    "en": "一个阴森的地下牢房。"
+  },
+  {
+    "id": "-375930766",
     "key": "caveName42685182",
     "ch": "日月泉",
     "tc": "日月泉",
     "en": "Sun Moon Spring"
   },
   {
-    "id": "-375930769",
+    "id": "-375930765",
     "key": "caveTips42685182",
     "ch": "能吸收日月之精华，凝结出甘露，饮之可获得强大的力量。",
     "tc": "能吸收日月之精華，凝結出甘露，飲之可獲得強大的力量。",
     "en": "Absorbs the essence of the sun and the moon and condenses manna, which can be drunk to gain great power."
   },
   {
-    "id": "-375930768",
+    "id": "-375930764",
     "key": "caveDes42685182",
     "ch": "能吸收日月之精华，凝结出甘露，饮之可获得强大的力量。",
     "tc": "能吸收日月之精華，凝結出甘露，飲之可獲得強大的力量。",
     "en": "It absorbs the essence of the sun and the moon and condenses the dew."
   },
   {
-    "id": "-375930767",
+    "id": "-375930763",
     "key": "role_feature_postnatal_name42685182",
     "ch": "日月精华",
     "tc": "日月精華",
     "en": "Sun and Moon Essence"
   },
   {
-    "id": "-375930766",
+    "id": "-375930762",
     "key": "role_feature_postnatal_tips42685182",
     "ch": "饮下日月水泉泡的茶水，吸收了日月精华，攻击力+10%，幸运+10，悟性+20",
     "tc": "飲下日月水泉泡的茶水，吸收了日月精華，攻擊力+10%，幸運+10，悟性+20",
     "en": "Drinking tea made from the Sun and Moon water spring absorbs the essence of the Sun and Moon, +10% attack power, +10 luck, +20 enlightenment"
   },
   {
-    "id": "-375930765",
+    "id": "-375930761",
+    "key": "role_feature_postnatal_name123010217",
+    "ch": "关押地牢"
+  },
+  {
+    "id": "-375930760",
+    "key": "role_feature_postnatal_tips123010217",
+    "ch": "被关押再地牢中，行动受限。"
+  },
+  {
+    "id": "-375930759",
     "key": "drama_option42685182",
     "ch": "喝点泉水",
     "tc": "喝點泉水",
     "en": "Drink some spring water"
   },
   {
-    "id": "-375930764",
+    "id": "-375930758",
     "key": "drama_option42685183",
     "ch": "来看龙儿了",
     "tc": "來看龍兒了",
     "en": "Come to see the Dragon"
   },
   {
-    "id": "-375930763",
+    "id": "-375930757",
     "key": "drama_option42685184",
     "ch": "喝点泉水",
     "tc": "喝點泉水",
     "en": "Drink some spring water"
   },
   {
-    "id": "-375930762",
+    "id": "-375930756",
     "key": "role_feature_postnatal_tips700188",
     "ch": "此气运加持下，身边跟屁龙可在日月泉中进行化形。",
     "tc": "在此氣運加持下，身边跟屁龍可在日月泉中進行化形。",
     "en": "With this Destiny fortification, the Following Dragon around you can be transformed in the Sun Moon Springs."
   },
   {
-    "id": "-375930761",
+    "id": "-375930755",
     "key": "fateStoryDesc700188",
     "ch": "正当你突破之际，小跟屁龙通体发亮，不过只眨眼功夫，周围又归平静，似乎一点变化都没有。而后小龙不断给你眼神，似乎在表达现在非常需要回到宗门日月泉。",
     "tc": "正當你突破之際，小跟屁龍通體發亮，不過只眨眼功夫，周圍又歸平靜，似乎一點變化都沒有。而後小龍不斷給你眼神，似乎在表達現在非常需要回到宗門日月泉。",
     "en": "Just as you are about to Breakthrough, the Following Dragon glows all over. In an instant, the surroundings are retuned to calm and it seems no change has occurred. The Following Dragon keeps giving you looks, as if telling you it urgently needs to return to the Sect Sun Moon Springs."
   },
   {
-    "id": "-375930760",
+    "id": "-375930754",
     "key": "schoolSloganDesc141",
     "ch": "具有用于培养跟屁虫的专属建筑日月泉。",
     "tc": "具有用於培養跟屁蟲的專屬建築日月泉。",
     "en": "An exclusive building called Sun Moon Springs that is used to nurture Following Bug."
   },
   {
-    "id": "-375930759",
+    "id": "-375930753",
     "key": "schoolBuildingName1112",
     "ch": "日月泉",
     "tc": "日月泉",
     "en": "Sun Moon Springs"
   },
   {
-    "id": "-375930758",
+    "id": "-375930752",
     "key": "dragonDoor_effectTitle",
     "ch": "日月泉{0}级效果",
     "tc": "日月泉{0}級效果",
     "en": "Sun Moon Springs Level {0} Effect"
   },
   {
-    "id": "-375930757",
+    "id": "-375930751",
     "key": "dragonDoor_upgradeCostTips",
     "ch": "日月泉升级所需",
     "tc": "日月泉升級所需",
     "en": "Required Sun Moon Springs Level"
   },
   {
-    "id": "-375930756",
+    "id": "-375930750",
     "key": "dragonDoor_upgradeEffectTips",
     "ch": "日月泉功效",
     "tc": "日月泉功效",
     "en": "Sun Moon Springs Efficacy"
   },
   {
-    "id": "-375930755",
+    "id": "-375930749",
     "key": "dragonDoor_upgradeFailMax",
     "ch": "当前区域灵力无法承受日月泉继续升级",
     "tc": "當前區域靈力無法承受日月泉繼續升級",
     "en": "This region's Energy does not support further upgrading of Sun Moon Springs"
   },
   {
-    "id": "-375930754",
+    "id": "-375930748",
     "key": "dragonDoor_transfigurationFail1",
     "ch": "日月泉等级太低，无法完成化形",
     "tc": "日月泉等級太低，無法完成化形",
     "en": "Sun Moon Springs level too low. You cannot change form"
   },
   {
-    "id": "-375930753",
+    "id": "-375930747",
     "key": "dragonDoor_des",
     "ch": "1.可以通过升级日月泉为龙儿附加全新的效果。\n2.消耗一定的灵石可以升级日月泉。\n3.日月泉达到一定级别之后，会有神秘的特殊效果。\n4.在日月泉中，可以与龙儿进行互动促进感情。",
     "tc": "1.可以通過升級日月泉為龍兒附加全新的效果。\n2.消耗一定的靈石可以升級日月泉。\n3.日月泉達到一定級別之後，會有神秘的特殊效果。\n4.在日月泉中，可以與龍兒進行互動促進感情。",
     "en": "1. You can add new effects to the Dragon by upgrading the Sun Moon Spring.\n2. You can upgrade the Sun Moon Spring by consuming certain spirit stones.\n3. After the Sun Moon Spring reaches a certain level, it will have mysterious special effects.\n4. In the Sun Moon Spring, you can interact with the Dragon to promote your relationship."
   },
   {
-    "id": "-375930752",
+    "id": "-375930746",
     "key": "dragonDoor_levelMaxTips",
     "ch": "日月泉每个区域只能提升一次等级，若当前无法升级，搬迁后即可继续提升等级。",
     "tc": "日月泉每個區域只能提升一次等級，若當前無法升級，搬遷後即可繼續提升等級。",
     "en": "Sun Moon Springs can be upgraded to a new level only once per region. If you currently cannot upgrade, you will be able to upgrade once you move."
   },
   {
-    "id": "-375930751",
+    "id": "-375930745",
     "key": "dragonDoor_levelTips",
     "ch": "日月泉等级提升时，可以选择新的效果。",
     "tc": "日月泉等級提升時，可以選擇新的效果。",
     "en": "When upgrading Sun Moon Springs to a new level, you can choose a new effect."
   },
   {
-    "id": "-375930750",
+    "id": "-375930744",
     "key": "dragonDoor_unLockTips",
     "ch": "需先突破{0}级日月泉",
     "tc": "需先突破{0}級日月泉",
     "en": "Requires Sun Moon Springs to break through level {0}"
   },
   {
-    "id": "-375930749",
+    "id": "-375930743",
     "key": "dragonDoor_unLockTips2",
     "ch": "激活1级日月泉解锁",
     "tc": "激活1級日月泉解鎖",
     "en": "Activate level 1 Sun Moon Springs to unlock"
   },
   {
-    "id": "-375930748",
+    "id": "-375930742",
     "key": "dragonDoor_levelUpTips2",
     "ch": "当前区域灵力无法承受日月泉继续升级",
     "tc": "當前區域靈力無法承受日月泉繼續升級",
     "en": "This region's Energy does not support further upgrading of Sun Moon Springs"
   },
   {
-    "id": "-375930747",
+    "id": "-375930741",
     "key": "dragonDoor_lockTips",
     "ch": "非本门宗主禁止进入日月泉",
     "tc": "非本門宗主禁止進入日月泉",
     "en": "Only the Sect Leaders of this Sect may access the Sun Moon Springs"
   },
   {
-    "id": "-375930746",
+    "id": "-375930740",
     "key": "drama_dialogue1304501",
     "ch": "龙主，大事不好。自打您将日月泉作了一番修缮之后，一只钦原蜂妖竟屡屡前来吸纳池中灵气。现在钦原还在宗门附近徘徊。",
     "tc": "龍主，大事不好。自打您將日月泉作了一番修繕之後，一隻欽原蜂妖竟屢屢前來吸納池中靈氣。現在欽原還在宗門附近徘徊。",
     "en": "A crisis has arisen, Dragon King. Since you had the Sun Moon Springs repaired, a Qin Yuan bee has repeatedly come to absorb Qi from it. The Qin Yuan is wandering around the Sect as we speak."
   },
   {
-    "id": "-375930745",
+    "id": "-375930739",
     "key": "drama_dialogue1304503",
     "ch": "钦原十分贪婪，已经吸走灵池大量灵气。我宗日月泉一向为龙族浸泡休养的地方，断不能让这只妖物无故盘踞。",
     "tc": "欽原十分貪婪，已經吸走靈池大量靈氣。我宗日月泉一向為龍族浸泡休養的地方，斷不能讓這隻妖物無故盤踞。",
     "en": "The Qin Yuan is an ravenous beast, and has already taken most of the Qi from our pool. The Sun Moon Springs of our Sect has always been a place where dragons could recover their strength, and we cannot allow a beast like this to wantonly occupy us."
   },
   {
-    "id": "-375930744",
+    "id": "-375930738",
     "key": "drama_dialogue1304506",
     "ch": "就在日前，我率群弟子驱赶该妖，只是钦原乃八荒古兽，绝非等闲，我等修为浅薄，只能将该妖赶出日月泉，当前妖物仍在宗门附近徘徊，因此属下想请龙主亲自出手驱逐钦原！",
     "tc": "就在日前，我率群弟子驅趕該妖，只是欽原乃八荒古獸，絕非等閒，我等修為淺薄，只能將該妖趕出日月泉，當前妖物仍在宗門附近徘徊，因此屬下想請龍主親自出手驅逐欽原！",
     "en": "Just recently I led a team of disciples to drive out the monster, but so ancient and abnormal is it that, with our meager abilities, we could only drive it away from the Sun Moon Springs. It wanders still nearby the Sect, and I humbly ask you to go and expel it for us, my lord!"
   },
   {
-    "id": "-375930743",
+    "id": "-375930737",
     "key": "drama_dialogue1304513",
     "ch": "此物原为历任龙主保管，其本身沾有日月泉灵气，与之互有联系。所以日月泉荒废，册子亦会自行封印隐藏。龙主近日重新修缮日月泉，此册果然重见天日。我宗秘史总算不致失传。",
     "tc": "此物原為歷任龍主保管，其本身沾有日月泉靈氣，與之互有聯繫。所以日月泉荒廢，冊子亦會自行封印隱藏。龍主近日重新修繕日月泉，此冊果然重見天日。我宗秘史總算不致失傳。",
     "en": "This has been protected by dragon kings throughout the ages. It is imbued with Sun Moon Springs Qi and bears a connection with the spring. If the spring were to be abandoned, then this text would too seal itself and vanish. Now that you have restored the Sun Moon Springs, my lord, this text has once again seen the light of day. The secret history of our Sect will not be lost to time."
   },
   {
-    "id": "-375930742",
+    "id": "-375930736",
     "key": "drama_dialogue1304530",
     "ch": "龙主大人将日月泉修缮一番，真乃我宗幸事。不过……不过属下还有一事相告。",
     "tc": "龍主大人將日月泉修繕一番，真乃我宗幸事。不過……不過屬下還有一事相告。",
     "en": "It has truly been a blessing for our Sect that you have restored the Sun Moon Springs. Only... Only there is something else I must tell you."
   },
   {
-    "id": "-375930741",
+    "id": "-375930735",
     "key": "drama_dialogue1304531",
     "ch": "日前日月泉被钦原大肆吸纳灵气，导致池水浑浊不堪。依属下浅见，我们不妨找来一份玄黄母气来恢复日月泉。",
     "tc": "日前日月泉被欽原大肆吸納靈氣，導致池水渾濁不堪。依屬下淺見，我們不妨找來一份玄黃母氣來恢復日月泉。",
     "en": "In recent days, the theft of Qi from the Sun Moon Springs by a Qin Yuan has left the spring unbearably muddy. If I may be so bold, I suggest we seek out Cosmos Essence to restore the spring."
   },
   {
-    "id": "-375930740",
+    "id": "-375930734",
     "key": "drama_dialogue1304534",
     "ch": "如此一来，日月泉不日就能恢复往昔灵气了。",
     "tc": "如此一來，日月泉不日就能恢復往昔靈氣了。",
     "en": "In that case, the Sun Moon Springs will be restored to its former glory in a matter of days."
   },
   {
-    "id": "-375930739",
+    "id": "-375930733",
     "key": "drama_dialogue1304535",
     "ch": "龙主大人，属下方才见日月泉附近紫气缭绕，过去一看，竟然发现另一本被封印的宗门秘录，请宗主收下此物。",
     "tc": "龍主大人，屬下方才見日月泉附近紫氣繚繞，過去一看，竟然發現另一本被封印的宗門秘錄，請宗主收下此物。",
     "en": "My lord, just now I saw a purple cloud around the Sun Moon Springs, and when I went to investigate, I found yet another secret record of the Sect that had been sealed. I present it to you now."
   },
   {
-    "id": "-375930738",
+    "id": "-375930732",
     "key": "drama_dialogue1304565",
     "ch": "宗主请看，随着日月泉逐渐恢复昔日样貌，又有一本宗门秘史重见天日，还请龙主收下！",
     "tc": "宗主請看，隨着日月泉逐漸恢復昔日樣貌，又有一本宗門秘史重見天日，還請龍主收下！",
     "en": "My lord, yet another secret history text from our Sect has resurfaced in the wake of the Sun Moon Springs's restoration. I present it to you now!"
   },
   {
-    "id": "-375930737",
+    "id": "-375930731",
     "key": "drama_dialogue1304590",
     "ch": "禀告龙主，随着日月泉日益恢复，灵气渐强。钦原却依然盘踞我宗附近，属下推测，此妖必欲占我宗灵池而后快。",
     "tc": "稟告龍主，隨着日月泉日益恢復，靈氣漸強。欽原卻依然盤踞我宗附近，屬下推測，此妖必欲占我宗靈池而後快。",
     "en": "My lord, the Qi has gotten stronger and stronger with the restoration of the Sun Moon Springs. The Qin Yuan has still taken over nearby our Sect. I fear it will soon act on its desire to take over our spring."
   },
   {
-    "id": "-375930736",
+    "id": "-375930730",
     "key": "drama_dialogue1304592",
     "ch": "唔……不过依属下观察，钦原仿佛因为曾经得到日月泉灵气滋养，实力似乎变强不少，此行还请宗主小心！",
     "tc": "唔……不過依屬下觀察，欽原仿佛因為曾經得到日月泉靈氣滋養，實力似乎變強不少，此行還請宗主小心！",
     "en": "Hm... Though according to my investigation, the Qin Yuan's strength has grown in no small amount with all the Qi it has absorbed from the Sun Moon Springs. Please take care, my lord!"
   },
   {
-    "id": "-375930735",
+    "id": "-375930729",
     "key": "drama_dialogue1304593",
     "ch": "唔……不过依属下观察，钦原仿佛因为曾经得到日月泉灵气滋养，实力似乎变强不少，此行还请宗主小心！",
     "tc": "唔……不過依屬下觀察，欽原仿佛因為曾經得到日月泉靈氣滋養，實力似乎變強不少，此行還請宗主小心！",
     "en": "Hm... Though according to my investigation, the Qin Yuan's strength has grown in no small amount with all the Qi it has absorbed from the Sun Moon Springs. Please take care, my lord!"
   },
   {
-    "id": "-375930734",
+    "id": "-375930728",
     "key": "drama_dialogue1304620",
     "ch": "属下拜见宗主！此处乃是我宗跟屁虫最爱栖息的地方。依属下愚见，我们可以利用宗门资源<r>升级</r>日月泉。池子经过升级，可以让跟屁虫浸泡时生出非比寻常的<r>特殊效果</r>。",
     "tc": "屬下拜見宗主！此處乃是我宗跟屁蟲最愛棲息的地方。依屬下愚見，我們可以利用宗門資源<r>升級</r>日月泉。池子經過升級，可以讓跟屁蟲浸泡時生出非比尋常的<r>特殊效果</r>。",
     "en": "Greetings, Sect Leader! This place is a favored dwelling for the Following Bugs of our Sect. It is my humble opinion that we can make use of the Sect's resources to <r>upgrade</r> the Sun Moon Springs. Once it is upgraded, the Following Bugs will be able to gain unique <r>Special Effects</r> by bathing in it."
   },
   {
-    "id": "-375930733",
+    "id": "-375930727",
     "key": "drama_dialogue1304621",
     "ch": "往日门中的前辈还跟属下提到，日月泉修缮到一定级别后，对跟屁虫有神奇效果。若龙主身边带有跟屁虫，不妨常常带来此处与它多作<r>互动</r>。以这日月泉的神奇功效，相信假以时日，就会让跟屁虫<r>蜕变成龙</r>，翱翔八荒。",
     "tc": "往日門中的前輩還跟屬下提到，日月泉修繕到一定級別後，對跟屁蟲有神奇效果。若龍主身邊帶有跟屁蟲，不妨常常帶來此處與它多作<r>互動</r>。以這日月泉的神奇功效，相信假以時日，就會讓跟屁蟲<r>蛻變成龍</r>，翱翔八荒。",
     "en": "My seniors used to tell me that once the Sun Moon Springs is upgraded to a certain level, it will have magical effects on the Following Bugs. If you have a Following Bug with you, my lord, why not bring it here and have it <r>interact</r> with the spring. I am sure that the effects of the Sun Moon Springs will one day allow the Following Bug to <r>transform into a dragon</r> and soar across the land."
   },
   {
-    "id": "-375930732",
+    "id": "-375930726",
     "key": "taskDesc2110551",
     "ch": "云涯让我收集<r>玄黄母气</r>补充日月泉灵气。\n此物可在<g>{#areaName4}</g>区域内的{#building1001Name1}、{#building1001Name2}、{#building1001Name3}、{#building1001Name4}、{#building1001Name5}、{#building1001Name6}内，击杀其中出现的<r>大妖兽</r>有概率获得。\n亦可在<g>{#areaName4}</g>区域内的<g>残破锁灵阵</g>中获得<y>（非首次通关）</y>（<g>残破锁灵阵</g>的位置可以去酒馆中打听打听）。（返回日月泉交任务）\n",
     "tc": "雲涯讓我收集<r>玄黃母氣</r>補充日月泉靈氣。\n此物可在<g>{#areaName4}</g>區域內的{#building1001Name1}、{#building1001Name2}、{#building1001Name3}、{#building1001Name4}、{#building1001Name5}、{#building1001Name6}內，擊殺其中出現的<r>大妖獸</r>有概率獲得。\n亦可在<g>{#areaName4}</g>區域內的<g>殘破鎖靈陣</g>中獲得<y>（非首次通關）</y>（<g>殘破鎖靈陣</g>的位置可以去酒館中打聽打聽）。（返回日月泉交任務）",
     "en": "Yun Ya allows me to collect <r>Cosmos Essence</r> to replenish the Qi of the Sun Moon Springs.\nWith this, in {#building1001Name1}, {#building1001Name2}, {#building1001Name3}, {#building1001Name4}, {#building1001Name5}, and {#building1001Name6} within the <g>{#areaName4}</g> region, there will be a opportunity to attack the <r>Mythical Beasts</r> that appear.\nThis is also possible in <g>Spiritlock Circle</g> within <g>{#areaName4}</g> <y>(So long as you have already completed the level once)</y> (You can ask about the location of the <g>Spiritlock Circle</g> at the Tavern). (Return to Sun Moon Springs to submit)"
   },
   {
-    "id": "-375930731",
+    "id": "-375930725",
     "key": "drama_dialogue1305050",
     "ch": "龙主兄弟，我跟着您给宗门出了很多力气，最近很累啊。不如带我回去日月泉休息一下吧？",
     "tc": "龍主兄弟，我跟着您給宗門出了很多力氣，最近很累啊。不如帶我回去日月泉休息一下吧？",
     "en": "My lord, I've been working hard with you for the sect, and I'm really tired lately. Could you take me back to Sun Moon Springs to relax a bit?"
   },
   {
-    "id": "-375930730",
+    "id": "-375930724",
     "key": "drama_dialogue1305051",
     "ch": "你来到日月泉竟发现云涯与毛枣枣在一起，他们在池边准备了一桌精致的菜肴。",
     "tc": "你來到日月泉竟發現雲涯與毛棗棗在一起，他們在池邊準備了一桌精緻的菜餚。",
     "en": "You arrive at Sun Moon Springs and find Yun Ya and Jujubes preparing a table of delicacies next to the spring."
   },
   {
-    "id": "-375930729",
+    "id": "-375930723",
     "key": "Cave_ModName",
     "ch": "洞天福地",
-    "tc": "洞天福地"
+    "tc": "洞天福地",
+    "en": "洞天福地"
   },
   {
-    "id": "-375930728",
+    "id": "-375930722",
     "key": "Cave_NeedModName",
     "ch": "UI框架",
     "tc": "UI框架",
     "en": "UIFramework"
   },
   {
-    "id": "-375930727",
+    "id": "-375930721",
     "key": "Cave_NeedModTips",
     "ch": "{0}模组需要安装{1}模组才能使用，检测到您尚未正确安装{0}，可能会影响模组功能的使用。您可以到模组商店搜索<b>大鬼</b>订阅{1}，订阅后需要到本地模组将{1}移至{0}模组上方。",
     "tc": "{0}模組需要安裝{1}模組才能使用，檢測到您尚未正確安裝{0}，可能會影響模組功能的使用。 您可以到模組商店搜索<b>大鬼</b>訂閱{1}，訂閱后需要到本地模組將{1}移至{0}模組上方。",
     "en": "{0} module requires {1} module to be installed before it can be used. It is detected that you have not installed {0} correctly, which may affect the use of module functions. You can search for <r>UIFramework</r> subscription {1} in the module store. After subscription, you need to go to the local module and move {1} above the {0} module."
   },
   {
-    "id": "-375930726",
+    "id": "-375930720",
     "key": "Cave_NpcWaiChu",
     "ch": "正在外出，暂时无法整容！",
-    "tc": "正在外出，暫時無法整容！"
-  },
-  {
-    "id": "-375930725",
-    "key": "Cave_NpcLiDui",
-    "ch": "离队",
-    "tc": "離隊"
-  },
-  {
-    "id": "-375930724",
-    "key": "Cave_NpcZuDui",
-    "ch": "同行",
-    "tc": "同行"
-  },
-  {
-    "id": "-375930723",
-    "key": "Cave_NpcWaiChu2",
-    "ch": "正在外出，暂时无法邀请同行!",
-    "tc": "正在外出，暫時無法邀請同行！"
-  },
-  {
-    "id": "-375930722",
-    "key": "Cave_LongBattleTalk",
-    "ch": "龙儿愿与主人共生死。",
-    "tc": "龍兒願與主人共生死。"
-  },
-  {
-    "id": "-375930721",
-    "key": "Cave_LongIdleTalk",
-    "ch": "龙儿会在这里等待主人的",
-    "tc": "龍兒會在這裡等待主人的"
-  },
-  {
-    "id": "-375930720",
-    "key": "Cave_LongBattle",
-    "ch": "休息",
-    "tc": "休息"
+    "tc": "正在外出，暫時無法整容！",
+    "en": "正在外出，暫時無法整容！"
   },
   {
     "id": "-375930719",
-    "key": "Cave_LongIdle",
-    "ch": "出战",
-    "tc": "出戰"
+    "key": "Cave_NpcLiDui",
+    "ch": "离队",
+    "tc": "離隊",
+    "en": "離隊"
   },
   {
     "id": "-375930718",
-    "key": "Cave_LongTalk1",
-    "ch": "主人(〃▽〃)",
-    "tc": "主人（〃▽〃）"
+    "key": "Cave_NpcZuDui",
+    "ch": "同行",
+    "tc": "同行",
+    "en": "同行"
   },
   {
     "id": "-375930717",
-    "key": "Cave_LongTalk2",
-    "ch": "手往哪放呢",
-    "tc": "手往哪放呢"
+    "key": "Cave_NpcWaiChu2",
+    "ch": "正在外出，暂时无法邀请同行!",
+    "tc": "正在外出，暫時無法邀請同行！",
+    "en": "正在外出，暫時無法邀請同行！"
   },
   {
     "id": "-375930716",
-    "key": "Cave_LongTalk3",
-    "ch": "别这样",
-    "tc": "別這樣"
+    "key": "Cave_LongBattleTalk",
+    "ch": "龙儿愿与主人共生死。",
+    "tc": "龍兒願與主人共生死。",
+    "en": "龍兒願與主人共生死。"
   },
   {
     "id": "-375930715",
-    "key": "Cave_TongbuXiugaiDongfuMingzi",
-    "ch": "同步修改洞府名称",
-    "tc": "同步修改洞府名稱"
+    "key": "Cave_LongIdleTalk",
+    "ch": "龙儿会在这里等待主人的",
+    "tc": "龍兒會在這裡等待主人的",
+    "en": "龍兒會在這裡等待主人的"
   },
   {
     "id": "-375930714",
-    "key": "Cave_ShuxieNeirong",
-    "ch": "书写{0}内容",
-    "tc": "書寫{0}內容"
+    "key": "Cave_LongBattle",
+    "ch": "休息",
+    "tc": "休息",
+    "en": "休息"
   },
   {
     "id": "-375930713",
-    "key": "Cave_DakaiZhenfaTips",
-    "ch": "开启了洞府法阵！",
-    "tc": "開啟了洞府法陣！"
+    "key": "Cave_LongIdle",
+    "ch": "出战",
+    "tc": "出戰",
+    "en": "出戰"
   },
   {
     "id": "-375930712",
-    "key": "Cave_GuanbiZhenfaTips",
-    "ch": "关闭了洞府法阵！",
-    "tc": "關閉了洞府法陣！"
+    "key": "Cave_LongTalk1",
+    "ch": "主人(〃▽〃)",
+    "tc": "主人（〃▽〃）",
+    "en": "主人（〃▽〃）"
   },
   {
     "id": "-375930711",
-    "key": "Cave_GongnengWeikai",
-    "ch": "功能未开放，敬请期待！",
-    "tc": "功能未開放，敬請期待！"
+    "key": "Cave_LongTalk2",
+    "ch": "手往哪放呢",
+    "tc": "手往哪放呢",
+    "en": "手往哪放呢"
   },
   {
     "id": "-375930710",
-    "key": "Cave_Level",
-    "ch": "等级",
-    "tc": "等級"
+    "key": "Cave_LongTalk3",
+    "ch": "别这样",
+    "tc": "別這樣",
+    "en": "別這樣"
   },
   {
     "id": "-375930709",
-    "key": "Cave_Ji",
-    "ch": "级",
-    "tc": "級"
+    "key": "Cave_TongbuXiugaiDongfuMingzi",
+    "ch": "同步修改洞府名称",
+    "tc": "同步修改洞府名稱",
+    "en": "同步修改洞府名稱"
   },
   {
     "id": "-375930708",
-    "key": "Cave_DieLikai",
-    "ch": "{0}已身死道消，离开了洞府。",
-    "tc": "{0}已身死道消，離開了洞府。"
+    "key": "Cave_ShuxieNeirong",
+    "ch": "书写{0}内容",
+    "tc": "書寫{0}內容",
+    "en": "書寫{0}內容"
   },
   {
     "id": "-375930707",
-    "key": "Cave_GerenLikai",
-    "ch": "{0}同意了邀请，住进了{1}。",
-    "tc": "{0}同意了邀請，住進了{1}。"
+    "key": "Cave_DakaiZhenfaTips",
+    "ch": "开启了洞府法阵！",
+    "tc": "開啟了洞府法陣！",
+    "en": "開啟了洞府法陣！"
   },
   {
     "id": "-375930706",
-    "key": "Cave_JujueYaoqing",
-    "ch": "{0}拒绝了{1}的邀请。",
-    "tc": "{0}拒絕了{1}的邀請。"
+    "key": "Cave_GuanbiZhenfaTips",
+    "ch": "关闭了洞府法阵！",
+    "tc": "關閉了洞府法陣！",
+    "en": "關閉了洞府法陣！"
   },
   {
     "id": "-375930705",
-    "key": "Cave_WanCheng",
-    "ch": "完成",
-    "tc": "完成"
+    "key": "Cave_GongnengWeikai",
+    "ch": "功能未开放，敬请期待！",
+    "tc": "功能未開放，敬請期待！",
+    "en": "功能未開放，敬請期待！"
   },
   {
     "id": "-375930704",
-    "key": "Cave_BaocunNielian",
-    "ch": "确定保存捏脸并退出吗？",
-    "tc": "確定保存捏臉並退出嗎？"
+    "key": "Cave_Level",
+    "ch": "等级",
+    "tc": "等級",
+    "en": "等級"
   },
   {
     "id": "-375930703",
-    "key": "Cave_TuichuNielian",
-    "ch": "确定直接退出吗？将不会保存捏脸结果！",
-    "tc": "確定直接退出嗎？ 將不會保存捏臉結果！"
+    "key": "Cave_Ji",
+    "ch": "级",
+    "tc": "級",
+    "en": "級"
   },
   {
     "id": "-375930702",
-    "key": "Cave_ShuZhuang",
-    "ch": "梳妆台—",
-    "tc": "梳妝台—"
+    "key": "Cave_DieLikai",
+    "ch": "{0}已身死道消，离开了洞府。",
+    "tc": "{0}已身死道消，離開了洞府。",
+    "en": "{0}已身死道消，離開了洞府。"
   },
   {
     "id": "-375930701",
-    "key": "Cave_FristOpenHomeDram",
-    "ch": "欢迎回家！您的主界面已经加入了回家按钮，只要点击回家按钮就能瞬间回家！",
-    "tc": "歡迎回家！ 您的主介面已經加入了回家按鈕，只要點擊回家按鈕就能瞬間回家！"
+    "key": "Cave_GerenLikai",
+    "ch": "{0}同意了邀请，住进了{1}。",
+    "tc": "{0}同意了邀請，住進了{1}。",
+    "en": "{0}同意了邀請，住進了{1}。"
   },
   {
     "id": "-375930700",
-    "key": "Cave_Wangou",
-    "ch": "网购",
-    "tc": "網購"
+    "key": "Cave_JujueYaoqing",
+    "ch": "{0}拒绝了{1}的邀请。",
+    "tc": "{0}拒絕了{1}的邀請。",
+    "en": "{0}拒絕了{1}的邀請。"
   },
   {
     "id": "-375930699",
-    "key": "Cave_Zichan",
-    "ch": "资产",
-    "tc": "資產"
+    "key": "Cave_WanCheng",
+    "ch": "完成",
+    "tc": "完成",
+    "en": "完成"
   },
   {
     "id": "-375930698",
-    "key": "Cave_Huoban",
-    "ch": "伙伴",
-    "tc": "夥伴"
+    "key": "Cave_BaocunNielian",
+    "ch": "确定保存捏脸并退出吗？",
+    "tc": "確定保存捏臉並退出嗎？",
+    "en": "確定保存捏臉並退出嗎？"
   },
   {
     "id": "-375930697",
-    "key": "Cave_Jishi",
-    "ch": "记事",
-    "tc": "記事"
+    "key": "Cave_TuichuNielian",
+    "ch": "确定直接退出吗？将不会保存捏脸结果！",
+    "tc": "確定直接退出嗎？ 將不會保存捏臉結果！",
+    "en": "確定直接退出嗎？ 將不會保存捏臉結果！"
   },
   {
     "id": "-375930696",
-    "key": "Cave_BuyTips",
-    "ch": "确认花费{0}灵石购买{0}吗？",
-    "tc": "確認花費{0}靈石購買{0}嗎？"
+    "key": "Cave_ShuZhuang",
+    "ch": "梳妆台—",
+    "tc": "梳妝台—",
+    "en": "梳妝台—"
   },
   {
     "id": "-375930695",
-    "key": "Cave_BuyLog",
-    "ch": "花费{0}灵石从仙居阁购买了{1}。",
-    "tc": "花費{0}靈石從仙居閣購買了{1}。"
+    "key": "Cave_FristOpenHomeDram",
+    "ch": "欢迎回家！您的主界面已经加入了回家按钮，只要点击回家按钮就能瞬间回家！",
+    "tc": "歡迎回家！ 您的主介面已經加入了回家按鈕，只要點擊回家按鈕就能瞬間回家！",
+    "en": "歡迎回家！ 您的主介面已經加入了回家按鈕，只要點擊回家按鈕就能瞬間回家！"
   },
   {
     "id": "-375930694",
-    "key": "Cave_BuyLog2",
-    "ch": "花费{0}灵石从仙居阁购买了{1}1级{2}。",
-    "tc": "花費{0}靈石從仙居閣購買了{1}1級{2}。"
+    "key": "Cave_Wangou",
+    "ch": "网购",
+    "tc": "網購",
+    "en": "網購"
   },
   {
     "id": "-375930693",
-    "key": "Cave_Jiage",
-    "ch": "价格",
-    "tc": "價格"
+    "key": "Cave_Zichan",
+    "ch": "资产",
+    "tc": "資產",
+    "en": "資產"
   },
   {
     "id": "-375930692",
-    "key": "Cave_Lingshi",
-    "ch": "灵石",
-    "tc": "靈石"
+    "key": "Cave_Huoban",
+    "ch": "伙伴",
+    "tc": "夥伴",
+    "en": "夥伴"
   },
   {
     "id": "-375930691",
-    "key": "Cave_Dianjigoumai",
-    "ch": "点击购买",
-    "tc": "點擊購買"
+    "key": "Cave_Jishi",
+    "ch": "记事",
+    "tc": "記事",
+    "en": "記事"
   },
   {
     "id": "-375930690",
-    "key": "Cave_Dqchiyous",
-    "ch": "当前持有数量",
-    "tc": "當前持有數量"
+    "key": "Cave_BuyTips",
+    "ch": "确认花费{0}灵石购买{0}吗？",
+    "tc": "確認花費{0}靈石購買{0}嗎？",
+    "en": "確認花費{0}靈石購買{0}嗎？"
   },
   {
     "id": "-375930689",
-    "key": "Cave_Use",
-    "ch": "使用中",
-    "tc": "使用中"
+    "key": "Cave_BuyLog",
+    "ch": "花费{0}灵石从仙居阁购买了{1}。",
+    "tc": "花費{0}靈石從仙居閣購買了{1}。",
+    "en": "花費{0}靈石從仙居閣購買了{1}。"
   },
   {
     "id": "-375930688",
-    "key": "Cave_UnUse",
-    "ch": "未使用",
-    "tc": "未使用"
+    "key": "Cave_BuyLog2",
+    "ch": "花费{0}灵石从仙居阁购买了{1}1级{2}。",
+    "tc": "花費{0}靈石從仙居閣購買了{1}1級{2}。",
+    "en": "花費{0}靈石從仙居閣購買了{1}1級{2}。"
   },
   {
     "id": "-375930687",
-    "key": "Cave_ClickPut",
-    "ch": "点击放置",
-    "tc": "點擊放置"
+    "key": "Cave_Jiage",
+    "ch": "价格",
+    "tc": "價格",
+    "en": "價格"
   },
   {
     "id": "-375930686",
-    "key": "Cave_ClickOut",
-    "ch": "点击收回仓库\n（按下鼠标滚轮可重置坐标）",
-    "tc": "點擊收回倉庫\n（按下滑鼠滾輪可重置座標）"
+    "key": "Cave_Lingshi",
+    "ch": "灵石",
+    "tc": "靈石",
+    "en": "靈石"
   },
   {
     "id": "-375930685",
-    "key": "Cave_LevelUpNeed",
-    "ch": "升级需要",
-    "tc": "升級需要"
+    "key": "Cave_Dianjigoumai",
+    "ch": "点击购买",
+    "tc": "點擊購買",
+    "en": "點擊購買"
   },
   {
     "id": "-375930684",
-    "key": "Cave_CurState",
-    "ch": "当前状态",
-    "tc": "當前狀態"
+    "key": "Cave_Dqchiyous",
+    "ch": "当前持有数量",
+    "tc": "當前持有數量",
+    "en": "當前持有數量"
   },
   {
     "id": "-375930683",
-    "key": "Cave_LevelUpTp",
-    "ch": "升级至",
-    "tc": "升級至"
+    "key": "Cave_Use",
+    "ch": "使用中",
+    "tc": "使用中",
+    "en": "使用中"
   },
   {
     "id": "-375930682",
-    "key": "Cave_LingshiAnd",
-    "ch": "灵石将",
-    "tc": "靈石將"
+    "key": "Cave_UnUse",
+    "ch": "未使用",
+    "tc": "未使用",
+    "en": "未使用"
   },
   {
     "id": "-375930681",
-    "key": "Cave_Cost",
-    "ch": "花费",
-    "tc": "花費"
+    "key": "Cave_ClickPut",
+    "ch": "点击放置",
+    "tc": "點擊放置",
+    "en": "點擊放置"
   },
   {
     "id": "-375930680",
-    "key": "Cave_LevelUp",
-    "ch": "升级",
-    "tc": "升級"
+    "key": "Cave_ClickOut",
+    "ch": "点击收回仓库\n（按下鼠标滚轮可重置坐标）",
+    "tc": "點擊收回倉庫\n（按下滑鼠滾輪可重置座標）",
+    "en": "點擊收回倉庫\n（按下滑鼠滾輪可重置座標）"
   },
   {
     "id": "-375930679",
-    "key": "Cave_NpcState1",
-    "ch": "已入住（洞府中）",
-    "tc": "已入住（洞府中）"
+    "key": "Cave_LevelUpNeed",
+    "ch": "升级需要",
+    "tc": "升級需要",
+    "en": "升級需要"
   },
   {
     "id": "-375930678",
-    "key": "Cave_NpcState2",
-    "ch": "已入住（外出中）",
-    "tc": "已入住（外出中）"
+    "key": "Cave_CurState",
+    "ch": "当前状态",
+    "tc": "當前狀態",
+    "en": "當前狀態"
   },
   {
     "id": "-375930677",
-    "key": "Cave_NpcState3",
-    "ch": "邀请中",
-    "tc": "邀請中"
+    "key": "Cave_LevelUpTp",
+    "ch": "升级至",
+    "tc": "升級至",
+    "en": "升級至"
   },
   {
     "id": "-375930676",
-    "key": "Cave_NpcState4",
-    "ch": "未入住",
-    "tc": "未入住"
+    "key": "Cave_LingshiAnd",
+    "ch": "灵石将",
+    "tc": "靈石將",
+    "en": "靈石將"
   },
   {
     "id": "-375930675",
-    "key": "Cave_State",
-    "ch": "状态",
-    "tc": "狀態"
+    "key": "Cave_Cost",
+    "ch": "花费",
+    "tc": "花費",
+    "en": "花費"
   },
   {
     "id": "-375930674",
-    "key": "Cave_Yaoqing",
-    "ch": "邀请",
-    "tc": "邀請"
+    "key": "Cave_LevelUp",
+    "ch": "升级",
+    "tc": "升級",
+    "en": "升級"
   },
   {
     "id": "-375930673",
-    "key": "Cave_Qingli",
-    "ch": "请离",
-    "tc": "請離"
+    "key": "Cave_NpcState1",
+    "ch": "已入住（洞府中）",
+    "tc": "已入住（洞府中）",
+    "en": "已入住（洞府中）"
   },
   {
     "id": "-375930672",
-    "key": "Cave_Yjx_Fsyq",
-    "ch": "已经向{0}发送邀请！",
-    "tc": "已經向{0}發送邀請！"
+    "key": "Cave_NpcState2",
+    "ch": "已入住（外出中）",
+    "tc": "已入住（外出中）",
+    "en": "已入住（外出中）"
   },
   {
     "id": "-375930671",
-    "key": "Cave_Xfsfjcs",
-    "ch": "{0}向{1}发送飞剑传书，邀请其入住{2}",
-    "tc": "{0}向{1}發送飛劍傳書，邀請其入住{2}"
+    "key": "Cave_NpcState3",
+    "ch": "邀请中",
+    "tc": "邀請中",
+    "en": "邀請中"
   },
   {
     "id": "-375930670",
-    "key": "Cave_NeedJiuguanShengji",
-    "ch": "酒馆入住人数已满，请升级酒馆！",
-    "tc": "酒館入住人數已滿，請升級酒館！"
+    "key": "Cave_NpcState4",
+    "ch": "未入住",
+    "tc": "未入住",
+    "en": "未入住"
   },
   {
     "id": "-375930669",
-    "key": "Cave_YjQlDf",
-    "ch": "已经将{0}请离出洞府！",
-    "tc": "已經將{0}請離出洞府！"
+    "key": "Cave_State",
+    "ch": "状态",
+    "tc": "狀態",
+    "en": "狀態"
   },
   {
     "id": "-375930668",
-    "key": "Cave_Q_Qll",
-    "ch": "{0}将{1}请离了{2}。",
-    "tc": "{0}將{1}請離了{2}。"
+    "key": "Cave_Yaoqing",
+    "ch": "邀请",
+    "tc": "邀請",
+    "en": "邀請"
   },
   {
     "id": "-375930667",
-    "key": "Cave_ShuomingOnceTips",
-    "ch": "(该说明只出现一次，后续需要阅读可到更新公告【2.0抢鲜体验版】查看)",
-    "tc": "（該說明只出現一次，後續需要閱讀可到更新公告【2.0搶鮮體驗版】查看）"
+    "key": "Cave_Qingli",
+    "ch": "请离",
+    "tc": "請離",
+    "en": "請離"
   },
   {
     "id": "-375930666",
-    "key": "Cave_pos",
-    "ch": "位置",
-    "tc": "位置"
+    "key": "Cave_Yjx_Fsyq",
+    "ch": "已经向{0}发送邀请！",
+    "tc": "已經向{0}發送邀請！",
+    "en": "已經向{0}發送邀請！"
   },
   {
     "id": "-375930665",
-    "key": "Cave_rota",
-    "ch": "旋转",
-    "tc": "旋轉"
+    "key": "Cave_Xfsfjcs",
+    "ch": "{0}向{1}发送飞剑传书，邀请其入住{2}",
+    "tc": "{0}向{1}發送飛劍傳書，邀請其入住{2}",
+    "en": "{0}向{1}發送飛劍傳書，邀請其入住{2}"
   },
   {
     "id": "-375930664",
-    "key": "Cave_scale",
-    "ch": "缩放",
-    "tc": "縮放"
+    "key": "Cave_NeedJiuguanShengji",
+    "ch": "酒馆入住人数已满，请升级酒馆！",
+    "tc": "酒館入住人數已滿，請升級酒館！",
+    "en": "酒館入住人數已滿，請升級酒館！"
   },
   {
     "id": "-375930663",
-    "key": "Cave_ClickCheckPosi",
-    "ch": "点击确定位置",
-    "tc": "點擊確定位置"
+    "key": "Cave_YjQlDf",
+    "ch": "已经将{0}请离出洞府！",
+    "tc": "已經將{0}請離出洞府！",
+    "en": "已經將{0}請離出洞府！"
   },
   {
     "id": "-375930662",
-    "key": "Cave_ClickOutCangku",
-    "ch": "点击放回仓库位置",
-    "tc": "點擊放回倉庫位置"
+    "key": "Cave_Q_Qll",
+    "ch": "{0}将{1}请离了{2}。",
+    "tc": "{0}將{1}請離了{2}。",
+    "en": "{0}將{1}請離了{2}。"
   },
   {
     "id": "-375930661",
-    "key": "Cave_ImageFile",
-    "ch": "图片文件",
-    "tc": "圖片檔"
+    "key": "Cave_ShuomingOnceTips",
+    "ch": "(该说明只出现一次，后续需要阅读可到更新公告【2.0抢鲜体验版】查看)",
+    "tc": "（該說明只出現一次，後續需要閱讀可到更新公告【2.0搶鮮體驗版】查看）",
+    "en": "（該說明只出現一次，後續需要閱讀可到更新公告【2.0搶鮮體驗版】查看）"
   },
   {
     "id": "-375930660",
-    "key": "Cave_ClickChangeBuildImage",
-    "ch": "点击更换建筑图片",
-    "tc": "點擊更換建築圖片"
+    "key": "Cave_pos",
+    "ch": "位置",
+    "tc": "位置",
+    "en": "位置"
   },
   {
     "id": "-375930659",
-    "key": "Cave_OpTips",
-    "ch": "鼠标拖动调整位置，按住ctrl+鼠标拖动调整大小，按住alt+鼠标拖动调整角度",
-    "tc": "滑鼠拖動調整位置，按住ctrl+滑鼠拖動調整大小，按住alt+滑鼠拖動調整角度"
+    "key": "Cave_rota",
+    "ch": "旋转",
+    "tc": "旋轉",
+    "en": "旋轉"
   },
   {
     "id": "-375930658",
-    "key": "Cave_Dingju",
-    "ch": "定居",
-    "tc": "定居"
+    "key": "Cave_scale",
+    "ch": "缩放",
+    "tc": "縮放",
+    "en": "縮放"
   },
   {
     "id": "-375930657",
-    "key": "Cave_DingjuShibai1",
-    "ch": "此处有其他建筑啦，无法定居！",
-    "tc": "此處有其他建築啦，無法定居！"
+    "key": "Cave_ClickCheckPosi",
+    "ch": "点击确定位置",
+    "tc": "點擊確定位置",
+    "en": "點擊確定位置"
   },
   {
     "id": "-375930656",
-    "key": "Cave_DingjuShibai2",
-    "ch": "此处无法定居！",
-    "tc": "此處無法定居！"
+    "key": "Cave_ClickOutCangku",
+    "ch": "点击放回仓库位置",
+    "tc": "點擊放回倉庫位置",
+    "en": "點擊放回倉庫位置"
   },
   {
     "id": "-375930655",
-    "key": "Cave_QueDingCavePosi",
-    "ch": "确定在此定居吗？",
-    "tc": "確定在此定居嗎？"
+    "key": "Cave_ImageFile",
+    "ch": "图片文件",
+    "tc": "圖片檔",
+    "en": "圖片檔"
   },
   {
     "id": "-375930654",
-    "key": "Cave_OkCavePosi",
-    "ch": "贵客，洞府为您造好了，我们先撤了！",
-    "tc": "貴客，洞府為您造好了，我們先撤了！"
+    "key": "Cave_ClickChangeBuildImage",
+    "ch": "点击更换建筑图片",
+    "tc": "點擊更換建築圖片",
+    "en": "點擊更換建築圖片"
   },
   {
     "id": "-375930653",
-    "key": "Cave_GoHome",
-    "ch": "回家",
-    "tc": "回家"
+    "key": "Cave_OpTips",
+    "ch": "鼠标拖动调整位置，按住ctrl+鼠标拖动调整大小，按住alt+鼠标拖动调整角度",
+    "tc": "滑鼠拖動調整位置，按住ctrl+滑鼠拖動調整大小，按住alt+滑鼠拖動調整角度",
+    "en": "滑鼠拖動調整位置，按住ctrl+滑鼠拖動調整大小，按住alt+滑鼠拖動調整角度"
   },
   {
     "id": "-375930652",
-    "key": "Cave_BuyDram1",
-    "ch": "道友还没想好要在哪里定居吗？我觉得永恒冰原不错哦！",
-    "tc": "道友還沒想好要在哪裡定居嗎？ 我覺得永恆冰原不錯哦！"
+    "key": "Cave_Dingju",
+    "ch": "定居",
+    "tc": "定居",
+    "en": "定居"
   },
   {
     "id": "-375930651",
-    "key": "Cave_BuyDram2",
-    "ch": "道友是在一个地方呆腻了，想更换洞府位置了吗？",
-    "tc": "道友是在一個地方呆膩了，想更換洞府位置了嗎？"
+    "key": "Cave_DingjuShibai1",
+    "ch": "此处有其他建筑啦，无法定居！",
+    "tc": "此處有其他建築啦，無法定居！",
+    "en": "此處有其他建築啦，無法定居！"
   },
   {
     "id": "-375930650",
-    "key": "Cave_BuyDram3",
-    "ch": "是否要更换洞府住址？",
-    "tc": "是否要更換洞府住址？"
+    "key": "Cave_DingjuShibai2",
+    "ch": "此处无法定居！",
+    "tc": "此處無法定居！",
+    "en": "此處無法定居！"
   },
   {
     "id": "-375930649",
-    "key": "Cave_BuyDram4",
-    "ch": "这里出售各种各样的洞天福地，还提供无限次免费搬家服务，道友可是要来选购的？",
-    "tc": "這裡出售各種各樣的洞天福地，還提供無限次免費搬家服務，道友可是要來選購的？"
+    "key": "Cave_QueDingCavePosi",
+    "ch": "确定在此定居吗？",
+    "tc": "確定在此定居嗎？",
+    "en": "確定在此定居嗎？"
   },
   {
     "id": "-375930648",
-    "key": "Cave_BuyDram5",
-    "ch": "是否要选购洞府？",
-    "tc": "是否要選購洞府？"
+    "key": "Cave_OkCavePosi",
+    "ch": "贵客，洞府为您造好了，我们先撤了！",
+    "tc": "貴客，洞府為您造好了，我們先撤了！",
+    "en": "貴客，洞府為您造好了，我們先撤了！"
   },
   {
     "id": "-375930647",
-    "key": "Cave_BuyDram6",
-    "ch": "仙居楼",
-    "tc": "仙居樓"
+    "key": "Cave_GoHome",
+    "ch": "回家",
+    "tc": "回家",
+    "en": "回家"
   },
   {
     "id": "-375930646",
-    "key": "Cave_BuyDram7",
-    "ch": "购买洞府",
-    "tc": "購買洞府"
+    "key": "Cave_BuyDram1",
+    "ch": "道友还没想好要在哪里定居吗？我觉得永恒冰原不错哦！",
+    "tc": "道友還沒想好要在哪裡定居嗎？ 我覺得永恆冰原不錯哦！",
+    "en": "道友還沒想好要在哪裡定居嗎？ 我覺得永恆冰原不錯哦！"
   },
   {
     "id": "-375930645",
-    "key": "Cave_BuyDram8",
-    "ch": "确定花费{0}灵石购买{1}？",
-    "tc": "確定花費{0}靈石購買{1}？"
+    "key": "Cave_BuyDram2",
+    "ch": "道友是在一个地方呆腻了，想更换洞府位置了吗？",
+    "tc": "道友是在一個地方呆膩了，想更換洞府位置了嗎？",
+    "en": "道友是在一個地方呆膩了，想更換洞府位置了嗎？"
   },
   {
     "id": "-375930644",
-    "key": "Cave_beijingName1",
-    "ch": "小桥流水",
-    "tc": "小橋流水"
+    "key": "Cave_BuyDram3",
+    "ch": "是否要更换洞府住址？",
+    "tc": "是否要更換洞府住址？",
+    "en": "是否要更換洞府住址？"
   },
   {
     "id": "-375930643",
-    "key": "Cave_beijingName2",
-    "ch": "冰天雪地",
-    "tc": "冰天雪地"
+    "key": "Cave_BuyDram4",
+    "ch": "这里出售各种各样的洞天福地，还提供无限次免费搬家服务，道友可是要来选购的？",
+    "tc": "這裡出售各種各樣的洞天福地，還提供無限次免費搬家服務，道友可是要來選購的？",
+    "en": "這裡出售各種各樣的洞天福地，還提供無限次免費搬家服務，道友可是要來選購的？"
   },
   {
     "id": "-375930642",
-    "key": "Cave_beijingName3",
-    "ch": "寒极荒漠",
-    "tc": "寒極荒漠"
+    "key": "Cave_BuyDram5",
+    "ch": "是否要选购洞府？",
+    "tc": "是否要選購洞府？",
+    "en": "是否要選購洞府？"
   },
   {
     "id": "-375930641",
-    "key": "Cave_BuyDram9",
-    "ch": "没灵石来凑什么热闹，你是想来白嫖的吗？",
-    "tc": "沒靈石來湊什麼熱鬧，你是想來白嫖的嗎？"
+    "key": "Cave_BuyDram6",
+    "ch": "仙居楼",
+    "tc": "仙居樓",
+    "en": "仙居樓"
   },
   {
     "id": "-375930640",
-    "key": "Cave_BuyDram10",
-    "ch": "这灵石我就先收下了，道友可前往想要建造洞府的地方，点击屏幕右方的建造按钮即可！",
-    "tc": "這靈石我就先收下了，道友可前往想要建造洞府的地方，點擊螢幕右方的建造按鈕即可！"
+    "key": "Cave_BuyDram7",
+    "ch": "购买洞府",
+    "tc": "購買洞府",
+    "en": "購買洞府"
   },
   {
     "id": "-375930639",
-    "key": "Cave_BuyDram11",
-    "ch": "的洞府",
-    "tc": "的洞府"
+    "key": "Cave_BuyDram8",
+    "ch": "确定花费{0}灵石购买{1}？",
+    "tc": "確定花費{0}靈石購買{1}？",
+    "en": "確定花費{0}靈石購買{1}？"
   },
   {
     "id": "-375930638",
-    "key": "Cave_HelpText1",
-    "ch": "更新洞府",
-    "tc": "更新洞府"
+    "key": "Cave_beijingName1",
+    "ch": "小桥流水",
+    "tc": "小橋流水",
+    "en": "小橋流水"
   },
   {
     "id": "-375930637",
-    "key": "Cave_HelpText2",
-    "ch": "感谢使用洞天福地MOD！\n我的QQ群：50948165\n哔哩哔哩ID：八荒大鬼\n\n\n个人主页：www.yellowshge.com\n\n\n\n",
-    "tc": "感謝使用洞天福地MOD！\n我的QQ群：50948165\n嗶哩嗶哩ID：八荒大鬼\n\n\n個人主頁：www.yellowshge.com\n\n\n\n"
+    "key": "Cave_beijingName2",
+    "ch": "冰天雪地",
+    "tc": "冰天雪地",
+    "en": "冰天雪地"
   },
   {
     "id": "-375930636",
-    "key": "Cave_HelpText3",
-    "ch": "前往B站关注",
-    "tc": "前往B站關注"
+    "key": "Cave_beijingName3",
+    "ch": "寒极荒漠",
+    "tc": "寒極荒漠",
+    "en": "寒極荒漠"
   },
   {
     "id": "-375930635",
-    "key": "Cave_HelpText4",
-    "ch": "前往主页参观",
-    "tc": "前往主頁參觀"
+    "key": "Cave_BuyDram9",
+    "ch": "没灵石来凑什么热闹，你是想来白嫖的吗？",
+    "tc": "沒靈石來湊什麼熱鬧，你是想來白嫖的嗎？",
+    "en": "沒靈石來湊什麼熱鬧，你是想來白嫖的嗎？"
   },
   {
     "id": "-375930634",
-    "key": "Cave_HelpText5",
-    "ch": "前往3DM论坛",
-    "tc": "前往3DM論壇"
+    "key": "Cave_BuyDram10",
+    "ch": "这灵石我就先收下了，道友可前往想要建造洞府的地方，点击屏幕右方的建造按钮即可！",
+    "tc": "這靈石我就先收下了，道友可前往想要建造洞府的地方，點擊螢幕右方的建造按鈕即可！",
+    "en": "這靈石我就先收下了，道友可前往想要建造洞府的地方，點擊螢幕右方的建造按鈕即可！"
   },
   {
     "id": "-375930633",
-    "key": "Cave_HelpText6",
-    "ch": "更新",
-    "tc": "更新"
+    "key": "Cave_BuyDram11",
+    "ch": "的洞府",
+    "tc": "的洞府",
+    "en": "的洞府"
   },
   {
     "id": "-375930632",
-    "key": "Cave_HelpText7",
-    "ch": "计划",
-    "tc": "計劃"
+    "key": "Cave_HelpText1",
+    "ch": "更新洞府",
+    "tc": "更新洞府",
+    "en": "更新洞府"
   },
   {
     "id": "-375930631",
-    "key": "Cave_HelpText8",
-    "ch": "洞天福地更新公告",
-    "tc": "洞天福地更新公告"
+    "key": "Cave_HelpText2",
+    "ch": "感谢使用洞天福地MOD！\n我的QQ群：50948165\n哔哩哔哩ID：八荒大鬼\n\n\n个人主页：www.yellowshge.com\n\n\n\n",
+    "tc": "感謝使用洞天福地MOD！\n我的QQ群：50948165\n嗶哩嗶哩ID：八荒大鬼\n\n\n個人主頁：www.yellowshge.com\n\n\n\n",
+    "en": "感謝使用洞天福地MOD！\n我的QQ群：50948165\n嗶哩嗶哩ID：八荒大鬼\n\n\n個人主頁：www.yellowshge.com\n\n\n\n"
   },
   {
     "id": "-375930630",
-    "key": "Cave_HelpText9",
-    "ch": "洞天福地版本计划",
-    "tc": "洞天福地版本計劃"
+    "key": "Cave_HelpText3",
+    "ch": "前往B站关注",
+    "tc": "前往B站關注",
+    "en": "前往B站關注"
   },
   {
     "id": "-375930629",
-    "key": "Cave_HelpText10",
-    "ch": "邀请说明：邀请NPC入住洞府，NPC将在下个月做出回复，回复之前将为其预留一间客房。下个月NPC若回复拒绝，此客房可重新邀请其他NPC；若NPC回复接受，NPC将入住并占用该客房。入住的NPC会经常在洞府逗留。",
-    "tc": "邀請說明：邀請NPC入住洞府，NPC將在下個月做出回復，回復之前將為其預留一間客房。 下個月NPC若回復拒絕，此客房可重新邀請其他NPC;若NPC回復接受，NPC將入住並佔用該客房。 入住的NPC會經常在洞府逗留。"
+    "key": "Cave_HelpText4",
+    "ch": "前往主页参观",
+    "tc": "前往主頁參觀",
+    "en": "前往主頁參觀"
   },
   {
     "id": "-375930628",
-    "key": "Cave_HelpText11",
-    "ch": "依次",
-    "tc": "依次"
+    "key": "Cave_HelpText5",
+    "ch": "前往3DM论坛",
+    "tc": "前往3DM論壇",
+    "en": "前往3DM論壇"
   },
   {
     "id": "-375930627",
-    "key": "Cave_HelpText12",
-    "ch": "下一阶段",
-    "tc": "下一階段"
+    "key": "Cave_HelpText6",
+    "ch": "更新",
+    "tc": "更新",
+    "en": "更新"
   },
   {
     "id": "-375930626",
-    "key": "Cave_HelpText13",
-    "ch": "已更新",
-    "tc": "已更新"
+    "key": "Cave_HelpText7",
+    "ch": "计划",
+    "tc": "計劃",
+    "en": "計劃"
   },
   {
     "id": "-375930625",
-    "key": "Cave_HelpText14",
-    "ch": "抢鲜体验版",
-    "tc": "搶鮮體驗版"
+    "key": "Cave_HelpText8",
+    "ch": "洞天福地更新公告",
+    "tc": "洞天福地更新公告",
+    "en": "洞天福地更新公告"
   },
   {
     "id": "-375930624",
-    "key": "Cave_HelpText15",
-    "ch": "{0}年{1}月{2}日{3}时",
-    "tc": "{0}年{1}月{2}日{3}時"
+    "key": "Cave_HelpText9",
+    "ch": "洞天福地版本计划",
+    "tc": "洞天福地版本計劃",
+    "en": "洞天福地版本計劃"
   },
   {
     "id": "-375930623",
-    "key": "Cave_HelpYudao1",
-    "ch": "可触发奇遇发现大能残魂，修复后发现是从其他世界破碎虚空而来，灵魂首创需要稀有材料修复灵魂，救活大能后可获得其炼丹传承，开启新炼丹系统。\n增加新炼丹系统。增加炼丹室建筑及功能。",
-    "tc": "觸發奇遇發現大能殘魂，修復后發現是從其他世界破碎虛空而來，靈魂首創需要稀有材料修復靈魂，救活大能后可獲得其煉丹傳承，開啟新煉丹系統。\n增加新煉丹系統。 增加煉丹室建築及功能。 "
+    "key": "Cave_HelpText10",
+    "ch": "邀请说明：邀请NPC入住洞府，NPC将在下个月做出回复，回复之前将为其预留一间客房。下个月NPC若回复拒绝，此客房可重新邀请其他NPC；若NPC回复接受，NPC将入住并占用该客房。入住的NPC会经常在洞府逗留。",
+    "tc": "邀請說明：邀請NPC入住洞府，NPC將在下個月做出回復，回復之前將為其預留一間客房。 下個月NPC若回復拒絕，此客房可重新邀請其他NPC;若NPC回復接受，NPC將入住並佔用該客房。 入住的NPC會經常在洞府逗留。",
+    "en": "邀請說明：邀請NPC入住洞府，NPC將在下個月做出回復，回復之前將為其預留一間客房。 下個月NPC若回復拒絕，此客房可重新邀請其他NPC;若NPC回復接受，NPC將入住並佔用該客房。 入住的NPC會經常在洞府逗留。"
   },
   {
     "id": "-375930622",
-    "key": "Cave_HelpYudao2",
-    "ch": "优化各个建筑的管理NPC，可分配好友帮忙打工。\n各个建筑每个月需要花费灵石维护等。\n增加好友打工功能，好友可帮助洞主赚取灵石。",
-    "tc": "優化各個建築的管理NPC，可分配好友幫忙打工。\n各個建築每個月需要花費靈石維護等。\n增加好友打工功能，好友可説明洞主賺取靈石。 "
+    "key": "Cave_HelpText11",
+    "ch": "依次",
+    "tc": "依次",
+    "en": "依次"
   },
   {
     "id": "-375930621",
-    "key": "Cave_HelpYudao3",
-    "ch": "丰富阵法功能，聚灵阵等。\n大地图增加奇遇，可能遇到其他修仙者的洞府。",
-    "tc": "豐富陣法功能，聚靈陣等。\n大地圖增加奇遇，可能遇到其他修仙者的洞府。 "
+    "key": "Cave_HelpText12",
+    "ch": "下一阶段",
+    "tc": "下一階段",
+    "en": "下一階段"
   },
   {
     "id": "-375930620",
-    "key": "Cave_HelpYudao4",
-    "ch": "增加主房功能，可与道侣在其中繁衍下一代。\n增加小孩养成功能，可塑造性格及先天气运等。",
-    "tc": "增加主房功能，可與道侶在其中繁衍下一代。\n增加小孩養成功能，可塑造性格及先天氣運等。 "
+    "key": "Cave_HelpText13",
+    "ch": "已更新",
+    "tc": "已更新",
+    "en": "已更新"
   },
   {
     "id": "-375930619",
-    "key": "Cave_HelpYudao5",
-    "ch": "增加生态拟真试炼塔，可刷怪试炼获取材料。\n增加情报楼，可搜集各种情报。\n增加花园建筑，可与好友及器灵在其中玩耍交互等。",
-    "tc": "增加生態擬真試煉塔，可刷怪試煉獲取材料。\n增加情報樓，可搜集各種情報。\n增加花園建築，可與好友及器靈在其中玩耍交互等。 "
+    "key": "Cave_HelpText14",
+    "ch": "抢鲜体验版",
+    "tc": "搶鮮體驗版",
+    "en": "搶鮮體驗版"
   },
   {
     "id": "-375930618",
-    "key": "Cave_HelpYudao6",
-    "ch": "增加地牢建筑，可关押击败的敌人。\n增加灵田建筑，可种植灵果。\n增加改名和性格功能（玩家和伙伴）",
-    "tc": "增加地牢建築，可關押擊敗的敵人。\n增加靈田建築，可種植靈果。\n增加改名和性格功能（玩家和夥伴）"
+    "key": "Cave_HelpText15",
+    "ch": "{0}年{1}月{2}日{3}时",
+    "tc": "{0}年{1}月{2}日{3}時",
+    "en": "{0}年{1}月{2}日{3}時"
   },
   {
     "id": "-375930617",
-    "key": "Cave_HelpYudao7",
-    "ch": "增加主要建筑灵阁功能，可免费修炼。\n增加客房功能，可邀请好友入住。\n增加更新内容显示、版本计划显示、更新提示功能。\n增加整容建筑，可更换发型、眼睛鼻子等。",
-    "tc": "增加主要建築靈閣功能，可免費修鍊。\n增加客房功能，可邀請好友入住。\n增加更新內容顯示、版本計劃顯示、更新提示功能。\n增加整容建築，可更換髮型、眼睛鼻子等。 "
+    "key": "Cave_HelpYudao1",
+    "ch": "可触发奇遇发现大能残魂，修复后发现是从其他世界破碎虚空而来，灵魂首创需要稀有材料修复灵魂，救活大能后可获得其炼丹传承，开启新炼丹系统。\n增加新炼丹系统。增加炼丹室建筑及功能。",
+    "tc": "觸發奇遇發現大能殘魂，修復后發現是從其他世界破碎虛空而來，靈魂首創需要稀有材料修復靈魂，救活大能后可獲得其煉丹傳承，開啟新煉丹系統。\n增加新煉丹系統。 增加煉丹室建築及功能。 ",
+    "en": "觸發奇遇發現大能殘魂，修復后發現是從其他世界破碎虛空而來，靈魂首創需要稀有材料修復靈魂，救活大能后可獲得其煉丹傳承，開啟新煉丹系統。\n增加新煉丹系統。 增加煉丹室建築及功能。 "
   },
   {
     "id": "-375930616",
-    "key": "Cave_HelpYudao8",
-    "ch": "增加洞府购买功能，以及洞府建设框架和主要建筑功能。",
-    "tc": "增加洞府購買功能，以及洞府建設框架和主要建築功能。"
+    "key": "Cave_HelpYudao2",
+    "ch": "优化各个建筑的管理NPC，可分配好友帮忙打工。\n各个建筑每个月需要花费灵石维护等。\n增加好友打工功能，好友可帮助洞主赚取灵石。",
+    "tc": "優化各個建築的管理NPC，可分配好友幫忙打工。\n各個建築每個月需要花費靈石維護等。\n增加好友打工功能，好友可説明洞主賺取靈石。 ",
+    "en": "優化各個建築的管理NPC，可分配好友幫忙打工。\n各個建築每個月需要花費靈石維護等。\n增加好友打工功能，好友可説明洞主賺取靈石。 "
   },
   {
     "id": "-375930615",
-    "key": "Cave_HelpGengxin1",
-    "ch": "1、增加购买洞府功能，定居后可随时回家打开洞府。\n2、增加DIY洞府背景及建筑图片功能。\n3、增加建筑放置及部分主要建筑功能。",
-    "tc": "1、增加購買洞府功能，定居后可隨時回家打開洞府。\n2、增加DIY洞府背景及建築圖片功能。\n3、增加建築放置及部分主要建築功能。 "
+    "key": "Cave_HelpYudao3",
+    "ch": "丰富阵法功能，聚灵阵等。\n大地图增加奇遇，可能遇到其他修仙者的洞府。",
+    "tc": "豐富陣法功能，聚靈陣等。\n大地圖增加奇遇，可能遇到其他修仙者的洞府。 ",
+    "en": "豐富陣法功能，聚靈陣等。\n大地圖增加奇遇，可能遇到其他修仙者的洞府。 "
   },
   {
     "id": "-375930614",
-    "key": "Cave_HelpGengxin2",
-    "ch": "1、增加更新公告功能及优化公告提示\n2、修复自己建造的建木与城镇的不互通（<color=red>请道友在上一个版本先将洞府建木物品取出</color>）。\n3、修复某些情况下定居/回家按钮消失不出现的问题。\n4、修复点进建筑然后右键取消直接回到大地图的问题。\n5、感谢3DM的<color=blue>dingchao52cc</color>和<color=blue>Karasunny</color>道友提供的BUG情报。",
-    "tc": "1、增加更新公告功能及優化公告提示\n2、修復自己建造的建木與城鎮的不互通（<color=red>請道友在上一個版本先將洞府建木物品取出</color>）。\n3、修復某些情況下定居/回家按鈕消失不出現的問題。\n4、修復點進建築然後右鍵取消直接回到大地圖的問題。\n5、感謝3DM的<color=blue>dingchao52cc</color>和<color=blue>Karasunny</color>道友提供的BUG情報。 "
+    "key": "Cave_HelpYudao4",
+    "ch": "增加主房功能，可与道侣在其中繁衍下一代。\n增加小孩养成功能，可塑造性格及先天气运等。",
+    "tc": "增加主房功能，可與道侶在其中繁衍下一代。\n增加小孩養成功能，可塑造性格及先天氣運等。 ",
+    "en": "增加主房功能，可與道侶在其中繁衍下一代。\n增加小孩養成功能，可塑造性格及先天氣運等。 "
   },
   {
     "id": "-375930613",
-    "key": "Cave_HelpGengxin3",
-    "ch": "1、修复自定义图片模糊的问题。\n2、修复未升到4级就可以切换4级工坊的问题以及类似问题。\n3、增加了灵阁的功能，可在灵阁免费修炼，灵阁四个等级对应四个州的灵阁修炼效果。\n4、增加更新提示，MOD可更新时开始界面右上角会有更新按钮，点击可立即前往论坛更新MOD。5、增加洞府记事，记录洞府中发生的点点滴滴及美好回忆。\n6、增加客房功能，可邀请NPC入住。",
-    "tc": "1、修復自定義圖片模糊的問題。\n2、修復未升到4級就可以切換4級工坊的問題以及類似問題。\n3、增加了靈閣的功能，可在靈閣免費修鍊，靈閣四個等級對應四個州的靈閣修鍊效果。\n4、增加更新提示，MOD可更新時開始介面右上角會有更新按鈕，點擊可立即前往論壇更新MOD。 5、增加洞府記事，記錄洞府中發生的點點滴滴及美好回憶。\n6、增加客房功能，可邀請NPC入住。 "
+    "key": "Cave_HelpYudao5",
+    "ch": "增加生态拟真试炼塔，可刷怪试炼获取材料。\n增加情报楼，可搜集各种情报。\n增加花园建筑，可与好友及器灵在其中玩耍交互等。",
+    "tc": "增加生態擬真試煉塔，可刷怪試煉獲取材料。\n增加情報樓，可搜集各種情報。\n增加花園建築，可與好友及器靈在其中玩耍交互等。 ",
+    "en": "增加生態擬真試煉塔，可刷怪試煉獲取材料。\n增加情報樓，可搜集各種情報。\n增加花園建築，可與好友及器靈在其中玩耍交互等。 "
   },
   {
     "id": "-375930612",
-    "key": "Cave_HelpGengxin4",
-    "ch": "1、修复邀约的NPC会被传回洞府的问题。（已经发生的等邀约时间结束吧）\n2、建筑重新放置重置坐标，避免移除屏幕范围取不回来。\n3、感谢3DM的<color=blue>guigu007</color>道友提供的BUG情报。\n4、调整洞府记事的顺序。",
-    "tc": "1、修復邀約的NPC會被傳回洞府的問題。 （已經發生的等邀約時間結束吧）\n2、建築重新放置重置座標，避免移除螢幕範圍取不回來。\n3、感謝3DM的<color=blue>guigu007</color>道友提供的BUG情報。\n4、調整洞府記事的順序。 "
+    "key": "Cave_HelpYudao6",
+    "ch": "增加地牢建筑，可关押击败的敌人。\n增加灵田建筑，可种植灵果。\n增加改名和性格功能（玩家和伙伴）",
+    "tc": "增加地牢建築，可關押擊敗的敵人。\n增加靈田建築，可種植靈果。\n增加改名和性格功能（玩家和夥伴）",
+    "en": "增加地牢建築，可關押擊敗的敵人。\n增加靈田建築，可種植靈果。\n增加改名和性格功能（玩家和夥伴）"
   },
   {
     "id": "-375930611",
-    "key": "Cave_HelpGengxin5",
-    "ch": "1、优化入住洞府的NPC过月会自动增加对府主的好感度。\n2、优化洞府建筑等级显示，若等级上限为1则不显示建筑等级。",
-    "tc": "1、優化入住洞府的NPC過月會自動增加對府主的好感度。\n2、優化洞府建築等級顯示，若等級上限為1則不顯示建築等級。"
+    "key": "Cave_HelpYudao7",
+    "ch": "增加主要建筑灵阁功能，可免费修炼。\n增加客房功能，可邀请好友入住。\n增加更新内容显示、版本计划显示、更新提示功能。\n增加整容建筑，可更换发型、眼睛鼻子等。",
+    "tc": "增加主要建築靈閣功能，可免費修鍊。\n增加客房功能，可邀請好友入住。\n增加更新內容顯示、版本計劃顯示、更新提示功能。\n增加整容建築，可更換髮型、眼睛鼻子等。 ",
+    "en": "增加主要建築靈閣功能，可免費修鍊。\n增加客房功能，可邀請好友入住。\n增加更新內容顯示、版本計劃顯示、更新提示功能。\n增加整容建築，可更換髮型、眼睛鼻子等。 "
   },
   {
     "id": "-375930610",
-    "key": "Cave_HelpGengxin6",
-    "ch": "1、优化了mod框架，修复了一些已知BUG。\n2、优化了主界面按钮显示\n3、闲楼和厢房增加捏脸功能，闲楼可以给自己捏脸，厢房可以给位于洞府的伙伴捏脸。\n4、增加了版本预告。\n5、修改了建筑名称。\n6、优化了字体的显示。\n7、优化了伙伴卡顿的问题。\n8、增加洞府改名功能。\n9、优化了邀请、请离伙伴会重置滚动位置的问题。\n10、增加建筑可以调整大小和自定义图片（支持png,jpg,gif)\n11、增加洞府菜单自动隐藏。\n12、增加支持自定义新增建筑，有兴趣的可以查看cave目录下的教程文档。\n13、洞府牌匾名字支持自定义格式，可在Cave目录下修改DataCustom.json文件。\n14、增加多个款式的牌匾。\n15、增加建筑支持挂载游戏内置特效。\n16、增加阵法功能，开启后在洞府过月可屏蔽其他人。",
-    "tc": "1、優化了mod框架，修復了一些已知BUG。\n2、優化了主介面按鈕顯示\n3、閑樓和廂房增加捏臉功能，閒樓可以給自己捏臉，廂房可以給位於洞府的夥伴捏臉。\n4、增加了版本預告。\n5、修改了建築名稱。\n6、優化了字體的顯示。\n7、優化了夥伴卡頓的問題。\n8、增加洞府改名功能。\n9、優化了邀請、請離夥伴會重置滾動位置的問題。\n10、增加建築可以調整大小和自定義圖片（支援png，jpg，gif）\n11、增加洞府功能表自動隱藏。\n12、增加支援自定義新增建築，有興趣的可以查看cave目錄下的教程文檔。\n13、洞府牌匾名字支援自定義格式，可在Cave目錄下修改DataCustom.json檔。\n14、增加多個款式的牌匾。\n15、增加建築支援掛載遊戲內置特效。\n16、增加陣法功能，開啟后在洞府過月可遮罩其他人。 "
+    "key": "Cave_HelpYudao8",
+    "ch": "增加洞府购买功能，以及洞府建设框架和主要建筑功能。",
+    "tc": "增加洞府購買功能，以及洞府建設框架和主要建築功能。",
+    "en": "增加洞府購買功能，以及洞府建設框架和主要建築功能。"
   },
   {
     "id": "-375930609",
-    "key": "Cave_HelpGengxin7",
-    "ch": "1、使用了新的mod框架。\n2、增加同道功能。可以在厢房邀请NPC同行，然后一起进入战斗。\n3、优化了提示文本。",
-    "tc": "1、使用了新的mod框架。\n2、增加同道功能。 可以在廂房邀請NPC同行，然後一起進入戰鬥。\n3、優化了提示文本。"
+    "key": "Cave_HelpGengxin1",
+    "ch": "1、增加购买洞府功能，定居后可随时回家打开洞府。\n2、增加DIY洞府背景及建筑图片功能。\n3、增加建筑放置及部分主要建筑功能。",
+    "tc": "1、增加購買洞府功能，定居后可隨時回家打開洞府。\n2、增加DIY洞府背景及建築圖片功能。\n3、增加建築放置及部分主要建築功能。 ",
+    "en": "1、增加購買洞府功能，定居后可隨時回家打開洞府。\n2、增加DIY洞府背景及建築圖片功能。\n3、增加建築放置及部分主要建築功能。 "
   },
   {
     "id": "-375930608",
+    "key": "Cave_HelpGengxin2",
+    "ch": "1、增加更新公告功能及优化公告提示\n2、修复自己建造的建木与城镇的不互通（<color=red>请道友在上一个版本先将洞府建木物品取出</color>）。\n3、修复某些情况下定居/回家按钮消失不出现的问题。\n4、修复点进建筑然后右键取消直接回到大地图的问题。\n5、感谢3DM的<color=blue>dingchao52cc</color>和<color=blue>Karasunny</color>道友提供的BUG情报。",
+    "tc": "1、增加更新公告功能及優化公告提示\n2、修復自己建造的建木與城鎮的不互通（<color=red>請道友在上一個版本先將洞府建木物品取出</color>）。\n3、修復某些情況下定居/回家按鈕消失不出現的問題。\n4、修復點進建築然後右鍵取消直接回到大地圖的問題。\n5、感謝3DM的<color=blue>dingchao52cc</color>和<color=blue>Karasunny</color>道友提供的BUG情報。 ",
+    "en": "1、增加更新公告功能及優化公告提示\n2、修復自己建造的建木與城鎮的不互通（<color=red>請道友在上一個版本先將洞府建木物品取出</color>）。\n3、修復某些情況下定居/回家按鈕消失不出現的問題。\n4、修復點進建築然後右鍵取消直接回到大地圖的問題。\n5、感謝3DM的<color=blue>dingchao52cc</color>和<color=blue>Karasunny</color>道友提供的BUG情報。 "
+  },
+  {
+    "id": "-375930607",
+    "key": "Cave_HelpGengxin3",
+    "ch": "1、修复自定义图片模糊的问题。\n2、修复未升到4级就可以切换4级工坊的问题以及类似问题。\n3、增加了灵阁的功能，可在灵阁免费修炼，灵阁四个等级对应四个州的灵阁修炼效果。\n4、增加更新提示，MOD可更新时开始界面右上角会有更新按钮，点击可立即前往论坛更新MOD。5、增加洞府记事，记录洞府中发生的点点滴滴及美好回忆。\n6、增加客房功能，可邀请NPC入住。",
+    "tc": "1、修復自定義圖片模糊的問題。\n2、修復未升到4級就可以切換4級工坊的問題以及類似問題。\n3、增加了靈閣的功能，可在靈閣免費修鍊，靈閣四個等級對應四個州的靈閣修鍊效果。\n4、增加更新提示，MOD可更新時開始介面右上角會有更新按鈕，點擊可立即前往論壇更新MOD。 5、增加洞府記事，記錄洞府中發生的點點滴滴及美好回憶。\n6、增加客房功能，可邀請NPC入住。 ",
+    "en": "1、修復自定義圖片模糊的問題。\n2、修復未升到4級就可以切換4級工坊的問題以及類似問題。\n3、增加了靈閣的功能，可在靈閣免費修鍊，靈閣四個等級對應四個州的靈閣修鍊效果。\n4、增加更新提示，MOD可更新時開始介面右上角會有更新按鈕，點擊可立即前往論壇更新MOD。 5、增加洞府記事，記錄洞府中發生的點點滴滴及美好回憶。\n6、增加客房功能，可邀請NPC入住。 "
+  },
+  {
+    "id": "-375930606",
+    "key": "Cave_HelpGengxin4",
+    "ch": "1、修复邀约的NPC会被传回洞府的问题。（已经发生的等邀约时间结束吧）\n2、建筑重新放置重置坐标，避免移除屏幕范围取不回来。\n3、感谢3DM的<color=blue>guigu007</color>道友提供的BUG情报。\n4、调整洞府记事的顺序。",
+    "tc": "1、修復邀約的NPC會被傳回洞府的問題。 （已經發生的等邀約時間結束吧）\n2、建築重新放置重置座標，避免移除螢幕範圍取不回來。\n3、感謝3DM的<color=blue>guigu007</color>道友提供的BUG情報。\n4、調整洞府記事的順序。 ",
+    "en": "1、修復邀約的NPC會被傳回洞府的問題。 （已經發生的等邀約時間結束吧）\n2、建築重新放置重置座標，避免移除螢幕範圍取不回來。\n3、感謝3DM的<color=blue>guigu007</color>道友提供的BUG情報。\n4、調整洞府記事的順序。 "
+  },
+  {
+    "id": "-375930605",
+    "key": "Cave_HelpGengxin5",
+    "ch": "1、优化入住洞府的NPC过月会自动增加对府主的好感度。\n2、优化洞府建筑等级显示，若等级上限为1则不显示建筑等级。",
+    "tc": "1、優化入住洞府的NPC過月會自動增加對府主的好感度。\n2、優化洞府建築等級顯示，若等級上限為1則不顯示建築等級。",
+    "en": "1、優化入住洞府的NPC過月會自動增加對府主的好感度。\n2、優化洞府建築等級顯示，若等級上限為1則不顯示建築等級。"
+  },
+  {
+    "id": "-375930604",
+    "key": "Cave_HelpGengxin6",
+    "ch": "1、优化了mod框架，修复了一些已知BUG。\n2、优化了主界面按钮显示\n3、闲楼和厢房增加捏脸功能，闲楼可以给自己捏脸，厢房可以给位于洞府的伙伴捏脸。\n4、增加了版本预告。\n5、修改了建筑名称。\n6、优化了字体的显示。\n7、优化了伙伴卡顿的问题。\n8、增加洞府改名功能。\n9、优化了邀请、请离伙伴会重置滚动位置的问题。\n10、增加建筑可以调整大小和自定义图片（支持png,jpg,gif)\n11、增加洞府菜单自动隐藏。\n12、增加支持自定义新增建筑，有兴趣的可以查看cave目录下的教程文档。\n13、洞府牌匾名字支持自定义格式，可在Cave目录下修改DataCustom.json文件。\n14、增加多个款式的牌匾。\n15、增加建筑支持挂载游戏内置特效。\n16、增加阵法功能，开启后在洞府过月可屏蔽其他人。",
+    "tc": "1、優化了mod框架，修復了一些已知BUG。\n2、優化了主介面按鈕顯示\n3、閑樓和廂房增加捏臉功能，閒樓可以給自己捏臉，廂房可以給位於洞府的夥伴捏臉。\n4、增加了版本預告。\n5、修改了建築名稱。\n6、優化了字體的顯示。\n7、優化了夥伴卡頓的問題。\n8、增加洞府改名功能。\n9、優化了邀請、請離夥伴會重置滾動位置的問題。\n10、增加建築可以調整大小和自定義圖片（支援png，jpg，gif）\n11、增加洞府功能表自動隱藏。\n12、增加支援自定義新增建築，有興趣的可以查看cave目錄下的教程文檔。\n13、洞府牌匾名字支援自定義格式，可在Cave目錄下修改DataCustom.json檔。\n14、增加多個款式的牌匾。\n15、增加建築支援掛載遊戲內置特效。\n16、增加陣法功能，開啟后在洞府過月可遮罩其他人。 ",
+    "en": "1、優化了mod框架，修復了一些已知BUG。\n2、優化了主介面按鈕顯示\n3、閑樓和廂房增加捏臉功能，閒樓可以給自己捏臉，廂房可以給位於洞府的夥伴捏臉。\n4、增加了版本預告。\n5、修改了建築名稱。\n6、優化了字體的顯示。\n7、優化了夥伴卡頓的問題。\n8、增加洞府改名功能。\n9、優化了邀請、請離夥伴會重置滾動位置的問題。\n10、增加建築可以調整大小和自定義圖片（支援png，jpg，gif）\n11、增加洞府功能表自動隱藏。\n12、增加支援自定義新增建築，有興趣的可以查看cave目錄下的教程文檔。\n13、洞府牌匾名字支援自定義格式，可在Cave目錄下修改DataCustom.json檔。\n14、增加多個款式的牌匾。\n15、增加建築支援掛載遊戲內置特效。\n16、增加陣法功能，開啟后在洞府過月可遮罩其他人。 "
+  },
+  {
+    "id": "-375930603",
+    "key": "Cave_HelpGengxin7",
+    "ch": "1、使用了新的mod框架。\n2、增加同道功能。可以在厢房邀请NPC同行，然后一起进入战斗。\n3、优化了提示文本。",
+    "tc": "1、使用了新的mod框架。\n2、增加同道功能。 可以在廂房邀請NPC同行，然後一起進入戰鬥。\n3、優化了提示文本。",
+    "en": "1、使用了新的mod框架。\n2、增加同道功能。 可以在廂房邀請NPC同行，然後一起進入戰鬥。\n3、優化了提示文本。"
+  },
+  {
+    "id": "-375930602",
     "key": "Cave_HelpGengxin8",
     "ch": "1、洞府增加建筑日月泉（取代青鳞池，有青鳞池的功能并且效果更好）。\n2、修复了许多已知BUG。\n3、增加支持繁体中文。",
-    "tc": "1、洞府增加建築日月泉（取代青鱗池，有青鱗池的功能並且效果更好）。\n2、修復了許多已知BUG。\n3、增加支持繁體中文。"
+    "tc": "1、洞府增加建築日月泉（取代青鱗池，有青鱗池的功能並且效果更好）。\n2、修復了許多已知BUG。\n3、增加支持繁體中文。",
+    "en": "1、洞府增加建築日月泉（取代青鱗池，有青鱗池的功能並且效果更好）。\n2、修復了許多已知BUG。\n3、增加支持繁體中文。"
+  },
+  {
+    "id": "-375930601",
+    "key": "npc_name42685192",
+    "ch": "八荒大鬼",
+    "tc": "八荒大鬼",
+    "en": "八荒大鬼"
+  },
+  {
+    "id": "-375930600",
+    "key": "drama_option42685185",
+    "ch": "收为道侣",
+    "tc": "收为道侣",
+    "en": "收为道侣"
+  },
+  {
+    "id": "-375930599",
+    "key": "drama_option42685186",
+    "ch": "继续囚禁",
+    "tc": "继续囚禁",
+    "en": "继续囚禁"
   }
 ]

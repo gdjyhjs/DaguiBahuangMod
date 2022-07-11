@@ -52,26 +52,34 @@ namespace Cave
                 TimerCoroutine cor = null;
                 cor = SceneType.battle.timer.Frame(new Action(() =>
                 {
-                    if (bg == null)
+                    try
                     {
-                        SceneType.battle.timer.Stop(cor);
-                        return;
+                        if (bg == null)
+                        {
+                            SceneType.battle.timer.Stop(cor);
+                            return;
+                        }
+                        if (isEnter && Input.GetMouseButtonDown(0))
+                        {
+                            isDrag = true;
+                            Vector3 p = g.ui.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+                            clickOffset = p - bg.transform.position;
+                        }
+                        if (isDrag && Input.GetMouseButtonUp(0))
+                        {
+                            isDrag = false;
+                        }
+                        if (isDrag)
+                        {
+                            Vector3 p = g.ui.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+                            bg.transform.position = p - clickOffset;
+                            pos = bg.GetComponent<RectTransform>().anchoredPosition;
+                        }
                     }
-                    if (isEnter && Input.GetMouseButtonDown(0))
+                    catch (Exception e)
                     {
-                        isDrag = true;
-                        Vector3 p = g.ui.uiCamera.ScreenToWorldPoint(Input.mousePosition);
-                        clickOffset = p - bg.transform.position;
-                    }
-                    if (isDrag && Input.GetMouseButtonUp(0))
-                    {
-                        isDrag = false;
-                    }
-                    if (isDrag)
-                    {
-                        Vector3 p = g.ui.uiCamera.ScreenToWorldPoint(Input.mousePosition);
-                        bg.transform.position = p - clickOffset;
-                        pos = bg.GetComponent<RectTransform>().anchoredPosition;
+                        Cave.LogWarning("UIBarrierList:" + e.Message + "\n" + e.StackTrace);
+                        Debug.LogError("UIBarrierList:" + e.Message + "\n" + e.StackTrace);
                     }
                 }), 1, true);
 

@@ -50,9 +50,8 @@ namespace Cave
         // 神秘人说话
         public static void OpenDrama(string str = "", Action call = null)
         {
-            g.conf.dramaDialogue.GetItem(1009037).nextDialogue = "0";
-            UICustomDramaDyn dramaDyn = new UICustomDramaDyn(1009037);
-            dramaDyn.dramaData.dialogueText[1009037] = str;
+            UICustomDramaDyn dramaDyn = new UICustomDramaDyn(42685192);
+            dramaDyn.dramaData.dialogueText[42685192] = str;
             dramaDyn.dramaData.onDramaEndCall = call;
             dramaDyn.OpenUI();
         }
