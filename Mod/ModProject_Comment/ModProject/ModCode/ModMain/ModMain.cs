@@ -19,24 +19,24 @@ namespace Comment
         /// </summary>
         public void Init()
         {
-            try
-            {
-                if (fixCount == 0)
-                {
-                    //使用了Harmony补丁功能的，需要手动启用补丁。
-                    //启动当前程序集的所有补丁
-                    var item = new HarmonyLib.Harmony("MOD_vJhg4G");
-                    item.PatchAll(Assembly.GetExecutingAssembly());
-                }
+            //try
+            //{
+            //    if (fixCount == 0)
+            //    {
+            //        //使用了Harmony补丁功能的，需要手动启用补丁。
+            //        //启动当前程序集的所有补丁
+            //        var item = new HarmonyLib.Harmony("MOD_vJhg4G");
+            //        item.PatchAll(Assembly.GetExecutingAssembly());
+            //    }
 
-                new CommentMain();
-            }
-            catch (Exception e)
-            {
-                GuiUITups();
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-            }
+            //    new CommentMain();
+            //}
+            //catch (Exception e)
+            //{
+            //    GuiUITups();
+            //    Console.WriteLine(e.Message);
+            //    Console.WriteLine(e.StackTrace);
+            //}
         }
 
         private void GuiUITups()

@@ -35,7 +35,7 @@
     "effect": [],
     "maxLevel": 4,
     "maxCount": 1,
-    "upgradeMoney": [ 200000, 300000, 500000, 800000 ],
+    "upgradeMoney": [ 50000, 300000, 500000, 800000 ],
     "des": "caveDes2008"
   },
   {
@@ -46,7 +46,7 @@
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes2009", //i酒馆
     "exitfuntion": "closeUI_SkyTip",
     "type": 1,
-    "price": 200000,
+    "price": 20000,
     "name": "caveName2009",
     "hideName": false,
     "atlas": "",
@@ -65,7 +65,7 @@
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes2011", //建木
     "exitfuntion": "closeUI_SkyTip",
     "type": 1,
-    "price": 200000,
+    "price": 2000,
     "name": "caveName2011",
     "hideName": false,
     "atlas": "",
@@ -84,7 +84,7 @@
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes1007", //传送阵
     "exitfuntion": "closeUI_SkyTip",
     "type": 2,
-    "price": 80000,
+    "price": 8000,
     "name": "caveName1007",
     "hideName": false,
     "atlas": "",
@@ -103,7 +103,7 @@
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes1006", //灵阁
     "exitfuntion": "closeUI_SkyTip",
     "type": 2,
-    "price": 50000,
+    "price": 3000,
     "name": "caveName1006",
     "hideName": false,
     "atlas": "",
@@ -111,7 +111,7 @@
     "effect": [],
     "maxLevel": 4,
     "maxCount": 1,
-    "upgradeMoney": [ 200000, 300000, 500000, 800000 ],
+    "upgradeMoney": [ 20000, 200000, 500000, 800000 ],
     "des": "caveDes1006"
   },
   {
@@ -122,7 +122,7 @@
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes1005", //醉仙楼
     "exitfuntion": "closeUI_SkyTip",
     "type": 2,
-    "price": 150000,
+    "price": 5000,
     "name": "caveName1005",
     "hideName": false,
     "atlas": "",
@@ -142,7 +142,7 @@
     "exitfuntion": "closeUI_SkyTip",
     "createfuntion": "class_Cave_Cave.BuildFunction.CreateBuildFazhen",
     "type": 3,
-    "price": 100000,
+    "price": 5000,
     "name": "caveName3002",
     "hideName": false,
     "atlas": "CommonTaoistHeartIcom",
@@ -161,7 +161,7 @@
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3003", //正房
     "exitfuntion": "closeUI_SkyTip",
     "type": 3,
-    "price": 100000,
+    "price": 5000,
     "name": "caveName3003",
     "hideName": false,
     "atlas": "SchoolCommon",
@@ -287,7 +287,7 @@
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3001",
     "exitfuntion": "closeUI_SkyTip",
     "type": 3,
-    "price": 100000,
+    "price": 5000,
     "name": "caveName3001",
     "hideName": false,
     "atlas": "",
@@ -306,7 +306,7 @@
     "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3004",
     "exitfuntion": "closeUI_SkyTip",
     "type": 3,
-    "price": 750000,
+    "price": 7000,
     "name": "caveName3004",
     "hideName": false,
     "atlas": "CommonMapGrid",

@@ -23,40 +23,44 @@ namespace Cave
         static string btnText = "押入地牢";
         public static void AddButton(UICustomDramaBase self, Il2CppSystem.Action onEndCall)
         {
-            // 处理NPC战败 对话增加关押按钮
-            self.dramaData.dialogueOptions[123010217] = btnText;
-            Action click = () => {
-                // 关押
-                WorldUnitBase unit = self.dramaData.unitRight;
-                if (unit != null)
-                {
-                    var data = DataDungeon.ReadData();
-                    DataCave dataCave = DataCave.ReadData();
-                    int err3 = data.units.Count < 100 ? 0 : 1, err1 = 1, err2 = 1;
-                    Vector2Int point = dataCave.GetPoint();
-                    if (err3 == 0)
+            var caveData = DataCave.ReadData();
+            if (caveData.GetBuild(3004)!=null)
+            {
+                // 处理NPC战败 对话增加关押按钮
+                self.dramaData.dialogueOptions[123010217] = btnText;
+                Action click = () => {
+                    // 关押
+                    WorldUnitBase unit = self.dramaData.unitRight;
+                    if (unit != null)
                     {
-                        err1 = unit.CreateAction(new UnitActionSetPoint(point));
-                        if (err1 == 0)
+                        var data = DataDungeon.ReadData();
+                        DataCave dataCave = DataCave.ReadData();
+                        int err3 = data.units.Count < 100 ? 0 : 1, err1 = 1, err2 = 1;
+                        Vector2Int point = dataCave.GetPoint();
+                        if (err3 == 0)
                         {
-                            UnitActionLuckAdd luckAdd = new UnitActionLuckAdd(BuildFunction.DungeonBuild.prisonerLuckId);
-                            err2 = unit.CreateAction(luckAdd);
+                            err1 = unit.CreateAction(new UnitActionSetPoint(point));
+                            if (err1 == 0)
+                            {
+                                UnitActionLuckAdd luckAdd = new UnitActionLuckAdd(BuildFunction.DungeonBuild.prisonerLuckId);
+                                err2 = unit.CreateAction(luckAdd);
+                            }
+                        }
+                        if (err2 == 0)
+                        {
+                            Cave.Log("关押成功");
+                            data.units.Add(unit.data.unitData.unitID);
+                            DataDungeon.SaveData(data);
+                        }
+                        else
+                        {
+                            Cave.Log("关押失败");
                         }
                     }
-                    if (err2 == 0)
-                    {
-                        Cave.Log("关押成功");
-                        data.units.Add(unit.data.unitData.unitID);
-                        DataDungeon.SaveData(data);
-                    }
-                    else
-                    {
-                        Cave.Log("关押失败");
-                    }
-                }
-                onEndCall?.Invoke();
-            };
-            self.OnOptionBackCall(123010217, click);
+                    onEndCall?.Invoke();
+                };
+                self.OnOptionBackCall(123010217, click);
+            }
         }
     }
 

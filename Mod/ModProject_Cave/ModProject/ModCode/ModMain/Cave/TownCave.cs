@@ -189,8 +189,10 @@ namespace Cave
                 Action buyAction = () =>
                 {
                     BuyCave();
-                };
-                g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"), string.Format(GameTool.LS("Cave_BuyDram8"),price,uiName.text), 2, buyAction);
+                }; 
+                string str = string.Format(GameTool.LS("Cave_BuyDram8"), price, uiName.text);
+                Cave.Log("提示文本-"+ GameTool.LS("Cave_BuyDram8")+"-"+price+"-"+ uiName);
+                g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"), str, 2, buyAction);
 
             };
             textGo.AddComponent<Button>().onClick.AddListener(btnOk);
@@ -202,7 +204,7 @@ namespace Cave
         public void CreateBg()
         {
             string[] names = new string[] { GameTool.LS("Cave_beijingName1"), GameTool.LS("Cave_beijingName2"), GameTool.LS("Cave_beijingName3"),  "荒山1", "高山1", "荒山2", "高山2","荒山3", "高山3",  "荒山4" , "高山4"};
-            int[] prices = new int[] { 50000, 200000, 600000, 50000, 50000, 100000, 100000, 500000, 500000, 1000000, 1000000 };
+            int[] prices = new int[] { 5000, 50000, 500000, 50000, 50000, 100000, 100000, 500000, 500000, 1000000, 1000000 };
             price = prices[idx - 1];
             uiName.text = names[idx - 1];
             uiPrice.text = GameTool.LS("Cave_Lingshi") + GameTool.LS("maohao") + price;

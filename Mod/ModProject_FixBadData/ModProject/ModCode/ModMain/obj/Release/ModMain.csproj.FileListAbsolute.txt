@@ -27,3 +27,5 @@ E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_FixBadData\ModPro
 E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_FixBadData\ModProject\ModCode\ModMain\obj\Release\ModMain.csproj.CoreCompileInputs.cache
 E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_FixBadData\ModProject\ModCode\ModMain\obj\Release\FixData.dll
 E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_FixBadData\ModProject\ModCode\ModMain\obj\Release\FixData.pdb
+C:\yellow\soft\steam\steamapps\workshop\content\1468810\2831402551\ModCode\dll\FixData.dll
+C:\yellow\soft\steam\steamapps\workshop\content\1468810\2831402551\ModCode\dll\FixData.pdb

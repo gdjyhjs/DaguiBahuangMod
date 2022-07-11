@@ -69,6 +69,7 @@ namespace GuiUI
         // 检查数据
         private static void CheckData()
         {
+            /*
             string errPath = "Mods/GuiUI/无法联网提示AutoUI.ui";
             string errTipsUI = "H4sIAAAAAAAAC9VWW2/TMBT+L37u2vSS0lWlEgOBkJhAwJ4ImtwkzYzSOEoc2KgqdUKFDTaNXQBtGgLEELeJgYYEjAJ/Bqfd0/4CJ5eG0W6IbvBApObY+Y7r4+989nEVKWrJ0VBeiCFqKaqF8oPhE0MOuThhqiiPzlCNGCiGDKqo5zAbg0/nKWXwhVnYsMvUqtgof6mKiAKQW3/Vmn4JIJYZueqNF6BjYks1GHR4Y53P327fmHGXN7zv1CaMUAPlq2gc5QfSghCHYCagmcxCsxZDNrmuhnAu10GTghCiMtY7cLIDeva6b8GDVLAGHoaj6zFUchjzZgt6TB1nnXaFKk7wT2awxiHMmK4mhqlhs8QV4lxTyZgDIctUp5bnB6+UKMaQFtpSaLFvYWZaLtsqC4MT4rlwXXGxJ+5cGHcujDsHHhaekLENw4NlWlTXo7ippunhmmqxkHi+8am98dB9cjMid+8MRAnq4j4TUZ/O9TCfjphP7UH8wG+ZryLMdAwSQcdppUI9KYUIUhzgFJe0vmhlviyTuxhK1v4ks0GvHybd+7fc1fX9tdzDeBelP9Xaw2c6wsR++dxfyVVg0TBU2QtudLTgU3rUUpViwZv6aFootr7Mtz6vuvca2yurO82VQsIDioWE7xqifG6jfeMLv7UVuH3furnTnHEfPHY377lP6+6jZ+5q3b3/tjU9NXz2xE5zEiiCRmvpHW+8bs8u8LXn2+tN3qzzuXkYyN/M8MYL3phtv/8Ezh6ZDqP+kaNghr2gy9RgF3xuUmInvcKvihB8PQi+GoTdW8xhOjHUYOm/c4cDA9wVYjNsyN0Hhsd3DWCsE82o+MkVundg/yqanuVf63xxiS++DN7fP97hUwutrW8HV9TAYLYTc2YwntpPVCnxX2mqVBztfgqJUvGAaYWs+Jnybe/5+T8l9zA5FaOcZvc/KA6ZUz+PSjivH2HZMeSwS03VGLH00THGTDufSNgmltV4iejE+8VlWkkks5mMOHgk6w3ERIfBwdiAlj3FEpA01Hq9zBub7uaL3efDfyyY5IEE07X2PaXSqw0xqruZ3utQNhlpI5fu7zb0sybvqsY61WjcNA5SjYWuDfUXqvHlWOcmdjIvSZ5GJMlmKq6EBpumLUmyf6WQJKC1/fZDwLIkDVMFsFMOGTktSUHpak8uQXlz5+621raOgfJGTsev2BBi7QfMgCXkBQsAAA==";
             try
@@ -142,6 +143,7 @@ namespace GuiUI
                 File.WriteAllText(errPath, errTipsUI);
                 Print.LogError(e2.Message + "\n" + e2.StackTrace);
             }
+            */
         }
 
         class UIData

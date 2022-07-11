@@ -10,3 +10,9 @@ E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin
 E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.csproj.CoreCompileInputs.cache
 E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.dll
 E:\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.pdb
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\bin\Release\SchoolAdmin.dll
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\bin\Release\SchoolAdmin.pdb
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.csproj.AssemblyReference.cache
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.csproj.CoreCompileInputs.cache
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.dll
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_SchoolAdmin\ModProject\ModCode\ModMain\obj\Release\SchoolAdmin.pdb

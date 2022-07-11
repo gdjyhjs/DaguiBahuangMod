@@ -408,7 +408,7 @@ namespace Cave
                                     int money = g.world.playerUnit.data.unitData.propData.GetPropsNum((int)PropsIDType.Money);
                                     if (money < confBuild.price)
                                     {
-                                        Tips("common_lingshibuzu");
+                                        Tips(GameTool.LS("common_lingshibuzu"));
                                     }
                                     else
                                     {
@@ -426,7 +426,7 @@ namespace Cave
                                 int money = g.world.playerUnit.data.unitData.propData.GetPropsNum((int)PropsIDType.Money);
                                 if (money < confBuild.price)
                                 {
-                                    Tips("common_lingshibuzu");
+                                    Tips(GameTool.LS("common_lingshibuzu"));
                                 }
                                 else
                                 {
@@ -543,7 +543,7 @@ namespace Cave
                             int money = g.world.playerUnit.data.unitData.propData.GetPropsNum((int)PropsIDType.Money);
                             if (money < need)
                             {
-                                Tips("common_lingshibuzu");
+                                Tips(GameTool.LS("common_lingshibuzu"));
                             }
                             else
                             {

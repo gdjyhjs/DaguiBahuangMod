@@ -32,7 +32,7 @@ namespace Cave
                     framData.lingqi += DataFram.framLevelLingqi[framData.level];
                     if (framData.progress < 1)
                     {
-                        var need = item.worth * 10;
+                        var need = DataFram.GetItemWorth(item.id) * 10;
                         framData.progress = framData.lingqi * 1f / need;
                         if (framData.progress >= 1)
                         {
@@ -42,7 +42,7 @@ namespace Cave
 
                     if (framData.progress >= 1)
                     {
-                        int need = Math.Max(1, item.worth * 2);
+                        int need = Math.Max(1, DataFram.GetItemWorth(item.id) * 2);
                         while (framData.lingqi >= need)
                         {
                             if (framData.count == 0)

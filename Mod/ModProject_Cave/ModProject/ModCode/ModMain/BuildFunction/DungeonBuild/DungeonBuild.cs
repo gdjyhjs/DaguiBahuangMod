@@ -15,7 +15,7 @@ using System.IO;
 namespace Cave.BuildFunction
 {
     /*
-    采阴： 随机采集当前大境界1% - 3% 修为。 不足时下降一个境界。
+    采阴： 随机采集当前大境界1% - 3% 修为。 不足时下降一个境界。 
     50% 精力 - 1
     每相差一个大境界影响10%减少精力概率。
     仇恨 + 6-9
@@ -644,8 +644,9 @@ namespace Cave.BuildFunction
                 makeAnimID = CommonTool.Random(1, 3);
                 if(data.vip == 0)
                 {
-                    PlayCaveAnim(humanNpc, "makeL3_" + makeAnimID);
-                    PlayCaveAnim(SceneType.battle.battleMap.playerUnitCtrl, "makeL3_" + makeAnimID);
+                    makeAnimID = 3;
+                    PlayCaveAnim(humanNpc, (humanNpc.data.worldUnitData.unitData.propertyData.sex == UnitSexType.Man ? "makeL1_" : "makeL2_") + makeAnimID + "end");
+                    PlayCaveAnim(SceneType.battle.battleMap.playerUnitCtrl, (SceneType.battle.battleMap.playerUnitCtrl.data.worldUnitData.unitData.propertyData.sex == UnitSexType.Man ? "makeL1_" : "makeL2_") + makeAnimID + "end");
                 }
                 else
                 {
@@ -690,6 +691,12 @@ namespace Cave.BuildFunction
             for (int i = list.Count - 1; i >= 0; i--)
             {
                 unit.DelEffect(list[i]);
+            }
+            var player = unit.TryCast<UnitCtrlPlayer>();
+            if (player != null)
+            {
+                player.eyeSkillBase = null;
+                player.piscesSkillBase = null;
             }
         }
 
@@ -790,8 +797,8 @@ namespace Cave.BuildFunction
                     makeAnimID = makeAnimID == 1 ? 2 : 1;
                     if (data.vip == 0)
                     {
-                        PlayCaveAnim(putUnit, "makeL3_" + makeAnimID);
-                        PlayCaveAnim(SceneType.battle.battleMap.playerUnitCtrl, "makeL3_" + makeAnimID);
+                        PlayCaveAnim(putUnit, (putUnit.data.worldUnitData.unitData.propertyData.sex == UnitSexType.Man ? "makeL1_" : "makeL2_") + makeAnimID + "end");
+                        PlayCaveAnim(SceneType.battle.battleMap.playerUnitCtrl, (SceneType.battle.battleMap.playerUnitCtrl.data.worldUnitData.unitData.propertyData.sex == UnitSexType.Man ? "makeL1_" : "makeL2_") + makeAnimID + "end");
                     }
                     else
                     {
@@ -857,94 +864,96 @@ namespace Cave.BuildFunction
                 if (sliderBg != null)
                     GameObject.Destroy(sliderBg);
                 int delay = data.vip == 0 ? 1 : 5;
-                if (makeSatisfy < 60) // 满足判断
+                if (makeState == 2)
                 {
-                    var unitid = putUnit.data.worldUnitData.unitData.unitID;
-                    var unit = g.world.unit.GetUnit(unitid, true);
-                    SceneType.battle.timer.Time(new Action(() =>
+                    if (makeSatisfy < 60) // 满足判断
                     {
-                        try
+                        var unitid = putUnit.data.worldUnitData.unitData.unitID;
+                        var unit = g.world.unit.GetUnit(unitid, true);
+                        SceneType.battle.timer.Time(new Action(() =>
                         {
-                            ModRelation(g.world.playerUnit, unit, -extCutLove);
-                            data.AddConquer(unitid, -extCutConquer);
-                        }
-                        catch (Exception e)
-                        {
-                            Cave.LogWarning(e.Message + "\n" + e.StackTrace);
-                        }
-                    }), delay+0.5f);
-                    if (dialogueData.loveDialogue1End.Length < 0)
-                        Dialogue(putUnit, dialogueData.loveDialogue1End[CommonTool.Random(0, dialogueData.loveDialogue1End.Length)]);
-                }
-                else if (makeSatisfy < 80)
-                {
-                    if (dialogueData.loveDialogue2End.Length < 0)
-                        Dialogue(putUnit, dialogueData.loveDialogue2End[CommonTool.Random(0, dialogueData.loveDialogue2End.Length)]);
-                }
-                else
-                {
-                    var humanNpc = putUnit;
-                    var unitid = putUnit.data.worldUnitData.unitData.unitID;
-                    var unit = g.world.unit.GetUnit(unitid, true);
-                    SceneType.battle.timer.Time(new Action(() =>
+                            try
+                            {
+                                ModRelation(g.world.playerUnit, unit, -extCutLove);
+                                data.AddConquer(unitid, -extCutConquer);
+                            }
+                            catch (Exception e)
+                            {
+                                Cave.LogWarning(e.Message + "\n" + e.StackTrace);
+                            }
+                        }), delay + 0.5f);
+                        if (dialogueData.loveDialogue1End.Length < 0)
+                            Dialogue(putUnit, dialogueData.loveDialogue1End[CommonTool.Random(0, dialogueData.loveDialogue1End.Length)]);
+                    }
+                    else if (makeSatisfy < 80)
                     {
-                        try
+                        if (dialogueData.loveDialogue2End.Length < 0)
+                            Dialogue(putUnit, dialogueData.loveDialogue2End[CommonTool.Random(0, dialogueData.loveDialogue2End.Length)]);
+                    }
+                    else
+                    {
+                        var humanNpc = putUnit;
+                        var unitid = putUnit.data.worldUnitData.unitData.unitID;
+                        var unit = g.world.unit.GetUnit(unitid, true);
+                        SceneType.battle.timer.Time(new Action(() =>
                         {
-                            ModRelation(g.world.playerUnit, unit, extAddLove);
-                            data.AddConquer(unitid, extAddConquer);
-                        }
-                        catch (Exception e)
-                        {
-                            Cave.LogWarning(e.Message + "\n" + e.StackTrace);
-                        }
-                        if (data.GetConquer(unitid) >= 100)
-                        {
+                            try
+                            {
+                                ModRelation(g.world.playerUnit, unit, extAddLove);
+                                data.AddConquer(unitid, extAddConquer);
+                            }
+                            catch (Exception e)
+                            {
+                                Cave.LogWarning(e.Message + "\n" + e.StackTrace);
+                            }
+                            if (data.GetConquer(unitid) >= 100)
+                            {
                             // 征服成功
                             UICustomDramaDyn dramaDyn = new UICustomDramaDyn(42685193);
-                            dramaDyn.dramaData.onOptionsBackClickCall = new Action<ConfDramaOptionsItem>((v) =>
-                            {
-                                Cave.Log("点击按钮 = " + v.id);
-                                if (v.id == 42685185) // 收为道侣
+                                dramaDyn.dramaData.onOptionsBackClickCall = new Action<ConfDramaOptionsItem>((v) =>
                                 {
-                                    PlayDefAnim(humanNpc);
-                                    var unitId = humanNpc.data.worldUnitData.unitData.unitID;
-                                    new DramaFunction().ReleaseUnit(humanNpc, tranPoint);
-                                    GameObject.Destroy(humanNpc.gameObject.GetComponent<BattleDialogueCtrl>());
-                                    units.Remove(humanNpc);
-                                    data.units.Remove(unitId);
-                                    data.unitPosi.Remove(unitId);
-                                    data.unitConquer.Remove(unitId);
-                                    ModRelation(g.world.playerUnit, unit, 1000);
-                                    if (unit != null)
-                                    {
-                                        unit.CreateAction(new UnitActionLuckDel(prisonerLuckId));
+                                    Cave.Log("点击按钮 = " + v.id);
+                                    if (v.id == 42685185) // 收为道侣
+                                {
+                                        PlayDefAnim(humanNpc);
+                                        var unitId = humanNpc.data.worldUnitData.unitData.unitID;
+                                        new DramaFunction().ReleaseUnit(humanNpc, tranPoint);
+                                        GameObject.Destroy(humanNpc.gameObject.GetComponent<BattleDialogueCtrl>());
+                                        units.Remove(humanNpc);
+                                        data.units.Remove(unitId);
+                                        data.unitPosi.Remove(unitId);
+                                        data.unitConquer.Remove(unitId);
+                                        ModRelation(g.world.playerUnit, unit, 1000);
+                                        if (unit != null)
+                                        {
+                                            unit.CreateAction(new UnitActionLuckDel(prisonerLuckId));
                                         // 设置关系为道侣
                                         g.world.playerUnit.CreateAction(new UnitActionRelationSet(unit, UnitRelationType.Lover, 0));
-                                        if (dialogueData.loverDialogue.Length > 0)
-                                            Dialogue(humanNpc, dialogueData.loverDialogue[CommonTool.Random(0, dialogueData.loverDialogue.Length)]);
+                                            if (dialogueData.loverDialogue.Length > 0)
+                                                Dialogue(humanNpc, dialogueData.loverDialogue[CommonTool.Random(0, dialogueData.loverDialogue.Length)]);
+                                        }
                                     }
-                                }
-                                if (v.id == 42685186) // 继续关押
+                                    if (v.id == 42685186) // 继续关押
                                 {
-                                    ModRelation(g.world.playerUnit, unit, -100);
-                                    data.AddConquer(unitid, -100);
-                                }
-                            });
-                            dramaDyn.OpenUI();
+                                        ModRelation(g.world.playerUnit, unit, -100);
+                                        data.AddConquer(unitid, -100);
+                                    }
+                                });
+                                dramaDyn.OpenUI();
+                            }
+                        }), delay);
+                        if (dialogueData.loveDialogue3End.Length > 0)
+                        {
+                            Dialogue(putUnit, dialogueData.loveDialogue3End[CommonTool.Random(0, dialogueData.loveDialogue3End.Length)]);
                         }
-                    }), delay);
-                    if (dialogueData.loveDialogue3End.Length > 0)
-                    {
-                        Dialogue(putUnit, dialogueData.loveDialogue3End[CommonTool.Random(0, dialogueData.loveDialogue3End.Length)]);
                     }
                 }
-
                 makeState = 0;
 
                 if (data.vip == 0)
                 {
-                    PlayCaveAnim(putUnit, "makeL3_" + makeAnimID + "end");
-                    PlayCaveAnim(SceneType.battle.battleMap.playerUnitCtrl, "makeL3_" + makeAnimID + "end");
+                    PlayCaveAnim(putUnit, (putUnit.data.worldUnitData.unitData.propertyData.sex == UnitSexType.Man ? "makeL1_" : "makeL2_") + makeAnimID + "end");
+                    PlayCaveAnim(SceneType.battle.battleMap.playerUnitCtrl, (SceneType.battle.battleMap.playerUnitCtrl.data.worldUnitData.unitData.propertyData.sex == UnitSexType.Man ? "makeL1_" : "makeL2_") + makeAnimID + "end");
                 }
                 else
                 {
@@ -971,7 +980,7 @@ namespace Cave.BuildFunction
                     PlayDefAnim(SceneType.battle.battleMap.playerUnitCtrl);
                     putUnit = null;
                     curSize = null;
-                }), 5);
+                }), delay);
             }
         }
 
@@ -1009,9 +1018,11 @@ namespace Cave.BuildFunction
             {
                 Vector3 pos = SceneType.battle.camera.ScreenToWorldPoint(Input.mousePosition);
                 barrierPrefab.transform.position = pos;
-                if (!isEnterPanel && Input.GetMouseButton(0) && Time.time > createNextTime)
+                bool a = (!isEnterPanel && Input.GetMouseButtonDown(0));
+                bool b = (!isEnterPanel && Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftShift) && Time.time > createNextTime);
+                if (a || b)
                 {
-                    // 判断价格 装饰物
+                    // 判断价格 装饰物 b
                     int price = 1000;
                     if (DecorateMgr.decoratePrice.ContainsKey(barrierCreateID))
                     {
@@ -1298,12 +1309,12 @@ namespace Cave.BuildFunction
         }
 
         // 修正关系 value：增加好感值
-        private void ModRelation(WorldUnitBase player, WorldUnitBase unit, float value)
+        private void ModRelation(WorldUnitBase unit, WorldUnitBase toUnit, float value)
         {
-            if (player.data.GetRelationType(unit) == UnitBothRelationType.Hater)
+            if (toUnit.data.GetRelationType(unit) == UnitBothRelationType.Hater)
             {
                 value = -value;
-                player.data.unitData.relationData.AddHate(unit.data.unitData.unitID, value, 0, "", false);
+                toUnit.data.unitData.relationData.AddHate(unit.data.unitData.unitID, value, 0, "", false);
 
                 if (value > 0)
                 {
@@ -1316,7 +1327,7 @@ namespace Cave.BuildFunction
             }
             else
             {
-                player.data.unitData.relationData.AddIntim(unit.data.unitData.unitID, value, 0, "", false);
+                toUnit.data.unitData.relationData.AddIntim(unit.data.unitData.unitID, value, 0, "", false);
 
                 if (value > 0)
                 {

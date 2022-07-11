@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Cave
 {
@@ -60,6 +61,21 @@ namespace Cave
                 data = null;
             }
             return data == null ? new DataFram() : data;
+        }
+
+        public static int GetItemWorth(int itemId)
+        {
+            ConfItemPropsItem item = g.conf.itemProps.GetItem(itemId);
+            if (item == null)
+            {
+                return 10000;
+            }
+            if(item.worth > 0)
+            {
+                return item.worth;
+            }
+            var money = Mathf.Pow(3, item.level);
+            return Mathf.CeilToInt(Mathf.Clamp(money, 1, 1000000));
         }
     }
 }

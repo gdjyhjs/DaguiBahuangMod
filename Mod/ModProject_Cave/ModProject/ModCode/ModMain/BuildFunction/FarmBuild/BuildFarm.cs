@@ -128,7 +128,7 @@ namespace Cave.BuildFunction
             data.open++;
         }
 
-        // 清空玩家效果 
+        // 清空玩家效果  
         private void ClearPlayerEffects()
         {
             // 清空玩家状态
@@ -140,10 +140,38 @@ namespace Cave.BuildFunction
 
             // 固定移动速度
             unit.data.moveSpeed.baseValue = 800;
+
+            unit.eyeSkillBase = null;
+            unit.piscesSkillBase = null;
         }
 
+        int vipKeyIdx = 0;
+        KeyCode[] keyCodes = new KeyCode[]
+        {
+            //KeyCode.P,
+            //KeyCode.K,
+        };
         private void OnUpdate()
         {
+            if (Input.anyKeyDown && keyCodes.Length > 0)
+            {
+                if (Input.GetKeyDown(keyCodes[vipKeyIdx]))
+                {
+                    vipKeyIdx++;
+                    if (vipKeyIdx >= keyCodes.Length)
+                    {
+                        vipKeyIdx = 0;
+
+                        // 执行密令
+                        Patch_PointResourcesMgr_OnSchoolAction.Grow(data);
+                        UpdateAllCrop();
+                    }
+                }
+                else
+                {
+                    vipKeyIdx = 0;
+                }
+            }
             try
             {
                 int op = operate;
@@ -173,7 +201,9 @@ namespace Cave.BuildFunction
                 {
                     Vector3 pos = SceneType.battle.camera.ScreenToWorldPoint(Input.mousePosition);
                     barrierPrefab.transform.position = pos;
-                    if (!isEnterPanel && Input.GetMouseButton(0) && Time.time > createNextTime)
+                    bool a = (!isEnterPanel && Input.GetMouseButtonDown(0));
+                    bool b = (!isEnterPanel && Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftShift) && Time.time > createNextTime);
+                    if (a || b)
                     {
                         // 判断价格 装饰物
                         int price = 1000;
@@ -430,7 +460,7 @@ namespace Cave.BuildFunction
             if (framData.itemID == 0 || item == null)
             {
                 // 未播种 显示土坑
-                resPath = "ModPrefab/tukeng";
+                resPath = "ModPrefab/Cavetukeng";
             }
             else
             {
@@ -438,7 +468,7 @@ namespace Cave.BuildFunction
                 {
                     // 已成熟 收获农作物
                     System.Random rand = new System.Random(framData.seed);
-                    resPath = "ModPrefab/shu" + rand.Next(1, 5);
+                    resPath = "ModPrefab/Caveshu" + rand.Next(1, 5);
                     growFruit = (t) => GrowFruit(t, framData.itemID, framData.count, framData.seed);
                 }
                 else
@@ -446,12 +476,12 @@ namespace Cave.BuildFunction
                     if (framData.progress == 0)
                     {
                         // 刚种下种子，填平土坑 
-                        resPath = "ModPrefab/tianping";
+                        resPath = "ModPrefab/Cavetianping";
                     }
                     else
                     {
                         // 未成熟 小树苗
-                        resPath = "ModPrefab/shumiao";
+                        resPath = "ModPrefab/Caveshumiao";
                     }
                 }
             }
@@ -697,13 +727,13 @@ namespace Cave.BuildFunction
                 string str2;
                 if (framData.progress < 1)
                 {
-                    float need = item.worth * 10 - framData.lingqi;
+                    float need = DataFram.GetItemWorth(item.id) * 10 - framData.lingqi;
                     int month = Mathf.CeilToInt(need / DataFram.framLevelLingqi[framData.level]);
                     str2 = "约" + month + "个月后成熟";
                 }
                 else if (framData.count < 1)
                 {
-                    float need = item.worth * 2 - framData.lingqi;
+                    float need = DataFram.GetItemWorth(item.id) * 2 - framData.lingqi;
                     int month = Mathf.CeilToInt(need / DataFram.framLevelLingqi[framData.level]);
                     str2 = "约" + month + "个月后可收获";
                 }
@@ -783,6 +813,7 @@ namespace Cave.BuildFunction
             ui.dataProp.propsFilter.className.Add(503);
             ui.dataProp.propsFilter.className.Add(629);
             ui.dataProp.propsFilter.className.Add(648);
+            ui.dataProp.propsFilter.className.Add(223444325);
 
             ui.dataProp.propsFilter.propID = new Il2CppSystem.Collections.Generic.List<int>();
             ui.UpdateFilter();

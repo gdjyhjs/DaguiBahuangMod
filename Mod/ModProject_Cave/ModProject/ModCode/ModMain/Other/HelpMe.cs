@@ -39,7 +39,7 @@ namespace Cave
 
 
             int version = PlayerPrefs.GetInt("www.yellowshange.con.cave.version", 0);
-
+            /*
             Action checkVersion = () => // 检查版本
             {
                 string url = "http://www.yellowshange.com/caveMod/version/";
@@ -77,7 +77,7 @@ namespace Cave
                 }
             };
             g.timer.Frame(checkVersion, 1, false);
-
+            */
 
             if (version >= maxversion)
             {

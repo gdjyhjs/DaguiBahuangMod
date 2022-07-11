@@ -1,32 +1,32 @@
 {
-    "loverDialogue":[
+    "loverDialogue":[ // 收为道侣说的话
     	"以后我就是你的人了，你可不能辜负我哦！"
     ],
-    "runDialogue":[
+    "runDialogue":[ // 释放说的话
     	"青山不改绿水长流，咱们的账日后再算。",
     	"我会记住你对我做的一切。"
     ],
-    "loveDialogue1":[
+    "loveDialogue1":[ // 调教时，满足小于60说的话
             "不要..啊哦啊哦...",
             "啊哦啊哦...停下.."
     ],
-    "loveDialogue2":[
+    "loveDialogue2":[ // 调教时，满足60-100说的话
             "好哦..啊哦啊哦...",
             "啊哦啊哦...啊哦.."
     ],
-    "loveDialogue2":[
+    "loveDialogue2":[ // 调教时，满足100以上说的话
             "啊哦啊哦...飞了飞了..",
             "要丢了..啊哦啊哦..."
     ],
-    "loveDialogue1End":[
+    "loveDialogue1End":[ // 结束时，满足小于60说的话
             "这么快就结束了.",
             "你就这点战斗力？"
     ],
-    "loveDialogue2End":[
+    "loveDialogue2End":[ // 结束时，满足60-80说的话
             "勉强凑合.",
             "希望下次能更强一点."
     ],
-    "loveDialogue2End":[
+    "loveDialogue2End":[ // 结束时，满足80以上说的话
             "太厉害了，下次再来哦！",
             "好棒，我的心差点就被动摇了"
     ]

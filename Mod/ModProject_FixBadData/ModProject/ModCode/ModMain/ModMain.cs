@@ -58,36 +58,68 @@ namespace FixData
                             DataGrid.GridData gridData = g.data.grid.GetGridData(new Vector2Int(x, y));
                             if (gridData != null && gridData.IsBuild() && gridData.isOrigi && gridData.typeInt == (int)MapTerrainType.School)
                             {
-                                DataBuildBase.BuildData data = WorldFactory.GetBuildData(gridData.typeInt).GetBuild(new Vector2Int(x, y)).Cast<DataBuildBase.BuildData>();
-                                SchoolInitScaleData scaleData = CommonTool.JsonToObject<SchoolInitScaleData>(data.values[0]);
-                                bool isChange = false;
-                                if (g.conf.schoolType.GetItem(scaleData.typeID) == null)
+                                DataBuildSchool.School schoolData = WorldFactory.GetBuildData(gridData.typeInt).Cast<DataBuildSchool.School>();
+                                DataBuildBase.BuildData data = schoolData.GetBuild(new Vector2Int(x, y)).Cast<DataBuildBase.BuildData>();
+                                try
                                 {
-                                    var newId = g.conf.schoolType.allConfBase[CommonTool.Random(0, g.conf.schoolType.allConfBase.Count)].id;
-                                    message.Add((++fixID) + "重设不存在的宗门类型：" + scaleData.typeID + "→" + newId);
-                                    scaleData.typeID = newId;
-                                    isChange = true;
-                                    schoolCount++;
+                                    SchoolInitScaleData scaleData = CommonTool.JsonToObject<SchoolInitScaleData>(data.values[0]);
+                                    bool isChange = false;
+                                    if (g.conf.schoolType.GetItem(scaleData.typeID) == null)
+                                    {
+                                        var newId = g.conf.schoolType.allConfBase[CommonTool.Random(0, g.conf.schoolType.allConfBase.Count)].id;
+                                        message.Add((++fixID) + "重设不存在的宗门类型：" + scaleData.typeID + "→" + newId);
+                                        scaleData.typeID = newId;
+                                        isChange = true;
+                                        schoolCount++;
+                                    }
+                                    if (g.conf.schoolName.GetItem(scaleData.name1ID) == null)
+                                    {
+                                        var newId = g.conf.schoolName.allConfBase[CommonTool.Random(0, g.conf.schoolName.allConfBase.Count)].id;
+                                        message.Add((++fixID) + "重设不存在的宗门第一个字：" + scaleData.name1ID + "→" + newId);
+                                        scaleData.name1ID = newId;
+                                        isChange = true;
+                                        schoolCount++;
+                                    }
+                                    if (g.conf.schoolName.GetItem(scaleData.name2ID) == null)
+                                    {
+                                        var newId = g.conf.schoolName.allConfBase[CommonTool.Random(0, g.conf.schoolName.allConfBase.Count)].id;
+                                        message.Add((++fixID) + "重设不存在的宗门第二个字：" + scaleData.name2ID + "→" + newId);
+                                        scaleData.name2ID = newId;
+                                        isChange = true;
+                                        schoolCount++;
+                                    }
+                                    if (isChange)
+                                    {
+                                        data.values[0] = CommonTool.ObjectToJson(scaleData);
+                                    }
                                 }
-                                if (g.conf.schoolName.GetItem(scaleData.name1ID) == null)
+                                catch (Exception)
                                 {
-                                    var newId = g.conf.schoolName.allConfBase[CommonTool.Random(0, g.conf.schoolName.allConfBase.Count)].id;
-                                    message.Add((++fixID) + "重设不存在的宗门第一个字：" + scaleData.name1ID + "→" + newId);
-                                    scaleData.name1ID = newId;
-                                    isChange = true;
+                                    message.Add((++fixID) + " 删除无法修复的宗门 " + x + "," + y);
                                     schoolCount++;
-                                }
-                                if (g.conf.schoolName.GetItem(scaleData.name2ID) == null)
-                                {
-                                    var newId = g.conf.schoolName.allConfBase[CommonTool.Random(0, g.conf.schoolName.allConfBase.Count)].id;
-                                    message.Add((++fixID) + "重设不存在的宗门第二个字：" + scaleData.name2ID + "→" + newId);
-                                    scaleData.name2ID = newId;
-                                    isChange = true;
-                                    schoolCount++;
-                                }
-                                if (isChange)
-                                {
-                                    data.values[0] = CommonTool.ObjectToJson(scaleData);
+
+                                    MapCreate mapCreate = new MapCreate(g.data.grid);
+                                    ConfWorldCreateCmd.Cmd c = new ConfWorldCreateCmd.Cmd();
+                                    c.Init(mapCreate);
+                                    MapCreateGridData dataGrid = mapCreate.GetGridData(new Vector2Int(x, y));
+                                    c.ClearBuildSchoolDecorate(new Vector2Int(x, y), dataGrid.decorateID);
+
+                                    schoolData.DelBuild(data.id);
+
+                                    CallQueue cq = new CallQueue();
+                                    for (int i = 0; i < data.points.Length; i++)
+                                    {
+                                        DataGrid.GridData grid = g.data.grid.GetGridData(GameTool.StrToPoint(data.points[i]));
+                                        if (grid != null)
+                                        {
+                                            cq.Add(new Action(() =>
+                                            {
+                                                grid.decorateID = 0;
+                                                grid.isOrigi = false;
+                                            }));
+                                        }
+                                    }
+                                    cq.RunAllCall();
                                 }
                             }
                         }

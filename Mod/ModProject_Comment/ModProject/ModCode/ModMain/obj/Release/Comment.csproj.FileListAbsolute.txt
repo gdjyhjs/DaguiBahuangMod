@@ -4,3 +4,9 @@ G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.cs
 G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.csproj.CoreCompileInputs.cache
 G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.dll
 G:\steamMod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.pdb
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Comment\ModProject\ModCode\ModMain\bin\Release\Comment.dll
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Comment\ModProject\ModCode\ModMain\bin\Release\Comment.pdb
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.csproj.AssemblyReference.cache
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.csproj.CoreCompileInputs.cache
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.dll
+C:\Users\黄俊山\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Comment\ModProject\ModCode\ModMain\obj\Release\Comment.pdb

@@ -1,392 +1,191 @@
 ManifestFileVersion: 0
-CRC: 1791215216
+CRC: 2233834179
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: ab/effect/battle/unit/mod_shu_shouhuo.ab
-      Dependencies:
-        Dependency_0: assets/material/effect/smoke24bcg.mat.ab
-        Dependency_1: assets/material/effect/magic_line.mat.ab
-        Dependency_2: assets/material/effect/guangqiulvse2.mat.ab
-        Dependency_3: assets/texture/effect/materials/emberexpl2_lyf_01_alp.mat.ab
-        Dependency_4: assets/material/effect/niuqu/niuquguangquan 1.mat.ab
-        Dependency_5: assets/material/effect/daoxin_lyf_alp.mat.ab
-        Dependency_6: assets/material/effect/noise_lyf_01_add_niuqu_ty3.mat.ab
-        Dependency_7: assets/model/effect/mp_plane.fbx.ab
-        Dependency_8: assets/material/effect/noise_lyf_01_add_niuqu1.mat.ab
-    Info_1:
-      Name: assets/texture/effect/daoxin_lyf.png.ab
-      Dependencies: {}
-    Info_2:
-      Name: assets/material/effect/smoke24bcg.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/smoke24.png.ab
-        Dependency_1: assets/shader/effect/blend_centerglow.shader.ab
-    Info_3:
-      Name: assets/texture/effect/magic_line.png.ab
-      Dependencies: {}
-    Info_4:
-      Name: assets/texture/effect/emberexpl2_lyf_01.png.ab
-      Dependencies: {}
-    Info_5:
-      Name: assets/material/effect/magic_line.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/magic_line.png.ab
-    Info_6:
-      Name: assets/texture/effect/mask_lyf_02.png.ab
-      Dependencies: {}
-    Info_7:
-      Name: assets/texture/effect/smoke24.png.ab
-      Dependencies: {}
-    Info_8:
-      Name: assets/texture/effect/noise02.png.ab
-      Dependencies: {}
-    Info_9:
-      Name: assets/material/effect/guangqiulvse2.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/guangqiulvse2.png.ab
-    Info_10:
-      Name: assets/shader/effect/add_centerglow.shader.ab
-      Dependencies: {}
-    Info_11:
-      Name: assets/texture/effect/trail75.png.ab
-      Dependencies: {}
-    Info_12:
-      Name: assets/texture/effect/guangqiulvse2.png.ab
-      Dependencies: {}
-    Info_13:
-      Name: assets/shader/effect/blend_centerglow.shader.ab
-      Dependencies: {}
-    Info_14:
-      Name: assets/texture/effect/trail76.png.ab
-      Dependencies: {}
-    Info_15:
-      Name: assets/texture/effect/materials/emberexpl2_lyf_01_alp.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/emberexpl2_lyf_01.png.ab
-    Info_16:
-      Name: assets/material/effect/niuqu/niuquguangquan 1.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/ctx_binxinqingshen02.dds.ab
-        Dependency_1: assets/shader/advanceshader/xft_displacement_screen.shader.ab
-        Dependency_2: assets/texture/effect/zhezhao2.png.ab
-        Dependency_3: assets/texture/effect/d_ring_01.tga.ab
-    Info_17:
-      Name: assets/texture/effect/ctx_binxinqingshen02.dds.ab
-      Dependencies: {}
-    Info_18:
-      Name: assets/texture/effect/trail22.png.ab
-      Dependencies: {}
-    Info_19:
-      Name: assets/material/effect/daoxin_lyf_alp.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/daoxin_lyf.png.ab
-    Info_20:
-      Name: assets/texture/effect/trail36.png.ab
-      Dependencies: {}
-    Info_21:
-      Name: assets/texture/effect/noise_lyf_01.png.ab
-      Dependencies: {}
-    Info_22:
-      Name: assets/shader/effect/additivemobile_scroll01.shader.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/noise02.png.ab
-        Dependency_1: assets/texture/effect/gradientcenter03.png.ab
-        Dependency_2: assets/texture/effect/gradient_greyscale.png.ab
-        Dependency_3: assets/texture/effect/noise01.png.ab
-    Info_23:
-      Name: assets/texture/effect/trail42.png.ab
-      Dependencies: {}
-    Info_24:
-      Name: assets/material/effect/noise_lyf_01_add_niuqu_ty3.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/mask_lyf_02.png.ab
-        Dependency_1: assets/shader/effect/add_centerglow.shader.ab
-        Dependency_2: assets/texture/effect/trail22.png.ab
-        Dependency_3: assets/texture/effect/trail36.png.ab
-        Dependency_4: assets/texture/effect/noise_lyf_01.png.ab
-        Dependency_5: assets/texture/effect/trail42.png.ab
-        Dependency_6: assets/texture/effect/gradientcenter03.png.ab
-        Dependency_7: assets/texture/effect/trail25.png.ab
-        Dependency_8: assets/texture/effect/noise35t.png.ab
-    Info_25:
-      Name: assets/model/effect/materials/no name.mat.ab
-      Dependencies: {}
-    Info_26:
-      Name: assets/texture/effect/gradientcenter03.png.ab
-      Dependencies: {}
-    Info_27:
-      Name: assets/shader/advanceshader/xft_displacement_screen.shader.ab
-      Dependencies: {}
-    Info_28:
-      Name: assets/texture/effect/trail25.png.ab
-      Dependencies: {}
-    Info_29:
-      Name: assets/texture/effect/gradient_greyscale.png.ab
-      Dependencies: {}
-    Info_30:
-      Name: assets/texture/effect/noise35t.png.ab
-      Dependencies: {}
-    Info_31:
-      Name: assets/model/effect/mp_plane.fbx.ab
-      Dependencies:
-        Dependency_0: assets/model/effect/materials/no name.mat.ab
-    Info_32:
-      Name: assets/texture/effect/noise01.png.ab
-      Dependencies: {}
-    Info_33:
-      Name: assets/texture/effect/zhezhao2.png.ab
-      Dependencies: {}
-    Info_34:
-      Name: assets/texture/effect/d_ring_01.tga.ab
-      Dependencies: {}
-    Info_35:
-      Name: assets/material/effect/noise_lyf_01_add_niuqu1.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/noise02.png.ab
-        Dependency_1: assets/texture/effect/trail75.png.ab
-        Dependency_2: assets/texture/effect/trail76.png.ab
-        Dependency_3: assets/texture/effect/noise_lyf_01.png.ab
-        Dependency_4: assets/shader/effect/additivemobile_scroll01.shader.ab
-        Dependency_5: assets/texture/effect/trail42.png.ab
-        Dependency_6: assets/texture/effect/gradientcenter03.png.ab
-        Dependency_7: assets/texture/effect/trail25.png.ab
-        Dependency_8: assets/texture/effect/noise01.png.ab
-    Info_36:
-      Name: ab/effect/battle/unit/mod_shu_zhongzhi.ab
-      Dependencies:
-        Dependency_0: assets/material/effect/magic_line.mat.ab
-        Dependency_1: assets/texture/effect/materials/emberexpl2_lyf_01_alp.mat.ab
-        Dependency_2: assets/material/effect/niuqu/niuquguangquan 1.mat.ab
-        Dependency_3: assets/material/effect/daoxin_lyf_alp.mat.ab
-        Dependency_4: assets/material/effect/shitou6.mat.ab
-        Dependency_5: assets/material/effect/earthtrail.mat.ab
-        Dependency_6: assets/material/effect/smoke28lg.mat.ab
-        Dependency_7: assets/material/effect/modular_aura05.mat.ab
-        Dependency_8: assets/material/effect/fangshe8.mat.ab
-    Info_37:
-      Name: assets/material/effect/shitou6.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/shitou6.tga.ab
-    Info_38:
-      Name: assets/texture/effect/earth.png.ab
-      Dependencies: {}
-    Info_39:
-      Name: assets/material/effect/earthtrail.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/earth.png.ab
-    Info_40:
-      Name: assets/texture/effect/smoke28.png.ab
-      Dependencies: {}
-    Info_41:
-      Name: assets/material/effect/smoke28lg.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/smoke28.png.ab
-        Dependency_1: assets/shader/effect/blend_litglow.shader.ab
-    Info_42:
-      Name: assets/texture/effect/fangshe8.png.ab
-      Dependencies: {}
-    Info_43:
-      Name: assets/texture/effect/shitou6.tga.ab
-      Dependencies: {}
-    Info_44:
-      Name: assets/material/effect/modular_aura05.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/modular_aura05.png.ab
-    Info_45:
-      Name: assets/material/effect/fangshe8.mat.ab
-      Dependencies:
-        Dependency_0: assets/texture/effect/fangshe8.png.ab
-    Info_46:
-      Name: assets/shader/effect/blend_litglow.shader.ab
-      Dependencies: {}
-    Info_47:
-      Name: assets/texture/effect/modular_aura05.png.ab
-      Dependencies: {}
-    Info_48:
       Name: ab/game/npc/root/bahuangdagui.ab
       Dependencies:
-        Dependency_0: assets/texture/bahuangdagui.png.ab
-    Info_49:
-      Name: assets/texture/bahuangdagui.png.ab
+        Dependency_0: assets/modresources/modtexture/bahuangdagui.png.ab
+    Info_1:
+      Name: assets/modresources/modtexture/bahuangdagui.png.ab
       Dependencies: {}
-    Info_50:
+    Info_2:
       Name: ab/humananim/kneel.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/kneel.anim.ab
-    Info_51:
-      Name: assets/resources/humananim/kneel.anim.ab
+        Dependency_0: assets/modresources/modanim/kneel.anim.ab
+    Info_3:
+      Name: assets/modresources/modanim/kneel.anim.ab
       Dependencies: {}
-    Info_52:
+    Info_4:
       Name: ab/humananim/kneel2.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/kneel2.anim.ab
-    Info_53:
-      Name: assets/resources/humananim/kneel2.anim.ab
+        Dependency_0: assets/modresources/modanim/kneel2.anim.ab
+    Info_5:
+      Name: assets/modresources/modanim/kneel2.anim.ab
       Dependencies: {}
-    Info_54:
+    Info_6:
       Name: ab/humananim/makel1_1.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel1_1.anim.ab
-    Info_55:
-      Name: assets/resources/humananim/makel1_1.anim.ab
+        Dependency_0: assets/modresources/modanim/makel1_1.anim.ab
+    Info_7:
+      Name: assets/modresources/modanim/makel1_1.anim.ab
       Dependencies: {}
-    Info_56:
+    Info_8:
       Name: ab/humananim/makel1_1end.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel1_1end.anim.ab
-    Info_57:
-      Name: assets/resources/humananim/makel1_1end.anim.ab
+        Dependency_0: assets/modresources/modanim/makel1_1end.anim.ab
+    Info_9:
+      Name: assets/modresources/modanim/makel1_1end.anim.ab
       Dependencies: {}
-    Info_58:
+    Info_10:
       Name: ab/humananim/makel1_2.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel1_2.anim.ab
-    Info_59:
-      Name: assets/resources/humananim/makel1_2.anim.ab
+        Dependency_0: assets/modresources/modanim/makel1_2.anim.ab
+    Info_11:
+      Name: assets/modresources/modanim/makel1_2.anim.ab
       Dependencies: {}
-    Info_60:
+    Info_12:
       Name: ab/humananim/makel1_2end.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel1_2end.anim.ab
-    Info_61:
-      Name: assets/resources/humananim/makel1_2end.anim.ab
+        Dependency_0: assets/modresources/modanim/makel1_2end.anim.ab
+    Info_13:
+      Name: assets/modresources/modanim/makel1_2end.anim.ab
       Dependencies: {}
-    Info_62:
+    Info_14:
       Name: ab/humananim/makel1_3.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel1_3.anim.ab
-    Info_63:
-      Name: assets/resources/humananim/makel1_3.anim.ab
+        Dependency_0: assets/modresources/modanim/makel1_3.anim.ab
+    Info_15:
+      Name: assets/modresources/modanim/makel1_3.anim.ab
       Dependencies: {}
-    Info_64:
+    Info_16:
       Name: ab/humananim/makel1_3end.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel1_3.anim.ab
-    Info_65:
+        Dependency_0: assets/modresources/modanim/makel1_3.anim.ab
+    Info_17:
       Name: ab/humananim/makel2_1.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel2_1.anim.ab
-    Info_66:
-      Name: assets/resources/humananim/makel2_1.anim.ab
+        Dependency_0: assets/modresources/modanim/makel2_1.anim.ab
+    Info_18:
+      Name: assets/modresources/modanim/makel2_1.anim.ab
       Dependencies: {}
-    Info_67:
+    Info_19:
       Name: ab/humananim/makel2_1end.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel2_1end.anim.ab
-    Info_68:
-      Name: assets/resources/humananim/makel2_1end.anim.ab
+        Dependency_0: assets/modresources/modanim/makel2_1end.anim.ab
+    Info_20:
+      Name: assets/modresources/modanim/makel2_1end.anim.ab
       Dependencies: {}
-    Info_69:
+    Info_21:
       Name: ab/humananim/makel2_2.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel2_2.anim.ab
-    Info_70:
-      Name: assets/resources/humananim/makel2_2.anim.ab
+        Dependency_0: assets/modresources/modanim/makel2_2.anim.ab
+    Info_22:
+      Name: assets/modresources/modanim/makel2_2.anim.ab
       Dependencies: {}
-    Info_71:
+    Info_23:
       Name: ab/humananim/makel2_2end.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel2_2end.anim.ab
-    Info_72:
-      Name: assets/resources/humananim/makel2_2end.anim.ab
+        Dependency_0: assets/modresources/modanim/makel2_2end.anim.ab
+    Info_24:
+      Name: assets/modresources/modanim/makel2_2end.anim.ab
       Dependencies: {}
-    Info_73:
+    Info_25:
       Name: ab/humananim/makel2_3.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel2_3.anim.ab
-    Info_74:
-      Name: assets/resources/humananim/makel2_3.anim.ab
+        Dependency_0: assets/modresources/modanim/makel2_3.anim.ab
+    Info_26:
+      Name: assets/modresources/modanim/makel2_3.anim.ab
       Dependencies: {}
-    Info_75:
+    Info_27:
       Name: ab/humananim/makel2_3end.ab
       Dependencies:
-        Dependency_0: assets/resources/humananim/makel2_3.anim.ab
-    Info_76:
-      Name: ab/modprefab/shu1.ab
+        Dependency_0: assets/modresources/modanim/makel2_3.anim.ab
+    Info_28:
+      Name: ab/modprefab/caveshu1.ab
       Dependencies:
-        Dependency_0: assets/animation/shu1.anim.ab
-        Dependency_1: ab/modtexture/lingtianguoshu1.ab
-    Info_77:
+        Dependency_0: assets/modresources/modtexture/cavelingtianguoshu1.png.ab
+        Dependency_1: assets/animation/shu1.anim.ab
+    Info_29:
+      Name: assets/modresources/modtexture/cavelingtianguoshu1.png.ab
+      Dependencies: {}
+    Info_30:
       Name: assets/animation/shu1.anim.ab
       Dependencies: {}
-    Info_78:
-      Name: ab/modprefab/shu2.ab
+    Info_31:
+      Name: ab/modprefab/caveshu2.ab
       Dependencies:
-        Dependency_0: assets/animation/shu2.anim.ab
-        Dependency_1: ab/modtexture/lingtianguoshu2.ab
-    Info_79:
+        Dependency_0: assets/modresources/modtexture/cavelingtianguoshu2.png.ab
+        Dependency_1: assets/animation/shu2.anim.ab
+    Info_32:
+      Name: assets/modresources/modtexture/cavelingtianguoshu2.png.ab
+      Dependencies: {}
+    Info_33:
       Name: assets/animation/shu2.anim.ab
       Dependencies: {}
-    Info_80:
-      Name: ab/modprefab/shu3.ab
+    Info_34:
+      Name: ab/modprefab/caveshu3.ab
       Dependencies:
-        Dependency_0: assets/animation/shu3.anim.ab
-        Dependency_1: ab/modtexture/lingtianguoshu3.ab
-    Info_81:
+        Dependency_0: assets/modresources/modtexture/cavelingtianguoshu3.png.ab
+        Dependency_1: assets/animation/shu3.anim.ab
+    Info_35:
+      Name: assets/modresources/modtexture/cavelingtianguoshu3.png.ab
+      Dependencies: {}
+    Info_36:
       Name: assets/animation/shu3.anim.ab
       Dependencies: {}
-    Info_82:
-      Name: ab/modprefab/shu4.ab
+    Info_37:
+      Name: ab/modprefab/caveshu4.ab
       Dependencies:
-        Dependency_0: assets/animation/shu4.anim.ab
-        Dependency_1: ab/modtexture/lingtianguoshu4.ab
-    Info_83:
+        Dependency_0: assets/modresources/modtexture/cavelingtianguoshu4.png.ab
+        Dependency_1: assets/animation/shu4.anim.ab
+    Info_38:
+      Name: assets/modresources/modtexture/cavelingtianguoshu4.png.ab
+      Dependencies: {}
+    Info_39:
       Name: assets/animation/shu4.anim.ab
       Dependencies: {}
-    Info_84:
-      Name: ab/modprefab/shumiao.ab
+    Info_40:
+      Name: ab/modprefab/caveshumiao.ab
       Dependencies:
         Dependency_0: assets/animation/shumiao.anim.ab
-        Dependency_1: ab/modtexture/lingtianshumiao1.ab
-    Info_85:
+        Dependency_1: assets/modresources/modtexture/cavelingtianshumiao1.png.ab
+    Info_41:
       Name: assets/animation/shumiao.anim.ab
       Dependencies: {}
-    Info_86:
-      Name: ab/modprefab/tianping.ab
+    Info_42:
+      Name: assets/modresources/modtexture/cavelingtianshumiao1.png.ab
+      Dependencies: {}
+    Info_43:
+      Name: ab/modprefab/cavetianping.ab
       Dependencies:
         Dependency_0: assets/animation/tianping.anim.ab
-        Dependency_1: ab/modtexture/lingtiantiankeng1.ab
-    Info_87:
+        Dependency_1: assets/modresources/modtexture/cavelingtiantiankeng1.png.ab
+    Info_44:
       Name: assets/animation/tianping.anim.ab
       Dependencies: {}
-    Info_88:
-      Name: ab/modprefab/tukeng.ab
+    Info_45:
+      Name: assets/modresources/modtexture/cavelingtiantiankeng1.png.ab
+      Dependencies: {}
+    Info_46:
+      Name: ab/modprefab/cavetukeng.ab
       Dependencies:
-        Dependency_0: ab/modtexture/lingtiantukeng1.ab
-    Info_89:
-      Name: ab/modtexture/lingtianguoshu1.ab
+        Dependency_0: assets/modresources/modtexture/cavelingtiantukeng1.png.ab
+    Info_47:
+      Name: assets/modresources/modtexture/cavelingtiantukeng1.png.ab
       Dependencies: {}
-    Info_90:
-      Name: ab/modtexture/lingtianguoshu2.ab
-      Dependencies: {}
-    Info_91:
-      Name: ab/modtexture/lingtianguoshu3.ab
-      Dependencies: {}
-    Info_92:
-      Name: ab/modtexture/lingtianguoshu4.ab
-      Dependencies: {}
-    Info_93:
-      Name: ab/modtexture/lingtianshumiao1.ab
-      Dependencies: {}
-    Info_94:
-      Name: ab/modtexture/lingtiantiankeng1.ab
-      Dependencies: {}
-    Info_95:
-      Name: ab/modtexture/lingtiantukeng1.ab
-      Dependencies: {}
-    Info_96:
+    Info_48:
       Name: ab/texture/bg/cavefarm.ab
       Dependencies: {}
-    Info_97:
+    Info_49:
       Name: ab/texture/bg/cavejindu.ab
       Dependencies: {}
-    Info_98:
+    Info_50:
       Name: ab/texture/bg/cavejindubg.ab
       Dependencies: {}
-    Info_99:
+    Info_51:
       Name: ab/texture/bg/chaichuzhuangshi.ab
       Dependencies: {}
-    Info_100:
+    Info_52:
       Name: ab/texture/bg/chaichuzhuangshi1.ab
       Dependencies: {}

@@ -79,7 +79,7 @@ namespace GuiBaseUI
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "GET";
                 request.ContentType = "text/html;charset=UTF-8";
-                request.Timeout = 10000;
+                request.Timeout = 1000;
                 //接受返回来的数据
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 Stream stream = response.GetResponseStream();
@@ -255,7 +255,7 @@ namespace GuiBaseUI
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
-
+                request.Timeout = 1000;
                 response = request.GetResponse();
                 stream = response.GetResponseStream();
 

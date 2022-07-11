@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Cave.BuildFunction;
 
 namespace Cave
 {
@@ -80,7 +81,12 @@ namespace Cave
             List<string> delUnits = new List<string>();
             foreach (var unitId in data.units)
             {
-                if (g.world.unit.GetUnit(unitId, true) == null)
+                var unit = g.world.unit.GetUnit(unitId, true);
+                if (unit == null)
+                {
+                    delUnits.Add(unitId);
+                }
+                else if(unit.GetLuck(DungeonBuild.prisonerLuckId) == null)
                 {
                     delUnits.Add(unitId);
                 }
