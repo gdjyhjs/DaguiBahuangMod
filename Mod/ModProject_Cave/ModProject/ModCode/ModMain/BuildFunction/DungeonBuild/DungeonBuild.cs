@@ -659,20 +659,20 @@ namespace Cave.BuildFunction
         // 初始化弹教学剧情
         private void InitFarmUI()
         {
-            //if (data.open == 0)
-            //{
-            //    Cave.OpenDrama("第一次来灵田吧！我来给你简单介绍一下灵田的使用方法。", new Action(() =>
-            //    {
-            //        Cave.OpenDrama("在灵田中种下灵果之后可成长为灵树，灵树没过一段时间可结出灵果，灵气越高成长速度越快。", new Action(() =>
-            //        {
-            //            Cave.OpenDrama("按F键可以打开装饰列表，选择装饰后可以点击装饰到合适的位置。按G键可进入回收模式，点击装饰可拆除回收。", new Action(() =>
-            //            {
-            //                Cave.OpenDrama("当然所有装饰都是要收费的，拆除时按照80%价格回收。");
-            //            }));
-            //        }));
-            //    }));
-            //}
-            //data.open++;
+            if (data.open == 0)
+            {
+                Cave.OpenDrama("第一次来地牢吧！我来给你简单介绍一下地牢的使用方法。<color=red>注意我只说一次！</color>", new Action(() =>
+                {
+                    Cave.OpenDrama("战斗击败敌人后可关押至地牢，可E键进行操作，抱起后E键放下，↑↑↓↓←←→→切换模式，调教时E键换动作，右键退出。", new Action(() =>
+                    {
+                        Cave.OpenDrama("按F键可以打开装饰列表，选择装饰后可以点击装饰到合适的位置。按G键可进入回收模式，点击装饰可拆除回收。", new Action(() =>
+                        {
+                            Cave.OpenDrama("当然所有装饰都是要收费的，拆除时按照80%价格回收。");
+                        }));
+                    }));
+                }));
+            }
+            data.open++;
         }
 
         // 清空玩家效果 
