@@ -71,9 +71,13 @@ namespace FixData
 
         private static void FixData()
         {
+            List<int> badLuckId = new List<int>() { 9071, 9072, 9073, 9074, 9075, 9076 }; // 无法使用的气运ID
             List<string> message = new List<string>();
-            int fixID = 0, schoolCount = 0, propCount = 0, eventCount = 0, monstCount = 0, taskCount = 0, luckCount = 0, logCount = 0, gradeCount = 0, heartCountCount = 0, delSchool = 0, traitCount = 0, spriteCount = 0;
+            int fixID = 0, schoolCount = 0, propCount = 0, eventCount = 0, monstCount = 0, taskCount = 0, luckCount = 0, logCount = 0
+                , gradeCount = 0, heartCountCount = 0, delSchool = 0, traitCount = 0, spriteCount = 0;
             {
+                Action checkTownStorage = null;
+                int min = int.MaxValue;
                 Console.WriteLine("检查的宗门数据");
                 for (int x = 0; x < g.data.grid.mapWidth; x++)
                 {
@@ -146,8 +150,52 @@ namespace FixData
                                 cq.RunAllCall();
                             }
                         }
+
+
+                        if (gridData.isOrigi && gridData.typeInt == (int)MapTerrainType.Town && gridData.areaBaseID == 1)
+                        {
+                            DataBuildTown.Town townData = WorldFactory.GetBuildData(gridData.typeInt).Cast< DataBuildTown.Town>();
+                            DataBuildBase.BuildData data = townData.GetBuild(new Vector2Int(x, y)).Cast<DataBuildBase.BuildData>();
+                            var point = GameTool.StrToPoint(data.points[0]);
+                            if (point.x * point.y < min)
+                            {
+                                min = point.x * point.y;
+                                checkTownStorage = () =>
+                                {
+                                    var storage = data.GetBuildSub(MapBuildSubType.TownStorage); // MapBuildTownStorage
+                                                                                                 // 删除建木不存在的道具
+                                    string dataStr = storage.objData.GetString("data");
+                                    MapBuildTownStorage.Data townStorageData = CommonTool.JsonToObject<MapBuildTownStorage.Data>(dataStr);
+                                    if (null != townStorageData)
+                                    {
+                                        bool needFix = false;
+                                        townStorageData.propData.allProps.RemoveAll(new Func<DataProps.PropsData, bool>((v) =>
+                                        {
+                                            var itemId = v.propsID;
+                                            if (itemId != 0 && v.propsItem == null)
+                                            {
+                                                message.Add((++fixID) + "从建木中 删除不存在的道具 " + itemId);
+                                                propCount++;
+                                                needFix = true;
+                                                return true;
+                                            }
+                                            else
+                                            {
+                                                return false;
+                                            }
+                                        }));
+                                        if (needFix)
+                                        {
+                                            storage.objData.SetString("data", CommonTool.ObjectToJson(townStorageData));
+                                        }
+                                    }
+                                };
+                            }
+                        }
+
                     }
                 }
+                checkTownStorage?.Invoke();
 
                 Console.WriteLine("检查角色数据");
                 foreach (var item in g.data.unit.allUnit)
@@ -264,6 +312,15 @@ namespace FixData
                                 unitData.propertyData.addLuck.Remove(data);
                             }));
                         }
+                        else if (badLuckId.Contains(v.id))
+                        {
+                            cq2.Add(new Action(() =>
+                            {
+                                message.Add((++fixID) + unitName + " 删除错误的后天气运=" + v.id + "(" + GameTool.LS(g.conf.roleCreateFeature.GetItem(v.id).name) + ")");
+                                luckCount++;
+                                unitData.propertyData.addLuck.Remove(data);
+                            }));
+                        }
                     }
                     cq2.RunAllCall();
                     List<DataUnit.LuckData> bornLuck = new List<DataUnit.LuckData>();
@@ -273,6 +330,11 @@ namespace FixData
                         if (g.conf.roleCreateFeature.GetItem(v.id) == null)
                         {
                             message.Add((++fixID) + unitName + " 删除不存在的先天天气运=" + data.id);
+                            luckCount++;
+                        }
+                        else if (badLuckId.Contains(v.id))
+                        {
+                            message.Add((++fixID) + unitName + " 删除错误的先天气运=" + v.id + "(" + GameTool.LS(g.conf.roleCreateFeature.GetItem(v.id).name) + ")");
                             luckCount++;
                         }
                         else
