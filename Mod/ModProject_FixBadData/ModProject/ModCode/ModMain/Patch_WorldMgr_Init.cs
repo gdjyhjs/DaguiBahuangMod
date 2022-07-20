@@ -38,9 +38,9 @@ namespace FixData
             {
                 CheckBuildData(message);
                 CheckUnitData(badLuckId, message);
+                CheckUnitLogData(message);
                 CheckEventData(message);
                 CheckMonstData(message);
-                CheckUnitLogData(message);
                 CheckLetterData(message);
 
             }
