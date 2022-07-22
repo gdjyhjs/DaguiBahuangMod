@@ -18,6 +18,15 @@ namespace FixData
         /// </summary>
         public void Init()
         {
+            if (PlayerPrefs.HasKey("GuiFixDataItem"))
+            {
+                autoFixData = PlayerPrefs.GetInt("GuiFixDataItem") == 1;
+            }
+            else
+            {
+                autoFixData = true;
+                PlayerPrefs.SetInt("GuiFixDataItem", 1);
+            }
             //使用了Harmony补丁功能的，需要手动启用补丁。
             //启动当前程序集的所有补丁
             if (harmony != null)
@@ -30,16 +39,6 @@ namespace FixData
                 harmony = new HarmonyLib.Harmony("MOD_M60S96");
             }
             harmony.PatchAll(Assembly.GetExecutingAssembly());
-
-            if (PlayerPrefs.HasKey("GuiFixDataItem"))
-            {
-                autoFixData = PlayerPrefs.GetInt("GuiFixDataItem") == 1;
-            }
-            else
-            {
-                autoFixData = true;
-                PlayerPrefs.SetInt("GuiFixDataItem", 1);
-            }
         }
     }
 }

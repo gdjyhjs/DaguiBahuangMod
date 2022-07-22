@@ -58,7 +58,7 @@ namespace FixData
             btnObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, 0);
             btnObj.GetComponent<RectTransform>().sizeDelta = new Vector2(45, 28);
             btnObj.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(45, 28);
-            btnObj.transform.GetChild(1).GetComponent<Text>().text = "赞助"; 
+            btnObj.transform.GetChild(1).GetComponent<Text>().text = "充电"; 
             var btn = btnObj.GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(new Action(()=>
