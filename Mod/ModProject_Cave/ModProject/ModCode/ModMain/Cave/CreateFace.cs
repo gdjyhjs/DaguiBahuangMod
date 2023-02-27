@@ -30,7 +30,7 @@ namespace Cave
             ui.transform.Find("Root/Group:Facade/LanguageGroup").gameObject.SetActive(false);
             ui.transform.Find("Root/Group:Facade/InTrait").gameObject.SetActive(false);
             ui.transform.Find("Root/Group:Facade/OutTrait").gameObject.SetActive(false);
-            ui.InitData(100, GameLevelType.Common);
+            ui.InitData(100, GameLevelType.Common, g.data.world.npcCountId);
 
             Action delayAction = () =>
             {

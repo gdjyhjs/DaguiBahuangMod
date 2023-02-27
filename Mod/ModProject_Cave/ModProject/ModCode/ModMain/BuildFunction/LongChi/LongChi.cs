@@ -24,12 +24,14 @@ namespace Cave
         {
             try
             {
-                if (g.world.playerUnit.data.school != null)
+                var school = g.world.playerUnit.data.school;
+                if (school != null)
                 {
-                    if (!g.world.playerUnit.data.school.GetBuildSub<MapBuildSchoolDragonDoor>().IsShowBuildUI())
+                    var dragonDoor = GetDragonDoor(school);
+                    if (!dragonDoor.IsShowBuildUI())
                     {
                         Cave.Log("调用自己宗门 召唤单位");
-                        g.world.playerUnit.data.school.GetBuildSub<MapBuildSchoolDragonDoor>().OnHaloSummonMonst(edata);
+                        dragonDoor.OnHaloSummonMonst(edata);
                     }
                 }
                 else
@@ -37,10 +39,10 @@ namespace Cave
                     var schools = g.world.build.GetBuilds<MapBuildSchool>();
                     if (schools.Count > 0)
                     {
-                        var school = schools[0];
+                        school = schools[0];
                         Cave.Log("调用其他宗门 召唤单位");
                         g.world.playerUnit.data.unitData.schoolID = school.buildData.id;
-                        school.GetBuildSub<MapBuildSchoolDragonDoor>().OnHaloSummonMonst(edata);
+                        GetDragonDoor(school).OnHaloSummonMonst(edata);
                         g.world.playerUnit.data.unitData.schoolID = "";
                     }
                 }
@@ -49,6 +51,17 @@ namespace Cave
             {
                 Cave.Log(e.Message + "\n" + e.StackTrace);
             }
+        }
+
+        public static MapBuildSchoolDragonDoor GetDragonDoor(MapBuildSchool school)
+        {
+            var dragonDoor = school.GetBuildSub<MapBuildSchoolDragonDoor>();
+            if (dragonDoor == null)
+            {
+                var subBuild = school.AddBuildSub(MapBuildSubType.SchoolDragonDoor);
+                dragonDoor = school.GetBuildSub<MapBuildSchoolDragonDoor>();
+            }
+            return dragonDoor;
         }
     }
 }
