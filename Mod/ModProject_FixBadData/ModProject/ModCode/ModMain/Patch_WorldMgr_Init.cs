@@ -29,48 +29,338 @@ namespace FixData
             return true;
         }
 
-        static int fixID, schoolCount, propCount, eventCount, monstCount, taskCount, luckCount, logCount, gradeCount, heartCountCount, delSchool, traitCount, spriteCount, titleCount, letterCount;
+        //static List<string> message = new List<string>();
+        static List<string> dressMessage = new List<string>();
+        static List<string> schoolMessage = new List<string>();
+        static List<string> propMessage = new List<string>();
+        static List<string> martialPropMessage = new List<string>();
+        static List<string> eventMessage = new List<string>();
+        static List<string> monstMessage = new List<string>();
+        static List<string> taskMessage = new List<string>();
+        static List<string> luckMessage = new List<string>();
+        static List<string> logMessage = new List<string>();
+        static List<string> gradeMessage = new List<string>();
+        static List<string> heartMessage = new List<string>();
+        static List<string> delSchoolMessage = new List<string>();
+        static List<string> traitMessage = new List<string>();
+        static List<string> spriteMessage = new List<string>();
+        static List<string> titleMessage = new List<string>();
+        static List<string> letterMessage = new List<string>();
+        static List<string> potmonMessage = new List<string>();
+        static List<string> skillMessage = new List<string>();
+        static List<string> townMarketMessage = new List<string>();
+        static double costTime;
+
         private static void FixData()
         {
-            List<int> badLuckId = new List<int>() { 9071, 9072, 9073, 9074, 9075, 9076 }; // 无法使用的气运ID
-            List<string> message = new List<string>();
-            fixID = 0; schoolCount = 0; propCount = 0; eventCount = 0; monstCount = 0; taskCount = 0; luckCount = 0; logCount = 0; gradeCount = 0; heartCountCount = 0; delSchool = 0; traitCount = 0; spriteCount = 0; titleCount = 0; letterCount = 0;
-            {
-                CheckBuildData(message);
-                CheckUnitData(badLuckId, message);
-                CheckUnitLogData(message);
-                CheckEventData(message);
-                CheckMonstData(message);
-                CheckLetterData(message);
+            dressMessage = new List<string>();
+            schoolMessage = new List<string>();
+            propMessage = new List<string>();
+            martialPropMessage = new List<string>();
+            eventMessage = new List<string>();
+            monstMessage = new List<string>();
+            taskMessage = new List<string>();
+            luckMessage = new List<string>();
+            logMessage = new List<string>();
+            gradeMessage = new List<string>();
+            heartMessage = new List<string>();
+            delSchoolMessage = new List<string>();
+            traitMessage = new List<string>();
+            spriteMessage = new List<string>();
+            titleMessage = new List<string>();
+            letterMessage = new List<string>();
+            potmonMessage = new List<string>();
+            skillMessage = new List<string>();
+            townMarketMessage = new List<string>();
 
-            }
-            FixDataEnd(message);
+            List<int> badLuckId = new List<int>() { 9071, 9072, 9073, 9074, 9075, 9076 }; // 无法使用的气运ID
+
+            DateTime start = DateTime.Now;
+            CheckBuildData();
+            CheckUnitData(badLuckId);
+            CheckUnitLogData();
+            CheckEventData();
+            CheckMonstData();
+            CheckLetterData();
+            CheckPotmonData();
+            CheckTownData();
+            DateTime end = DateTime.Now;
+            TimeSpan duration = end - start;
+            costTime = duration.TotalMilliseconds;
+            Console.WriteLine("代码耗时：" + costTime + "ms");
+
+
+            FixDataEnd();
         }
 
-        private static void FixDataEnd(List<string> message)
+        private static void FixDataEnd()
         {
-            Console.WriteLine("存档检查完毕，修补数=" + fixID);
+            //Console.WriteLine("存档检查完毕，修补数=" + fixID);
             g.world.system.AddSystemInMap(new Action<Il2CppSystem.Action>((call) =>
             {
-                if (message.Count > 0)
+                int msgCount = 0;
+                Dictionary<string, List<string>> allMssage = new Dictionary<string, List<string>>();
+
+                if (delSchoolMessage.Count > 0)
                 {
-                    string str = $"检测到存档已损坏，自动修补了{fixID}条数据："
-                        + $"\n删除了{delSchool}个无法修复的宗门\n修复{traitCount}条性格数据"
-                        + $"\n修复{spriteCount}条器灵错误\n修复{gradeCount}条境界错误\n修复{heartCountCount}天骄错误"
-                        + $"\n修复{schoolCount}条宗门数据\n清除{propCount}个道具\n清除{luckCount}条气运\n清除{taskCount}个任务"
-                        + $"\n删除了{titleCount}个不存在的道号"
-                        + $"\n删除了{letterCount}个无效信件"
-                        + $"\n清除{eventCount}个事件\n清除{monstCount}个副本\n清除{logCount}条错误生平记事\n修复详情如下：";
-                    Console.WriteLine(str);
-                    message.Insert(0, str);
-                    var ui = g.ui.OpenUI<UITextInfoLong>(UIType.TextInfoLong);
-                    ui.InitData("修补存档", string.Join("\n", message));
-                    ui.onCloseCall += new Action(() => IntoWorldFixData(call));
+                    msgCount += delSchoolMessage.Count;
+                    allMssage.Add($"\n删除了{delSchoolMessage.Count}个无法修复的宗门", delSchoolMessage);
                 }
-                else
+                if (traitMessage.Count > 0)
+                {
+                    msgCount += traitMessage.Count;
+                    allMssage.Add($"\n修复{traitMessage.Count}条性格数据", traitMessage);
+                }
+                if (spriteMessage.Count > 0)
+                {
+                    msgCount += spriteMessage.Count;
+                    allMssage.Add($"\n修复{spriteMessage.Count}条器灵错误", spriteMessage);
+                }
+                if (gradeMessage.Count > 0)
+                {
+                    msgCount += gradeMessage.Count;
+                    allMssage.Add($"\n修复{gradeMessage.Count}条境界错误", gradeMessage);
+                }
+                if (heartMessage.Count > 0)
+                {
+                    msgCount += heartMessage.Count;
+                    allMssage.Add($"\n修复{heartMessage.Count}天骄错误", heartMessage);
+                }
+                if (schoolMessage.Count > 0)
+                {
+                    msgCount += schoolMessage.Count;
+                    allMssage.Add($"\n修复{schoolMessage.Count}条宗门数据", schoolMessage);
+                }
+                if (propMessage.Count > 0)
+                {
+                    msgCount += propMessage.Count;
+                    allMssage.Add($"\n清除{propMessage.Count}个道具", propMessage);
+                }
+                if (martialPropMessage.Count > 0)
+                {
+                    msgCount += martialPropMessage.Count;
+                    allMssage.Add($"\n清除{martialPropMessage.Count}个秘籍", martialPropMessage);
+                }
+                if (luckMessage.Count > 0)
+                {
+                    msgCount += luckMessage.Count;
+                    allMssage.Add($"\n清除{luckMessage.Count}条气运", luckMessage);
+                }
+                if (taskMessage.Count > 0)
+                {
+                    msgCount += taskMessage.Count;
+                    allMssage.Add($"\n清除{taskMessage.Count}个任务", taskMessage);
+                }
+                if (titleMessage.Count > 0)
+                {
+                    msgCount += titleMessage.Count;
+                    allMssage.Add($"\n删除了{titleMessage.Count}个不存在的道号", titleMessage);
+                }
+                if (letterMessage.Count > 0)
+                {
+                    msgCount += letterMessage.Count;
+                    allMssage.Add($"\n删除了{letterMessage.Count}个无效信件", letterMessage);
+                }
+                if (potmonMessage.Count > 0)
+                {
+                    msgCount += potmonMessage.Count;
+                    allMssage.Add($"\n修复了{potmonMessage.Count}个壶妖数据", potmonMessage);
+                }
+                if (skillMessage.Count > 0)
+                {
+                    msgCount += skillMessage.Count;
+                    allMssage.Add($"\n修复了{skillMessage.Count}个装备的技能数据", skillMessage);
+                }
+                if (townMarketMessage.Count > 0)
+                {
+                    msgCount += townMarketMessage.Count;
+                    allMssage.Add($"\n删除了{townMarketMessage.Count}个坊市无效道具", townMarketMessage);
+                }
+                if (eventMessage.Count > 0)
+                {
+                    msgCount += eventMessage.Count;
+                    allMssage.Add($"\n清除{eventMessage.Count}个事件", eventMessage);
+                }
+                if (monstMessage.Count > 0)
+                {
+                    msgCount += monstMessage.Count;
+                    allMssage.Add($"\n清除{monstMessage.Count}个副本", monstMessage);
+                }
+                if (logMessage.Count > 0)
+                {
+                    msgCount += logMessage.Count;
+                    allMssage.Add($"\n清除{logMessage.Count}条错误生平记事", logMessage);
+                }
+                if (dressMessage.Count > 0)
+                {
+                    msgCount += dressMessage.Count;
+                    allMssage.Add($"\n修复{dressMessage.Count}条立绘数据错误", dressMessage);
+                }
+                CallQueue cq = new CallQueue();
+                cq.Add(new Action(() =>
+                {
+                    if (msgCount > 0)
+                    {
+                        var str = string.Join("\n", allMssage);
+                        Console.WriteLine(str);
+                        var ui = g.ui.OpenUI<UITextInfoLong>(UIType.TextInfoLong);
+                        ui.InitData("大鬼修复存档MOD", "");
+                        var prefab = ui.ptextInfo.gameObject;
+
+                        ui.ptextInfo.text = $"存档修复完成，总共修补了{msgCount}处错误。\n本次修复存档耗时{costTime * 0.001f}秒。\n八荒大鬼为你的存档保驾护航！";
+                        {
+                            var gameObject = new GameObject();
+                            var rtf = gameObject.AddComponent<RectTransform>();
+                            gameObject.transform.SetParent(ui.goTableDataRoot.transform, false);
+                            rtf.sizeDelta = new Vector2(1298, 90);
+                            {
+                                var btn = GameObject.Instantiate(ui.btnOK, rtf);
+                                btn.GetComponent<RectTransform>().anchoredPosition = new Vector2(-540, 0);
+                                btn.GetComponentInChildren<UnityEngine.UI.Text>().text = "前往大鬼首页";
+
+                                btn.onClick.RemoveAllListeners();
+                                btn.onClick.AddListener(new Action(() =>
+                                {
+                                    Application.OpenURL("http://www.yellowshange.com/");
+                                }));
+                            }
+                            {
+                                var btn = GameObject.Instantiate(ui.btnOK, rtf);
+                                btn.GetComponent<RectTransform>().anchoredPosition = new Vector2(-240, 0);
+                                btn.GetComponentInChildren<UnityEngine.UI.Text>().text = "前往哔哩哔哩";
+
+                                btn.onClick.RemoveAllListeners();
+                                btn.onClick.AddListener(new Action(() =>
+                                {
+                                    Application.OpenURL("https://space.bilibili.com/16445976");
+                                }));
+                            }
+                            {
+                                var btn = GameObject.Instantiate(ui.btnOK, rtf);
+                                btn.GetComponent<RectTransform>().anchoredPosition = new Vector2(60, 0);
+                                btn.GetComponentInChildren<UnityEngine.UI.Text>().text = "加入大鬼QQ群";
+
+                                btn.onClick.RemoveAllListeners();
+                                btn.onClick.AddListener(new Action(() =>
+                                {
+                                    Application.OpenURL("https://jq.qq.com/?_wv=1027&k=H4EvfwOi");
+                                }));
+                            }
+                            {
+                                var btn = GameObject.Instantiate(ui.btnOK, rtf);
+                                btn.GetComponent<RectTransform>().anchoredPosition = new Vector2(360, 0);
+                                btn.GetComponentInChildren<UnityEngine.UI.Text>().text = "充电支持大鬼";
+
+                                btn.onClick.RemoveAllListeners();
+                                btn.onClick.AddListener(new Action(() =>
+                                {
+                                    Application.OpenURL("https://jq.qq.com/?_wv=1027&k=H4EvfwOi");
+                                }));
+                            }
+                        }
+
+                        GameObject.DestroyImmediate(ui.goTableDataRoot.GetComponent<UITargetSizeDelta>());
+                        var ver = ui.goTableDataRoot.AddComponent<UnityEngine.UI.VerticalLayoutGroup>();
+                        ver.childControlHeight = false;
+                        ver.childControlWidth = false;
+                        ver.childForceExpandHeight = false;
+                        ver.childForceExpandWidth = false;
+                        var fitter = ui.goTableDataRoot.AddComponent<UnityEngine.UI.ContentSizeFitter>();
+                        fitter.verticalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
+
+                        foreach (var item in allMssage)
+                        {
+                            var title = item.Key;
+                            var data = item.Value;
+                            var gameObject = new GameObject();
+                            var rtf = gameObject.AddComponent<RectTransform>();
+                            gameObject.transform.SetParent(ui.goTableDataRoot.transform, false);
+                            rtf.sizeDelta = new Vector2(1298, 90);
+
+                            GameObject textGo = GameObject.Instantiate(prefab, rtf);
+                            textGo.GetComponent<TMPro.TextMeshProUGUI>().text = title;
+                            textGo.GetComponent<RectTransform>().anchoredPosition = new Vector2(200, -20);
+
+
+                            var btn = GameObject.Instantiate(ui.btnOK, rtf);
+                            btn.GetComponent<RectTransform>().anchoredPosition = new Vector2(-540, -20);
+                            btn.GetComponentInChildren<UnityEngine.UI.Text>().text = "展开修复详情";
+                            GameObject messageObj = null;
+
+                            btn.onClick.RemoveAllListeners();
+                            btn.onClick.AddListener(new Action(()=>
+                            {
+                                if (messageObj == null)
+                                {
+                                    messageObj = GameObject.Instantiate(prefab, ui.goTableDataRoot.transform);
+                                    messageObj.GetComponent<TMPro.TextMeshProUGUI>().text = string.Join("\n", data);
+                                    messageObj.transform.SetSiblingIndex(rtf.GetSiblingIndex() + 1);
+                                }
+                                else if (messageObj.activeSelf)
+                                {
+                                    messageObj.SetActive(false);
+                                    btn.GetComponentInChildren<UnityEngine.UI.Text>().text = "展开修复详情";
+                                }
+                                else
+                                {
+                                    messageObj.SetActive(true);
+                                    btn.GetComponentInChildren<UnityEngine.UI.Text>().text = "关闭修复详情";
+                                }
+                            }));
+
+                        }
+
+
+                        ui.onCloseCall += new Action(() =>
+                        {
+                            cq.Next();
+                        });
+                    }
+                    else
+                    {
+                        if (g.data.obj.GetString("AutoFixDataNoTip") == "1")
+                        {
+                            cq.Next();
+                        }
+                        else
+                        {
+                            var ui = g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup);
+                            ui.InitData("大鬼修复存档MOD",
+                                $"本次检测存档没有需要修复的数据，检测耗时{costTime * 0.001f}秒,如果存档依然有问题可添加八荒大鬼的QQ996776472人工协助修复。存档没问题时可再设置界面暂时关闭" +
+                                $"自动修复功能，可加快读档进度游戏的速度，等需要时再打开即可。",
+                                2);
+                            ui.textBtn1.text = "大鬼首页";
+                            ui.textBtn2.text = "不再提示";
+                            ui.textBtn3.text = "我知道了";
+                            ui.btn1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-115, 50);
+                            ui.btn3.GetComponent<RectTransform>().anchoredPosition = new Vector2(100, 50);
+                            ui.btn1.onClick.RemoveAllListeners();
+                            ui.btn2.onClick.RemoveAllListeners();
+                            ui.btn3.onClick.RemoveAllListeners();
+                            ui.btn1.onClick.AddListener(new Action(() =>
+                            {
+                                Application.OpenURL("http://www.yellowshange.com/");
+                            }));
+                            ui.btn2.onClick.AddListener(new Action(() =>
+                            {
+                                g.data.obj.SetString("AutoFixDataNoTip", "1");
+                                g.ui.CloseUI(ui);
+                                cq.Next();
+                            }));
+                            ui.btn3.onClick.AddListener(new Action(() =>
+                            {
+                                g.ui.CloseUI(ui);
+                                cq.Next();
+                            }));
+                            ui.btn2.gameObject.SetActive(true);
+                        }
+                    }
+                }));
+                cq.Add(new Action(() =>
                 {
                     IntoWorldFixData(call);
-                }
+                }));
+                cq.Run();
             }));
         }
 
@@ -124,22 +414,83 @@ namespace FixData
             }
         }
 
-        private static void CheckLetterData(List<string> message)
+        private static void CheckLetterData()
         {
             Console.WriteLine("检查信件");
             g.data.world.allLetter.RemoveAll(new Func<DataWorld.World.LetterData, bool>((v) =>
             {
                 if (g.conf.letterBase.GetItem(v.letterID) == null)
                 {
-                    message.Add((++fixID) + "删除无效信件：" + v.letterID);
-                    letterCount++;
+                    letterMessage.Add((letterMessage.Count + 1) + "删除无效信件：" + v.letterID);
                     return true;
                 }
                 return false;
             }));
         }
 
-        private static void CheckUnitLogData(List<string> message)
+        private static void CheckPotmonData()
+        {
+            Console.WriteLine("检查壶妖");
+            Il2CppSystem.Collections.Generic.List<PotMonUnitData> list = g.data.world.devilDemonData.potmonData.potMonList;
+            list.RemoveAll(new Func<PotMonUnitData, bool>((v) =>
+            {
+                if (g.conf.potmonBase.GetItem(v.id) == null)
+                {
+                    potmonMessage.Add($"{potmonMessage.Count + 1} 删除不存在的壶妖 {v.id}({v.soleId})");
+                    return true;
+                }
+                return false;
+            }));
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].unitId != "" && !g.data.unit.allUnit.ContainsKey(list[i].unitId))
+                {
+                    potmonMessage.Add($"{potmonMessage.Count + 1} 修复化形死亡的壶妖 {list[i].id}({list[i].soleId})");
+                    g.data.world.devilDemonData.potmonData.unitRace.Remove(list[i].unitId);
+                    list[i].unitId = "";
+                    list[i].converState = 0;
+                    list[i].furryGradeId = 0;
+                }
+            }
+        }
+
+        private static void CheckTownData()
+        {
+            for (int x = 0; x < g.data.grid.mapWidth; x++)
+            {
+                for (int y = 0; y < g.data.grid.mapHeight; y++)
+                {
+                    DataGrid.GridData gridData = g.data.grid.GetGridData(new Vector2Int(x, y));
+                    if (gridData.IsBuild() && gridData.isOrigi)
+                    {
+                        DataBuildBase.BuildData build = WorldFactory.GetBuildData(gridData.typeInt).GetBuild(new Vector2Int(x, y)).TryCast<DataBuildBase.BuildData>();
+                        DataBuildBase.BuildSubData subBuild = build.GetBuildSub(MapBuildSubType.TownMarketPill);
+                        if (subBuild != null)
+                        {
+                            if (subBuild.objData.ContainsKey("data"))
+                            {
+                                MapBuildTownMarket.Data data = CommonTool.JsonToObject<MapBuildTownMarket.Data>(subBuild.objData.GetString("data"));
+
+                                data.props.RemoveAll(new Func<int, bool>((v) =>
+                                {
+                                    if (g.conf.townMarketItem.GetItem(v) == null || g.conf.itemProps.GetItem(v) == null)
+                                    {
+                                        townMarketMessage.Add($"{townMarketMessage.Count + 1} 删除坊市{x}，{y}无效道具 props: {v}");
+                                        return true;
+                                    }
+                                    return false;
+                                }));
+
+                                subBuild.objData.SetString("data", CommonTool.ObjectToJson(data));
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private static void CheckUnitLogData()
         {
             Console.WriteLine("检查角色日志");
             CallQueue cq6 = new CallQueue();
@@ -165,8 +516,7 @@ namespace FixData
                         }
                         if (destroyId != 0)
                         {
-                            message.Add((++fixID) + "删除不存在生平记事：" + destroyId);
-                            logCount++;
+                            logMessage.Add((logMessage.Count) + "删除不存在生平记事：" + destroyId);
                             v.allLog.Remove(cacheItem);
                         }
                     }));
@@ -189,8 +539,7 @@ namespace FixData
                         }
                         if (destroyId != 0)
                         {
-                            message.Add((++fixID) + "删除不存在重大生平记事：" + destroyId);
-                            logCount++;
+                            logMessage.Add((logMessage.Count) + "删除不存在重大生平记事：" + destroyId);
                             v.allVitalLog.Remove(cacheItem);
                         }
                     }));
@@ -200,7 +549,7 @@ namespace FixData
             cq6.RunAllCall();
         }
 
-        private static void CheckMonstData(List<string> message)
+        private static void CheckMonstData()
         {
             Console.WriteLine("检查怪物");
             CallQueue cq5 = new CallQueue();
@@ -211,8 +560,7 @@ namespace FixData
                 {
                     cq5.Add(new Action(() =>
                     {
-                        message.Add((++fixID) + "删除不存在怪物：" + data.value.id);
-                        monstCount++;
+                        monstMessage.Add((monstMessage.Count) + "删除不存在怪物：" + data.value.id);
                         g.data.map.allGridMonst.Remove(data.key);
                     }));
                 }
@@ -220,7 +568,7 @@ namespace FixData
             cq5.RunAllCall();
         }
 
-        private static void CheckEventData(List<string> message)
+        private static void CheckEventData()
         {
             Console.WriteLine("检查事件");
             CallQueue cq4 = new CallQueue();
@@ -231,8 +579,7 @@ namespace FixData
                 {
                     cq4.Add(new Action(() =>
                     {
-                        message.Add((++fixID) + "删除不存在事件：" + data.value.id);
-                        eventCount++;
+                        eventMessage.Add((eventMessage.Count+1) + "删除不存在事件：" + data.value.id);
                         g.data.map.allGridEventID.Remove(data.key);
                     }));
                 }
@@ -240,7 +587,7 @@ namespace FixData
             cq4.RunAllCall();
         }
 
-        private static void CheckUnitData(List<int> badLuckId, List<string> message)
+        private static void CheckUnitData(List<int> badLuckId)
         {
             Console.WriteLine("检查角色数据");
             foreach (var item in g.data.unit.allUnit)
@@ -256,34 +603,38 @@ namespace FixData
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message+"。\n"+e.StackTrace);
+                    Console.WriteLine(e.Message + "。\n" + e.StackTrace);
                     continue;
                 }
                 int i = 0;
                 try
                 {
-                    FixUnitGrade(message, unitData, unitName);
+                    FixUnitGrade(unitData, unitName);
                     i = 11;
-                    FixUnitHero(message, unitData, unitName);
+                    FixUnitHero(unitData, unitName);
                     i = 22;
-                    FixUnitInTrait(message, unitData, unitName);
+                    FixUnitInTrait(unitData, unitName);
                     i = 33;
-                    FixUnitOutTrait1(message, unitData, unitName);
+                    FixUnitOutTrait1(unitData, unitName);
                     i = 44;
-                    FixUnitProp(message, unitData, unitName);
+                    FixUnitProp(unitData, unitName);
                     i = 55;
-                    FixUnitEquip(message, unitData, unitName);
+                    FixUnitEquip(unitData, unitName);
                     i = 66;
-                    FixUnitPostnatalLuck(badLuckId, message, unitData, unitName);
+                    FixUnitPostnatalLuck(badLuckId, unitData, unitName);
                     i = 77;
-                    FixUnitBrodLuck(badLuckId, message, unitData, unitName);
+                    FixUnitBrodLuck(badLuckId, unitData, unitName);
                     i = 88;
-                    FixUnitTask(message, unitData, unitName);
+                    FixUnitTask(unitData, unitName);
                     i = 99;
-                    FixUnitSprite(message, unitData, unitName);
+                    FixUnitSprite(unitData, unitName);
                     i = 111;
-                    FixUnitTitle(message, unitData, unitName);
+                    FixUnitTitle(unitData, unitName);
                     i = 122;
+                    FixUnitModel(unitData, unitName);
+                    i = 132;
+                    FixUnitSkill(unitData, unitName);
+                    i = 142;
                 }
                 catch (Exception e)
                 {
@@ -293,28 +644,75 @@ namespace FixData
             }
         }
 
-        private static void FixUnitProp(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
-        { 
+        private static void FixUnitProp(DataUnit.UnitInfoData unitData, string unitName)
+        {
             // 删除背包不存在的道具
-            CallQueue cq1 = new CallQueue();
-            foreach (var v in unitData.propData.allProps)
+
+            unitData.propData.allProps.RemoveAll(new Func<DataProps.PropsData, bool>((v) =>
             {
-                var data = v;
-                var itemId = v.propsID;
-                if (itemId != 0 && v.propsItem == null)
+                if (v.propsType == DataProps.PropsDataType.Props)
                 {
-                    cq1.Add(new Action(() =>
+                    if (v.propsItem == null)
                     {
-                        message.Add((++fixID) + unitName + " 删除不存在的道具 " + itemId);
-                        propCount++;
-                        unitData.propData.allProps.Remove(data);
-                    }));
+                        propMessage.Add((propMessage.Count + 1) + unitName + " 删除不存在的道具 " + v.propsID);
+                        return true;
+                    }
                 }
-            }
-            cq1.RunAllCall();
+                else if (v.propsType == DataProps.PropsDataType.Martial)
+                {
+                    DataProps.MartialData martialData = v.To<DataProps.MartialData>();
+                    if (martialData.martialType == MartialType.Ability)
+                    {
+                        if (g.conf.battleAbilityBase.GetItem(martialData.baseID) == null)
+                        {
+                            martialPropMessage.Add((martialPropMessage.Count + 1) + unitName + " 删除不存在的秘籍 心法 " + martialData.baseID);
+                            return true;
+                        }
+                    }
+                    else if (martialData.martialType == MartialType.Step)
+                    {
+                        if (g.conf.battleStepBase.GetItem(martialData.baseID) == null)
+                        {
+                            martialPropMessage.Add((martialPropMessage.Count + 1) + unitName + " 删除不存在的秘籍 身法 " + martialData.baseID);
+                            return true;
+                        }
+                    }
+                    else if (martialData.martialType != MartialType.None)
+                    {
+                        if (g.conf.battleSkillAttack.GetItem(martialData.baseID) == null)
+                        {
+                            martialPropMessage.Add((martialPropMessage.Count + 1) + unitName + " 删除不存在的秘籍 技能 " + martialData.baseID);
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        martialPropMessage.Add((martialPropMessage.Count + 1) + unitName + " 删除不存在的秘籍 None " + martialData.baseID);
+                        return true;
+                    }
+                }
+                return false;
+
+            }));
+            //CallQueue cq1 = new CallQueue();
+            //foreach (var v in unitData.propData.allProps)
+            //{
+            //    var data = v;
+            //    var itemId = v.propsID;
+            //    if (itemId != 0 && v.propsItem == null)
+            //    {
+            //        cq1.Add(new Action(() =>
+            //        {
+            //            message.Add((++fixID) + unitName + " 删除不存在的道具 " + itemId);
+            //            propCount++;
+            //            unitData.propData.allProps.Remove(data);
+            //        }));
+            //    }
+            //}
+            //cq1.RunAllCall();
         }
 
-        private static void FixUnitTitle(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitTitle(DataUnit.UnitInfoData unitData, string unitName)
         {
             // 修复道号
             bool fixTitle = false;
@@ -323,8 +721,7 @@ namespace FixData
             {
                 if (g.conf.appellationTitle.GetItem(unitData.appellationTitle.appellationItems[i].id) == null)
                 {
-                    message.Add(unitName + " 删除不存在的道号 " + unitData.appellationTitle.appellationItems[i].id);
-                    titleCount++;
+                    titleMessage.Add((titleMessage.Count + 1) +" "+unitName + " 删除不存在的道号 " + unitData.appellationTitle.appellationItems[i].id);
                     fixTitle = true;
                 }
                 else
@@ -343,7 +740,7 @@ namespace FixData
             {
                 if (g.conf.appellationTitle.GetItem(unitData.appellationTitle.equipAppellationID[i]) == null)
                 {
-                    message.Add(unitName + " 卸下装备的不存在的道号 " + unitData.appellationTitle.equipAppellationID[i]);
+                    titleMessage.Add((titleMessage.Count + 1)+" "+unitName + " 卸下装备的不存在的道号 " + unitData.appellationTitle.equipAppellationID[i]);
                     fixTitle = true;
                 }
                 else
@@ -358,7 +755,192 @@ namespace FixData
             }
         }
 
-        private static void FixUnitSprite(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+
+        private static void FixUnitSkill(DataUnit.UnitInfoData unitData, string unitName)
+        {
+            // 装备的技能
+            if (unitData.skillLeft != "")
+            {
+                var m = unitData.GetActionMartial(unitData.skillLeft);
+                if (g.conf.battleSkillAttack.GetItem(m.data.values[4]) == null)
+                {
+                    skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的武技 " + unitData.skillLeft);
+                    unitData.skillLeft = "";
+                }
+            }
+            if (unitData.skillRight != "")
+            {
+                var m = unitData.GetActionMartial(unitData.skillRight);
+                if (g.conf.battleSkillAttack.GetItem(m.data.values[4]) == null)
+                {
+                    skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的绝技 " + unitData.skillRight);
+                    unitData.skillRight = "";
+                }
+            }
+            if (unitData.ultimate != "")
+            {
+                var m = unitData.GetActionMartial(unitData.ultimate);
+                if (g.conf.battleSkillAttack.GetItem(m.data.values[4]) == null)
+                {
+                    skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的神通 " + unitData.ultimate);
+                    unitData.ultimate = "";
+                }
+            }
+            if (unitData.step != "")
+            {
+                var m = unitData.GetActionMartial(unitData.step);
+                if (g.conf.battleStepBase.GetItem(m.data.values[4]) == null)
+                {
+                    skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的身法 " + unitData.step);
+                    unitData.step = "";
+                }
+            }
+            for (int i = 0; i < unitData.abilitys.Length; i++)
+            {
+                if (unitData.abilitys[i] != "")
+                {
+                    var m = unitData.GetActionMartial(unitData.abilitys[i]);
+                    if (g.conf.battleAbilityBase.GetItem(m.data.values[4]) == null)
+                    {
+                        skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的心法 " + unitData.abilitys[i]);
+                        unitData.abilitys[i] = "";
+                    }
+                    else
+                    {
+                        DataProps.MartialData martialData = m.data.To<DataProps.MartialData>();
+                        DataProps.PropsAbilityData abilityData = martialData.data.To<DataProps.PropsAbilityData>();
+                        if (abilityData.suitID != 0)
+                        {
+                            if (g.conf.battleAbilitySuitBase.GetItem(abilityData.suitID) == null)
+                            {
+                                skillMessage.Add((skillMessage.Count + 1) + unitName + " 修复装备的心法套装错误 " + abilityData.suitID);
+                                abilityData.suitID = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private static void FixUnitModel(DataUnit.UnitInfoData unitData, string unitName)
+        {
+            // 修复角色立绘
+            PortraitModelData modelData = unitData.propertyData.modelData;
+            // 后背
+            if (modelData.back != 0 && g.conf.roleDress.GetItem(modelData.back) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "houbei");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 后背 {modelData.back} >> {id}");
+                modelData.back = id;
+            }
+            // 帽子
+            if (modelData.hat != 0 && g.conf.roleDress.GetItem(modelData.hat) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "maozi");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 帽子 {modelData.hat} >> {id}");
+                modelData.hat = id;
+            }
+            // 头发前
+            if (modelData.hairFront != 0 && g.conf.roleDress.GetItem(modelData.hairFront) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "toufaqian");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 头发前 {modelData.hairFront} >> {id}");
+                modelData.hairFront = id;
+            }
+            // 衣服
+            if (modelData.body != 0 && g.conf.roleDress.GetItem(modelData.body) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "yifu");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 头发前 {modelData.body} >> {id}");
+                modelData.body = id;
+            }
+            // 眉毛
+            if (modelData.eyebrows != 0 && g.conf.roleDress.GetItem(modelData.eyebrows) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "meimao");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 眉毛 {modelData.eyebrows} >> {id}");
+                modelData.eyebrows = id;
+            }
+            // 眼睛
+            if (modelData.eyes != 0 && g.conf.roleDress.GetItem(modelData.eyes) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "yanjing");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 眼睛 {modelData.eyes} >> {id}");
+                modelData.eyes = id;
+            }
+            // 头发
+            if (modelData.hair != 0 && g.conf.roleDress.GetItem(modelData.hair) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "toufa");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 头发 {modelData.hair} >> {id}");
+                modelData.hair = id;
+            }
+            // 脸
+            if (modelData.head != 0 && g.conf.roleDress.GetItem(modelData.head) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "lian");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 脸 {modelData.head} >> {id}");
+                modelData.head = id;
+            }
+            // 嘴巴
+            if (modelData.mouth != 0 && g.conf.roleDress.GetItem(modelData.mouth) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "zuiba");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 嘴巴 {modelData.mouth} >> {id}");
+                modelData.mouth = id;
+            }
+            // 鼻子
+            if (modelData.nose != 0 && g.conf.roleDress.GetItem(modelData.nose) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "bizi");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 鼻子 {modelData.nose} >> {id}");
+                modelData.nose = id;
+            }
+            // 全脸
+            if (modelData.faceFull != 0 && g.conf.roleDress.GetItem(modelData.faceFull) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "quanlian");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 全脸 {modelData.faceFull} >> {id}");
+                modelData.faceFull = id;
+            }
+            // 左脸
+            if (modelData.faceLeft != 0 && g.conf.roleDress.GetItem(modelData.faceLeft) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "zuolian");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 左脸 {modelData.faceLeft} >> {id}");
+                modelData.faceLeft = id;
+            }
+            // 右脸
+            if (modelData.faceRight != 0 && g.conf.roleDress.GetItem(modelData.faceRight) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "youlian");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 右脸 {modelData.faceRight} >> {id}");
+                modelData.faceRight = id;
+            }
+            // 眉心
+            if (modelData.forehead != 0 && g.conf.roleDress.GetItem(modelData.forehead) == null)
+            {
+                var list = g.conf.roleDress.GetDressItem((int)unitData.propertyData.sex, "meixin");
+                var id = list[CommonTool.Random(0, list.Count)].id;
+                dressMessage.Add($"{unitName} 修复立绘 眉心 {modelData.forehead} >> {id}");
+                modelData.forehead = id;
+            }
+        }
+
+        private static void FixUnitSprite(DataUnit.UnitInfoData unitData, string unitName)
         {
 
             // 器灵
@@ -374,13 +956,11 @@ namespace FixData
                         if (unitData.artifactSpriteData.firstSpriteData.firstSpriteSoleID == delSprite.soleID)
                         {
                             unitData.artifactSpriteData.firstSpriteData.firstSpriteSoleID = 0;
-                            message.Add((++fixID) + unitName + " 删除不存在的本命器灵 " + delSprite.spriteID);
-                            spriteCount++;
+                            spriteMessage.Add((spriteMessage.Count + 1) + unitName + " 删除不存在的本命器灵 " + delSprite.spriteID);
                         }
                         else
                         {
-                            message.Add((++fixID) + unitName + " 删除不存在的器灵 " + delSprite.spriteID);
-                            spriteCount++;
+                            spriteMessage.Add((spriteMessage.Count + 1) + " 删除不存在的器灵 " + delSprite.spriteID);
                         }
                         var propList = unitData.propData.allProps;
                         foreach (var prop in propList)
@@ -390,7 +970,7 @@ namespace FixData
                                 DataProps.PropsArtifact artifactData = prop.To<DataProps.PropsArtifact>();
                                 if (artifactData.spriteSoleID == delSprite.soleID)
                                 {
-                                    message.Add(unitName + " 法宝取消融合器灵 " + prop.propsID);
+                                    titleMessage.Add((spriteMessage.Count + 1) + " 法宝取消融合器灵 " + prop.propsID);
                                     artifactData.spriteSoleID = 0;
                                 }
                             }
@@ -402,7 +982,7 @@ namespace FixData
             delSpriteCq.RunAllCall();
         }
 
-        private static void FixUnitTask(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitTask(DataUnit.UnitInfoData unitData, string unitName)
         {
 
             // 任务
@@ -414,8 +994,7 @@ namespace FixData
                 {
                     cq3.Add(new Action(() =>
                     {
-                        message.Add((++fixID) + unitName + " 删除不存在的任务=" + data.id);
-                        taskCount++;
+                        taskMessage.Add((taskMessage.Count) + unitName + " 删除不存在的任务=" + data.id);
                         unitData.allTask.Remove(data);
                     }));
                 }
@@ -423,7 +1002,7 @@ namespace FixData
             cq3.RunAllCall();
         }
 
-        private static void FixUnitBrodLuck(List<int> badLuckId, List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitBrodLuck(List<int> badLuckId, DataUnit.UnitInfoData unitData, string unitName)
         {
             List<DataUnit.LuckData> bornLuck = new List<DataUnit.LuckData>();
             foreach (var v in unitData.propertyData.bornLuck)
@@ -431,13 +1010,11 @@ namespace FixData
                 var data = v;
                 if (g.conf.roleCreateFeature.GetItem(v.id) == null)
                 {
-                    message.Add((++fixID) + unitName + " 删除不存在的先天天气运=" + data.id);
-                    luckCount++;
+                    logMessage.Add((logMessage.Count) + unitName + " 删除不存在的先天天气运=" + data.id);
                 }
                 else if (badLuckId.Contains(v.id))
                 {
-                    message.Add((++fixID) + unitName + " 删除错误的先天气运=" + v.id + "(" + GameTool.LS(g.conf.roleCreateFeature.GetItem(v.id).name) + ")");
-                    luckCount++;
+                    logMessage.Add((logMessage.Count) + unitName + " 删除错误的先天气运=" + v.id + "(" + GameTool.LS(g.conf.roleCreateFeature.GetItem(v.id).name) + ")");
                 }
                 else
                 {
@@ -447,7 +1024,7 @@ namespace FixData
             unitData.propertyData.bornLuck = bornLuck.ToArray();
         }
 
-        private static void FixUnitPostnatalLuck(List<int> badLuckId, List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitPostnatalLuck(List<int> badLuckId, DataUnit.UnitInfoData unitData, string unitName)
         {
             // 后天气运 broth
             CallQueue cq2 = new CallQueue();
@@ -458,8 +1035,7 @@ namespace FixData
                 {
                     cq2.Add(new Action(() =>
                     {
-                        message.Add((++fixID) + unitName + " 删除不存在的后天气运=" + data.id);
-                        luckCount++;
+                        logMessage.Add((logMessage.Count) + unitName + " 删除不存在的后天气运=" + data.id);
                         unitData.propertyData.addLuck.Remove(data);
                     }));
                 }
@@ -467,8 +1043,7 @@ namespace FixData
                 {
                     cq2.Add(new Action(() =>
                     {
-                        message.Add((++fixID) + unitName + " 删除错误的后天气运=" + v.id + "(" + GameTool.LS(g.conf.roleCreateFeature.GetItem(v.id).name) + ")");
-                        luckCount++;
+                        logMessage.Add((logMessage.Count) + unitName + " 删除错误的后天气运=" + v.id + "(" + GameTool.LS(g.conf.roleCreateFeature.GetItem(v.id).name) + ")");
                         unitData.propertyData.addLuck.Remove(data);
                     }));
                 }
@@ -476,7 +1051,7 @@ namespace FixData
             cq2.RunAllCall();
         }
 
-        private static void FixUnitEquip(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitEquip(DataUnit.UnitInfoData unitData, string unitName)
         {
 
             // 装备的道具
@@ -487,7 +1062,7 @@ namespace FixData
                     DataProps.PropsData propsData = unitData.propData.GetProps(unitData.props[i]);
                     if (propsData == null || propsData.propsItem == null)
                     {
-                        message.Add((++fixID) + unitName + " 删除不存在的装备中的道具 " + unitData.props[i]);
+                        propMessage.Add((propMessage.Count) + unitName + " 删除不存在的装备中的道具 " + unitData.props[i]);
                         unitData.props[i] = "";
                     }
                 }
@@ -500,36 +1075,14 @@ namespace FixData
                     DataProps.PropsData propsData = unitData.propData.GetProps(unitData.equips[i]);
                     if (propsData == null || propsData.propsItem == null)
                     {
-                        message.Add((++fixID) + unitName + " 删除不存在的装备中的装备 " + unitData.equips[i]);
+                        propMessage.Add((propMessage.Count) + unitName + " 删除不存在的装备中的装备 " + unitData.equips[i]);
                         unitData.equips[i] = "";
                     }
                 }
             }
         }
 
-        private static void CheckUnitProp(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
-        {
-
-            // 删除背包不存在的道具
-            CallQueue cq1 = new CallQueue();
-            foreach (var v in unitData.propData.allProps)
-            {
-                var data = v;
-                var itemId = v.propsID;
-                if (itemId != 0 && v.propsItem == null)
-                {
-                    cq1.Add(new Action(() =>
-                    {
-                        message.Add((++fixID) + unitName + " 删除不存在的道具 " + itemId);
-                        propCount++;
-                        unitData.propData.allProps.Remove(data);
-                    }));
-                }
-            }
-            cq1.RunAllCall();
-        }
-
-        private static void FixUnitOutTrait1(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitOutTrait1(DataUnit.UnitInfoData unitData, string unitName)
         {
 
             // 外在性格1
@@ -538,8 +1091,7 @@ namespace FixData
                 var id = g.conf.roleCreateCharacter.allConfBase[CommonTool.Random(0, g.conf.roleCreateCharacter.allConfBase.Count)].id;
                 if (g.conf.roleCreateCharacter.GetItem(id).type == 2 && id != unitData.propertyData.outTrait2)
                 {
-                    message.Add((++fixID) + unitName + " 修复外在性格1错误 " + unitData.propertyData.outTrait1);
-                    traitCount++;
+                    traitMessage.Add((traitMessage.Count) + unitName + " 修复外在性格1错误 " + unitData.propertyData.outTrait1);
                     unitData.propertyData.outTrait1 = id;
                 }
             }
@@ -550,14 +1102,13 @@ namespace FixData
                 var id = g.conf.roleCreateCharacter.allConfBase[CommonTool.Random(0, g.conf.roleCreateCharacter.allConfBase.Count)].id;
                 if (g.conf.roleCreateCharacter.GetItem(id).type == 2 && id != unitData.propertyData.outTrait1)
                 {
-                    message.Add((++fixID) + unitName + " 修复外在性格2错误 " + unitData.propertyData.outTrait2);
-                    traitCount++;
+                    traitMessage.Add((traitMessage.Count) + unitName + " 修复外在性格2错误 " + unitData.propertyData.outTrait2);
                     unitData.propertyData.outTrait2 = id;
                 }
             }
         }
 
-        private static void FixUnitInTrait(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitInTrait(DataUnit.UnitInfoData unitData, string unitName)
         {
 
             // 内在性格
@@ -566,36 +1117,33 @@ namespace FixData
                 var id = g.conf.roleCreateCharacter.allConfBase[CommonTool.Random(0, g.conf.roleCreateCharacter.allConfBase.Count)].id;
                 if (g.conf.roleCreateCharacter.GetItem(id).type == 1)
                 {
-                    message.Add((++fixID) + unitName + " 修复内在性格错误 " + unitData.propertyData.inTrait);
-                    traitCount++;
+                    traitMessage.Add((traitMessage.Count) + unitName + " 修复内在性格错误 " + unitData.propertyData.inTrait);
                     unitData.propertyData.inTrait = id;
                 }
             }
         }
 
-        private static void FixUnitHero(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitHero(DataUnit.UnitInfoData unitData, string unitName)
         {
             // 天骄
             if (unitData.heart.state == DataUnit.TaoistHeart.HeartState.Complete && g.conf.npcHeroesBas.GetItem(unitData.heart.heroesSkillGroupID) == null)
             {
-                message.Add((++fixID) + unitName + " 修复天骄错误 " + unitData.heart.heroesSkillGroupID);
-                heartCountCount++;
+                heartMessage.Add((heartMessage.Count) + unitName + " 修复天骄错误 " + unitData.heart.heroesSkillGroupID);
                 unitData.heart.heroesSkillGroupID = g.conf.npcHeroesBas.allConfBase[CommonTool.Random(0, g.conf.npcHeroesBas.allConfBase.Count)].id;
             }
         }
 
-        private static void FixUnitGrade(List<string> message, DataUnit.UnitInfoData unitData, string unitName)
+        private static void FixUnitGrade(DataUnit.UnitInfoData unitData, string unitName)
         {
             // 境界
             if (g.conf.roleGrade.GetItem(unitData.propertyData.gradeID) == null)
             {
-                message.Add((++fixID) + unitName + " 修复境界错误 " + unitData.propertyData.gradeID);
-                gradeCount++;
+                gradeMessage.Add((gradeMessage.Count) + unitName + " 修复境界错误 " + unitData.propertyData.gradeID);
                 unitData.propertyData.gradeID = 1;
             }
         }
 
-        private static void CheckBuildData(List<string> message)
+        private static void CheckBuildData()
         {
             Action checkTownStorage = null;
             int min = int.MaxValue;
@@ -620,31 +1168,28 @@ namespace FixData
                                 if (g.conf.schoolName.GetItem(scaleData.name1ID) == null)
                                 {
                                     var newId = g.conf.schoolName.allConfBase[CommonTool.Random(0, g.conf.schoolName.allConfBase.Count)].id;
-                                    message.Add((++fixID) + "重设不存在的宗门第一个字：" + scaleData.name1ID + "→" + newId);
+                                    schoolMessage.Add((schoolMessage.Count + 1) + "重设不存在的宗门第一个字：" + scaleData.name1ID + "→" + newId);
                                     scaleData.name1ID = newId;
                                     isChange = true;
-                                    schoolCount++;
                                 }
                                 if (g.conf.schoolName.GetItem(scaleData.name2ID) == null)
                                 {
                                     var newId = g.conf.schoolName.allConfBase[CommonTool.Random(0, g.conf.schoolName.allConfBase.Count)].id;
-                                    message.Add((++fixID) + "重设不存在的宗门第二个字：" + scaleData.name2ID + "→" + newId);
+                                    schoolMessage.Add((schoolMessage.Count + 1) + "重设不存在的宗门第二个字：" + scaleData.name2ID + "→" + newId);
                                     scaleData.name2ID = newId;
                                     isChange = true;
-                                    schoolCount++;
                                 }
                                 if (g.conf.schoolType.GetItem(scaleData.typeID) == null)
                                 {
                                     var newId = g.conf.schoolType.allConfBase[CommonTool.Random(0, g.conf.schoolType.allConfBase.Count)].id;
-                                    message.Add((++fixID) + "重设不存在的宗门类型：" + scaleData.typeID + "→" + newId);
+                                    schoolMessage.Add((schoolMessage.Count + 1) + "重设不存在的宗门类型：" + scaleData.typeID + "→" + newId);
                                     scaleData.typeID = newId;
                                     isChange = true;
-                                    schoolCount++;
                                 }
                                 var schoolName = GameTool.LS(g.conf.schoolName.GetItem(scaleData.name1ID).name1) + GameTool.LS(g.conf.schoolName.GetItem(scaleData.name2ID).name2) + GameTool.LS(g.conf.schoolType.GetItem(scaleData.typeID).name);
                                 if (isChange)
                                 {
-                                    message.Add("修改后的宗门名字为：" + schoolName);
+                                    schoolMessage[schoolMessage.Count - 1] += "\n修改后的宗门名字为：" + schoolName;
                                 }
                                 if (g.conf.schoolInitScale.GetItem(scaleData.schoolInitScaleID) == null)
                                 {
@@ -661,10 +1206,9 @@ namespace FixData
                                         }
                                     }
                                     int newId = list.Count > 0 ? list[CommonTool.Random(0, list.Count)].id : g.conf.schoolInitScale.allConfBase[CommonTool.Random(0, g.conf.schoolInitScale.allConfBase.Count)].id;
-                                    message.Add((++fixID) + $" {schoolName} 区域{area}修复的宗门规模：" + scaleData.schoolInitScaleID + "→" + newId);
+                                    schoolMessage.Add((schoolMessage.Count + 1) + $" {schoolName} 区域{area}修复的宗门规模：" + scaleData.schoolInitScaleID + "→" + newId);
                                     scaleData.schoolInitScaleID = newId;
                                     isChange = true;
-                                    schoolCount++;
                                 }
                                 if (isChange)
                                 {
@@ -698,8 +1242,7 @@ namespace FixData
                                 {
                                     Console.WriteLine("宗门数据无法转json");
                                 }
-                                message.Add((++fixID) + " 删除无法修复的宗门 " + x + "," + y);
-                                delSchool++;
+                                delSchoolMessage.Add((delSchoolMessage.Count) + " 删除无法修复的宗门 " + x + "," + y);
 
                                 MapCreate mapCreate = new MapCreate(g.data.grid);
                                 ConfWorldCreateCmd.Cmd c = new ConfWorldCreateCmd.Cmd();
@@ -754,8 +1297,7 @@ namespace FixData
                                         var itemId = v.propsID;
                                         if (itemId != 0 && v.propsItem == null)
                                         {
-                                            message.Add((++fixID) + "从建木中 删除不存在的道具 " + itemId);
-                                            propCount++;
+                                            propMessage.Add((propMessage.Count + 1) + " 从建木中 删除不存在的道具 " + itemId);
                                             needFix = true;
                                             return true;
                                         }

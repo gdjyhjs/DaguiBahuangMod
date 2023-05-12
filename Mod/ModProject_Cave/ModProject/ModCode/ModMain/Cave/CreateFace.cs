@@ -20,7 +20,9 @@ namespace Cave
 
         public UICreatePlayer InitData(WorldUnitBase unit)
         {
+            Cave.Log("重新捏脸 InitData");
             var ui = g.ui.GetUI<UICreatePlayer>(UIType.CreatePlayer);
+            Cave.Log("重新捏脸 ui=" + ui);
             if ( ui != null)
                 return ui;
             Cave.Log("打开捏脸 " + unit.data.unitData.propertyData.GetName());
