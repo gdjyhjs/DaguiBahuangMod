@@ -49,6 +49,8 @@ namespace FixData
         static List<string> potmonMessage = new List<string>();
         static List<string> skillMessage = new List<string>();
         static List<string> townMarketMessage = new List<string>();
+        static List<string> pillFormulasMessage = new List<string>();
+        static List<string> tmpPropsMessage = new List<string>();
         static double costTime;
 
         private static void FixData()
@@ -72,6 +74,8 @@ namespace FixData
             potmonMessage = new List<string>();
             skillMessage = new List<string>();
             townMarketMessage = new List<string>();
+            pillFormulasMessage = new List<string>();
+            tmpPropsMessage = new List<string>();
 
             List<int> badLuckId = new List<int>() { 9071, 9072, 9073, 9074, 9075, 9076 }; // 无法使用的气运ID
 
@@ -84,6 +88,8 @@ namespace FixData
             CheckLetterData();
             CheckPotmonData();
             CheckTownData();
+            CheckFormulasData();
+            CheckTmpPropData();
             DateTime end = DateTime.Now;
             TimeSpan duration = end - start;
             costTime = duration.TotalMilliseconds;
@@ -169,7 +175,7 @@ namespace FixData
                 if (skillMessage.Count > 0)
                 {
                     msgCount += skillMessage.Count;
-                    allMssage.Add($"\n修复了{skillMessage.Count}个装备的技能数据", skillMessage);
+                    allMssage.Add($"\n修复了{skillMessage.Count}个功法数据", skillMessage);
                 }
                 if (townMarketMessage.Count > 0)
                 {
@@ -196,6 +202,16 @@ namespace FixData
                     msgCount += dressMessage.Count;
                     allMssage.Add($"\n修复{dressMessage.Count}条立绘数据错误", dressMessage);
                 }
+                if (pillFormulasMessage.Count > 0)
+                {
+                    msgCount += pillFormulasMessage.Count;
+                    allMssage.Add($"\n清除{pillFormulasMessage.Count}条丹方错误", pillFormulasMessage);
+                }
+                if (tmpPropsMessage.Count > 0)
+                {
+                    msgCount += tmpPropsMessage.Count;
+                    allMssage.Add($"\n删除{tmpPropsMessage.Count}条临时背包无效道具", tmpPropsMessage);
+                }
                 CallQueue cq = new CallQueue();
                 cq.Add(new Action(() =>
                 {
@@ -207,7 +223,7 @@ namespace FixData
                         ui.InitData("大鬼修复存档MOD", "");
                         var prefab = ui.ptextInfo.gameObject;
 
-                        ui.ptextInfo.text = $"存档修复完成，总共修补了{msgCount}处错误。\n本次修复存档耗时{costTime * 0.001f}秒。\n八荒大鬼为你的存档保驾护航！";
+                        ui.ptextInfo.text = $"存档修复完成，总共修补了{msgCount}处错误。\n本次修复存档耗时{(costTime * 0.001f).ToString("F2")}秒。\n八荒大鬼为你的存档保驾护航！";
                         {
                             var gameObject = new GameObject();
                             var rtf = gameObject.AddComponent<RectTransform>();
@@ -288,7 +304,7 @@ namespace FixData
                             GameObject messageObj = null;
 
                             btn.onClick.RemoveAllListeners();
-                            btn.onClick.AddListener(new Action(()=>
+                            btn.onClick.AddListener(new Action(() =>
                             {
                                 if (messageObj == null)
                                 {
@@ -326,7 +342,7 @@ namespace FixData
                         {
                             var ui = g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup);
                             ui.InitData("大鬼修复存档MOD",
-                                $"本次检测存档没有需要修复的数据，检测耗时{costTime * 0.001f}秒,如果存档依然有问题可添加八荒大鬼的QQ996776472人工协助修复。存档没问题时可再设置界面暂时关闭" +
+                                $"本次检测存档没有需要修复的数据，检测耗时{(costTime * 0.001f).ToString("F2")}秒,如果存档依然有问题可添加八荒大鬼的QQ996776472人工协助修复。存档没问题时可再设置界面暂时关闭" +
                                 $"自动修复功能，可加快读档进度游戏的速度，等需要时再打开即可。",
                                 2);
                             ui.textBtn1.text = "大鬼首页";
@@ -356,6 +372,53 @@ namespace FixData
                         }
                     }
                 }));
+
+                cq.Add(new Action(() =>
+                {
+                    Il2CppSystem.Collections.Generic.List<TaskBase> allTask = g.world.playerUnit.allTask;
+                    var kuafuTask = allTask.Find(new Func< TaskBase, bool>((v) => v.data.taskBaseItem.id == 2110102));
+                    if (kuafuTask != null && UnitConditionTool.Condition("dialogue_760101_0"))
+                    {
+                        var ui = g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup);
+                        ui.InitData("大鬼修复存档MOD",
+                            $"检测到【阿夸之忧】任务可能无法正常进行，是否进行修复？",
+                            2);
+                        ui.textBtn1.text = "大鬼首页";
+                        ui.textBtn2.text = "确认修复";
+                        ui.textBtn3.text = "取消修复";
+                        ui.btn1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-115, 50);
+                        ui.btn3.GetComponent<RectTransform>().anchoredPosition = new Vector2(100, 50);
+                        ui.btn1.onClick.RemoveAllListeners();
+                        ui.btn2.onClick.RemoveAllListeners();
+                        ui.btn3.onClick.RemoveAllListeners();
+                        ui.btn1.onClick.AddListener(new Action(() =>
+                        {
+                            Application.OpenURL("http://www.yellowshange.com/");
+                        }));
+                        ui.btn2.onClick.AddListener(new Action(() =>
+                        {
+                            g.ui.CloseUI(ui);
+                            UICustomDramaDyn dramaDyn = new UICustomDramaDyn(760101);
+                            dramaDyn.dramaData.onDramaEndCall += new Action(() =>
+                            {
+                                cq.Next();
+                            });
+                            dramaDyn.OpenUI();
+                        }));
+                        ui.btn3.onClick.AddListener(new Action(() =>
+                        {
+                            g.ui.CloseUI(ui);
+                            cq.Next();
+                        }));
+                        ui.btn2.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        cq.Next();
+                    }
+                }));
+                cq.Run();
+
                 cq.Add(new Action(() =>
                 {
                     IntoWorldFixData(call);
@@ -454,6 +517,87 @@ namespace FixData
             }
         }
 
+        private static void CheckTmpPropData()
+        {
+            Il2CppSystem.Collections.Generic.List<DataProps.PropsData> allProps = g.data.world.tempProps.allProps;
+
+            // 删除背包不存在的道具
+            allProps.RemoveAll(new Func<DataProps.PropsData, bool>((v) =>
+            {
+                if (v.propsType == DataProps.PropsDataType.Props)
+                {
+                    if (v.propsItem == null)
+                    {
+                        tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的道具 " + v.propsID);
+                        return true;
+                    }
+                }
+                else if (v.propsType == DataProps.PropsDataType.Martial)
+                {
+                    DataProps.MartialData martialData = v.To<DataProps.MartialData>();
+                    if (martialData.martialType == MartialType.Ability)
+                    {
+                        if (g.conf.battleAbilityBase.GetItem(martialData.baseID) == null)
+                        {
+                            tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 心法 " + martialData.baseID);
+                            return true;
+                        }
+                        else
+                        {
+                            FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
+                        }
+                    }
+                    else if (martialData.martialType == MartialType.Step)
+                    {
+                        if (g.conf.battleStepBase.GetItem(martialData.baseID) == null)
+                        {
+                            tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 身法 " + martialData.baseID);
+                            return true;
+                        }
+                        else
+                        {
+                            FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
+                        }
+                    }
+                    else if (martialData.martialType != MartialType.None)
+                    {
+                        if (g.conf.battleSkillAttack.GetItem(martialData.baseID) == null)
+                        {
+                            tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 技能 " + martialData.baseID);
+                            return true;
+                        }
+                        else
+                        {
+                            FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
+                        }
+                    }
+                    else
+                    {
+                        tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 ?? " + martialData.baseID);
+                        return true;
+                    }
+                }
+                return false;
+
+            }));
+        }
+
+        private static void CheckFormulasData()
+        {
+            Il2CppSystem.Collections.Generic.List<DataWorld.World.PillFormulaData> formulas = g.data.world.pillFormulas;
+            formulas.RemoveAll(new Func<DataWorld.World.PillFormulaData,bool>((v) =>
+            {
+                if (g.conf.makePillFormula.GetItem(v.id) == null)
+                {
+                    pillFormulasMessage.Add($"{pillFormulasMessage.Count + 1} 删除不存在的丹方 {v.id}");
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }));
+        }
         private static void CheckTownData()
         {
             for (int x = 0; x < g.data.grid.mapWidth; x++)
@@ -668,6 +812,10 @@ namespace FixData
                             martialPropMessage.Add((martialPropMessage.Count + 1) + unitName + " 删除不存在的秘籍 心法 " + martialData.baseID);
                             return true;
                         }
+                        else
+                        {
+                            FixMartialPrefix(unitName + " 修复功法词条 ", v);
+                        }
                     }
                     else if (martialData.martialType == MartialType.Step)
                     {
@@ -676,6 +824,10 @@ namespace FixData
                             martialPropMessage.Add((martialPropMessage.Count + 1) + unitName + " 删除不存在的秘籍 身法 " + martialData.baseID);
                             return true;
                         }
+                        else
+                        {
+                            FixMartialPrefix(unitName + " 修复功法词条 ", v);
+                        }
                     }
                     else if (martialData.martialType != MartialType.None)
                     {
@@ -683,6 +835,10 @@ namespace FixData
                         {
                             martialPropMessage.Add((martialPropMessage.Count + 1) + unitName + " 删除不存在的秘籍 技能 " + martialData.baseID);
                             return true;
+                        }
+                        else
+                        {
+                            FixMartialPrefix(unitName + " 修复功法词条 ", v);
                         }
                     }
                     else
@@ -694,22 +850,6 @@ namespace FixData
                 return false;
 
             }));
-            //CallQueue cq1 = new CallQueue();
-            //foreach (var v in unitData.propData.allProps)
-            //{
-            //    var data = v;
-            //    var itemId = v.propsID;
-            //    if (itemId != 0 && v.propsItem == null)
-            //    {
-            //        cq1.Add(new Action(() =>
-            //        {
-            //            message.Add((++fixID) + unitName + " 删除不存在的道具 " + itemId);
-            //            propCount++;
-            //            unitData.propData.allProps.Remove(data);
-            //        }));
-            //    }
-            //}
-            //cq1.RunAllCall();
         }
 
         private static void FixUnitTitle(DataUnit.UnitInfoData unitData, string unitName)
@@ -767,6 +907,10 @@ namespace FixData
                     skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的武技 " + unitData.skillLeft);
                     unitData.skillLeft = "";
                 }
+                else
+                {
+                    FixMartialPrefix(unitName + " 修复功法词条 ", m.data);
+                }
             }
             if (unitData.skillRight != "")
             {
@@ -775,6 +919,10 @@ namespace FixData
                 {
                     skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的绝技 " + unitData.skillRight);
                     unitData.skillRight = "";
+                }
+                else
+                {
+                    FixMartialPrefix(unitName + " 修复功法词条 ", m.data);
                 }
             }
             if (unitData.ultimate != "")
@@ -785,6 +933,10 @@ namespace FixData
                     skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的神通 " + unitData.ultimate);
                     unitData.ultimate = "";
                 }
+                else
+                {
+                    FixMartialPrefix(unitName + " 修复功法词条 ", m.data);
+                }
             }
             if (unitData.step != "")
             {
@@ -793,6 +945,10 @@ namespace FixData
                 {
                     skillMessage.Add((skillMessage.Count + 1) + unitName + " 卸下装备的不存在的身法 " + unitData.step);
                     unitData.step = "";
+                }
+                else
+                {
+                    FixMartialPrefix(unitName + " 修复功法词条 ", m.data);
                 }
             }
             for (int i = 0; i < unitData.abilitys.Length; i++)
@@ -817,7 +973,130 @@ namespace FixData
                                 abilityData.suitID = 0;
                             }
                         }
+                        FixMartialPrefix(unitName + " 修复功法词条 ", m.data);
                     }
+                }
+            }
+
+            Dictionary<string, DataUnit.ActionMartialData> allActionMartial = new Dictionary<string, DataUnit.ActionMartialData>();
+            foreach (var item in unitData.allActionMartial)
+            {
+                allActionMartial.Add(item.key, item.value);
+            }
+            foreach (var item in allActionMartial)
+            {
+                var key = item.Key;
+                var m = item.Value;
+
+                var type = m.data.To<DataProps.MartialData>().martialType;
+                if (type == MartialType.SkillLeft || type == MartialType.SkillRight || type == MartialType.Ultimate)
+                {
+                    if (g.conf.battleSkillAttack.GetItem(m.data.values[4]) == null)
+                    {
+                        if (type == MartialType.SkillLeft)
+                        {
+                            skillMessage.Add((skillMessage.Count + 1) + unitName + " 删除不存在的武技 " + m.data.values[4]);
+                        }
+                        else if (type == MartialType.SkillRight)
+                        {
+                            skillMessage.Add((skillMessage.Count + 1) + unitName + " 删除不存在的绝技 " + m.data.values[4]);
+                        }
+                        else if (type == MartialType.Ultimate)
+                        {
+                            skillMessage.Add((skillMessage.Count + 1) + unitName + " 删除不存在的神通 " + m.data.values[4]);
+                        }
+                    }
+                    else
+                    {
+                        FixMartialPrefix(unitName + " 修复秘籍词条 ", m.data);
+                        continue;
+                    }
+                }
+                else if (type == MartialType.Step)
+                {
+                    if (g.conf.battleStepBase.GetItem(m.data.values[4]) == null)
+                    {
+                        skillMessage.Add((skillMessage.Count + 1) + unitName + " 删除不存在的身法 " + m.data.values[4]);
+                    }
+                    else
+                    {
+                        FixMartialPrefix(unitName + " 修复秘籍词条 ", m.data);
+                        continue;
+                    }
+                }
+                else if (type == MartialType.Ability)
+                {
+                    if (g.conf.battleAbilityBase.GetItem(m.data.values[4]) == null)
+                    {
+                        skillMessage.Add((skillMessage.Count + 1) + unitName + " 删除不存在的心法 " + m.data.values[4]);
+                    }
+                    else
+                    {
+                        FixMartialPrefix(unitName + " 修复秘籍词条 ", m.data);
+                        continue;
+                    }
+                }
+                else
+                {
+                    skillMessage.Add((skillMessage.Count + 1) + unitName + " 删除不存在的功法？ " + m.data.values[4]);
+                }
+                unitData.allActionMartial.Remove(key);
+            }
+
+        }
+
+        private static void FixMartialPrefix(string unitName, DataProps.PropsData prop)
+        {
+            DataProps.MartialData martialData = prop.To<DataProps.MartialData>();
+
+            for (int i = 6; i < prop.values.Length; i++)
+            {
+                if (prop.values[i] == -1)
+                {
+                    break;
+                }
+                ConfBattleSkillPrefixValueItem item;
+                try
+                {
+                    item = g.conf.battleSkillPrefixValue.GetItem((int)martialData.martialType, martialData.baseID, prop.values[i]); ;
+                }
+                catch (Exception)
+                {
+                    item = null;
+                }
+                if (item == null)
+                {
+                    skillMessage.Add((skillMessage.Count + 1) + unitName + prop.values[i] + " "
+                        + new Func<string>(() =>
+                        {
+                            string str;
+                            if (martialData.martialType == MartialType.Ability)
+                            {
+                                str = $"心法{martialData.baseID} {GameTool.LS(g.conf.battleAbilityBase.GetItem(martialData.baseID).name)} 的第{i - 5}个词条";
+                            }
+                            else if (martialData.martialType == MartialType.SkillLeft)
+                            {
+                                str = $"武技{martialData.baseID} {GameTool.LS(g.conf.battleSkillAttack.GetItem(martialData.baseID).name)} 的第{i - 5}个词条";
+                            }
+                            else if (martialData.martialType == MartialType.SkillRight)
+                            {
+                                str = $"绝技{martialData.baseID} {GameTool.LS(g.conf.battleSkillAttack.GetItem(martialData.baseID).name)} 的第{i - 5}个词条";
+                            }
+                            else if (martialData.martialType == MartialType.Step)
+                            {
+                                str = $"身法{martialData.baseID} {GameTool.LS(g.conf.battleStepBase.GetItem(martialData.baseID).name)} 的第{i - 5}个词条";
+                            }
+                            else if (martialData.martialType == MartialType.Ultimate)
+                            {
+                                str = $"神通{martialData.baseID} {GameTool.LS(g.conf.battleSkillAttack.GetItem(martialData.baseID).name)} 的第{i - 5}个词条";
+                            }
+                            else
+                            {
+                                str = $"未知功法{martialData.baseID} 的第{i - 5}个词条";
+                            }
+                            return str;
+                        })());
+                    prop.values[i] = 1;
                 }
             }
         }
