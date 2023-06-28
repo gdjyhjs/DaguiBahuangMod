@@ -1,0 +1,493 @@
+ManifestFileVersion: 0
+CRC: 2022886551
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ab/modconf/dafuitoolbase.ab
+      Dependencies: {}
+    Info_1:
+      Name: ab/ui/attributetype.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_2:
+      Name: assets/texture/font/cuti.ttf.ab
+      Dependencies: {}
+    Info_3:
+      Name: assets/texture/ui/tuichu.png.ab
+      Dependencies: {}
+    Info_4:
+      Name: assets/animation/uiopenscale.controller.ab
+      Dependencies:
+        Dependency_0: assets/animation/uiopenscale.anim.ab
+    Info_5:
+      Name: assets/animation/uiopenscale.anim.ab
+      Dependencies: {}
+    Info_6:
+      Name: assets/texture/font/heiti.otf.ab
+      Dependencies: {}
+    Info_7:
+      Name: ab/ui/btnopendaguitool.ab
+      Dependencies:
+        Dependency_0: assets/texture/ui/bajiuxuangong_icon.png.ab
+    Info_8:
+      Name: assets/texture/ui/bajiuxuangong_icon.png.ab
+      Dependencies: {}
+    Info_9:
+      Name: ab/ui/chooseartifact.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_10:
+      Name: ab/ui/choosedaonumber.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_11:
+      Name: ab/ui/chooseelder.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_12:
+      Name: ab/ui/choosefairytechnique.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_13:
+      Name: ab/ui/choosehaotianeyeskill.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_14:
+      Name: ab/ui/chooseheroskill.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_15:
+      Name: ab/ui/chooseinstrumentspirit.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_16:
+      Name: ab/ui/chooseliaoji.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_17:
+      Name: ab/ui/chooseliaojieffect.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+        Dependency_4: assets/textmesh pro/resources/fonts & materials/liberationsans
+          sdf.asset.ab
+    Info_18:
+      Name: assets/textmesh pro/shaders/tmp_sdf-mobile.shader.ab
+      Dependencies: {}
+    Info_19:
+      Name: assets/textmesh pro/resources/fonts & materials/liberationsans sdf -
+        fallback.asset.ab
+      Dependencies:
+        Dependency_0: assets/textmesh pro/shaders/tmp_sdf-mobile.shader.ab
+        Dependency_1: assets/textmesh pro/fonts/liberationsans.ttf.ab
+    Info_20:
+      Name: assets/textmesh pro/resources/fonts & materials/liberationsans sdf.asset.ab
+      Dependencies:
+        Dependency_0: assets/textmesh pro/shaders/tmp_sdf-mobile.shader.ab
+        Dependency_1: assets/textmesh pro/resources/fonts & materials/liberationsans
+          sdf - fallback.asset.ab
+        Dependency_2: assets/textmesh pro/fonts/liberationsans.ttf.ab
+    Info_21:
+      Name: assets/textmesh pro/fonts/liberationsans.ttf.ab
+      Dependencies: {}
+    Info_22:
+      Name: ab/ui/chooseliaojieffectup.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+        Dependency_4: assets/textmesh pro/resources/fonts & materials/liberationsans
+          sdf.asset.ab
+    Info_23:
+      Name: ab/ui/choosepotmon.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_24:
+      Name: ab/ui/chooseprops.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_25:
+      Name: ab/ui/chooseqifortune.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_26:
+      Name: ab/ui/chooserealm.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_27:
+      Name: ab/ui/chooserighteousnessorevil.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+    Info_28:
+      Name: ab/ui/chooserule.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_29:
+      Name: ab/ui/choosesecretbook.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_30:
+      Name: ab/ui/choosesoul.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_31:
+      Name: ab/ui/choosesuit.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_32:
+      Name: ab/ui/choosetechniquetype.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_33:
+      Name: ab/ui/choosetoaddentry.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+        Dependency_4: assets/textmesh pro/resources/fonts & materials/liberationsans
+          sdf.asset.ab
+    Info_34:
+      Name: ab/ui/choosetoreversefate.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_35:
+      Name: ab/ui/choosetoschoolfate.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_36:
+      Name: ab/ui/daguitool.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_37:
+      Name: ab/ui/daguitoolcmd.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_38:
+      Name: ab/ui/daguitoolsetkey.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_39:
+      Name: ab/ui/daohearttype.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_40:
+      Name: ab/ui/daokindtype.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_41:
+      Name: ab/ui/datuitoolteaching.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+        Dependency_4: "assets/texture/me/\u56FE\u724711.png.ab"
+        Dependency_5: "assets/texture/me/\u56FE\u72476.png.ab"
+        Dependency_6: "assets/texture/me/\u56FE\u72471.png.ab"
+        Dependency_7: "assets/texture/me/\u56FE\u72475.png.ab"
+        Dependency_8: "assets/texture/me/\u56FE\u72478.png.ab"
+        Dependency_9: "assets/texture/me/\u56FE\u72474.png.ab"
+        Dependency_10: "assets/texture/me/\u56FE\u72479.png.ab"
+        Dependency_11: "assets/texture/me/\u56FE\u72473.png.ab"
+        Dependency_12: "assets/texture/me/\u56FE\u72472.png.ab"
+        Dependency_13: "assets/texture/me/\u56FE\u724710.png.ab"
+        Dependency_14: "assets/texture/me/\u56FE\u72477.png.ab"
+    Info_42:
+      Name: "assets/texture/me/\u56FE\u724711.png.ab"
+      Dependencies: {}
+    Info_43:
+      Name: "assets/texture/me/\u56FE\u72476.png.ab"
+      Dependencies: {}
+    Info_44:
+      Name: "assets/texture/me/\u56FE\u72471.png.ab"
+      Dependencies: {}
+    Info_45:
+      Name: "assets/texture/me/\u56FE\u72475.png.ab"
+      Dependencies: {}
+    Info_46:
+      Name: "assets/texture/me/\u56FE\u72478.png.ab"
+      Dependencies: {}
+    Info_47:
+      Name: "assets/texture/me/\u56FE\u72474.png.ab"
+      Dependencies: {}
+    Info_48:
+      Name: "assets/texture/me/\u56FE\u72479.png.ab"
+      Dependencies: {}
+    Info_49:
+      Name: "assets/texture/me/\u56FE\u72473.png.ab"
+      Dependencies: {}
+    Info_50:
+      Name: "assets/texture/me/\u56FE\u72472.png.ab"
+      Dependencies: {}
+    Info_51:
+      Name: "assets/texture/me/\u56FE\u724710.png.ab"
+      Dependencies: {}
+    Info_52:
+      Name: "assets/texture/me/\u56FE\u72477.png.ab"
+      Dependencies: {}
+    Info_53:
+      Name: ab/ui/designateattribute.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_54:
+      Name: ab/ui/designatehall.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_55:
+      Name: ab/ui/designateheartbook.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_56:
+      Name: ab/ui/designatehearttechnique.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_57:
+      Name: ab/ui/designateinstrumentspirit.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_58:
+      Name: ab/ui/designateonesecretbook.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_59:
+      Name: ab/ui/designateonetechnique.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_60:
+      Name: ab/ui/designatepurpose.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_61:
+      Name: ab/ui/designateqifortune.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_62:
+      Name: ab/ui/designaterules.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_63:
+      Name: ab/ui/designatesecretbook.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_64:
+      Name: ab/ui/designatesect.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_65:
+      Name: ab/ui/designatesuit.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_66:
+      Name: ab/ui/designatetechnique.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_67:
+      Name: ab/ui/designatetrait.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_68:
+      Name: ab/ui/editartifactattr.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+        Dependency_4: assets/textmesh pro/resources/fonts & materials/liberationsans
+          sdf.asset.ab
+    Info_69:
+      Name: ab/ui/grade.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_70:
+      Name: ab/ui/inputint.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+        Dependency_4: assets/textmesh pro/resources/fonts & materials/liberationsans
+          sdf.asset.ab
+    Info_71:
+      Name: ab/ui/lookchar.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_72:
+      Name: ab/ui/npcselectclass.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_73:
+      Name: ab/ui/position.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_74:
+      Name: ab/ui/relationshiptype.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_75:
+      Name: ab/ui/residualhearttype.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_76:
+      Name: ab/ui/selectchar.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_77:
+      Name: ab/ui/selectonechar.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab
+        Dependency_3: assets/texture/font/heiti.otf.ab
+    Info_78:
+      Name: ab/ui/whethertolearnautomatically.ab
+      Dependencies:
+        Dependency_0: assets/texture/font/cuti.ttf.ab
+        Dependency_1: assets/texture/ui/tuichu.png.ab
+        Dependency_2: assets/animation/uiopenscale.controller.ab

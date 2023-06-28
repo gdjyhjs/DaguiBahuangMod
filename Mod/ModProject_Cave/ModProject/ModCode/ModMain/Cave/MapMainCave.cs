@@ -32,7 +32,7 @@ namespace Cave
                 data.InitCave();
                 InitGoHome(ui);
             }
-            //Cave.Log("洞府状态：" + data.state);
+            Cave.Log("洞府状态：" + data.state);
         }
 
 

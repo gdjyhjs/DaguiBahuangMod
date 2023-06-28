@@ -17,25 +17,26 @@ namespace Cave
 
         private void InitUI(UILogin ui)
         {
-            if (ui.transform.Find("Root/btnOpenHelpMe") != null)
+            if (ui.btnDLC.transform.parent.Find("btnOpenHelpMe") != null)
             {
-                GameObject.Destroy(ui.transform.Find("Root/btnOpenHelpMe").gameObject);
+                GameObject.Destroy(ui.btnDLC.transform.parent.Find("btnOpenHelpMe").gameObject);
             }
 
-            var btnOpenHelpMe = GuiBaseUI.CreateUI.NewImage(SpriteTool.GetSprite("Common", "tongyongbutton_2"));
-            btnOpenHelpMe.transform.SetParent(ui.transform.Find("Root"), false);
-            btnOpenHelpMe.GetComponent<RectTransform>().anchorMin = new Vector2(1, 1);
-            btnOpenHelpMe.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
-            btnOpenHelpMe.GetComponent<RectTransform>().anchoredPosition = new Vector2(-112, -112);
+            var btnOpenHelpMe = GameObject.Instantiate(ui.btnDLC);
+            //var btnOpenHelpMe = GuiBaseUI.CreateUI.NewImage(SpriteTool.GetSprite("Common", "LoginButton_black_1"));
+            btnOpenHelpMe.transform.SetParent(ui.btnDLC.transform.parent, false);
+            btnOpenHelpMe.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 80);
             btnOpenHelpMe.name = "btnOpenHelpMe";
             Action openHelpMe = () => { OpenHelpMe(ui); };
-            btnOpenHelpMe.AddComponent<Button>().onClick.AddListener(openHelpMe);
+            btnOpenHelpMe.GetComponent<Button>().onClick.AddListener(openHelpMe);
 
-            var go2 = GuiBaseUI.CreateUI.NewText(GameTool.LS("Cave_ModName"), btnOpenHelpMe.GetComponent<RectTransform>().sizeDelta);
-            go2.transform.SetParent(btnOpenHelpMe.transform, false);
-            go2.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
-            go2.GetComponent<Text>().color = Color.black;
-            go2.GetComponent<RectTransform>().anchoredPosition = new Vector2(10, 2);
+            btnOpenHelpMe.GetComponentInChildren<Text>().text = GameTool.LS("Cave_ModName");
+
+            //var go2 = GuiBaseUI.CreateUI.NewText(GameTool.LS("Cave_ModName"), btnOpenHelpMe.GetComponent<RectTransform>().sizeDelta);
+            //go2.transform.SetParent(btnOpenHelpMe.transform, false);
+            //go2.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+            //go2.GetComponent<Text>().color = Color.black;
+            //go2.GetComponent<RectTransform>().anchoredPosition = new Vector2(10, 2);
 
 
             int version = PlayerPrefs.GetInt("www.yellowshange.con.cave.version", 0);

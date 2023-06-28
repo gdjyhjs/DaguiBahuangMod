@@ -334,7 +334,7 @@ namespace FixData
                     }
                     else
                     {
-                        if (g.data.obj.GetString("AutoFixDataNoTip") == "1")
+                        if (ModMain.openFixTip)
                         {
                             cq.Next();
                         }
@@ -359,7 +359,7 @@ namespace FixData
                             }));
                             ui.btn2.onClick.AddListener(new Action(() =>
                             {
-                                g.data.obj.SetString("AutoFixDataNoTip", "1");
+                                ModMain.openFixTip = false;
                                 g.ui.CloseUI(ui);
                                 cq.Next();
                             }));
@@ -479,9 +479,15 @@ namespace FixData
 
         private static void CheckLetterData()
         {
+            ModMain.NextFixTip();
+            float max = g.data.world.allLetter.Count;
+            int index = 0;
             Console.WriteLine("检查信件");
             g.data.world.allLetter.RemoveAll(new Func<DataWorld.World.LetterData, bool>((v) =>
             {
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测信件数据 {value.ToString("F2")}% 修复:信件-{letterMessage.Count}");
                 if (g.conf.letterBase.GetItem(v.letterID) == null)
                 {
                     letterMessage.Add((letterMessage.Count + 1) + "删除无效信件：" + v.letterID);
@@ -489,14 +495,25 @@ namespace FixData
                 }
                 return false;
             }));
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测信件数据 {value.ToString("F2")}% 修复:信件-{letterMessage.Count}");
+            }
         }
 
         private static void CheckPotmonData()
         {
             Console.WriteLine("检查壶妖");
             Il2CppSystem.Collections.Generic.List<PotMonUnitData> list = g.data.world.devilDemonData.potmonData.potMonList;
+            ModMain.NextFixTip();
+            float max = list.Count * 2;
+            int index = 0;
             list.RemoveAll(new Func<PotMonUnitData, bool>((v) =>
             {
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测壶妖数据 {value.ToString("F2")}% 修复:壶妖-{potmonMessage.Count}");
+
                 if (g.conf.potmonBase.GetItem(v.id) == null)
                 {
                     potmonMessage.Add($"{potmonMessage.Count + 1} 删除不存在的壶妖 {v.id}({v.soleId})");
@@ -506,6 +523,10 @@ namespace FixData
             }));
             for (int i = 0; i < list.Count; i++)
             {
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测壶妖数据 {value.ToString("F2")}% 修复:壶妖-{potmonMessage.Count}");
+
                 if (list[i].unitId != "" && !g.data.unit.allUnit.ContainsKey(list[i].unitId))
                 {
                     potmonMessage.Add($"{potmonMessage.Count + 1} 修复化形死亡的壶妖 {list[i].id}({list[i].soleId})");
@@ -515,15 +536,25 @@ namespace FixData
                     list[i].furryGradeId = 0;
                 }
             }
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测壶妖数据 {value.ToString("F2")}% 修复:壶妖-{potmonMessage.Count}");
+            }
         }
 
         private static void CheckTmpPropData()
         {
             Il2CppSystem.Collections.Generic.List<DataProps.PropsData> allProps = g.data.world.tempProps.allProps;
+            ModMain.NextFixTip();
+            float max = allProps.Count;
+            int index = 0;
 
             // 删除背包不存在的道具
             allProps.RemoveAll(new Func<DataProps.PropsData, bool>((v) =>
             {
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测临时背包数据 {value.ToString("F2")}% 修复:临时道具-{tmpPropsMessage.Count}");
                 if (v.propsType == DataProps.PropsDataType.Props)
                 {
                     if (v.propsItem == null)
@@ -580,13 +611,26 @@ namespace FixData
                 return false;
 
             }));
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测临时背包数据 {value.ToString("F2")}% 修复:临时道具-{tmpPropsMessage.Count}");
+            }
         }
 
         private static void CheckFormulasData()
         {
+
             Il2CppSystem.Collections.Generic.List<DataWorld.World.PillFormulaData> formulas = g.data.world.pillFormulas;
+            ModMain.NextFixTip();
+            float max = formulas.Count;
+            int index = 0;
             formulas.RemoveAll(new Func<DataWorld.World.PillFormulaData,bool>((v) =>
             {
+
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测丹方 {value.ToString("F2")}% 修复:丹方-{pillFormulasMessage.Count}");
+
                 if (g.conf.makePillFormula.GetItem(v.id) == null)
                 {
                     pillFormulasMessage.Add($"{pillFormulasMessage.Count + 1} 删除不存在的丹方 {v.id}");
@@ -597,13 +641,24 @@ namespace FixData
                     return false;
                 }
             }));
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测丹方 {value.ToString("F2")}% 修复:丹方-{pillFormulasMessage.Count}");
+            }
         }
         private static void CheckTownData()
         {
+            ModMain.NextFixTip();
+            float max = g.data.grid.mapWidth * g.data.grid.mapHeight;
+            int index = 0;
             for (int x = 0; x < g.data.grid.mapWidth; x++)
             {
                 for (int y = 0; y < g.data.grid.mapHeight; y++)
                 {
+                    index++;
+                    float value = index / max * 100;
+                    ModMain.FixTip($"检测坊市 {value.ToString("F2")}% 修复:坊市道具-{townMarketMessage.Count}");
+
                     DataGrid.GridData gridData = g.data.grid.GetGridData(new Vector2Int(x, y));
                     if (gridData.IsBuild() && gridData.isOrigi)
                     {
@@ -632,16 +687,29 @@ namespace FixData
                     }
                 }
             }
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测坊市 {value.ToString("F2")}% 修复:坊市道具-{townMarketMessage.Count}");
+            }
         }
 
         private static void CheckUnitLogData()
         {
+            ModMain.NextFixTip();
             Console.WriteLine("检查角色日志");
             CallQueue cq6 = new CallQueue();
+            float max = g.data.unitLog.allLog.Count;
+            int index = 0;
             foreach (var item in g.data.unitLog.allLog)
             {
                 var k = item.key;
                 var v = item.value;
+
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测所有角色生平日志数据 {value.ToString("F2")}% 修复:日志-{logMessage.Count}");
+
+
                 foreach (var item2 in v.allLog)
                 {
                     var cacheItem = item2;
@@ -691,14 +759,27 @@ namespace FixData
 
             }
             cq6.RunAllCall();
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测所有角色生平日志数据 {value.ToString("F2")}% 修复:日志-{logMessage.Count}");
+            }
         }
 
         private static void CheckMonstData()
         {
+            ModMain.NextFixTip();
+            float max = g.data.map.allGridMonst.Count;
+            int index = 0;
+
             Console.WriteLine("检查怪物");
             CallQueue cq5 = new CallQueue();
             foreach (var v in g.data.map.allGridMonst)
             {
+
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测大地图副本 {value.ToString("F2")}% 修复:副本-{monstMessage.Count}");
+
                 var data = v;
                 if (v.value.id != 0 && g.conf.dungeonBase.GetItem(v.value.id) == null)
                 {
@@ -710,14 +791,26 @@ namespace FixData
                 }
             }
             cq5.RunAllCall();
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测大地图副本 {value.ToString("F2")}% 修复:副本-{monstMessage.Count}");
+            }
         }
 
         private static void CheckEventData()
         {
+            ModMain.NextFixTip();
+            float max = g.data.map.allGridEventID.Count;
+            int index = 0;
+
             Console.WriteLine("检查事件");
             CallQueue cq4 = new CallQueue();
             foreach (var v in g.data.map.allGridEventID)
             {
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测大地图事件 {value.ToString("F2")}% 修复:事件-{eventMessage.Count}");
+
                 var data = v;
                 if (v.value.id != 0 && g.conf.worldFortuitousEventBase.GetItem(v.value.id) == null)
                 {
@@ -729,13 +822,26 @@ namespace FixData
                 }
             }
             cq4.RunAllCall();
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测大地图事件 {value.ToString("F2")}% 修复:事件-{eventMessage.Count}");
+            }
         }
 
         private static void CheckUnitData(List<int> badLuckId)
         {
+            ModMain.NextFixTip();
             Console.WriteLine("检查角色数据");
+            int max = g.data.unit.allUnit.Count;
+            int index = 0;
             foreach (var item in g.data.unit.allUnit)
             {
+                index++;
+                float value = index / max * 100;
+                ModMain.FixTip($"检测角色数据 {index}/{max} 修复:境界-{gradeMessage.Count} 天骄-{heartMessage.Count}" +
+                    $" 性格-{traitMessage.Count} 道具-{propMessage.Count} 秘籍-{martialPropMessage.Count}" +
+                    $" 气运-{badLuckId.Count} 任务-{taskMessage.Count} 器灵-{spriteMessage.Count}" +
+                    $" 道号-{titleMessage.Count} 立绘-{dressMessage.Count} 技能-{skillMessage.Count}");
                 DataUnit.UnitInfoData unitData;
                 bool isPlayer;
                 string unitName;
@@ -785,6 +891,13 @@ namespace FixData
                     Console.WriteLine(e.Message + "！" + i + "\n" + e.StackTrace);
                     continue;
                 }
+            }
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测角色数据 {index}/{max} 修复:境界-{gradeMessage.Count} 天骄-{heartMessage.Count}" +
+                    $" 性格-{traitMessage.Count} 道具-{propMessage.Count} 秘籍-{martialPropMessage.Count}" +
+                    $" 气运-{badLuckId.Count} 任务-{taskMessage.Count} 器灵-{spriteMessage.Count}" +
+                    $" 道号-{titleMessage.Count} 立绘-{dressMessage.Count} 技能-{skillMessage.Count}");
             }
         }
 
@@ -1105,6 +1218,7 @@ namespace FixData
         {
             // 修复角色立绘
             PortraitModelData modelData = unitData.propertyData.modelData;
+            var humanData = unitData.propertyData.battleModelData;
             // 后背
             if (modelData.back != 0 && g.conf.roleDress.GetItem(modelData.back) == null)
             {
@@ -1216,6 +1330,33 @@ namespace FixData
                 var id = list[CommonTool.Random(0, list.Count)].id;
                 dressMessage.Add($"{unitName} 修复立绘 眉心 {modelData.forehead} >> {id}");
                 modelData.forehead = id;
+            }
+
+            // 战斗立绘
+            if (humanData.back != 0 && g.conf.roleDress.GetItem(humanData.back) == null)
+            {
+                dressMessage.Add($"{unitName} 修复战斗立绘 后背 {humanData.back} >> {modelData.back}");
+                humanData.back = modelData.back;
+            }
+            if (humanData.hat != 0 && g.conf.roleDress.GetItem(humanData.hat) == null)
+            {
+                dressMessage.Add($"{unitName} 修复战斗立绘 帽子 {humanData.hat} >> {modelData.hat}");
+                humanData.hat = modelData.hat;
+            }
+            if (humanData.body != 0 && g.conf.roleDress.GetItem(humanData.body) == null)
+            {
+                dressMessage.Add($"{unitName} 修复战斗立绘 身体 {humanData.body} >> {modelData.body}");
+                humanData.body = modelData.body;
+            }
+            if (humanData.hair != 0 && g.conf.roleDress.GetItem(humanData.hair) == null)
+            {
+                dressMessage.Add($"{unitName} 修复战斗立绘 头发 {humanData.hair} >> {modelData.hair}");
+                humanData.hair = modelData.hair;
+            }
+            if (humanData.head != 0 && g.conf.roleDress.GetItem(humanData.head) == null)
+            {
+                dressMessage.Add($"{unitName} 修复战斗立绘 脸 {humanData.head} >> {modelData.head}");
+                humanData.head = modelData.head;
             }
         }
 
@@ -1424,13 +1565,20 @@ namespace FixData
 
         private static void CheckBuildData()
         {
+            ModMain.NextFixTip();
             Action checkTownStorage = null;
             int min = int.MaxValue;
             Console.WriteLine("检查建筑数据：宗门和建木");
+            float max = g.data.grid.mapWidth * g.data.grid.mapHeight;
+            int index = 0;
             for (int x = 0; x < g.data.grid.mapWidth; x++)
             {
                 for (int y = 0; y < g.data.grid.mapHeight; y++)
                 {
+                    // 以下代码如何让value保留两位小数显示
+                    index++;
+                    float value = index / max * 100;
+                    ModMain.FixTip($"检测建筑数据 {value.ToString("F2")}% 修复:宗门-{schoolMessage.Count + delSchoolMessage.Count} 建木-{propMessage.Count}");
                     DataGrid.GridData gridData = g.data.grid.GetGridData(new Vector2Int(x, y));
                     if (gridData != null && gridData.IsBuild() && gridData.isOrigi && gridData.typeInt == (int)MapTerrainType.School)
                     {
@@ -1593,10 +1741,13 @@ namespace FixData
                             };
                         }
                     }
-
                 }
             }
             checkTownStorage?.Invoke();
+            {
+                float value = index / max * 100;
+                ModMain.FixTip($"检测建筑数据 {value.ToString("F2")}% 修复:宗门-{schoolMessage.Count + delSchoolMessage.Count} 建木-{propMessage.Count}");
+            }
         }
     }
 

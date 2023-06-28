@@ -15,6 +15,7 @@ namespace GuiBaseUI.Patch
         [HarmonyPrefix]
         static bool Prefix(ref string function)
         {
+            Print.Log("命令 = " + function);
             if (string.IsNullOrWhiteSpace(function))
                 return false;
             try

@@ -12,21 +12,65 @@ namespace FixData
     public class ModMain
     {
         private static HarmonyLib.Harmony harmony;
-        public static bool autoFixData;
+        public static bool autoFixData
+        {
+            get
+            {
+                if (PlayerPrefs.HasKey("GuiFixDataItem"))
+                {
+                    return PlayerPrefs.GetInt("GuiFixDataItem") == 1;
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("GuiFixDataItem", 1);
+                    return true;
+                }
+            }
+            set
+            {
+                PlayerPrefs.SetInt("GuiFixDataItem", value ? 1 : 0);
+            }
+        }
+        public static bool openFixTip
+        {
+            get
+            {
+                if (PlayerPrefs.HasKey("AutoFixDataNoTip"))
+                {
+                    return PlayerPrefs.GetInt("AutoFixDataNoTip") == 1;
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("AutoFixDataNoTip", 1);
+                    return true;
+                }
+            }
+            set
+            {
+                PlayerPrefs.SetInt("AutoFixDataNoTip", value ? 1 : 0);
+            }
+        }
+        public static string fixTip1;
+        public static string fixTip2;
+        public static void FixTip(string tip)
+        {
+            fixTip2 = tip;
+        }
+        public static void NextFixTip()
+        {
+            fixTip1 = fixTip2;
+        }
+        public static void InitFixTip()
+        {
+            fixTip1 = "";
+            fixTip2 = "";
+        }
+
         /// <summary>
         /// MOD初始化，进入游戏时会调用此函数
         /// </summary>
         public void Init()
         {
-            if (PlayerPrefs.HasKey("GuiFixDataItem"))
-            {
-                autoFixData = PlayerPrefs.GetInt("GuiFixDataItem") == 1;
-            }
-            else
-            {
-                autoFixData = true;
-                PlayerPrefs.SetInt("GuiFixDataItem", 1);
-            }
             //使用了Harmony补丁功能的，需要手动启用补丁。
             //启动当前程序集的所有补丁
             if (harmony != null)

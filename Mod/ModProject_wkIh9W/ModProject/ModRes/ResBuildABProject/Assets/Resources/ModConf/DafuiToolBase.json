@@ -1,0 +1,74 @@
+UpGrade	charOneA	EnhancementValue			humanities	提升境界	选择角色A	提升值			人文	n
+SetFate	charOneA	Grade	ChooseToReverseFate		humanities	设置逆天改命	选择角色A	境界(默认角色当前境界)	选择逆天改命		人文	y
+AddLuck	charOneA	ChooseQiFortune			humanities	添加气运	选择角色A	选择气运			人文	y
+DelLuck	charOneA	DesignateQiFortune			humanities	删除气运	选择角色A	指定气运			人文	y
+AddAttr	charA	AttributeType	IncreaseValue		humanities	添加属性	选择角色A	属性类型	增加值		人文	y
+FixHeart1	charOneA	DaoHeartType	ProduceRemainingProgressOfDaoKind	ChooseHeroSkill	humanities	修改天骄道心	选择角色A	道心类型	产生道种剩余进度	npc天骄套路	人文	y
+FixHeart2	charOneA	DaoKindType	GrowthProgressOfDaoKind		humanities	修改人杰道种	选择角色A	道种类型	道种成长进度		人文	y
+FixHeart3	charOneA	ResidualHeartType			humanities	修改npc残心	选择角色A	残心类型			人文	y
+AddExp	charA	IncreaseValue			humanities	增加修为	选择角色A	增加值			人文	y
+Recover	charA				humanities	恢复所有状态	选择角色A				人文	y
+AKillB	charA	charB			humanities	让A杀死B	选择角色A	选择角色B			人文	y
+FixName	charOneA	ModifiedName			humanities	修改名字	选择角色A	修改的名字			人文	y
+FixXingge	charOneA	DesignateXingge			humanities	修改性格	选择角色A	指定性格			人文	y
+AddHeartHp	charA	IncreaseValue			humanities	增加道心坚定值	选择角色A	增加值			人文	y
+AHeartB	charOneA	charOneB			humanities	让A传授道种给B	选择角色A	选择角色B			人文	y
+AddTitle	charA	ChooseDaoNumber			humanities	增加道号	选择角色A	选择道号			人文	y
+SetSchoolPost	charA	Position	DesignateHall		sect	设置宗门职位	选择角色A	选择职位	选择堂口		宗门	y
+JoinSchool	charA	DesignateSect			sect	加入宗门	选择角色A	选择宗门			宗门	y
+ExitSchool	charA				sect	让A退出宗门	选择角色A				宗门	y
+FixSchoolAttr	DesignateSect	DesignateAttribute	IncreaseValue		sect	修改宗门属性	指定宗门	指定属性	增加值		宗门	y
+FixSchoolSkill	DesignateSect	ChooseTechniqueType			sect	修改功法库	指定宗门	选择功法类型			宗门	y
+FixSchoolUseSkill	DesignateSect	ChooseTechniqueType			sect	修改主修功法	指定宗门	选择功法类型			宗门	y
+FixSchoolFate	DesignateSect	ChooseToSchoolFate			sect	修改逆天改命	指定宗门	选择逆天改命			宗门	y
+FixSchoolTenet	DesignateSect	DesignatePurpose			sect	修改宗门宗旨	指定宗门	指定宗旨			宗门	y
+FixSchoolGauge	DesignateSect	DesignateRules			sect	修改宗门门规	指定宗门	指定门规			宗门	y
+FixSchoolStand	DesignateSect	ChooseRighteousnessOrEvil			sect	修改宗门立场	指定宗门	选择正魔			宗门	y
+SetRelation	charOneA	charOneB	RelationshipType	IncreaseIntimacy	emotion	设置关系	选择角色A	选择角色B	关系类型	增加亲密度	情感	y
+SetOneLove	charOneA	charOneB	IncreaseIntimacy		emotion	增加双向亲密度	选择角色A	选择角色B	增加亲密度		情感	y
+SetTwoLove	charOneA	charOneB	IncreaseIntimacy		emotion	增加单向亲密度	选择角色A	选择角色B	增加亲密度		情感	y
+SetOneHate	charOneA	charOneB	IncreaseAnimosity		emotion	增加双向仇恨度	选择角色A	选择角色B	增加仇恨度		情感	y
+SetTwoHate	charOneA	charOneB	IncreaseAnimosity		emotion	增加单向仇恨度	选择角色A	选择角色B	增加仇恨度		情感	y
+MartialBookMax	charOneA	DesignateSecretBook			liverProtection	秘籍词条满级	选择角色A	指定秘籍			护肝	n
+DelAllSkill	charOneA				liverProtection	遗忘所有功法	选择角色A				护肝	y
+DelAllItem	charOneA	MaxLevel			liverProtection	丢弃所有背包道具	选择角色A	最高品质(1-6)			护肝	y
+MartialSkillMax	charOneA	DesignateTechnique			liverProtection	功法词条满级	选择角色A	指定功法			护肝	y
+MartialBookStudy	charOneA	DesignateSecretBook			liverProtection	学习背包秘籍	选择角色A	指定秘籍			护肝	y
+DelSkill	charOneA	DesignateTechnique			liverProtection	遗忘已学功法	选择角色A	指定功法			护肝	y
+UpSkill	charOneA	DesignateTechnique			liverProtection	修炼功法满级	选择角色A	指定功法			护肝	y
+GameSpeed	Speed				liverProtection	游戏加速	速度				护肝	y
+BagSize	GridNumber				liverProtection	增加背包大小	格子数				护肝	y
+AddSprite	charOneA	ChooseInstrumentSpirit			liverProtection	增加器灵	选择角色A	选择器灵			护肝	y
+DelSprite	charOneA	DesignateInstrumentSpirit			liverProtection	删除器灵	选择角色A	指定器灵			护肝	y
+LuckSpriteSkill	charOneA	DesignateInstrumentSpirit			liverProtection	解锁器灵天赋盘	选择角色A	指定器灵			护肝	y
+AddSpriteLove	charOneA	DesignateInstrumentSpirit	Intimacy		liverProtection	增加器灵亲密度	选择角色A	指定器灵	亲密度		护肝	y
+SetSuit	charOneA	DesignateHeartTechnique	DesignateSuit		liverProtection	设置心法套装	选择角色A	指定心法	选择套装		护肝	y
+AddItem	charA	ChooseProps	ObtainQuantity		item	获得道具	选择角色A	选择道具	获得数量		物品	y
+AddMartial	charA	ChooseSecretBook	Grade	WhetherToLearnAutomatically	item	获得秘籍	选择角色A	选择秘籍	境界	是否自动学习	物品	y
+AddSuit	charA	ChooseSuit	Grade	WhetherToLearnAutomatically	item	获得心法套装	选择角色A	选择套装	境界	是否自动学习	物品	y
+FixMartialPrefix	charOneA	DesignateOneSecretBook	ChooseToAddEntry		item	修改秘籍词条	选择角色A	指定一个秘籍	选择词条		物品	n
+FixSkillPrefix	charOneA	DesignateOneTechnique	ChooseToAddEntry		item	修改功法词条	选择角色A	指定一个功法	选择词条		物品	y
+FixElder	charOneA	ChooseElder	InputInt		item	修改化神之气	选择角色A	选择化神之气	攻击|防御|生命|灵力|念力		物品	y
+FixRule	charOneA	ChooseRule	ChooseTechniqueType	Purity	item	修改道魂	选择角色A	选择道魂	选择属性	纯净度	物品	y
+FixArtifact	charOneA	ChooseArtifact	EditArtifactAttr		item	修改法宝	选择角色A	选择法宝	修改法宝属性		物品	y
+AddUpGradeProps	charOneA	Grade			item	添加突破材料	选择角色A	境界(默认所有)			物品	y
+OpenMap					geography	打开地图					地理	y
+CloseMap					geography	关闭地图					地理	y
+MoveChar	charOneA	InputX	InputY		geography	移动一个角色	选择角色A	输入坐标X	输入坐标Y		地理	y
+OpenMapLight					geography	打开地图全亮					地理	y
+CloseMapLight					geography	关闭地图全亮					地理	y
+FixShenqi			InputY		shenqi	修复神器					神器	y
+LuckEyeSkill	ChooseHaotianEyeSkill				shenqi	解锁昊天眼技能	选择昊天眼技能				神器	y
+AddPotmon	ChoosePotmon	Grade			shenqi	添加壶妖	选择壶妖	境界(默认角色当前境界)			神器	y
+SetRoleGrade	charOneA	ChooseRealm			grade	设置角色境界	角色	选择境界			境界	y
+UnlockImmortalSkill	charOneA	ChooseFairyTechnique			grade	解锁仙法	选择角色A	选择仙法			境界	y
+FixShenhun	charOneA	ChooseSoul			grade	修改神魂	角色A	选择神魂			境界	y
+FixDaoJie	charOneA	ChooseTechniqueType			grade	修改道界	角色A	选择道界属性			境界	y
+FixLiaoji	charOneA	ChooseLiaoji	ChooseLiaojiEffect	ChooseLiaojiEffectUp	grade	修改飘渺之力	角色A	选择飘渺之力	选择飘渺之力效果	选择升级效果	境界	y
+LuckArt					liverProtection	解锁所有技艺图谱					护肝	y
+StudySkillGroup	charOneA	ChooseHeroSkill			liverProtection	重学套路功法	选择角色A	指定套路			护肝	y
+PlayNpc	charOneA				advanced	夺舍一名npc	选择角色A				高级	y
+RunGameCmd	InputCmd				advanced	执行一个游戏命令	输入命令				高级	y
+OpenGameDrama	InputDramaId	charOneA	charOneB		advanced	打开一个游戏剧情	剧情id	选择角色A	选择角色B		高级	y
+Tc85YzAddNpc	charOneA				Tc85Yz	将npc卖给青楼	选择角色A				鬼畜八荒	y
+Tc85YzAutoNpc	InputNumber				Tc85Yz	随机将npc卖给青楼	输入抓取数量				鬼畜八荒	y
