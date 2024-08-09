@@ -39,6 +39,7 @@ namespace MOD_wkIh9W
                         {
                             name += "(" + relationStr + ")";
                         }
+                        name += "[" + unitID + "]";
                         tip.Add(name);
                     }
                     catch (Exception e)
@@ -116,9 +117,9 @@ namespace MOD_wkIh9W
                     }
                     try
                     {
-                        tip.Add(GameTool.LS(g.conf.roleCreateCharacter.GetItem(dynUnitData.outTrait1.value).sc5asd_sd34)
-                            + " " + GameTool.LS(g.conf.roleCreateCharacter.GetItem(dynUnitData.outTrait2.value).sc5asd_sd34)
-                            + " " + GameTool.LS(g.conf.roleCreateCharacter.GetItem(dynUnitData.inTrait.value).sc5asd_sd34));
+                        tip.Add(GameTool.LS(g.conf.roleCreateCharacter.GetItem(dynUnitData.inTrait.value).sc5asd_sd34)
+                            + "  " + GameTool.LS(g.conf.roleCreateCharacter.GetItem(dynUnitData.outTrait1.value).sc5asd_sd34)
+                            + "、" + GameTool.LS(g.conf.roleCreateCharacter.GetItem(dynUnitData.outTrait2.value).sc5asd_sd34));
                         float intim1 = Mathf.RoundToInt(unitData.relationData.intimToPlayerUnit); // ta对我的好感
                         float intim2 = g.world.playerUnit.data.unitData.relationData.GetIntim(unitID); // 我对ta的好感
                         int oneIntimValue = int.Parse(g.conf.gameParameter.closeIconValueB);

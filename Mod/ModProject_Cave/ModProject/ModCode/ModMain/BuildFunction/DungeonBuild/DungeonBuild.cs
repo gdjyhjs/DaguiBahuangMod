@@ -79,7 +79,7 @@ namespace Cave.BuildFunction
         int operate = 0; // 1:布置摆件 2:移除摆件 0:无操作
         RectTransform listObj;
         float defVerticalNormalizedPosition = 1;
-        List<int> allBarrierID;
+        List<int> allBarrierID; // 所有可创建的障碍物id
         GameObject barrierPrefab; // 要创建的障碍物预制件
         int barrierCreateID; // 要创建的障碍物ID
         GameObject clickDestroyBarrierb; // 点击将删除的障碍物
@@ -192,9 +192,31 @@ namespace Cave.BuildFunction
             InitDungeon();
         }
 
+        bool clickF;
+        bool clickG;
+
         // 初始化副本
         private void InitDungeon()
         {
+            try
+            {
+                var fGo = CreateUI.NewButton(() =>
+                {
+                    clickF = true;
+                });
+                UITool.SetUILeft(g.ui.GetUI(UIType.BattleInfo), fGo.GetComponent<RectTransform>(), -20, "购买装饰(F)");
+
+                var gGo = CreateUI.NewButton(() =>
+                {
+                    clickG = true;
+                });
+                UITool.SetUILeft(g.ui.GetUI(UIType.BattleInfo), gGo.GetComponent<RectTransform>(), -80, "拆除装饰(G)");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("初始化按钮错误 " + e.ToString());
+            }
+
             Action battleFrame = () =>
             {
                 uiBase.startBattle.btnStart.onClick.Invoke();
@@ -992,15 +1014,17 @@ namespace Cave.BuildFunction
         private void DecorateUpdate()
         {
             int op = operate;
-            if (Input.GetKeyUp(KeyCode.F))
+            if (Input.GetKeyUp(KeyCode.F) || clickF)
             {
+                clickF = false;
                 op = op == 1 ? 0 : 1;
             }
-            if (Input.GetKeyUp(KeyCode.G))
+            if (Input.GetKeyUp(KeyCode.G) || clickG)
             {
+                clickG = false;
                 op = op == 2 ? 0 : 2;
             }
-            if (op == 2 && Input.GetMouseButtonDown(1))
+            if (op != 0 && Input.GetMouseButtonDown(1))
             {
                 op = 0;
             }
@@ -1073,7 +1097,7 @@ namespace Cave.BuildFunction
                     {
                         if (destroyBarrierb != null)
                         {
-                            SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
+                            DecorateMgr.SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
                             destroyBarrierb = null;
                         }
                     }
@@ -1081,7 +1105,7 @@ namespace Cave.BuildFunction
                     {
                         if (destroyBarrierb != null)
                         {
-                            SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
+                            DecorateMgr.SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
                         }
                         destroyBarrierb = barrierb;
                     }
@@ -1095,7 +1119,7 @@ namespace Cave.BuildFunction
                     {
                         value = 1 - value;
                     }
-                    SetBarrierbColor(destroyBarrierb, Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0, 0, 1), value));
+                    DecorateMgr.SetBarrierbColor(destroyBarrierb, Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0, 0, 1), value));
                     //SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, value));
                 }
 
@@ -1128,7 +1152,7 @@ namespace Cave.BuildFunction
         {
             if (destroyBarrierb != null)
             {
-                SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
+                DecorateMgr.SetBarrierbColor(destroyBarrierb, new Color(1, 1, 1, 1));
                 destroyBarrierb = null;
             }
             if (listObj != null)
@@ -1162,6 +1186,28 @@ namespace Cave.BuildFunction
                 case 2:
                     {
                         GameTool.SetCursor("chaichuzhuangshi1", "chaichuzhuangshi");
+                        if (uiBase != null)
+                        {
+                            var panel = new UIBarrierDestroy(uiBase.transform, decorateMgr.decorateList);
+                            listObj = panel.bg.GetComponent<RectTransform>();
+                            panel.clickCall = (go, barrierb) =>
+                            {
+                                if (decorateMgr.decorates.ContainsKey(barrierb.GetHashCode()))
+                                {
+                                    destroyBarrierb = decorateMgr.decorates[barrierb.GetHashCode()];
+                                    if (destroyBarrierb != null)
+                                    {
+                                        decorateMgr.DestroyDecorate(destroyBarrierb);
+                                        destroyBarrierb = null;
+                                        clickDestroyBarrierb = null;
+                                        if (listObj == null)
+                                            CreateOperateUI();
+                                        else
+                                            CreateOperateUI();
+                                    }
+                                }
+                            };
+                        }
                     }
                     break;
             }
@@ -1194,14 +1240,6 @@ namespace Cave.BuildFunction
             }
         }
 
-        private void SetBarrierbColor(GameObject barrierb, Color color)
-        {
-            var sprites = barrierb.GetComponentsInChildren<SpriteRenderer>();
-            foreach (var item in sprites)
-            {
-                item.color = color;
-            }
-        }
 
         // 进入房间结束
         private void OnIntoRoomEnd()

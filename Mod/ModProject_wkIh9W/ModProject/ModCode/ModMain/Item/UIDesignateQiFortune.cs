@@ -33,7 +33,7 @@ namespace MOD_wkIh9W.Item
                 foreach (var item in yy)
                 {
                     ConfRoleCreateFeatureItem featureItem = g.conf.roleCreateFeature.GetItem(item.id);
-                    if (!list.Contains(featureItem))
+                    if (list.Find((v)=>v.id == featureItem.id) == null)
                     {
                         list.Add(featureItem);
                     }
@@ -52,7 +52,7 @@ namespace MOD_wkIh9W.Item
                     ConfRoleCreateFeatureItem featureItem = g.conf.roleCreateFeature.GetItem(item.Value.luck);
                     if (featureItem != null)
                     {
-                        if (!list.Contains(featureItem))
+                        if (list.Find((v) => v.id == featureItem.id) == null)
                         {
                             list.Add(featureItem);
                         }

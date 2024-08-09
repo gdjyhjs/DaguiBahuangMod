@@ -1,7 +1,0 @@
-F:\steam\steamapps\common\鬼谷八荒\Mods\Comment.dll
-F:\steam\steamapps\common\鬼谷八荒\Mods\Comment.pdb
-F:\ModList\test1\Comment\obj\Debug\Comment.csproj.CoreCompileInputs.cache
-F:\ModList\test1\Comment\obj\Debug\Comment.dll
-F:\ModList\test1\Comment\obj\Debug\Comment.pdb
-F:\ModList\test1\Comment\obj\Debug\Comment.csproj.CopyComplete
-F:\ModList\test1\Comment\obj\Debug\Comment.csproj.AssemblyReference.cache

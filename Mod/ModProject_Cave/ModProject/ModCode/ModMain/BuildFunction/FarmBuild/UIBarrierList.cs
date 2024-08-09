@@ -83,7 +83,7 @@ namespace Cave
                     }
                 }), 1, true);
 
-                GameObject titleText = GuiBaseUI.CreateUI.NewText("装饰列表", new Vector2(220, 30));
+                GameObject titleText = GuiBaseUI.CreateUI.NewText("购买装饰", new Vector2(220, 30));
                 titleText.transform.SetParent(title.transform, false);
                 Text tmpText = titleText.GetComponent<Text>();
                 tmpText.alignment = TextAnchor.MiddleCenter;

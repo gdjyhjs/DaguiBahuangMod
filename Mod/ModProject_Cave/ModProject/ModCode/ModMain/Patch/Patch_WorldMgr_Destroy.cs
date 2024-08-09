@@ -13,8 +13,8 @@ namespace Cave.Patch
         [HarmonyPostfix]
         private static void Postfix()
         {
-            g.events.Off(EGameType.WorldRunEnd);
-            Cave.Log(g.world.playerUnit.data.unitData.propertyData.GetName() + "离开八荒世界！是否有洞府=" + DataCave.ReadData().state);
+            var data = DataCave.ReadData();
+            Cave.Log(g.world.playerUnit.data.unitData.propertyData.GetName() + "离开八荒世界！是否有洞府=" + data.state + " " + data.x + "," + data.y);
         }
     }
 }

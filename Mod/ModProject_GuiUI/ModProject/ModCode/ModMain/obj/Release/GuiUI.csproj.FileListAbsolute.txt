@@ -21,4 +21,5 @@ E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_GuiUI\ModProject\
 E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.pdb
 D:\SteamLibrary\steamapps\workshop\content\1468810\2814686803\ModCode\dll\GuiUI.dll
 D:\SteamLibrary\steamapps\workshop\content\1468810\2814686803\ModCode\dll\GuiUI.pdb
-E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_GuiUI\ModProject\ModCode\ModMain\obj\Release\GuiUI.csproj.AssemblyReference.cache
+F:\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_GV2cem\ModCode\dll\GuiUI.dll
+F:\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_GV2cem\ModCode\dll\GuiUI.pdb

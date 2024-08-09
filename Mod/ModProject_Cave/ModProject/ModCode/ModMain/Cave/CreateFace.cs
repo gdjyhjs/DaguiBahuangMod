@@ -12,6 +12,7 @@ using UnityEngine.UI;
 namespace Cave
 {
     // 重新捏脸
+
     public class CreateFace
     {
         public CreateFace()
@@ -20,28 +21,73 @@ namespace Cave
 
         public UICreatePlayer InitData(WorldUnitBase unit)
         {
-            Cave.Log("重新捏脸 InitData");
             var ui = g.ui.GetUI<UICreatePlayer>(UIType.CreatePlayer);
-            Cave.Log("重新捏脸 ui=" + ui);
-            if ( ui != null)
+            if (ui != null)
                 return ui;
-            Cave.Log("打开捏脸 " + unit.data.unitData.propertyData.GetName());
             Patch_UICreatePlayer_DestroyUI.onCreateFace = true;
             ui = g.ui.OpenUI<UICreatePlayer>(UIType.CreatePlayer);
-            ui.transform.Find("Root/Meum").gameObject.SetActive(false);
-            ui.transform.Find("Root/Group:Facade/LanguageGroup").gameObject.SetActive(false);
-            ui.transform.Find("Root/Group:Facade/InTrait").gameObject.SetActive(false);
-            ui.transform.Find("Root/Group:Facade/OutTrait").gameObject.SetActive(false);
+            ui.transform.Find("Root/Meum").localScale = Vector3.zero;
+            //ui.transform.Find("Root/Group:Facade/LanguageGroup").gameObject.SetActive(false);
+            //ui.transform.Find("Root/Group:Facade/InTrait").gameObject.SetActive(false);
+            //ui.transform.Find("Root/Group:Facade/OutTrait").gameObject.SetActive(false);
+            ui.facade.textLife.gameObject.SetActive(false);
+            ui.facade.textCharm.gameObject.SetActive(false);
+            ui.facade.textRace.gameObject.SetActive(false);
+            ui.facade.textLevel.gameObject.SetActive(false);
+            var inputName = ui.facade.goName.GetComponent<TMPro.TMP_InputField>();
+            var tglWoman = ui.facade.tglWoman;
+            var tglMan = ui.facade.tglMan;
+
             ui.InitData(100, GameLevelType.Common, g.data.world.npcCountId);
 
             Action delayAction = () =>
             {
                 try
                 {
-                    int sex = (int)unit.data.unitData.propertyData.sex; ;
+                    try
+                    {
+                        ui.playerData.dynUnitData.inTrait.baseValue = unit.data.unitData.propertyData.inTrait;
+                        ui.playerData.dynUnitData.outTrait1.baseValue = unit.data.unitData.propertyData.outTrait1;
+                        ui.playerData.dynUnitData.outTrait2.baseValue = unit.data.unitData.propertyData.outTrait2;
+                        int index1 = 0;
+                        int index2 = 0;
+                        foreach (var item in g.conf.roleCreateCharacter._allConfList)
+                        {
+                            if (item.type == 1)
+                            {
+                                if (item.id == unit.data.unitData.propertyData.inTrait)
+                                {
+                                    ui.facade.goInTraitRoot.transform.GetChild(index1).GetComponent<Toggle>().isOn = true;
+                                }
+                                index1++;
+                            }
+                            if (item.type == 2)
+                            {
+                                if (item.id == unit.data.unitData.propertyData.outTrait1 || item.id == unit.data.unitData.propertyData.outTrait2)
+                                {
+                                    ui.facade.goOutTrait.transform.GetChild(index2).GetComponent<Toggle>().isOn = true;
+                                }
+                                index2++;
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("初始化性格失败 " + e.ToString());
+                    }
+                    try
+                    {
+                        inputName.text = unit.data.unitData.propertyData.GetName();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("InitName " + e.ToString());
+                    }
+
+                    int sex = (int)unit.data.unitData.propertyData.sex;
                     ui.playerData.dynUnitData.sex.baseValue = sex;
                     bool isWoman = unit.data.unitData.propertyData.sex == UnitSexType.Woman;
-                    //Cave.Log("sex = " + sex + "          isWoman = " + isWoman);
+                    //Console.WriteLine("sex = " + sex + "          isWoman = " + isWoman);
                     if (isWoman)
                     {
                         ui.facade.tglMan.isOn = false;
@@ -94,7 +140,7 @@ namespace Cave
                 }
                 catch (Exception e)
                 {
-                    Cave.Log("初始化模型错误：" + e.Message + "\n" + e.StackTrace);
+                    Console.WriteLine("初始化模型错误：" + e.Message + "\n" + e.StackTrace);
                 }
 
                 try
@@ -103,7 +149,7 @@ namespace Cave
                 }
                 catch (Exception e)
                 {
-                    Cave.Log("刷新模型错误：" + e.Message + "\n" + e.StackTrace);
+                    Console.WriteLine("刷新模型错误：" + e.Message + "\n" + e.StackTrace);
                 }
                 try
                 {
@@ -111,7 +157,7 @@ namespace Cave
                 }
                 catch (Exception e)
                 {
-                    Cave.Log("刷新界面错误：" + e.Message + "\n" + e.StackTrace);
+                    Console.WriteLine("刷新界面错误：" + e.Message + "\n" + e.StackTrace);
                 }
             };
             ui.AddCor(g.timer.Frame(delayAction, 2));
@@ -120,16 +166,26 @@ namespace Cave
             tmpBtn.transform.SetParent(ui.transform, false);
             tmpBtn.GetComponent<RectTransform>().anchoredPosition = new Vector2(600, -380);
 
-            GameObject tmpText = CreateUI.NewText(GameTool.LS("Cave_WanCheng"), tmpBtn.GetComponent<RectTransform>().sizeDelta);
+            GameObject tmpText = CreateUI.NewText("完成", tmpBtn.GetComponent<RectTransform>().sizeDelta);
             tmpText.transform.SetParent(tmpBtn.transform, false);
             tmpText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
             tmpText.GetComponent<Text>().color = Color.black;
+
+            try
+            {
+                ui.playerData.dynUnitData.inTrait.baseValue = unit.data.unitData.propertyData.inTrait;
+                ui.playerData.dynUnitData.outTrait1.baseValue = unit.data.unitData.propertyData.outTrait1;
+                ui.playerData.dynUnitData.outTrait2.baseValue = unit.data.unitData.propertyData.outTrait2;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("初始化性格失败 " + e.ToString());
+            }
 
             Action tmpAction = () =>
             {
                 Action action = () =>
                 {
-
                     try
                     {
                         BattleModelHumanData battleModelData = ui.playerData.unitData.propertyData.battleModelData;
@@ -141,7 +197,28 @@ namespace Cave
                     }
                     catch (Exception e)
                     {
-                        Cave.Log("保存数据错误：" + e.Message + "\n" + e.StackTrace);
+                        Console.WriteLine("保存捏脸数据错误：" + e.Message + "\n" + e.StackTrace);
+                    }
+                    try
+                    {
+                        unit.data.unitData.propertyData.sex = tglMan.isOn ? UnitSexType.Man : UnitSexType.Woman;
+
+                        string name = inputName.text;
+                        if (!string.IsNullOrEmpty(name))
+                        {
+                            string name1 = name.Substring(0, 1);
+                            string name2 = name.Substring(1, name.Length - 1);
+
+                            unit.data.unitData.propertyData.name = new string[] { name1, name2 };
+                        }
+
+                        unit.data.unitData.propertyData.inTrait = ui.playerData.dynUnitData.inTrait.baseValue;
+                        unit.data.unitData.propertyData.outTrait1 = ui.playerData.dynUnitData.outTrait1.baseValue;
+                        unit.data.unitData.propertyData.outTrait2 = ui.playerData.dynUnitData.outTrait2.baseValue;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("保存属性数据错误：" + e.Message + "\n" + e.StackTrace);
                     }
                     try
                     {
@@ -155,7 +232,7 @@ namespace Cave
                     }
                     catch (Exception e)
                     {
-                        Cave.Log("刷新界面错误错误：" + e.Message + "\n" + e.StackTrace);
+                        Console.WriteLine("刷新界面错误错误：" + e.Message + "\n" + e.StackTrace);
                     }
                 };
                 g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"), GameTool.LS("Cave_BaocunNielian"), 2, action);
@@ -174,13 +251,13 @@ namespace Cave
                 {
                     g.ui.CloseUI(UIType.CreatePlayer);
                 };
-                g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"), GameTool.LS("Cave_TuichuNielian"), 2, action);
+                g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"), "确定直接退出吗？不会保存修改数据！", 2, action);
             };
             tmpBtn.AddComponent<Button>().onClick.AddListener(tmpAction);
 
 
 
-            tmpBtn = CreateUI.NewText(GameTool.LS("Cave_ShuZhuang") + unit.data.unitData.propertyData.GetName());
+            tmpBtn = CreateUI.NewText("捏脸修改：" + unit.data.unitData.propertyData.GetName());
             tmpBtn.transform.SetParent(ui.transform, false);
             tmpBtn.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 380);
             tmpBtn.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 50);
@@ -200,4 +277,5 @@ namespace Cave
             return ui;
         }
     }
+
 }

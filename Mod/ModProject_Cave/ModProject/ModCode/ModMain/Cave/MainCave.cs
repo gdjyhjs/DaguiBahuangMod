@@ -776,8 +776,9 @@ namespace Cave
                             if (data.GetNpcIntoState(unit.data.unitData.unitID) == 0)
                             {
                                 //Cave.Log("入住数：" + data.npcDatas.Count + "     客房数：" + data.GetBuildLevel(4004));
-                                if (data.npcDatas.Count < data.GetBuildLevel(4004))
+                                if ((data.npcDatas.Count < data.GetBuildLevel(4004)) || (data.GetBuildLevel(4004) == ConfBuild.GetItem(4004).maxLevel))
                                 {
+
                                     UITipItem.AddTip(string.Format(GameTool.LS("Cave_Yjx_Fsyq"), $"<color=#{CaveStateData.blud}>{name}</color>"));
                                     data.SetNpcIntoState(unit.data.unitData.unitID, 1);
                                     string str = string.Format(GameTool.LS("Cave_Xfsfjcs"), $"<color=#{CaveStateData.blud}>{g.world.playerUnit.data.unitData.propertyData.GetName()}</color>", $"<color=#{CaveStateData.blud}>{name}</color>", $"<color=#{CaveStateData.blud}>{data.name}</color>。");

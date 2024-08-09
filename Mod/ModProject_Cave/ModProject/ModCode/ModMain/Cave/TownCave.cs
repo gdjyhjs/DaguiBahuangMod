@@ -20,10 +20,77 @@ namespace Cave
         Text uiName;
         Text uiPrice;
 
+        GameObject ui_bg;
+
         public TownCave(UITown ui)
         {
             this.uiTown = ui;
             Init();
+
+            //// 寻找合适位置的代码
+            ///
+
+            //bool onInputX = true;
+            //int inputX, inputY;
+            //List<string> inputValue = new List<string>();
+            //ui.AddCor(g.timer.Frame((Action)(() =>
+            //{
+            //    try
+            //    {
+            //        if (Input.GetKeyDown(KeyCode.X))
+            //        {
+            //            Console.WriteLine("X " + inputX + "," + inputY);
+            //            inputValue.Clear();
+            //            onInputX = true;
+            //        }
+            //        if (Input.GetKeyDown(KeyCode.Y))
+            //        {
+            //            Console.WriteLine("Y " + inputX + "," + inputY);
+            //            inputValue.Clear();
+            //            onInputX = false;
+            //        }
+            //        if (Input.GetKeyDown(KeyCode.J))
+            //        {
+            //            string str = string.Join("", inputValue);
+            //            if (onInputX)
+            //            {
+            //                int.TryParse(str, out inputX);
+            //            }
+            //            else
+            //            {
+            //                int.TryParse(str, out inputY);
+            //            }
+            //            Console.WriteLine(inputX + "," + inputY);
+            //            if (inputX != 0 && inputY != 0)
+            //            {
+            //                ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(inputX, inputY);
+            //            }
+            //        }
+            //        KeyCode[] inputKey = new KeyCode[] { KeyCode.Alpha0, KeyCode.Alpha1, KeyCode.Alpha2 , KeyCode.Alpha3 , KeyCode.Alpha4 , KeyCode.Alpha5 ,
+            //        KeyCode.Alpha6, KeyCode.Alpha7 , KeyCode.Alpha8 , KeyCode.Alpha9, KeyCode.Minus };
+
+            //        for (int i = 0; i < inputKey.Length; i++)
+            //        {
+            //            var key = inputKey[i];
+            //            if (Input.GetKeyDown(key))
+            //            {
+            //                if (key == KeyCode.Minus)
+            //                {
+            //                    inputValue.Add("-");
+            //                }
+            //                else
+            //                {
+            //                    inputValue.Add(i.ToString());
+            //                }
+            //                Console.WriteLine("input:" + string.Join("", inputValue));
+            //            }
+            //        }
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine(e.ToString());
+            //    }
+            //}), 1, true));
         }
 
 
@@ -34,21 +101,25 @@ namespace Cave
                 GameObject.Destroy(uiTown.imgBG.transform.Find("caveHome").gameObject);
             }
 
-            var ui_bg = CreateUI.NewImage(SpriteTool.GetSprite("TownCommon", "Build2005"));
+            ui_bg = CreateUI.NewImage(SpriteTool.GetSprite("TownCommon", "Build2005"));
             ui_bg.name = "caveHome";
             ui_bg.transform.SetParent(uiTown.imgBG.transform, false);
             var areaid = g.data.grid.GetGridData(g.world.playerUnit.data.unitData.GetPoint()).areaBaseID;
             if (areaid >= 9)
             {
-                ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(-265.8f, -126.9f);
+                ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(630, 1);
+            }
+            else if (areaid >= 8)
+            {
+                ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(660, -160);
             }
             else if (areaid >= 6)
             {
-                ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(-200f, -239.5f);
+                ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(475, 85);
             }
             else
             {
-                ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(-600f, -249.5f);
+                ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(-50, 80);
             }
             //ui_bg.GetComponent<UnityEngine.RectTransform>().anchoredPosition = new UnityEngine.Vector2(CommonTool.Random(-900, -600), -239.5f);
             System.Action action = () =>

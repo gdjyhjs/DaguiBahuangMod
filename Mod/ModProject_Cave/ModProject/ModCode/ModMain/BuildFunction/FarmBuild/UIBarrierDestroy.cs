@@ -13,20 +13,114 @@ namespace Cave
         static GameObject itemPrefab;
         public GameObject bg;
         public Action<GameObject, DecorateMgr.DecorateData> clickCall;
-        public UIBarrierDestroy(Transform parent, Vector2 pos, List<DecorateMgr.DecorateData> allBarrierItem)
+
+
+        bool isEnter;
+        bool isDrag;
+        Vector3 clickOffset;
+        GameObject selBarrierb;
+        public UIBarrierDestroy(Transform parent, List<DecorateMgr.DecorateData> allBarrierItem)
         {
+            if (UIBarrierList.pos == default)
+            {
+                UIBarrierList.pos = new Vector2(-580, 0);
+            }
             try
             {
+                // 区域背景
+                bg = GuiBaseUI.CreateUI.NewImage();
+                bg.transform.SetParent(parent, false);
+                bg.GetComponent<RectTransform>().anchoredPosition = UIBarrierList.pos;
+                bg.GetComponent<RectTransform>().sizeDelta = new Vector2(220, 650);
+
+                // 加个标题
+                GameObject title = GuiBaseUI.CreateUI.NewImage(SpriteTool.GetSprite("Common", "jingjiebg"));
+                title.transform.SetParent(bg.transform, false);
+                title.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 310);
+                title.GetComponent<RectTransform>().sizeDelta = new Vector2(220, 30);
+                var ui_event = title.gameObject.AddComponent<UIEventListener>();
+                Action onEnter = () =>
+                {
+                    isEnter = true;
+                };
+                Action onExit = () =>
+                {
+                    isEnter = false;
+                };
+                ui_event.onMouseEnter.AddListener(onEnter);
+                ui_event.onMouseExit.AddListener(onExit);
+                TimerCoroutine cor = null;
+                cor = SceneType.battle.timer.Frame(new Action(() =>
+                {
+                    try
+                    {
+                        if (bg == null)
+                        {
+                            SceneType.battle.timer.Stop(cor);
+                            if (selBarrierb != null)
+                            {
+                                DecorateMgr.SetBarrierbColor(selBarrierb, new Color(1, 1, 1, 1));
+                                selBarrierb = null;
+                            }
+                            return;
+                        }
+                        if (isEnter && Input.GetMouseButtonDown(0))
+                        {
+                            isDrag = true;
+                            Vector3 p = g.ui.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+                            clickOffset = p - bg.transform.position;
+                        }
+                        if (isDrag && Input.GetMouseButtonUp(0))
+                        {
+                            isDrag = false;
+                        }
+                        if (isDrag)
+                        {
+                            Vector3 p = g.ui.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+                            bg.transform.position = p - clickOffset;
+                            UIBarrierList.pos = bg.GetComponent<RectTransform>().anchoredPosition;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Cave.LogWarning("UIBarrierList:" + e.Message + "\n" + e.StackTrace);
+                        Debug.LogError("UIBarrierList:" + e.Message + "\n" + e.StackTrace);
+                    }
+
+                    if (selBarrierb != null)
+                    {
+                        float value = Time.time - ((int)Time.time);
+                        if ((int)Time.time % 2 == 1)
+                        {
+                            value = 1 - value;
+                        }
+                        DecorateMgr.SetBarrierbColor(selBarrierb, Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0, 0, 1), value));
+                    }
+                }), 1, true);
+
+                GameObject titleText = GuiBaseUI.CreateUI.NewText("拆除装饰", new Vector2(220, 30));
+                titleText.transform.SetParent(title.transform, false);
+                Text tmpText = titleText.GetComponent<Text>();
+                tmpText.alignment = TextAnchor.MiddleCenter;
+                tmpText.color = Color.black;
+
+                // 加个底显示灵石
+                GameObject di = GuiBaseUI.CreateUI.NewImage(SpriteTool.GetSprite("Common", "jingjiebg"));
+                di.transform.SetParent(bg.transform, false);
+                di.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -340);
+                di.GetComponent<RectTransform>().sizeDelta = new Vector2(220, 30);
+
+
                 // 滚动背景
-                bg = GuiBaseUI.CreateUI.NewImage(SpriteTool.GetSprite("PlayerInfo", "daojukubg"));
-                bg.transform.SetParent(parent.transform, false);
-                bg.GetComponent<RectTransform>().anchoredPosition = pos;
-                bg.GetComponent<RectTransform>().sizeDelta = new Vector2(220, 620);
-                bg.GetComponent<Image>().type = Image.Type.Tiled;
+                GameObject bg2 = GuiBaseUI.CreateUI.NewImage(SpriteTool.GetSprite("PlayerInfo", "daojukubg"));
+                bg2.transform.SetParent(bg.transform, false);
+                bg2.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -15);
+                bg2.GetComponent<RectTransform>().sizeDelta = new Vector2(220, 620);
+                bg2.GetComponent<Image>().type = Image.Type.Tiled;
 
                 // 滚动框
                 var tmpGo = GuiBaseUI.CreateUI.NewScrollView(new Vector2(200, 600), spacing: new Vector2(0, 8));
-                tmpGo.transform.SetParent(bg.transform, false);
+                tmpGo.transform.SetParent(bg2.transform, false);
                 tmpGo.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
                 tmpGo.name = "scr_createBuilds";
                 var tmpScroll = tmpGo.GetComponent<ScrollRect>();
@@ -141,6 +235,29 @@ namespace Cave
 
                 var textName = root.Find("textName").GetComponent<Text>();
                 textName.text = string.Format("{0:f1},{1:f1}", data.x, data.y);
+
+                var ev = UnityAPIEx.GetComponentOrAdd<UIEventListener>(img.gameObject);
+                ev.onMouseEnter.RemoveAllListeners();
+                ev.onMouseExit.RemoveAllListeners();
+                ev.onMouseEnter.AddListener((Action)(()=>
+                {
+                    if (DecorateMgr.mgr.decorates.ContainsKey(data.GetHashCode()))
+                    {
+                        var barrierb = DecorateMgr.mgr.decorates[data.GetHashCode()];
+                        if (barrierb != null)
+                        {
+                            selBarrierb = barrierb;
+                        }
+                    }
+                }));
+                ev.onMouseExit.AddListener((Action)(() =>
+                {
+                    if (selBarrierb != null)
+                    {
+                        DecorateMgr.SetBarrierbColor(selBarrierb, new Color(1, 1, 1, 1));
+                        selBarrierb = null;
+                    }
+                }));
             }
             catch (Exception e)
             {

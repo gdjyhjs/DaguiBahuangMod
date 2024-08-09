@@ -1,9 +1,0 @@
-F:\ModList\test1\CaveFram\bin\Debug\CaveFram.dll
-F:\ModList\test1\CaveFram\bin\Debug\CaveFram.pdb
-F:\ModList\test1\CaveFram\obj\Debug\CaveFram.csproj.CoreCompileInputs.cache
-F:\ModList\test1\CaveFram\obj\Debug\CaveFram.dll
-F:\ModList\test1\CaveFram\obj\Debug\CaveFram.pdb
-F:\steam\steamapps\common\鬼谷八荒\Mods\CaveFram.dll
-F:\steam\steamapps\common\鬼谷八荒\Mods\CaveFram.pdb
-F:\ModList\test1\CaveFram\obj\Debug\CaveFram.csproj.CopyComplete
-F:\ModList\test1\CaveFram\obj\Debug\CaveFram.csproj.AssemblyReference.cache

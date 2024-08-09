@@ -4,4 +4,10 @@
     <ReferencePath>
     </ReferencePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <NXTargetSerialNumber>%24%28NintendoTargetSerialNumber%29</NXTargetSerialNumber>
+    <NXTargetName>%24%28NintendoTargetName%29</NXTargetName>
+    <NintendoTargetSerialNumber />
+    <NintendoTargetName>Default</NintendoTargetName>
+  </PropertyGroup>
 </Project>

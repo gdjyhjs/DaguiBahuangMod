@@ -3392,9 +3392,9 @@ namespace MOD_wkIh9W
             try
             {
                 var data = p2.Split(',');
-                outTrait1 = int.Parse(data[0]);
-                outTrait2 = int.Parse(data[1]);
-                inTrait = int.Parse(data[2]);
+                inTrait = int.Parse(data[0]);
+                outTrait1 = int.Parse(data[1]);
+                outTrait2 = int.Parse(data[2]);
             }
             catch (Exception e)
             {

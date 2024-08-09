@@ -9,6 +9,15 @@ namespace Cave
 {
     public class DecorateMgr
     {
+        public static void SetBarrierbColor(GameObject barrierb, Color color)
+        {
+            var sprites = barrierb.GetComponentsInChildren<SpriteRenderer>();
+            foreach (var item in sprites)
+            {
+                item.color = color;
+            }
+        }
+
         public static List<int> ignoreBarrierID = new List<int>()
         {
             10401,10402,10501,10502,10503,17801,10901,11001,11301,11501,11601,11701,20201,20301,20401,20501,20801,20802,20901,21701,21801,22101,22601,22701,22801,
@@ -40,9 +49,10 @@ namespace Cave
         public Dictionary<GameObject, DecorateData> decorateRecord = new Dictionary<GameObject, DecorateData>();
         public List<Action> operateRecord = new List<Action>();
 
-
+        public static DecorateMgr mgr;
         public void Init(string decorate)
         {
+            mgr = this;
             try
             {
                 decorateList = JsonConvert.DeserializeObject<List<DecorateData>>(decorate);

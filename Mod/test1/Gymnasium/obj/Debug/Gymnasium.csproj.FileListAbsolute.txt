@@ -1,6 +1,0 @@
-F:\ModList\test1\Gymnasium\bin\Debug\Gymnasium.dll
-F:\ModList\test1\Gymnasium\bin\Debug\Gymnasium.pdb
-F:\ModList\test1\Gymnasium\obj\Debug\Gymnasium.csproj.CoreCompileInputs.cache
-F:\ModList\test1\Gymnasium\obj\Debug\Gymnasium.dll
-F:\ModList\test1\Gymnasium\obj\Debug\Gymnasium.pdb
-F:\ModList\test1\Gymnasium\obj\Debug\Gymnasium.csproj.AssemblyReference.cache

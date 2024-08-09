@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>D:\SteamLibrary\steamapps\workshop\content\1468810\2814686803\ModCode\dll\</OutputPath>
+    <OutputPath>F:\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_GV2cem\ModCode\dll\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -55,197 +55,197 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\0Harmony.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Accessibility" />
     <Reference Include="Assembly-CSharp">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Compiler">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.Compiler.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.Compiler.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Extensions">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.Extensions.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Parser">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.Parser.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.Parser.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.PatternMatching">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.PatternMatching.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.PatternMatching.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Useful">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.Useful.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Boo.Lang.Useful.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Commons.Xml.Relaxng">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Commons.Xml.Relaxng.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Commons.Xml.Relaxng.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="cscompmgd, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\cscompmgd.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\cscompmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="CustomMarshalers" />
     <Reference Include="DOTween">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\DOTween.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\DOTween43.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\DOTween43.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\DOTween46.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\DOTween46.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DOTweenPro">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\DOTweenPro.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\DOTweenPro.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="I18N">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="I18N.CJK">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.CJK.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.CJK.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="I18N.MidEast">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.MidEast.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.MidEast.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="I18N.Other">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.Other.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.Other.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="I18N.Rare">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.Rare.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.Rare.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="I18N.West">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.West.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\I18N.West.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="IBM.Data.DB2">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\IBM.Data.DB2.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\IBM.Data.DB2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Iced">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Iced.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Iced.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppMono.Security">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppMono.Security.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppMono.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2Cppmscorlib">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppNewtonsoft.Json">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppNewtonsoft.Json.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppNewtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Configuration">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Configuration.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Configuration.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Core">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Core.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Data">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Data.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Data.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Numerics">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Numerics.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Numerics.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Runtime.Serialization">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Runtime.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Xml">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Xml.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Xml.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Xml.Linq">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Xml.Linq.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Il2CppSystem.Xml.Linq.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MelonLoader">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\MelonLoader.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\MelonLoader.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Microsoft.Web.Infrastructure.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.CompilerServices.SymbolWriter">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.CompilerServices.SymbolWriter.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.CompilerServices.SymbolWriter.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.CSharp">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.CSharp.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Data.Sqlite">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Data.Sqlite.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Data.Sqlite.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Data.Tds">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Data.Tds.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Data.Tds.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Messaging">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Messaging.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Messaging.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Posix">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Posix.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Posix.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Security">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Security.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.WebBrowser">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.WebBrowser.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Mono.WebBrowser.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Newtonsoft.Json.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Novell.Directory.Ldap">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Novell.Directory.Ldap.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Novell.Directory.Ldap.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SMDiagnostics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\SMDiagnostics.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\SMDiagnostics.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -271,7 +271,7 @@
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Json">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Json.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Management" />
@@ -282,7 +282,7 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Numerics.Vectors.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Numerics.Vectors.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.Context" />
@@ -297,7 +297,7 @@
     <Reference Include="System.ServiceModel.Discovery" />
     <Reference Include="System.ServiceModel.Internals, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.ServiceModel.Internals.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.ServiceModel.Internals.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ServiceModel.Routing" />
@@ -311,38 +311,38 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Extensions.Design" />
     <Reference Include="System.Web.Http">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Http.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Http.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Http.SelfHost">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Http.SelfHost.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Http.SelfHost.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Http.WebHost.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Http.WebHost.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Mvc">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Mvc.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Mvc.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Razor">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Razor.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.Razor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.RegularExpressions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Web.WebPages">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.WebPages.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.WebPages.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.WebPages.Deployment.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\System.Web.WebPages.Razor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />
@@ -351,319 +351,319 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="SystemWebTestShim">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\SystemWebTestShim.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\SystemWebTestShim.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnhollowerBaseLib">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnhollowerRuntimeLib">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnhollowerRuntimeLib.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnhollowerRuntimeLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.2D.Animation.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Burst">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.Burst.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.Burst.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.Burst.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Collections">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.Collections.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.InternalAPIEngineBridge.001.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.Mathematics.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.Mathematics.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\Unity.TextMeshPro.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AIModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AndroidJNIModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AnimationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ARModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ARModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ARModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.AudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ClothModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ClothModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.DirectorModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.DirectorModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.DSPGraphModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.DSPGraphModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.DSPGraphModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.GameCenterModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.GameCenterModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GIModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.GIModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.GIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GridModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.GridModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.GridModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.HotReloadModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.HotReloadModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.HotReloadModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Il2CppAssetBundleManager">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.Il2CppAssetBundleManager.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.Il2CppAssetBundleManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Il2CppImageConversionManager">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.Il2CppImageConversionManager.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.Il2CppImageConversionManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.InputModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.InputModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.LocalizationModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.LocalizationModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.LocalizationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.Physics2DModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ProfilerModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ProfilerModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ProfilerModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SpriteShapeModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.StreamingModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.StreamingModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.StreamingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SubstanceModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SubstanceModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SubstanceModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SubsystemsModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TerrainModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TerrainModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextCoreModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TextCoreModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TextCoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TilemapModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TilemapModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TLSModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.TLSModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UIElementsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIElementsNativeModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UIElementsNativeModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UIElementsNativeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UmbraModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UmbraModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UmbraModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UNETModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UNETModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UNETModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityCurlModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityCurlModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityCurlModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityTestProtocolModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VehiclesModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VehiclesModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VFXModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VFXModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VideoModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VideoModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VirtualTexturingModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VirtualTexturingModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VirtualTexturingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VRModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.VRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.WindModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.WindModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.WindModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.XRModule.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\UnityEngine.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ValueTupleBridge">
-      <HintPath>D:\SteamLibrary\steamapps\common\鬼谷八荒\MelonLoader\Managed\ValueTupleBridge.dll</HintPath>
+      <HintPath>F:\steam\steamapps\common\鬼谷八荒\MelonLoader\Managed\ValueTupleBridge.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />

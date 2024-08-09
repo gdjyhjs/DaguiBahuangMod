@@ -21,6 +21,6 @@ E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_wkIh9W\ModProject
 E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_wkIh9W\ModProject\ModCode\ModMain\obj\Release\ModMain.csproj.CopyComplete
 E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_wkIh9W\ModProject\ModCode\ModMain\obj\Release\MOD_wkIh9W.dll
 E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_wkIh9W\ModProject\ModCode\ModMain\obj\Release\MOD_wkIh9W.pdb
-E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_wkIh9W\ModProject\ModCode\ModMain\obj\Release\ModMain.csproj.AssemblyReference.cache
 D:\SteamLibrary\steamapps\workshop\content\1468810\2990736022\ModCode\dll\MOD_wkIh9W.dll
 D:\SteamLibrary\steamapps\workshop\content\1468810\2990736022\ModCode\dll\MOD_wkIh9W.pdb
+E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_wkIh9W\ModProject\ModCode\ModMain\obj\Release\ModMain.csproj.AssemblyReference.cache

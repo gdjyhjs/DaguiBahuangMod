@@ -39,4 +39,5 @@ F:\steam\steamapps\workshop\content\1468810\2814717778\ModCode\dll,\data\Cave.dl
 F:\steam\steamapps\workshop\content\1468810\2814717778\ModCode\dll,\data\Cave.pdb
 D:\SteamLibrary\steamapps\workshop\content\1468810\2814717778\ModCode\dll\Cave.dll
 D:\SteamLibrary\steamapps\workshop\content\1468810\2814717778\ModCode\dll\Cave.pdb
-E:\Users\Admin\Documents\GitHub\DaguiBahuangMod\Mod\ModProject_Cave\ModProject\ModCode\ModMain\obj\Release\Cave.csproj.AssemblyReference.cache
+F:\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_8s4Ze4\ModCode\dll\Cave.dll
+F:\steam\steamapps\common\鬼谷八荒\ModExportData\Mod_8s4Ze4\ModCode\dll\Cave.pdb

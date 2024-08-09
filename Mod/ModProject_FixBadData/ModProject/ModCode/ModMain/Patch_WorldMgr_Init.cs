@@ -51,6 +51,7 @@ namespace FixData
         static List<string> townMarketMessage = new List<string>();
         static List<string> pillFormulasMessage = new List<string>();
         static List<string> tmpPropsMessage = new List<string>();
+        static List<string> monthLogMessage = new List<string>();
         static double costTime;
 
         private static void FixData()
@@ -76,6 +77,7 @@ namespace FixData
             townMarketMessage = new List<string>();
             pillFormulasMessage = new List<string>();
             tmpPropsMessage = new List<string>();
+            monthLogMessage = new List<string>();
 
             List<int> badLuckId = new List<int>() { 9071, 9072, 9073, 9074, 9075, 9076 }; // 无法使用的气运ID
 
@@ -90,6 +92,7 @@ namespace FixData
             CheckTownData();
             CheckFormulasData();
             CheckTmpPropData();
+            CheckMonthLog();
             DateTime end = DateTime.Now;
             TimeSpan duration = end - start;
             costTime = duration.TotalMilliseconds;
@@ -101,16 +104,13 @@ namespace FixData
 
         private static void FixDataEnd()
         {
-            //Console.WriteLine("存档检查完毕，修补数=" + fixID);
-            g.world.system.AddSystemInMap(new Action<Il2CppSystem.Action>((call) =>
+            int msgCount = 0;
+            Dictionary<string, List<string>> allMssage = new Dictionary<string, List<string>>();
             {
-                int msgCount = 0;
-                Dictionary<string, List<string>> allMssage = new Dictionary<string, List<string>>();
-
                 if (delSchoolMessage.Count > 0)
                 {
                     msgCount += delSchoolMessage.Count;
-                    allMssage.Add($"\n删除了{delSchoolMessage.Count}个无法修复的宗门", delSchoolMessage);
+                    allMssage.Add($"\n删除了{delSchoolMessage.Count}个无法修复的建筑", delSchoolMessage);
                 }
                 if (traitMessage.Count > 0)
                 {
@@ -212,6 +212,16 @@ namespace FixData
                     msgCount += tmpPropsMessage.Count;
                     allMssage.Add($"\n删除{tmpPropsMessage.Count}条临时背包无效道具", tmpPropsMessage);
                 }
+                if (monthLogMessage.Count > 0)
+                {
+                    msgCount += monthLogMessage.Count;
+                    allMssage.Add($"\n删除{monthLogMessage.Count}个无效月结日志", monthLogMessage);
+                }
+            }
+            ModMain.FixTip($"检测数据完成，累计修复{msgCount}处错误");
+            //Console.WriteLine("存档检查完毕，修补数=" + fixID);
+            g.world.system.AddSystemInMap(new Action<Il2CppSystem.Action>((call) =>
+            {
                 CallQueue cq = new CallQueue();
                 cq.Add(new Action(() =>
                 {
@@ -441,11 +451,16 @@ namespace FixData
                 {
                     Action<int, DataWorld.World.PlayerLogData.GradeData> resetFunc = (grade, gradeData) =>
                     {
-                        ConfRoleGradeItem gradeItem = g.conf.roleGrade.GetGradeItemInQuality(grade, gradeData.quality);
                         UIUpGradeAttr uiAttr = g.ui.OpenUI<UIUpGradeAttr>(UIType.UpGradeAttr);
+                        uiAttr.textTip.text = "八荒大鬼修复坏档删除逆天改命补偿";
+                        ConfRoleGradeItem gradeItem = g.conf.roleGrade.GetGradeItemInQuality(grade, gradeData.quality);
+                        if (gradeItem == null)
+                        {
+                            gradeItem = g.conf.roleGrade.allConfList[0];
+                            uiAttr.textTip.text = "八荒大鬼修复坏档删除逆天改命补偿!";
+                        }
                         uiAttr.InitData(gradeItem, grade);
                         uiAttr.onCloseRewardCall += new Action<Il2CppSystem.Action>((func) => cq.Next());
-                        uiAttr.textTip.text = "八荒大鬼修复坏档删除逆天改命补偿";
                     };
                     int tmpGrade = item.Key;
                     DataWorld.World.PlayerLogData.GradeData tmpGradeData = item.Value;
@@ -542,78 +557,97 @@ namespace FixData
             }
         }
 
+        private static void CheckMonthLog()
+        {
+            Debug.Log("检查月结日志");
+            Il2CppSystem.Collections.Generic.List<DataUnitLog.LogData.LogItemData> logs = g.data.world.monthLog;
+            for (int i = 0; i < logs.Count; i++)
+            {
+                Il2CppSystem.Collections.Generic.List<DataUnitLog.LogData.Data> logDatas = logs[i].logs;
+                logDatas.RemoveAll(new Func<DataUnitLog.LogData.Data, bool>((v) =>
+                {
+                    ConfRoleLogLocalItem logItem = g.conf.roleLogLocal.GetItem(v.id[0]);
+                    bool isRemove = logItem == null;
+                    monthLogMessage.Add((monthLogMessage.Count + 1) + "删除不存在的月结日志 " + v.id[0]);
+                    return isRemove;
+                }));
+            }
+        }
+
         private static void CheckTmpPropData()
         {
             Il2CppSystem.Collections.Generic.List<DataProps.PropsData> allProps = g.data.world.tempProps.allProps;
             ModMain.NextFixTip();
             float max = allProps.Count;
             int index = 0;
-
-            // 删除背包不存在的道具
-            allProps.RemoveAll(new Func<DataProps.PropsData, bool>((v) =>
+            if (max > 0)
             {
-                index++;
-                float value = index / max * 100;
-                ModMain.FixTip($"检测临时背包数据 {value.ToString("F2")}% 修复:临时道具-{tmpPropsMessage.Count}");
-                if (v.propsType == DataProps.PropsDataType.Props)
+                // 删除背包不存在的道具
+                allProps.RemoveAll(new Func<DataProps.PropsData, bool>((v) =>
                 {
-                    if (v.propsItem == null)
+                    index++;
+                    float value = index / max * 100;
+                    ModMain.FixTip($"检测临时背包数据 {value.ToString("F2")}% 修复:临时道具-{tmpPropsMessage.Count}");
+                    if (v.propsType == DataProps.PropsDataType.Props)
                     {
-                        tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的道具 " + v.propsID);
-                        return true;
-                    }
-                }
-                else if (v.propsType == DataProps.PropsDataType.Martial)
-                {
-                    DataProps.MartialData martialData = v.To<DataProps.MartialData>();
-                    if (martialData.martialType == MartialType.Ability)
-                    {
-                        if (g.conf.battleAbilityBase.GetItem(martialData.baseID) == null)
+                        if (v.propsItem == null)
                         {
-                            tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 心法 " + martialData.baseID);
+                            tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的道具 " + v.propsID);
                             return true;
+                        }
+                    }
+                    else if (v.propsType == DataProps.PropsDataType.Martial)
+                    {
+                        DataProps.MartialData martialData = v.To<DataProps.MartialData>();
+                        if (martialData.martialType == MartialType.Ability)
+                        {
+                            if (g.conf.battleAbilityBase.GetItem(martialData.baseID) == null)
+                            {
+                                tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 心法 " + martialData.baseID);
+                                return true;
+                            }
+                            else
+                            {
+                                FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
+                            }
+                        }
+                        else if (martialData.martialType == MartialType.Step)
+                        {
+                            if (g.conf.battleStepBase.GetItem(martialData.baseID) == null)
+                            {
+                                tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 身法 " + martialData.baseID);
+                                return true;
+                            }
+                            else
+                            {
+                                FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
+                            }
+                        }
+                        else if (martialData.martialType != MartialType.None)
+                        {
+                            if (g.conf.battleSkillAttack.GetItem(martialData.baseID) == null)
+                            {
+                                tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 技能 " + martialData.baseID);
+                                return true;
+                            }
+                            else
+                            {
+                                FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
+                            }
                         }
                         else
                         {
-                            FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
-                        }
-                    }
-                    else if (martialData.martialType == MartialType.Step)
-                    {
-                        if (g.conf.battleStepBase.GetItem(martialData.baseID) == null)
-                        {
-                            tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 身法 " + martialData.baseID);
+                            tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 ?? " + martialData.baseID);
                             return true;
                         }
-                        else
-                        {
-                            FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
-                        }
                     }
-                    else if (martialData.martialType != MartialType.None)
-                    {
-                        if (g.conf.battleSkillAttack.GetItem(martialData.baseID) == null)
-                        {
-                            tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 技能 " + martialData.baseID);
-                            return true;
-                        }
-                        else
-                        {
-                            FixMartialPrefix("临时背包" + " 修复秘籍词条 ", v);
-                        }
-                    }
-                    else
-                    {
-                        tmpPropsMessage.Add((tmpPropsMessage.Count + 1) + "临时背包" + " 删除不存在的秘籍 ?? " + martialData.baseID);
-                        return true;
-                    }
-                }
-                return false;
+                    return false;
 
-            }));
-            {
-                float value = index / max * 100;
-                ModMain.FixTip($"检测临时背包数据 {value.ToString("F2")}% 修复:临时道具-{tmpPropsMessage.Count}");
+                }));
+                {
+                    float value = index / max * 100;
+                    ModMain.FixTip($"检测临时背包数据 {value.ToString("F2")}% 修复:临时道具-{tmpPropsMessage.Count}");
+                }
             }
         }
 
@@ -660,6 +694,8 @@ namespace FixData
                     ModMain.FixTip($"检测坊市 {value.ToString("F2")}% 修复:坊市道具-{townMarketMessage.Count}");
 
                     DataGrid.GridData gridData = g.data.grid.GetGridData(new Vector2Int(x, y));
+
+
                     if (gridData.IsBuild() && gridData.isOrigi)
                     {
                         DataBuildBase.BuildData build = WorldFactory.GetBuildData(gridData.typeInt).GetBuild(new Vector2Int(x, y)).TryCast<DataBuildBase.BuildData>();
@@ -1580,11 +1616,27 @@ namespace FixData
                     float value = index / max * 100;
                     ModMain.FixTip($"检测建筑数据 {value.ToString("F2")}% 修复:宗门-{schoolMessage.Count + delSchoolMessage.Count} 建木-{propMessage.Count}");
                     DataGrid.GridData gridData = g.data.grid.GetGridData(new Vector2Int(x, y));
+
+                    if (gridData.IsBuild() && gridData.isOrigi)
+                    {
+                        var a = WorldFactory.GetBuildData(gridData.typeInt);
+                        var b = a.GetBuild(new Vector2Int(x, y));
+                        if (b == null || b.Cast<DataBuildBase.BuildData>() == null)
+                        {
+                            Console.WriteLine("删除无法修复的建筑 " + gridData.typeInt + "(" + x + ", " + y + ")");
+                            delSchoolMessage.Add("删除无法修复的建筑 " + gridData.typeInt + "(" + x + ", " + y + ")");
+
+                            DataGrid.GridData grid = new DataGrid.GridData();
+                            g.data.grid.allGrid[GameTool.PointToInt(new Vector2Int(x, y))] = new DataGrid.GridData();
+                            continue;
+                        }
+                    }
+
                     if (gridData != null && gridData.IsBuild() && gridData.isOrigi && gridData.typeInt == (int)MapTerrainType.School)
                     {
                         var area = gridData.areaBaseID;
-                        DataBuildSchool.School schoolData = WorldFactory.GetBuildData(gridData.typeInt) .Cast<DataBuildSchool.School>();
-                        DataBuildBase.BuildData data = schoolData.GetBuild(new Vector2Int(x, y)) .Cast<DataBuildBase.BuildData>();
+                        DataBuildSchool.School schoolData = WorldFactory.GetBuildData(gridData.typeInt).Cast<DataBuildSchool.School>();
+                        DataBuildBase.BuildData data = schoolData.GetBuild(new Vector2Int(x, y)).Cast<DataBuildBase.BuildData>();
                         if (g.data.world.fixPatch > 50)
                         {
                             try

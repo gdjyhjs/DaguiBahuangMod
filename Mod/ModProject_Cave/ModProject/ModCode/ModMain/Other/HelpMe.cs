@@ -17,15 +17,15 @@ namespace Cave
 
         private void InitUI(UILogin ui)
         {
-            if (ui.btnDLC.transform.parent.Find("btnOpenHelpMe") != null)
+            if (ui.btnPaperChange.transform.parent.Find("btnOpenHelpMe") != null)
             {
-                GameObject.Destroy(ui.btnDLC.transform.parent.Find("btnOpenHelpMe").gameObject);
+                GameObject.Destroy(ui.btnPaperChange.transform.parent.Find("btnOpenHelpMe").gameObject);
             }
 
-            var btnOpenHelpMe = GameObject.Instantiate(ui.btnDLC);
+            var btnOpenHelpMe = GameObject.Instantiate(ui.btnPaperChange);
             //var btnOpenHelpMe = GuiBaseUI.CreateUI.NewImage(SpriteTool.GetSprite("Common", "LoginButton_black_1"));
-            btnOpenHelpMe.transform.SetParent(ui.btnDLC.transform.parent, false);
-            btnOpenHelpMe.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 80);
+            btnOpenHelpMe.transform.SetParent(ui.btnPaperChange.transform.parent, false);
+            btnOpenHelpMe.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 79);
             btnOpenHelpMe.name = "btnOpenHelpMe";
             Action openHelpMe = () => { OpenHelpMe(ui); };
             btnOpenHelpMe.GetComponent<Button>().onClick.AddListener(openHelpMe);

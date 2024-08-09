@@ -14,7 +14,8 @@ namespace Cave.Patch
         [HarmonyPostfix]
         private static void Postfix()
         {
-            Cave.Log(g.world.playerUnit.data.unitData.propertyData.GetName() + "！是否有洞府=" + DataCave.ReadData().state);
+            var data = DataCave.ReadData();
+            Cave.Log(g.world.playerUnit.data.unitData.propertyData.GetName() + "！是否有洞府=" + data.state + " " + data.x + "," + data.y);
             new CaveOnWorleRunEnd();
         }
     }
