@@ -20,6 +20,48 @@
     "des": "caveDes100" //建筑描述（需要连接到Patch中的LocalText.json文件）
   },
   {
+    "id": 3005, // 后山（原定试炼塔）
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.MountainBuild",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3005",
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 3,
+    "price": 1000,
+    "name": "caveName3005",
+    "hideName": false,
+    "atlas": "CommonMapGrid",
+    "image": "bingyuanzhangzi",
+    "effect": [],
+    "maxLevel": 4,
+    "maxCount": 1,
+    "upgradeMoney": [ 5000, 160000, 520000, 810000 ],
+    "upgradeStone": [ 100, 150, 220, 360 ], // 升级需要的石头
+    "upgradeWood": [ 100, 150, 220, 360 ], // 升级需要的木柴
+    "des": "caveDes3005"
+  },
+  {
+    "id": 3006, // 花园
+    "condition": "0",
+    "function": "class_Cave_Cave.BuildFunction.GardenBuild",
+    "failfuntion": "",
+    "enterfuntion": "class_Cave_Cave.BuildFunction.ShowTips_caveDes3006",
+    "exitfuntion": "closeUI_SkyTip",
+    "type": 3,
+    "price": 5000,
+    "stone": 100, // 购买需要的石头
+    "wood": 100, // 购买需要的木柴
+    "name": "caveName3006",
+    "hideName": false,
+    "atlas": "CommonMapGrid",
+    "image": "cunzhuang",
+    "effect": [],
+    "maxLevel": 1,
+    "maxCount": 1,
+    "upgradeMoney": [],
+    "des": "caveDes3006"
+  },
+  {
     "id": 2008,
     "condition": "0",
     "function": "",

@@ -29,23 +29,57 @@ namespace Cave
         public bool put; // 是否放置
         public string param = null; // 建筑参数
 
-        public int GetUpLevelNeedMoney()
+        public void GetUpLevelNeedMoney(out int price, out int stone, out int wood)
         {
             var conf = ConfBuild.GetItem(id);
-            int need = 0;
-            if (conf.upgradeMoney.Length < 1)
+            price = 0;
+            if (conf.upgradeMoney != null)
             {
-                need = conf.price * level * 3;
+                if (conf.upgradeMoney.Length < 1)
+                {
+                    price = conf.price * level * 3;
+                }
+                else if (conf.upgradeMoney.Length == 1)
+                {
+                    price = conf.upgradeMoney[0];
+                }
+                else
+                {
+                    price = conf.upgradeMoney[Mathf.CeilToInt(Mathf.Lerp(0, conf.upgradeMoney.Length - 1, level * 1f / conf.maxLevel))];
+                }
             }
-            else if (conf.upgradeMoney.Length == 1)
+            stone = 0;
+            if (conf.upgradeStone != null)
             {
-                need = conf.upgradeMoney[0];
+                if (conf.upgradeStone.Length < 1)
+                {
+                    stone = conf.stone * level * 3;
+                }
+                else if (conf.upgradeStone.Length == 1)
+                {
+                    stone = conf.upgradeStone[0];
+                }
+                else
+                {
+                    stone = conf.upgradeStone[Mathf.CeilToInt(Mathf.Lerp(0, conf.upgradeStone.Length - 1, level * 1f / conf.maxLevel))];
+                }
             }
-            else
+            wood = 0;
+            if (conf.upgradeWood != null)
             {
-                need = conf.upgradeMoney[Mathf.CeilToInt(Mathf.Lerp(0, conf.upgradeMoney.Length - 1, level * 1f / conf.maxLevel))];
+                if (conf.upgradeWood.Length < 1)
+                {
+                    wood = conf.wood * level * 3;
+                }
+                else if (conf.upgradeWood.Length == 1)
+                {
+                    wood = conf.upgradeWood[0];
+                }
+                else
+                {
+                    wood = conf.upgradeWood[Mathf.CeilToInt(Mathf.Lerp(0, conf.upgradeWood.Length - 1, level * 1f / conf.maxLevel))];
+                }
             }
-            return need;
         }
 
         public CaveBuildData(int id)

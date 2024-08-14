@@ -20,9 +20,14 @@ namespace Cave.BuildFunction
     // 后山
     public class MountainBuild : ClassBase
     {
+        public static int stoneId = -375930591;
+        public static int woodId = -375930590;
+
+
         private Vector2 playerBronPoint = new Vector2(2.6f, 9.2f); // 玩家出生点
         private Vector2 tranPoint = new Vector2(1.0f, 9.2f); // 传送阵点
         UIBattleInfo uiBase;
+        private DecorateMgr decorateMgr = new DecorateMgr();
 
         // 初始化副本
         public override void Init(string param)
@@ -53,6 +58,7 @@ namespace Cave.BuildFunction
 
             Action onStart = () =>
             {
+                ClearPlayerEffects(SceneType.battle.battleMap.playerUnitCtrl);
                 SceneType.battle.timer.Frame(new Action(OnUpdate), 1, true);
             };
             SceneType.battle.battleMap.AddStartBattleCall(onStart);
@@ -81,6 +87,14 @@ namespace Cave.BuildFunction
         // 初始化副本
         private void InitDungeon()
         {
+            try
+            {
+                decorateMgr.AddExButton();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("初始化按钮错误 " + e.ToString());
+            }
         }
 
         // 每帧执行

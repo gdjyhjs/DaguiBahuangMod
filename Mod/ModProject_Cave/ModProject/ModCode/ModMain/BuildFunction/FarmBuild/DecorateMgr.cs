@@ -18,7 +18,7 @@ namespace Cave
             }
         }
 
-        public static List<int> ignoreBarrierID = new List<int>()
+        public static List<int> ignoreBarrierID = new List<int>() // 以配置ID
         {
             10401,10402,10501,10502,10503,17801,10901,11001,11301,11501,11601,11701,20201,20301,20401,20501,20801,20802,20901,21701,21801,22101,22601,22701,22801,
             23001,30601,30701,30801,30901,31301,31401,31601,31701,31801,32101,32201,32401,32501,32701,32901,33001,33401,140504,141301,440101,440301,450001,467100,
@@ -26,6 +26,10 @@ namespace Cave
             250101,260101,270101,270201,280101,280201,280301,280401,290101,290201,290301,290401,300101,300201,300301,300401,300501,300601,300701,300801,300901,301001,
             301101,301201,310101,310201,310301,310401,310501,310601,360101,360201,360301,360302,360401,360402,360403,360404,360405,232501,232401,240101,240201,240301,
             240401,200001,110101,120101,80401,17701,140501,140601,140701,190201,182101,211601,211602,212001,212002,510019,160101
+        };
+        public static List<int> ignoreBarrierID2 = new List<int>() // 以装饰物ID
+        {
+            1501,2601,5401,5601,5501,6501,5701,5801,5901,6001,6101,127
         };
 
         public class DecorateData
@@ -53,6 +57,13 @@ namespace Cave
         public void Init(string decorate)
         {
             mgr = this;
+            if (decorateRecord.Count > 0)
+            {
+                foreach (var item in decorateRecord.Keys)
+                {
+                    DestroyDecorate(item, false);
+                }
+            }
             try
             {
                 decorateList = JsonConvert.DeserializeObject<List<DecorateData>>(decorate);
@@ -129,7 +140,7 @@ namespace Cave
             }
         }
 
-        public void DestroyDecorate(GameObject obj)
+        public void DestroyDecorate(GameObject obj, bool zhifulingshi = true)
         {
             var data = decorateRecord[obj];
             int price = 1000;
@@ -156,15 +167,92 @@ namespace Cave
                 {
                 }
             }
-            int value = Mathf.FloorToInt(price * 0.8f);
-            g.world.playerUnit.data.CostPropItem(PropsIDType.Money, -value);
-            SceneType.battle.battleMap.playerUnitCtrl.AddUnitTextTip("灵石 +"+ value);
-
+            if (zhifulingshi)
+            {
+                int value = Mathf.FloorToInt(price * 0.8f);
+                g.world.playerUnit.data.CostPropItem(PropsIDType.Money, -value);
+                SceneType.battle.battleMap.playerUnitCtrl.AddUnitTextTip("灵石 +" + value);
+            }
             decorates.Remove(data.GetHashCode());
             decorateList.Remove(data);
             GameObject.Destroy(obj);
         }
 
 
+        public void AddExButton()
+        {
+            var kGo = GuiBaseUI.CreateUI.NewButton(() =>
+            {
+                // 导出装饰
+                var count = decorateList.Count;
+                if (count > 0)
+                {
+                    var str = GetData();
+                    Console.WriteLine(str);
+                    GUIUtility.systemCopyBuffer = str;
+                    g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"),
+                        string.Format("检测到{0}个装饰，已将装饰内容复制到剪切板，可以粘贴到其他地方，或者新建记事本进行粘贴。", count),
+                        1);
+                }
+                else
+                {
+                    g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"),
+                        "复制失败，未检测到任何装饰！",
+                        1);
+                }
+            });
+            UITool.SetUILeft(g.ui.GetUI(UIType.BattleInfo), kGo.GetComponent<RectTransform>(), -140, "导出装饰");
+
+            var jGo = GuiBaseUI.CreateUI.NewButton(() =>
+            {
+                var str = GUIUtility.systemCopyBuffer;
+                Console.WriteLine(str);
+                List<DecorateMgr.DecorateData> list = null;
+                try
+                {
+                    list = JsonConvert.DeserializeObject<List<DecorateMgr.DecorateData>>(str);
+                }
+                catch (Exception)
+                {
+
+                }
+                if (list == null || list.Count == 0)
+                {
+                    g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"),
+                            "复制内容无效，导入失败！",
+                            1);
+                }
+                else
+                {
+                    Action onYes = () =>
+                    {
+                        Init(str);
+                    };
+                    g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"),
+                            string.Format("可导入{0}个装饰，但是会删除现有的{1}个装饰，本项服务目前不收任何费用，也不会支付回收的装饰，是否继续？", list.Count, decorateList.Count),
+                            2, onYes);
+                }
+
+            });
+            UITool.SetUILeft(g.ui.GetUI(UIType.BattleInfo), jGo.GetComponent<RectTransform>(), -200, "导入装饰");
+
+
+
+
+            var go1 = GuiBaseUI.CreateUI.NewButton(() =>
+            {
+
+            });
+            UITool.SetUILeft(g.ui.GetUI(UIType.BattleInfo), go1.GetComponent<RectTransform>(), -260, "分享装饰");
+
+
+
+
+            //var go3 = GuiBaseUI.CreateUI.NewButton(() =>
+            //{
+
+            //});
+            //UITool.SetUILeft(g.ui.GetUI(UIType.BattleInfo), go3.GetComponent<RectTransform>(), -320, "装饰榜");
+        }
     }
 }

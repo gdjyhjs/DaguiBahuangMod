@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cave.Config;
 using Cave.Patch;
+using Cave.BuildFunction;
 
 namespace Cave
 {
@@ -402,20 +403,16 @@ namespace Cave
                         {
                             if (count < 1)
                             {
-                                string str = string.Format(GameTool.LS("Cave_BuyTips"), confBuild.price, confBuild.GetName());
+                                string str = string.Format(GameTool.LS("Cave_BuyTips"), confBuild.GetSpriteDesc(), confBuild.GetName());
                                 Tips(str, 2, () =>
                                 {
-                                    int money = g.world.playerUnit.data.unitData.propData.GetPropsNum((int)PropsIDType.Money);
-                                    if (money < confBuild.price)
+                                   
+                                    if (confBuild.CheckCost())
                                     {
-                                        Tips(GameTool.LS("common_lingshibuzu"));
-                                    }
-                                    else
-                                    {
-                                        g.world.playerUnit.data.CostPropItem(PropsIDType.Money, confBuild.price);
+                                        confBuild.BuyCost();
                                         data.allBuilds.Add(new CaveBuildData(confBuild.id));
                                         scrollPage = 1;
-                                        string str1 = string.Format(GameTool.LS("Cave_BuyLog"), $"<color=#{CaveStateData.blud}>{confBuild.price}</color>", $"<color=#{0}>1级{confBuild.GetName()}</color>");
+                                        string str1 = string.Format(GameTool.LS("Cave_BuyLog"), $"<color=#{confBuild.GetSpriteDesc()}>{confBuild.price}</color>", $"<color=#{0}>1级{confBuild.GetName()}</color>");
                                         data.AddLog(str1);
                                         UpdateScroll();
                                     }
@@ -423,20 +420,17 @@ namespace Cave
                             }
                             else
                             {
-                                int money = g.world.playerUnit.data.unitData.propData.GetPropsNum((int)PropsIDType.Money);
-                                if (money < confBuild.price)
+                                if(confBuild.CheckCost())
                                 {
-                                    Tips(GameTool.LS("common_lingshibuzu"));
-                                }
-                                else
-                                {
-                                    g.world.playerUnit.data.CostPropItem(PropsIDType.Money, confBuild.price);
+                                    confBuild.BuyCost();
                                     data.allBuilds.Add(new CaveBuildData(confBuild.id));
-                                    string str2 = string.Format(GameTool.LS("Cave_BuyLog2"), $"<color=#{CaveStateData.blud}>{confBuild.price}</color>", $"<color=#{CaveStateData.blud}>", $"{confBuild.GetName()}</color>");
+
+                                    string str2 = string.Format(GameTool.LS("Cave_BuyLog2"), $"<color=#{CaveStateData.blud}>{confBuild.GetSpriteDesc()}</color>", $"<color=#{CaveStateData.blud}>", $"{confBuild.GetName()}</color>");
                                     data.AddLog(str2);
-                                    tipsObj.InitData($"<size=26><b>{item.GetName()}</b></size>\n{GameTool.LS("Cave_Jiage")}：{item.price}{GameTool.LS("Cave_Lingshi")}\n<color=#FF0000>{GameTool.LS("Cave_Dianjigoumai")}</color>\n" + (string.IsNullOrWhiteSpace(item.des) ? "" : GameTool.LS(item.des)) +
-                                        $"\n{GameTool.LS("Cave_Dqchiyous")}：{data.GetBuildCount(confBuild.id)}/{item.maxCount}");
-                                    if (data.GetBuildCount(confBuild.id) >= item.maxCount)
+
+                                    tipsObj.InitData($"<size=26><b>{confBuild.GetName()}</b></size>\n{GameTool.LS("Cave_Jiage")}：{confBuild.GetSpriteDesc()}{GameTool.LS("Cave_Lingshi")}\n<color=#FF0000>{GameTool.LS("Cave_Dianjigoumai")}</color>\n" + (string.IsNullOrWhiteSpace(confBuild.des) ? "" : GameTool.LS(confBuild.des)) +
+                                        $"\n{GameTool.LS("Cave_Dqchiyous")}：{data.GetBuildCount(confBuild.id)}/{confBuild.maxCount}");
+                                    if (data.GetBuildCount(confBuild.id) >= confBuild.maxCount)
                                     {
                                         scrollPage = 1;
                                         UpdateScroll();
@@ -448,7 +442,7 @@ namespace Cave
                         tmpGo.AddComponent<Button>().onClick.AddListener(clickAction);
                         Transform tmpParent = tmpGo.transform;
 
-                        tmpGo =GuiBaseUI.CreateUI.NewText("", tmpGo.GetComponent<RectTransform>().sizeDelta);
+                        tmpGo = GuiBaseUI.CreateUI.NewText("", tmpGo.GetComponent<RectTransform>().sizeDelta);
                         tmpGo.transform.SetParent(tmpParent, false);
                         tmpGo.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
                         Text tmpText = tmpGo.GetComponent<Text>();
@@ -456,14 +450,16 @@ namespace Cave
                         tmpText.color = Color.black;
                         tmpText.text = GameTool.LS(confBuild.name);
 
-                        tmpGo =GuiBaseUI.CreateUI.NewImage(item.GetSprite());
+                        tmpGo = GuiBaseUI.CreateUI.NewImage(item.GetSprite());
                         tmpGo.transform.SetParent(tmpParent, false);
                         tmpGo.GetComponent<RectTransform>().anchoredPosition = new Vector2(-70, 0);
                         tmpGo.GetComponent<RectTransform>().sizeDelta = new Vector2(38, 38);
 
                         tipsObj = tmpParent.gameObject.AddComponent<UISkyTipEffect>();
-                        tipsObj.InitData($"<size=26><b>{item.GetName()}</b></size>\n{GameTool.LS("Cave_Jiage")}：{item.price}{GameTool.LS("Cave_Lingshi")}\n<color=#FF0000>{GameTool.LS("Cave_Dianjigoumai")}</color>\n" + (string.IsNullOrWhiteSpace(item.des) ?"": GameTool.LS(item.des))+
-                            $"\n{GameTool.LS("Cave_Dqchiyous")}：{count}/{item.maxCount}", offsetPos);
+                        string descStr = $"<size=26><b>{item.GetName()}</b></size>\n{GameTool.LS("Cave_Jiage")}：{item.GetSpriteDesc()}\n<color=#FF0000>{GameTool.LS("Cave_Dianjigoumai")}</color>\n" + (string.IsNullOrWhiteSpace(item.des) ? "" : GameTool.LS(item.des)) +
+                             $"\n{GameTool.LS("Cave_Dqchiyous")}：{count}/{item.maxCount}";
+
+                        tipsObj.InitData(descStr, offsetPos);
                     }
                 }
             }
@@ -475,7 +471,8 @@ namespace Cave
                     CaveBuildData item = data.allBuilds[i];
                     int idx = i;
                     CaveBuildData caveItem = item;
-                    if (ConfBuild.GetItem(caveItem.id) == null)
+                    var conf = ConfBuild.GetItem(caveItem.id);
+                    if (conf == null)
                         continue;
                     tmpGo =GuiBaseUI.CreateUI.NewImage(SpriteTool.GetSprite("NPCInfoCommon", "daoxinmingzikuang"));
                     tmpGo.transform.SetParent(tmpScroll.content, false);
@@ -515,8 +512,11 @@ namespace Cave
 
                     string state = caveItem.put ?  GameTool.LS("Cave_Use") :  GameTool.LS("Cave_UnUse");
                     string operate = caveItem.put ? GameTool.LS("Cave_ClickOut") : GameTool.LS("Cave_ClickPut");
+
+                    caveItem.GetUpLevelNeedMoney(out int price, out int stone, out int wood);
+
                     tmpParent.gameObject.AddComponent<UISkyTipEffect>().InitData(
-                        $"<size=26><b>{caveItem.GetName()}</b></size>\n{GameTool.LS("Cave_Level")}：{caveItem.level}\n{GameTool.LS("Cave_LevelUpNeed")}{caveItem.GetUpLevelNeedMoney()}{GameTool.LS("Cave_Lingshi")}\n{GameTool.LS("Cave_CurState")}：{state}\n<color=#FF0000>{operate}</color>\n" + (string.IsNullOrWhiteSpace(ConfBuild.GetItem(caveItem.id).des) ? "" : GameTool.LS(ConfBuild.GetItem(caveItem.id).des)), offsetPos);
+                        $"<size=26><b>{caveItem.GetName()}</b></size>\n{GameTool.LS("Cave_Level")}：{caveItem.level}\n{GameTool.LS("Cave_LevelUpNeed")}{conf.GetSpriteDesc(price, stone, wood)}\n{GameTool.LS("Cave_CurState")}：{state}\n<color=#FF0000>{operate}</color>\n" + (string.IsNullOrWhiteSpace(ConfBuild.GetItem(caveItem.id).des) ? "" : GameTool.LS(ConfBuild.GetItem(caveItem.id).des)), offsetPos);
 
                     if (caveItem.put)
                     {
@@ -538,18 +538,12 @@ namespace Cave
                         tmpParent = tmpGo.transform;
                         Action levelUp = () =>
                         {
-                            var conf = ConfBuild.GetItem(caveItem.id);
-                            int need = caveItem.GetUpLevelNeedMoney();
                             int money = g.world.playerUnit.data.unitData.propData.GetPropsNum((int)PropsIDType.Money);
-                            if (money < need)
+                            if (conf.CheckCost(price, stone, wood))
                             {
-                                Tips(GameTool.LS("common_lingshibuzu"));
-                            }
-                            else
-                            {
-                                g.world.playerUnit.data.CostPropItem(PropsIDType.Money, need);
+                                conf.UpGradeCost(price, stone, wood);
                                 caveItem.level += 1;
-                                data.AddLog($"{GameTool.LS("Cave_Cost")}<color=#{CaveStateData.blud}>{need}</color>{GameTool.LS("Cave_LingshiAnd")}<color=#{CaveStateData.blud}>{caveItem.GetName()}</color>{GameTool.LS("Cave_LevelUpTp")}<color=#{CaveStateData.blud}>{caveItem.level}</color>{GameTool.LS("Cave_Ji")}。");
+                                data.AddLog($"{GameTool.LS("Cave_Cost")}<color=#{CaveStateData.blud}>{conf.GetSpriteDesc(price, stone, wood)}</color>{GameTool.LS("Cave_LingshiAnd")}<color=#{CaveStateData.blud}>{caveItem.GetName()}</color>{GameTool.LS("Cave_LevelUpTp")}<color=#{CaveStateData.blud}>{caveItem.level}</color>{GameTool.LS("Cave_Ji")}。");
                                 CreateBuilds();
                                 UpdateScroll();
                             }

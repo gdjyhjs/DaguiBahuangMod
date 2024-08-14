@@ -78,6 +78,7 @@ namespace Cave.BuildFunction
 
         int operate = 0; // 1:布置摆件 2:移除摆件 0:无操作
         RectTransform listObj;
+        UIBarrierList uiBarrierList;
         float defVerticalNormalizedPosition = 1;
         List<int> allBarrierID; // 所有可创建的障碍物id
         GameObject barrierPrefab; // 要创建的障碍物预制件
@@ -112,7 +113,7 @@ namespace Cave.BuildFunction
                     var list = CommonTool.StrSplitInt(item.decorationID, '|');
                     foreach (var id in list)
                     {
-                        if (!allBarrierID.Contains(id))
+                        if (!allBarrierID.Contains(id) && !DecorateMgr.ignoreBarrierID2.Contains(id))
                         {
                             allBarrierID.Add(id);
                         }
@@ -211,6 +212,8 @@ namespace Cave.BuildFunction
                     clickG = true;
                 });
                 UITool.SetUILeft(g.ui.GetUI(UIType.BattleInfo), gGo.GetComponent<RectTransform>(), -80, "拆除装饰(G)");
+
+                decorateMgr.AddExButton();
             }
             catch (Exception e)
             {
@@ -1158,19 +1161,24 @@ namespace Cave.BuildFunction
             if (listObj != null)
             {
                 defVerticalNormalizedPosition = listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition;
+                if (uiBarrierList != null)
+                {
+                    uiBarrierList.SaveLove();
+                    uiBarrierList = null;
+                }
                 GameObject.Destroy(listObj.gameObject);
                 listObj = null;
             }
             GameTool.SetCursor(g.data.globle.gameSetting.cursorMap, g.data.globle.gameSetting.cursorMapLed);
             switch (operate)
             {
-                case 1:
+                case 1: // 购买
                     {
                         if (uiBase != null)
                         {
-                            var panel = new UIBarrierList(uiBase.transform, allBarrierID);
-                            listObj = panel.bg.GetComponent<RectTransform>();
-                            panel.clickCall = (go, id) =>
+                            uiBarrierList = new UIBarrierList(uiBase.transform, allBarrierID);
+                            listObj = uiBarrierList.bg.GetComponent<RectTransform>();
+                            uiBarrierList.clickCall = (go, id) =>
                             {
                                 if (barrierPrefab != null) {
                                     GameObject.Destroy(barrierPrefab);
@@ -1183,7 +1191,7 @@ namespace Cave.BuildFunction
                         }
                     }
                     break;
-                case 2:
+                case 2: // 拆除
                     {
                         GameTool.SetCursor("chaichuzhuangshi1", "chaichuzhuangshi");
                         if (uiBase != null)

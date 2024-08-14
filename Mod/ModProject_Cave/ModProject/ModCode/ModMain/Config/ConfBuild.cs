@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Cave.BuildFunction;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,8 @@ namespace Cave.Config
         public string createfuntion = ""; // 创建建筑功能
         public int type; // 类型
         public int price; // 价格
+        public int stone; // 购买需要的石头
+        public int wood; // 购买需要的木柴
         public bool hideName; // 是否显示名字
         public string name; // 名字
         public string atlas; // 图集
@@ -28,7 +31,91 @@ namespace Cave.Config
         public int maxLevel; // 最大等级
         public int maxCount; // 最大持有数量
         public int[] upgradeMoney; // 升级金钱
+        public int[] upgradeStone; // 升级需要的石头
+        public int[] upgradeWood; // 升级需要的木柴
         public string des = ""; // 建筑描述
+
+        public bool CheckCost(int checkNeedPrice = -1, int checkNeedStone = -1, int checkNeedWood = -1)
+        {
+            if (checkNeedPrice == -1)
+            {
+                checkNeedPrice = this.price;
+            }
+            if (checkNeedStone == -1)
+            {
+                checkNeedStone = this.stone;
+            }
+            if (checkNeedWood == -1)
+            {
+                checkNeedWood = this.wood;
+            }
+            int money = g.world.playerUnit.data.unitData.propData.GetPropsNum(PropsIDType.Money);
+            int stone = g.world.playerUnit.data.unitData.propData.GetPropsNum(MountainBuild.stoneId);
+            int wood = g.world.playerUnit.data.unitData.propData.GetPropsNum(MountainBuild.woodId);
+            if (money < checkNeedPrice)
+            {
+                g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"), GameTool.LS("common_lingshibuzu"), 1);
+            }
+            else if (stone < checkNeedStone)
+            {
+                g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"), GameTool.LS("Cave_NeedStone"), 1);
+            }
+            else if (wood < checkNeedWood)
+            {
+                g.ui.OpenUI<UICheckPopup>(UIType.CheckPopup).InitData(GameTool.LS("common_tishi"), GameTool.LS("Cave_NeedWood"), 1);
+            }
+            else
+            {
+                return true;
+            }
+            return false;
+        }
+        public void BuyCost()
+        {
+            g.world.playerUnit.data.CostPropItem(PropsIDType.Money, price);
+            g.world.playerUnit.data.CostPropItem(MountainBuild.stoneId, stone);
+            g.world.playerUnit.data.CostPropItem(MountainBuild.woodId, wood);
+        }
+        public void UpGradeCost(int price, int stone, int wood)
+        {
+            g.world.playerUnit.data.CostPropItem(PropsIDType.Money, price);
+            g.world.playerUnit.data.CostPropItem(MountainBuild.stoneId, stone);
+            g.world.playerUnit.data.CostPropItem(MountainBuild.woodId, wood);
+        }
+        public string GetSpriteDesc(int checkNeedPrice = -1, int checkNeedStone = -1, int checkNeedWood = -1)
+        {
+            if (checkNeedPrice == -1)
+            {
+                checkNeedPrice = this.price;
+            }
+            if (checkNeedStone == -1)
+            {
+                checkNeedStone = this.stone;
+            }
+            if (checkNeedWood == -1)
+            {
+                checkNeedWood = this.wood;
+            }
+            string descStr = $"";
+            int priceTypeCount = 0;
+            if (checkNeedPrice > 0)
+            {
+                descStr += $"{checkNeedPrice}{GameTool.LS("Cave_Lingshi")}";
+                priceTypeCount++;
+            }
+            if (checkNeedStone > 0)
+            {
+                string flag = priceTypeCount == 0 ? "" : "、";
+                descStr += $"{flag}{checkNeedStone}{GameTool.LS("Cave_Stone")}";
+                priceTypeCount++;
+            }
+            if (checkNeedWood > 0)
+            {
+                string flag = priceTypeCount == 0 ? "" : "、";
+                descStr += $"{flag}{checkNeedWood}{GameTool.LS("Cave_Wood")}";
+            }
+            return descStr;
+        }
 
         public string GetName()
         {

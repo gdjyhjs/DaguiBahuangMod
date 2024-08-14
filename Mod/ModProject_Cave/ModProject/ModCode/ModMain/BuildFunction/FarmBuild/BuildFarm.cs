@@ -25,6 +25,7 @@ namespace Cave.BuildFunction
 
         int operate = 0; // 1:布置摆件 2:移除摆件
         RectTransform listObj;
+        UIBarrierList uiBarrierList;
         float defVerticalNormalizedPosition = 1;
         List<int> allBarrierID;
         private Vector2[] farmPoints = new Vector2[] // 所有灵田坑位的位置
@@ -52,7 +53,7 @@ namespace Cave.BuildFunction
                     var list = CommonTool.StrSplitInt(item.decorationID, '|');
                     foreach (var id in list)
                     {
-                        if (!allBarrierID.Contains(id))
+                        if (!allBarrierID.Contains(id) && !DecorateMgr.ignoreBarrierID2.Contains(id))
                         {
                             allBarrierID.Add(id);
                         }
@@ -324,6 +325,11 @@ namespace Cave.BuildFunction
             if (listObj != null)
             {
                 defVerticalNormalizedPosition = listObj.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition;
+                if (uiBarrierList != null)
+                {
+                    uiBarrierList.SaveLove();
+                    uiBarrierList = null;
+                }
                 GameObject.Destroy(listObj.gameObject);
                 listObj = null;
             }
@@ -334,9 +340,9 @@ namespace Cave.BuildFunction
                     {
                         if (uiBase != null)
                         {
-                            var panel = new UIBarrierList(uiBase.transform, allBarrierID);
-                            listObj = panel.bg.GetComponent<RectTransform>();
-                            panel.clickCall = (go, id) =>
+                            uiBarrierList = new UIBarrierList(uiBase.transform, allBarrierID);
+                            listObj = uiBarrierList.bg.GetComponent<RectTransform>();
+                            uiBarrierList.clickCall = (go, id) =>
                             {
                                 if (barrierPrefab != null) {
                                     GameObject.Destroy(barrierPrefab);
@@ -425,6 +431,8 @@ namespace Cave.BuildFunction
                     clickG = true;
                 });
                 UITool.SetUILeft(g.ui.GetUI(UIType.BattleInfo), gGo.GetComponent<RectTransform>(), -80, "拆除装饰(G)");
+
+                decorateMgr.AddExButton();
             }
             catch (Exception e)
             {
